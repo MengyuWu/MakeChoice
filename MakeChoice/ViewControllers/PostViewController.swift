@@ -14,6 +14,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     var imgAddButton:Int=0
     
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var img1: UIImageView!
     
     @IBOutlet weak var img2: UIImageView!
@@ -74,8 +75,19 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
 
         // Do any additional setup after loading the view.
         imagePickerController.delegate = self
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    //Calls this function when the tap is recognized.
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
+   
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -113,3 +125,5 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
+
+

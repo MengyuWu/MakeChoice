@@ -1,0 +1,6 @@
+framework module ParseUI {
+  umbrella header "Pods-ParseUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
