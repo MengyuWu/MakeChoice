@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		46BC7BE8AB18B7318996110D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECE0FA8E694DA2DDD298F8D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */; };
+		F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */; };
 		F7762A2E1B4D7A3D002CBAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A2D1B4D7A3D002CBAE7 /* AppDelegate.swift */; };
 		F7762A301B4D7A3D002CBAE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A2F1B4D7A3D002CBAE7 /* ViewController.swift */; };
 		F7762A331B4D7A3D002CBAE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7762A311B4D7A3D002CBAE7 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		44F9D6E74DB73B76AB74D4D8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6D591DCFF4EB7E7D7E67AD3F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9ECE0FA8E694DA2DDD298F8D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostTableViewCell.swift; sourceTree = "<group>"; };
 		F7762A281B4D7A3D002CBAE7 /* MakeChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7762A2C1B4D7A3D002CBAE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7762A2D1B4D7A3D002CBAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F74EF78F1B4EBF37003DB560 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F74EF7921B4ED0A4003DB560 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F7762A1F1B4D7A3D002CBAE7 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +125,7 @@
 		F7762A2A1B4D7A3D002CBAE7 /* MakeChoice */ = {
 			isa = PBXGroup;
 			children = (
+				F74EF7921B4ED0A4003DB560 /* Models */,
 				F7762A501B4D8864002CBAE7 /* Helpers */,
 				F7762A511B4D8864002CBAE7 /* Views */,
 				F7762A521B4D8864002CBAE7 /* ViewControllers */,
@@ -164,6 +184,7 @@
 		F7762A511B4D8864002CBAE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F74EF78F1B4EBF37003DB560 /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				F7762A551B4D965F002CBAE7 /* PostViewController.swift */,
+				F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -327,7 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */,
 				F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */,
+				F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */,
 				F7762A301B4D7A3D002CBAE7 /* ViewController.swift in Sources */,
 				F7762A2E1B4D7A3D002CBAE7 /* AppDelegate.swift in Sources */,
 				F7762A4F1B4D8371002CBAE7 /* Constants.swift in Sources */,
