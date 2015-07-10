@@ -95,4 +95,89 @@ class ParseHelper{
     }
     
     
+    //MARK: Vote
+    static func isUserVotedForPost(postID:String ,completionBlock: PFArrayResultBlock){
+
+        var query=PFQuery(className: PF_VOTE_CLASS_NAME)
+        
+        query.whereKey(PF_VOTE_VOTER, equalTo: PFUser.currentUser()!)
+        
+        query.whereKey(PF_VOTE_POSTID, equalTo: postID)
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+     }
+    
+    static func saveVote(postId:String, choice:Int){
+        
+        var vote = PFObject(className: PF_VOTE_CLASS_NAME)
+        vote[PF_VOTE_VOTER]=PFUser.currentUser()!
+        vote[PF_VOTE_POSTID]=postId
+        vote[PF_VOTE_CHOICE]=choice
+        
+        vote.saveInBackgroundWithBlock{ (success:Bool, error:NSError?) -> Void in
+            
+            if(error != nil){
+                println(error)
+            }
+        }
+    }
+    
+    static func updatePostStatistic(postId:String, choice:Int){
+       var query=PFQuery(className: PF_POST_CLASS_NAME)
+       query.whereKey("objectId", equalTo: postId)
+    
+        query.findObjectsInBackgroundWithBlock{(results:[AnyObject]?, error: NSError?) -> Void in
+            
+            if var results = results as? [PFObject]{
+                
+                //in case some post are saved several times
+                for result in results {
+                    if result[PF_POST_TOTALVOTES]==nil{
+                        
+                        result[PF_POST_TOTALVOTES] = 1
+                        
+                    }else{
+                       var total=result[PF_POST_TOTALVOTES] as! Int
+                       total++
+                       result[PF_POST_TOTALVOTES]=total
+                    }
+                
+                    // in case vote1 and vote2 are not initialized
+                    if result[PF_POST_VOTE1] == nil{
+                        result[PF_POST_VOTE1]=0;
+                    }
+                    
+                    if result[PF_POST_VOTE2] == nil{
+                        result[PF_POST_VOTE2]=0;
+                    }
+
+                    println(result[PF_POST_TOTALVOTES])
+                    
+                    // update vote choice
+                    if choice==1{
+                      
+                        var vote1=result[PF_POST_VOTE1] as! Int
+                       
+                        vote1++
+                        result[PF_POST_VOTE1]=vote1
+                        println(result[PF_POST_VOTE1])
+                        
+                    }else if choice==2{
+                      
+                        var vote2=result[PF_POST_VOTE2] as! Int
+                        println(vote2)
+                        vote2++
+                        result[PF_POST_VOTE2]=vote2
+                        println(result[PF_POST_VOTE2])
+                    }
+                   
+                    result.saveInBackgroundWithBlock(nil)
+                    
+                }
+                
+            }
+        }
+    }
+    
+    
 }

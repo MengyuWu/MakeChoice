@@ -16,6 +16,11 @@ class HomePostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var img2: UIImageView!
     
+    @IBOutlet weak var totalVotes: UILabel!
+    
+    @IBOutlet weak var vote1: UILabel!
+    
+    @IBOutlet weak var vote2: UILabel!
     
     var post:Post? {
         didSet {
@@ -28,8 +33,9 @@ class HomePostTableViewCell: UITableViewCell {
                 
                img1.designatedBond.unbindAll()
                img2.designatedBond.unbindAll()
-                
-                
+               totalVotes.designatedBond.unbindAll()
+               vote1.designatedBond.unbindAll()
+               vote2.designatedBond.unbindAll()
                 
             }
             
@@ -38,6 +44,12 @@ class HomePostTableViewCell: UITableViewCell {
                 // bind the image of the post to the postImage view
                 post.image1 ->> img1
                 post.image2 ->> img2
+                
+                //bind the totalVotes , vote1, vote2
+                map(post.totalVotesInt){ "\($0)" } ->> self.totalVotes
+                map(post.vote1Int){ "\($0)" } ->> self.vote1
+                map(post.vote2Int){ "\($0)" } ->> self.vote2
+              
  
             }
             

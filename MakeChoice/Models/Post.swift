@@ -18,7 +18,10 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var image2File: PFFile?
     @NSManaged var poster: PFUser?
     @NSManaged var title: String
-    @NSManaged var isPrivate: Bool 
+    @NSManaged var isPrivate: Bool
+    @NSManaged var totalVotes: Int
+    @NSManaged var vote1: Int
+    @NSManaged var vote2: Int
 
     
     // var image: UIImage?
@@ -27,7 +30,9 @@ class Post: PFObject, PFSubclassing {
     var image1: Dynamic<UIImage?> = Dynamic(nil)
     var image2: Dynamic<UIImage?> = Dynamic(nil)
     
-   
+    var totalVotesInt: Dynamic<Int!> = Dynamic(nil)
+    var vote1Int: Dynamic<Int!> = Dynamic(nil)
+    var vote2Int: Dynamic<Int!> = Dynamic(nil)
 
     
     // define static var imageCache so that imageCache can be accessed without create an instance, you can get it from Post.imageCache
@@ -118,6 +123,14 @@ class Post: PFObject, PFSubclassing {
     }
     
     
+    func getPostStatistic(){
+        
+        self.totalVotesInt.value=self.totalVotes ?? 0
+        self.vote1Int.value=self.vote1 ?? 0
+        self.vote2Int.value=self.vote2 ?? 0
+    }
+    
+    
     func uploadPost(){
         let image1Data=UIImageJPEGRepresentation(image1.value, 0.8)
         let image1File=PFFile(data: image1Data)
@@ -161,7 +174,9 @@ class Post: PFObject, PFSubclassing {
         self.image1File=image1File
         self.image2File=image2File
         self.poster = PFUser.currentUser()
-    
+        self.totalVotes=0;
+        self.vote1=0;
+        self.vote2=0;
         
       //  saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
         saveInBackgroundWithBlock(nil)

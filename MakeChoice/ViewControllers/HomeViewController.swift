@@ -109,6 +109,9 @@ extension HomeViewController: UITableViewDataSource {
         let post=timelineComponent.content[indexPath.section]
         // download, only downloaded with needed
         post.downloadImage()
+        //get post statistic
+        post.getPostStatistic()
+        
         
         cell.post=post
         
@@ -141,11 +144,77 @@ extension HomeViewController: UITableViewDataSource {
     func img1Tapped(recognizer:UITapGestureRecognizer ){
         
         println("the \(recognizer.view?.tag)th  posts: img1 tapped")
+        
+        if let tag=recognizer.view?.tag{
+           var postId=timelineComponent.content[tag].objectId
+            
+            if let postId=postId{
+                println(postId)
+            
+            ParseHelper.isUserVotedForPost(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
+                if let results=results as? [PFObject]{
+                    
+                    if(results.count != 0){
+                    println("voted!")
+                    // alreday voted!
+                    // show results:
+                    }else{
+                    println("save new vote")
+                    // save the result, and show results
+                    ParseHelper.saveVote(postId, choice: 1)
+                    //update this post statistics
+                    ParseHelper.updatePostStatistic(postId, choice: 1)
+                    //update post statistic
+                    self.timelineComponent.refresh(self)
+                }
+               }
+              
+                if error != nil {
+                    println(error)
+                }
+                
+            }
+          }
+        }
+    
     }
     
     func img2Tapped(recognizer:UITapGestureRecognizer ){
         
         println("the \(recognizer.view?.tag)th  posts: img2 tapped")
+        if let tag=recognizer.view?.tag{
+            var postId=timelineComponent.content[tag].objectId
+            
+            if let postId=postId{
+                println(postId)
+                
+                ParseHelper.isUserVotedForPost(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
+                    if let results=results as? [PFObject]{
+                        
+                        if(results.count != 0){
+                            println("voted!")
+                            // alreday voted!
+                            // show results:
+                        }else{
+                            println("save new vote")
+                            // save the result, and show results
+                            ParseHelper.saveVote(postId, choice: 2)
+                            //update this post statistics
+                            ParseHelper.updatePostStatistic(postId, choice: 2)
+                             self.timelineComponent.refresh(self)
+                        }
+                    }
+                    
+                    
+                    
+                    if error != nil {
+                        println(error)
+                    }
+                    
+                }
+            }
+        }
+     
     }
 
 
