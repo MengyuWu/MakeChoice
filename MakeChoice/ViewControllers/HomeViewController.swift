@@ -136,8 +136,27 @@ extension HomeViewController: UITableViewDataSource {
         
         var img2tapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("img2Tapped:" ))
         cell.img2.addGestureRecognizer(img2tapped)
-
         
+        //check if this sell is voted by this user, if voted, show the results
+    
+        var postId=post.objectId
+        
+        if let postId=postId{
+            ParseHelper.isUserVotedForPost(postId){ (results: [AnyObject]?, error: NSError?) -> Void in
+                
+                if let count=results?.count{
+                    if count != 0{
+                        // if is voted show the results
+                        cell.vote1.alpha=1;
+                        cell.vote2.alpha=1;
+                    }
+                }
+                
+            }
+
+        }
+        
+     
         return cell
     }
     
