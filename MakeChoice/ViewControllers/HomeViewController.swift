@@ -7,22 +7,48 @@
 //
 
 import UIKit
+import ConvenienceKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,TimelineComponentTarget {
     
     @IBOutlet weak var tableView: UITableView!
     
+    // implement timelineComponentTarget
+    // angled brackets: the type of object you are displaying (Post) and the class that will be the target of the TimelineComponent (that's the TimelineViewController in our case).
+    var timelineComponent:TimelineComponent<Post, HomeViewController>!
+   
+    let defaultRange = 0...4
+    let additionalRangeSize = 5
     
+    
+    /**
+    This method should load the items within the specified range and call the
+    `completionBlock`, with the items as argument, upon completion.
+    */
+    func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void){
+        ParseHelper.timelineRequestforCurrentUserPublic(range){ (result: [AnyObject]?, error: NSError?) -> Void in
+            let posts = result as? [Post] ?? []
+            completionBlock(posts)
+            
+        }
+        
+    }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.tableView.delegate=self
         self.tableView.dataSource=self
-        
+        timelineComponent = TimelineComponent(target: self)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        timelineComponent.refresh(self)
+       
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,12 +69,19 @@ class HomeViewController: UIViewController {
 
 // MARK: tableview delegate and datasource
 extension HomeViewController: UITableViewDelegate {
-    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        timelineComponent.calledCellForRowAtIndexPath(indexPath)
+    }
+
 }
 extension HomeViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5
+        return 1
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return timelineComponent.content.count ?? 0
     }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -57,10 +90,14 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell=tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! HomePostTableViewCell
-        cell.img1.image=UIImage(named: "Mario")
-        cell.img2.image=UIImage(named: "Ninja")
         
+        let post=timelineComponent.content[indexPath.section]
+        // download, only downloaded with needed
+        post.downloadImage()
         
+        cell.post=post
+        
+        //setting background color and radious
         cell.img1.backgroundColor=UIColor.redColor()
         cell.img1.layer.cornerRadius=8
         cell.img1.clipsToBounds=true
@@ -98,3 +135,4 @@ extension HomeViewController: UITableViewDataSource {
 
 
 }
+

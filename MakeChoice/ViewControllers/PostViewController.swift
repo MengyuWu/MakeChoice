@@ -29,6 +29,20 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
     
     
+    @IBAction func PostPressed(sender: AnyObject) {
+        println("post pressed")
+        
+        var post=Post()
+        post.image1.value=img1.image
+        post.image2.value=img2.image
+        post.isPrivate=false //add action on it
+        post.title=titleTextField.text // should not let it upload if no title?
+        post.uploadPost()
+      
+        
+    }
+    
+    
     func showPhotoSourceSelection() {
         let alertController = UIAlertController(title: nil, message: "where do you want to get your picture from?", preferredStyle: .ActionSheet)
     

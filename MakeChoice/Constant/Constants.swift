@@ -26,18 +26,18 @@ let PF_FRIEND_FRIEND                    = "friend"			        //	Pointer to User 
 /* Post */
 let PF_POST_CLASS_NAME				   = "Post"                    //	Class name
 let PF_POST_POSTER                     = "poster"				   //	Pointer to User Class
-let PF_POST_CHOICE                     = "choice"			     //	Pointer to Choice Class
-let PF_POST_VOTES                      = "votes"			     //	number
+let PF_POST_VOTE1                      = "vote1"			       //	number
+let PF_POST_VOTE2                      = "vote2"			       //	number
 let PF_POST_TOTALVOTES                 = "totalVotes"			     //	number
 let PF_POST_ISPRIVATE                  = "isPrivate"			     //	Boolean
 let PF_POST_TITLE                      = "title"			     //	String
+let PF_POST_IMAGE1FILE                 = "image1File"			       //	File
+let PF_POST_IMAGE2FILE                 = "image2File"			       //	File
+let PF_POST_CREATEDAT                  = "createdAt"			       //	Date
 
-/* Choice */
-let PF_CHOICE_CLASS_NAME			   = "Choice"                    //	Class name
-let PF_CHOICE_IMAGE                    = "image"					 //	File
 
 /* Vote */
 let PF_VOTE_CLASS_NAME			       = "Vote"                    //	Class name
-let PF_VOTE_CHOICE                     = "choice"					 //	Pointer to Choice Class
+let PF_VOTE_CHOICE                     = "choice"					 //	Number
 let PF_VOTE_VOTER                      = "voter"					//	Pointer to User Class
 

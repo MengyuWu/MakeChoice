@@ -55,7 +55,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="private:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpA-BL-ltX">
                                 <rect key="frame" x="20" y="137" width="57" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Quesion: Which one ... ?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PH9-0D-G7t">
@@ -77,6 +77,9 @@
                                 <state key="normal" title="Post">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="PostPressed:" destination="xZZ-sl-32e" eventType="touchUpInside" id="xgv-Mj-YP0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,11 +128,13 @@
             </objects>
             <point key="canvasLocation" x="1036" y="187"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="msc-HN-tOW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UAr-xg-O5r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="mSC-rp-2d4"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qXC-AO-4LA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -141,7 +146,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S04-xe-UEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308" y="126"/>
+            <point key="canvasLocation" x="-852" y="567"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="i0y-Hq-8aK">
@@ -160,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxg-YC-U43" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-750" y="656"/>
+            <point key="canvasLocation" x="-1370" y="1320"/>
         </scene>
         <!--Home-->
         <scene sceneID="fNt-gq-1Xm">
@@ -228,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtZ-NQ-b8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-870" y="-84"/>
+            <point key="canvasLocation" x="-1082" y="-147"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="deX-Aj-y8B">
@@ -243,6 +248,7 @@
                     <connections>
                         <segue destination="lQ3-nh-3jc" kind="relationship" relationship="viewControllers" id="b2r-ax-Kec"/>
                         <segue destination="Vit-Aw-DCu" kind="relationship" relationship="viewControllers" id="Hkj-uM-YLf"/>
+                        <segue destination="UAr-xg-O5r" kind="relationship" relationship="viewControllers" id="tPP-PX-Hlc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haD-xs-O7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
