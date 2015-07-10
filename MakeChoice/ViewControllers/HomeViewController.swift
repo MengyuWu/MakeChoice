@@ -70,11 +70,26 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
 // MARK: tableview delegate and datasource
 extension HomeViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        //loadmore if (indexPath.section == (currentRange.endIndex - 1) && !loadedAllContent)
         timelineComponent.calledCellForRowAtIndexPath(indexPath)
     }
 
 }
 extension HomeViewController: UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("PostHeader") as! HomePostSectionHeaderView
+        let post=self.timelineComponent.content[section]
+        headerCell.post=post
+        
+        return headerCell
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 1
@@ -108,10 +123,10 @@ extension HomeViewController: UITableViewDataSource {
         
         
         cell.img1.userInteractionEnabled=true
-        cell.img1.tag=indexPath.row
+        cell.img1.tag=indexPath.section
         
         cell.img2.userInteractionEnabled=true
-        cell.img2.tag=indexPath.row
+        cell.img2.tag=indexPath.section
         
         var img1tapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("img1Tapped:" ))
         cell.img1.addGestureRecognizer(img1tapped)

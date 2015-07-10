@@ -8,6 +8,7 @@ PODS:
   - Bolts/Tasks (1.2.0)
   - Bond (3.9.0)
   - ConvenienceKit (0.1.0)
+  - DateTools (1.6.1)
   - FBSDKCoreKit (4.4.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc (= 4.4.0)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - Alamofire
   - Bond
   - ConvenienceKit
+  - DateTools
   - FBSDKCoreKit
   - Parse
   - ParseFacebookUtilsV4
@@ -45,6 +47,7 @@ SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
   Bond: 994ccc56aebfe2707d7b5e76f6d665a5beefa45b
   ConvenienceKit: 083548558dedc22a586c1e1fbf3aa217728715af
+  DateTools: 9bcc89e4f2f9004d8a7a2bd1b49269cf78968e65
   FBSDKCoreKit: 75bdd75c980e811db218488d99dd93b7740f4474
   FBSDKLoginKit: 02a9254a4c132412fa03577b0d53e936d068a7fb
   Parse: 7c0f115eff3e0cea3fac08d50bda47154edb8832
