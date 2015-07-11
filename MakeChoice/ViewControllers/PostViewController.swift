@@ -18,6 +18,11 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var img1: UIImageView!
     
     @IBOutlet weak var img2: UIImageView!
+    
+    @IBOutlet weak var addImg1Button: UIButton!
+    
+    @IBOutlet weak var addImg2Button: UIButton!
+    
     @IBAction func addImg1ButtonPressed(sender: AnyObject) {
         imgAddButton=1;
         self.showPhotoSourceSelection()
@@ -32,12 +37,18 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     @IBAction func PostPressed(sender: AnyObject) {
         println("post pressed")
         
+        // Note: before post, must check title, image1, image2 is posted
+        
         var post=Post()
         post.image1.value=img1.image
         post.image2.value=img2.image
         post.isPrivate=false //add action on it
         post.title=titleTextField.text // should not let it upload if no title?
-        post.uploadPost()
+        
+        if (img1.image != nil && img2.image != nil && imgAddButton != 0){
+         post.uploadPost()
+        
+        }
       
         
     }
@@ -100,7 +111,21 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         view.endEditing(true)
     }
 
-   
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        DesignHelper.setImageCornerRadius(self.img1)
+        DesignHelper.setImageCornerRadius(self.img2)
+        if(self.imgAddButton==0){
+        DesignHelper.blankImageShowButton(img1, button: addImg1Button)
+        DesignHelper.blankImageShowButton(img2, button: addImg2Button)
+        }else{
+            // some pictures is choosen
+            self.imgAddButton=0
+        }
+        
+        
+    }
+    
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -126,10 +151,16 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         // replace the img1 place holder
         if(self.imgAddButton==1){
-             self.img1.image=image
+            self.img1.image=image
+            DesignHelper.showImageHideButton(img1, button: addImg1Button)
+           
         }else if(self.imgAddButton==2){
             self.img2.image=image
+            DesignHelper.showImageHideButton(img2, button: addImg2Button)
+      
         }
+        
+ 
        
         self.dismissViewControllerAnimated(true, completion: nil)
         

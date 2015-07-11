@@ -15,11 +15,15 @@ class HomePostSectionHeaderView: UITableViewCell {
     
     @IBOutlet weak var usericon: UIImageView!
     
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    
     var post: Post? {
         didSet{
             if let post=post{
                usernameLabel.text=post.poster?.username
                postTimeLabel.text=post.createdAt?.shortTimeAgoSinceDate(NSDate()) ?? ""
+               questionLabel.text=post.title ?? ""
                
                 var placeHolderIcon=UIImage(named:"Profile")
                 var iconFile=post.poster?[PF_USER_PICTURE] as? PFFile
@@ -42,7 +46,7 @@ class HomePostSectionHeaderView: UITableViewCell {
                     }
                
                 }
-               ParseHelper.setCircleImage(self.usericon) 
+               DesignHelper.setCircleImage(self.usericon)
             }
         }
     }

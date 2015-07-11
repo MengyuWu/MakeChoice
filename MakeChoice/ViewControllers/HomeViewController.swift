@@ -87,7 +87,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return HEADER_CELL_HEIGHT
     }
 
     

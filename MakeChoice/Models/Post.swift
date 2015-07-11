@@ -17,7 +17,7 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var image1File: PFFile?
     @NSManaged var image2File: PFFile?
     @NSManaged var poster: PFUser?
-    @NSManaged var title: String
+    @NSManaged var title: String?
     @NSManaged var isPrivate: Bool
     @NSManaged var totalVotes: Int
     @NSManaged var vote1: Int
@@ -149,6 +149,8 @@ class Post: PFObject, PFSubclassing {
     
     
     func uploadPost(){
+        // ensure image1, and image2 is not nil
+        
         let image1Data=UIImageJPEGRepresentation(image1.value, 0.8)
         let image1File=PFFile(data: image1Data)
         

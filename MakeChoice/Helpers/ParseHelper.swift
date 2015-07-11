@@ -32,13 +32,7 @@ class ParseHelper{
    }
     
 
-    // MARK: image background, and conner radius set up
-    static func setCircleImage(image:UIImageView){
-       // image.backgroundColor=UIColor.blueColor()
-        image.layer.cornerRadius=image.frame.size.width / 2
-        image.clipsToBounds=true
-    }
-
+   
     
     // MARK: Users
     

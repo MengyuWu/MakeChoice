@@ -8,6 +8,9 @@
 
 import Foundation
 
+/*Size*/
+let HEADER_CELL_HEIGHT:CGFloat                  = 80.0
+
 /* User */
 let PF_USER_CLASS_NAME					= "_User"                   //	Class name
 let PF_USER_OBJECTID					= "objectId"				//	String
