@@ -71,7 +71,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
 extension HomeViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         //loadmore if (indexPath.section == (currentRange.endIndex - 1) && !loadedAllContent)
-        println("willDisplayCell: \(indexPath.section) \(timelineComponent.content[indexPath.section].totalVotes)")
+       // println("willDisplayCell: \(indexPath.section) \(timelineComponent.content[indexPath.section].totalVotes)")
         timelineComponent.calledCellForRowAtIndexPath(indexPath)
     }
 
@@ -109,7 +109,7 @@ extension HomeViewController: UITableViewDataSource {
         
         let post=timelineComponent.content[indexPath.section]
         
-        println("cellforRowat index.section: \(indexPath.section) post.totalValue: \(post.totalVotes) ")
+       // println("cellforRowat index.section: \(indexPath.section) post.totalValue: \(post.totalVotes) ")
         
         // download, only downloaded with needed
         post.downloadImage()
@@ -202,15 +202,10 @@ extension HomeViewController: UITableViewDataSource {
                                     
                                     if let results=results as? [Post]{
                                         self.timelineComponent.content[tag]=results.first!
-                                        
-//                                        self.timelineComponent.content[tag].totalVotes = results[0].totalVotes
-//                                         self.timelineComponent.content[tag].vote1 = results[0].vote1
-//                                        self.timelineComponent.content[tag].vote2 = results[0].vote2
-                                        
                                         println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
                                         
                                        self.tableView.beginUpdates()
-                                        self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
+                                      self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
                                       self.tableView.endUpdates()
 
                                     }
@@ -235,9 +230,11 @@ extension HomeViewController: UITableViewDataSource {
     
     }
     
+    
     func img2Tapped(recognizer:UITapGestureRecognizer ){
         
         println("the \(recognizer.view?.tag)th  posts: img2 tapped")
+        
         if let tag=recognizer.view?.tag{
             var postId=timelineComponent.content[tag].objectId
             
@@ -255,23 +252,50 @@ extension HomeViewController: UITableViewDataSource {
                             println("save new vote")
                             // save the result, and show results
                             ParseHelper.saveVote(postId, choice: 2)
+                            
                             //update this post statistics
-                         //   ParseHelper.updatePostStatistic(postId, choice: 2)
-                             self.timelineComponent.refresh(self)
+                            ParseHelper.updatePostStatistic(postId, choice:2){ (success:Bool,error:NSError?) -> Void in
+                                
+                                if success {
+                                    println("success upadatePostStatistic")
+                                    //update post statistic
+                                    
+                                    //update the content
+                                    ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
+                                        
+                                        if let results=results as? [Post]{
+                                            self.timelineComponent.content[tag]=results.first!
+                                            println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
+                                            
+                                            self.tableView.beginUpdates()
+                                            self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
+                                            self.tableView.endUpdates()
+                                            
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            }
+                            
+                            
+                            
                         }
                     }
                     
-                    
-                    
                     if error != nil {
-                        println("error:\(error)")
+                        println(error)
                     }
                     
                 }
             }
         }
-     
+        
     }
+    
+
+    
+
 
 
 }
