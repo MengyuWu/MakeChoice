@@ -29,7 +29,7 @@ class HomePostTableViewCell: UITableViewCell {
             
             if let oldValue = oldValue where oldValue != post {
                 
-                //println("oldvalue")
+             
                 
                img1.designatedBond.unbindAll()
                img2.designatedBond.unbindAll()
@@ -47,8 +47,8 @@ class HomePostTableViewCell: UITableViewCell {
                 
                 //bind the totalVotes , vote1, vote2
                 map(post.totalVotesInt){ "\($0)" } ->> self.totalVotes
-                map(post.vote1Int){ "\($0)" } ->> self.vote1
-                map(post.vote2Int){ "\($0)" } ->> self.vote2
+                map(post.vote1Percentage){ "\($0)" } ->> self.vote1
+                map(post.vote2Percentage){ "\($0)" } ->> self.vote2
               
  
             }

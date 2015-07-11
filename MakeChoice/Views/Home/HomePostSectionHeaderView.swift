@@ -28,7 +28,7 @@ class HomePostSectionHeaderView: UITableViewCell {
                     
                         if let error = error {
                            // ErrorHandling.defaultErrorHandler(error)
-                            println(error)
+                            println("error:\(error)")
                         }
                         
                         if let data = data {

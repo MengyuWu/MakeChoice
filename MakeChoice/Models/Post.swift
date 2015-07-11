@@ -31,9 +31,12 @@ class Post: PFObject, PFSubclassing {
     var image2: Dynamic<UIImage?> = Dynamic(nil)
     
     var totalVotesInt: Dynamic<Int!> = Dynamic(nil)
-    var vote1Int: Dynamic<Int!> = Dynamic(nil)
-    var vote2Int: Dynamic<Int!> = Dynamic(nil)
+    var vote1Int: Int!
+    var vote2Int: Int!
 
+    var vote1Percentage: Dynamic<String!> = Dynamic(nil)
+    var vote2Percentage: Dynamic<String!> = Dynamic(nil)
+    
     
     // define static var imageCache so that imageCache can be accessed without create an instance, you can get it from Post.imageCache
     
@@ -126,8 +129,22 @@ class Post: PFObject, PFSubclassing {
     func getPostStatistic(){
         
         self.totalVotesInt.value=self.totalVotes ?? 0
-        self.vote1Int.value=self.vote1 ?? 0
-        self.vote2Int.value=self.vote2 ?? 0
+        self.vote1Int=self.vote1 ?? 0
+        self.vote2Int=self.vote2 ?? 0
+        
+        // percentage:
+        if(self.totalVotesInt.value==0){
+            self.vote1Percentage.value=" 0 %"
+            self.vote2Percentage.value=" 0 %"
+        }else{
+            var p1 = Float(self.vote1Int)/Float(self.totalVotesInt.value)*100
+            var p2 = Float(self.vote2Int)/Float(self.totalVotesInt.value)*100
+            
+            self.vote1Percentage.value=" \(p1) %"
+            self.vote2Percentage.value=" \(p2) %"
+            
+        }
+        
     }
     
     

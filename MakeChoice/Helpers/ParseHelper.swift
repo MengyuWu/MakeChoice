@@ -94,15 +94,26 @@ class ParseHelper{
         
     }
     
+    //MARK: Post
+    
+    static func findPostWithPostId(postId:String ,completionBlock: PFArrayResultBlock){
+        var query=PFQuery(className: PF_POST_CLASS_NAME)
+        
+        query.whereKey("objectId", equalTo: postId)
+        query.includeKey(PF_POST_POSTER)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    
     
     //MARK: Vote
-    static func isUserVotedForPost(postID:String ,completionBlock: PFArrayResultBlock){
+    static func isUserVotedForPost(postId:String ,completionBlock: PFArrayResultBlock){
 
         var query=PFQuery(className: PF_VOTE_CLASS_NAME)
         
         query.whereKey(PF_VOTE_VOTER, equalTo: PFUser.currentUser()!)
         
-        query.whereKey(PF_VOTE_POSTID, equalTo: postID)
+        query.whereKey(PF_VOTE_POSTID, equalTo: postId)
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
      }
@@ -117,12 +128,12 @@ class ParseHelper{
         vote.saveInBackgroundWithBlock{ (success:Bool, error:NSError?) -> Void in
             
             if(error != nil){
-                println(error)
+                println("error:\(error)")
             }
         }
     }
     
-    static func updatePostStatistic(postId:String, choice:Int){
+    static func updatePostStatistic(postId:String, choice:Int,completionBlock: PFBooleanResultBlock ){
        var query=PFQuery(className: PF_POST_CLASS_NAME)
        query.whereKey("objectId", equalTo: postId)
     
@@ -151,7 +162,7 @@ class ParseHelper{
                         result[PF_POST_VOTE2]=0;
                     }
 
-                    println(result[PF_POST_TOTALVOTES])
+          
                     
                     // update vote choice
                     if choice==1{
@@ -160,19 +171,20 @@ class ParseHelper{
                        
                         vote1++
                         result[PF_POST_VOTE1]=vote1
-                        println(result[PF_POST_VOTE1])
+                     
                         
                     }else if choice==2{
                       
                         var vote2=result[PF_POST_VOTE2] as! Int
-                        println(vote2)
+                    
                         vote2++
                         result[PF_POST_VOTE2]=vote2
-                        println(result[PF_POST_VOTE2])
+                 
                     }
                    
-                    result.saveInBackgroundWithBlock(nil)
+                    result.saveInBackgroundWithBlock(completionBlock)
                     
+                  
                 }
                 
             }
