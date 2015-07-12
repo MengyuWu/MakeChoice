@@ -35,5 +35,9 @@ class DesignHelper{
         button.alpha=0.8
     }
 
+    static func imageCorrectRatio(imageView:UIImageView){
+        imageView.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+    }
     
 }

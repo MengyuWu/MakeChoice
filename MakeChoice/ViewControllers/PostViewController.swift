@@ -45,11 +45,18 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         post.isPrivate=false //add action on it
         post.title=titleTextField.text // should not let it upload if no title?
         
-        if (img1.image != nil && img2.image != nil && imgAddButton != 0){
-         post.uploadPost()
-        
-        }
+        //Can't check image is nil
+//        if (img1.image != nil && img2.image != nil ){
+//         println("upload")
+//         post.uploadPost()
+//        }
       
+        var img1Data=UIImageJPEGRepresentation(img1.image, 0.8)
+        var img2Data=UIImageJPEGRepresentation(img2.image, 0.8)
+        if (img1Data != nil && img2Data != nil ){
+            println("upload")
+            post.uploadPost()
+         }
         
     }
     
@@ -113,6 +120,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        println("viewwiLLaPPEAR: \(imgAddButton)")
         DesignHelper.setImageCornerRadius(self.img1)
         DesignHelper.setImageCornerRadius(self.img2)
         if(self.imgAddButton==0){
@@ -123,7 +131,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             self.imgAddButton=0
         }
         
-        
+       
     }
     
    
@@ -159,9 +167,7 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
             DesignHelper.showImageHideButton(img2, button: addImg2Button)
       
         }
-        
- 
-       
+    
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
