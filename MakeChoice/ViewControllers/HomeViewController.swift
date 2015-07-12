@@ -119,16 +119,13 @@ extension HomeViewController: UITableViewDataSource {
         
         cell.post=post
         
-        //setting background color and radious
-        cell.img1.backgroundColor=UIColor.redColor()
-        cell.img1.layer.cornerRadius=8
-        cell.img1.clipsToBounds=true
-        
-        cell.img2.backgroundColor=UIColor.blueColor()
-        cell.img2.layer.cornerRadius=8
-        cell.img2.clipsToBounds=true
+        //setting img radious
+       DesignHelper.setImageCornerRadius(cell.img1)
+       DesignHelper.setImageCornerRadius(cell.img2)
         
         
+        
+       // establish gestureRecognizer
         cell.img1.userInteractionEnabled=true
         cell.img1.tag=indexPath.section
         

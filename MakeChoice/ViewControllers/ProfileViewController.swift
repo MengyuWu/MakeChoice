@@ -9,7 +9,32 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    @IBOutlet weak var YourPostsContainerView: UIView!
+    
+    @IBOutlet weak var FriendsContainerView: UIView!
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
 
+    @IBAction func indexChanged(sender: AnyObject) {
+        
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            NSLog("Your post")
+            YourPostsContainerView.hidden=false
+            FriendsContainerView.hidden=true
+        case 1:
+            NSLog("your friends")
+            YourPostsContainerView.hidden=true
+            FriendsContainerView.hidden=false
+        default:
+            break;
+        }
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

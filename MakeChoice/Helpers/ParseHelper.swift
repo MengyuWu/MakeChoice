@@ -32,7 +32,25 @@ class ParseHelper{
    }
     
 
-   
+    static func timelineRequestforCurrentUserOwn(range: Range<Int>, completionBlock: PFArrayResultBlock) {
+        
+        let query = Post.query()
+        if let query=query{
+            query.whereKey(PF_POST_POSTER, equalTo: PFUser.currentUser()!)
+            query.includeKey(PF_POST_POSTER)
+            query.orderByDescending(PF_POST_CREATEDAT)
+            
+            //only show some range not all
+            query.skip = range.startIndex
+            query.limit = range.endIndex - range.startIndex
+            query.findObjectsInBackgroundWithBlock(completionBlock)
+            
+            
+        }
+    }
+
+    
+    
     
     // MARK: Users
     
@@ -98,6 +116,41 @@ class ParseHelper{
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    
+    static func deletePostWithPostId(postId:String, completionBlock:PFBooleanResultBlock ){
+        // delete post
+        var queryPost=PFQuery(className: PF_POST_CLASS_NAME)
+        queryPost.whereKey("objectId", equalTo: postId)
+        queryPost.findObjectsInBackgroundWithBlock{(results:[AnyObject]? , error: NSError?) -> Void in
+        
+            if  let results=results as? [Post]{
+                for result in results{
+                   result.deleteInBackgroundWithBlock(completionBlock)
+                }
+            }
+            
+        }
+        
+        // delete related votes
+     
+        var queryVote=PFQuery(className: PF_VOTE_CLASS_NAME)
+        queryVote.whereKey("objectId", equalTo: postId)
+        queryVote.findObjectsInBackgroundWithBlock{(results:[AnyObject]? , error: NSError?) -> Void in
+            
+            if  let results=results as? [Post]{
+                for result in results{
+                    result.deleteInBackgroundWithBlock{ (success:Bool , error:NSError?) -> Void in
+                        if error != nil {
+                            println(error)
+                        }
+                }
+             }
+           }
+        }
+
+     
+        
+    }
     
     
     //MARK: Vote
