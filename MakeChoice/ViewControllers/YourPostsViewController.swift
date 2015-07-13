@@ -17,6 +17,9 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
     
     let defaultRange = 0...4
     let additionalRangeSize = 5
+    
+    var postId:String?=""
+    var selectedPost:Post?
   
     /**
     This method should load the items within the specified range and call the
@@ -64,6 +67,18 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
     }
     */
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("prepareforsegue")
+        if(segue.identifier=="postToDetailSegue") {
+            let postDetailViewController = segue.destinationViewController as! PostDetailViewController
+            postDetailViewController.post=self.selectedPost
+ 
+        }
+        
+
+    }
+
+
 }
 
 // MARK: dataSouce
@@ -103,6 +118,15 @@ extension YourPostsViewController: UITableViewDataSource{
 
 // MARK: delegate
 extension YourPostsViewController:UITableViewDelegate{
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("did selectrow")
+        self.selectedPost=timelineComponent.content[indexPath.section]
+        self.performSegueWithIdentifier("postToDetailSegue", sender: self)     //2
+        
+    }
+
+    
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         timelineComponent.calledCellForRowAtIndexPath(indexPath)
     }
