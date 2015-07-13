@@ -11,6 +11,8 @@
 		F70AECD41B5405A700497662 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AECD31B5405A700497662 /* PostDetailViewController.swift */; };
 		F70AECD61B5413D900497662 /* UserVoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AECD51B5413D900497662 /* UserVoteDetailViewController.swift */; };
 		F70AECDA1B54174F00497662 /* UserVoteDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AECD91B54174F00497662 /* UserVoteDetailTableViewCell.swift */; };
+		F70AECDE1B54538300497662 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AECDD1B54538300497662 /* FriendsListViewController.swift */; };
+		F70AECE01B5455FC00497662 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AECDF1B5455FC00497662 /* FriendsTableViewCell.swift */; };
 		F714426C1B51855500B93ED8 /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714426B1B51855500B93ED8 /* DesignHelper.swift */; };
 		F728A6BE1B52C73E006E4A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */; };
 		F728A6C01B52D37E006E4A7A /* YourPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */; };
@@ -48,6 +50,8 @@
 		F70AECD31B5405A700497662 /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		F70AECD51B5413D900497662 /* UserVoteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVoteDetailViewController.swift; sourceTree = "<group>"; };
 		F70AECD91B54174F00497662 /* UserVoteDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVoteDetailTableViewCell.swift; sourceTree = "<group>"; };
+		F70AECDD1B54538300497662 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
+		F70AECDF1B5455FC00497662 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		F714426B1B51855500B93ED8 /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
 		F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 			children = (
 				F728A6C21B52D3CA006E4A7A /* YourPostsTableViewCell.swift */,
 				F70AECD91B54174F00497662 /* UserVoteDetailTableViewCell.swift */,
+				F70AECDF1B5455FC00497662 /* FriendsTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */,
 				F70AECD31B5405A700497662 /* PostDetailViewController.swift */,
 				F70AECD51B5413D900497662 /* UserVoteDetailViewController.swift */,
+				F70AECDD1B54538300497662 /* FriendsListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -402,9 +408,11 @@
 				F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */,
 				F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */,
 				F70AECDA1B54174F00497662 /* UserVoteDetailTableViewCell.swift in Sources */,
+				F70AECDE1B54538300497662 /* FriendsListViewController.swift in Sources */,
 				F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */,
 				F714426C1B51855500B93ED8 /* DesignHelper.swift in Sources */,
 				F7762A301B4D7A3D002CBAE7 /* ViewController.swift in Sources */,
+				F70AECE01B5455FC00497662 /* FriendsTableViewCell.swift in Sources */,
 				F728A6C01B52D37E006E4A7A /* YourPostsViewController.swift in Sources */,
 				F728A6BE1B52C73E006E4A7A /* ProfileViewController.swift in Sources */,
 				F7762A2E1B4D7A3D002CBAE7 /* AppDelegate.swift in Sources */,

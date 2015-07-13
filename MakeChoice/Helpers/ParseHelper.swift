@@ -49,6 +49,14 @@ class ParseHelper{
         }
     }
 
+    // MARK: Friends
+    static func allFriends(completionBlock: PFArrayResultBlock){
+        var query=PFQuery(className: PF_FRIEND_CLASS_NAME)
+        query.whereKey(PF_FRIEND_USER, equalTo: PFUser.currentUser()!)
+        query.includeKey(PF_FRIEND_FRIEND)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+        
+    }
     
     
     
@@ -150,6 +158,14 @@ class ParseHelper{
         
     }
     
+  
+    
+    
+   
+    
+    //MARK: Vote
+    
+    
     
     static func findVotesWithPostId(postId:String ,completionBlock: PFArrayResultBlock){
         var query=PFQuery(className: PF_VOTE_CLASS_NAME)
@@ -159,9 +175,6 @@ class ParseHelper{
         
     }
     
-   
-    
-    //MARK: Vote
     static func isUserVotedForPost(postId:String ,completionBlock: PFArrayResultBlock){
 
         var query=PFQuery(className: PF_VOTE_CLASS_NAME)
