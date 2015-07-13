@@ -188,23 +188,29 @@
                                     <segue destination="zPx-9E-Sr3" kind="embed" id="57K-VI-g7c"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mengyu Wu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X86-sj-cPQ">
+                                <rect key="frame" x="256" y="217" width="88.5" height="19.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.96466838659999998" green="0.9756519387" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ZWd-jX-dUp">
                                 <rect key="frame" x="0.0" y="64" width="600" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="yAc-AA-K15"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mario" translatesAutoresizingMaskIntoConstraints="NO" id="03r-80-OOR">
-                                <rect key="frame" x="255" y="119" width="90" height="90"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-4J-BmJ">
+                                <rect key="frame" x="260" y="124" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="03r-80-OOR" secondAttribute="height" multiplier="1:1" id="Z2e-DW-PSi"/>
-                                    <constraint firstAttribute="height" constant="90" id="wlt-UJ-hv4"/>
+                                    <constraint firstAttribute="width" secondItem="Eca-4J-BmJ" secondAttribute="height" multiplier="1:1" id="CKj-3A-P4f"/>
+                                    <constraint firstAttribute="height" constant="80" id="KLK-m0-8lO"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mengyu Wu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X86-sj-cPQ">
-                                <rect key="frame" x="256" y="217" width="88.5" height="19.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" red="0.96466838659999998" green="0.9756519387" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHi-pH-AvJ">
+                                <rect key="frame" x="279" y="217" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -213,11 +219,13 @@
                             <constraint firstItem="I1R-0J-6Wh" firstAttribute="top" secondItem="X7U-2b-xTX" secondAttribute="bottom" id="2G9-ag-DhO"/>
                             <constraint firstAttribute="centerX" secondItem="qxO-nf-M1b" secondAttribute="centerX" id="6zv-aV-jmd"/>
                             <constraint firstItem="X7U-2b-xTX" firstAttribute="top" secondItem="ZWd-jX-dUp" secondAttribute="bottom" id="ETY-9d-T9T"/>
+                            <constraint firstItem="ZWd-jX-dUp" firstAttribute="centerX" secondItem="Eca-4J-BmJ" secondAttribute="centerX" id="HQT-r5-ca4"/>
+                            <constraint firstItem="MHi-pH-AvJ" firstAttribute="top" secondItem="Eca-4J-BmJ" secondAttribute="bottom" constant="13" id="KA9-SV-FxN"/>
                             <constraint firstItem="I1R-0J-6Wh" firstAttribute="leading" secondItem="agT-61-eID" secondAttribute="leadingMargin" constant="-16" id="LpQ-eS-KUK"/>
+                            <constraint firstItem="ZWd-jX-dUp" firstAttribute="centerY" secondItem="Eca-4J-BmJ" secondAttribute="centerY" id="UpI-3c-oUu"/>
                             <constraint firstAttribute="centerX" secondItem="ZWd-jX-dUp" secondAttribute="centerX" id="XoK-85-Efk"/>
-                            <constraint firstItem="ZWd-jX-dUp" firstAttribute="centerX" secondItem="03r-80-OOR" secondAttribute="centerX" constant="-0.5" id="XqO-Zo-JHa"/>
+                            <constraint firstItem="ZWd-jX-dUp" firstAttribute="centerX" secondItem="MHi-pH-AvJ" secondAttribute="centerX" id="YhN-sC-JPS"/>
                             <constraint firstAttribute="centerX" secondItem="I1R-0J-6Wh" secondAttribute="centerX" id="bc5-Ui-NZG"/>
-                            <constraint firstItem="X86-sj-cPQ" firstAttribute="centerX" secondItem="03r-80-OOR" secondAttribute="centerX" constant="-0.5" id="dUD-j8-eeC"/>
                             <constraint firstItem="qxO-nf-M1b" firstAttribute="leading" secondItem="agT-61-eID" secondAttribute="leadingMargin" constant="-16" id="dUn-rP-5k2"/>
                             <constraint firstItem="qxO-nf-M1b" firstAttribute="top" secondItem="X7U-2b-xTX" secondAttribute="bottom" id="dmf-Z5-F50"/>
                             <constraint firstItem="X7U-2b-xTX" firstAttribute="leading" secondItem="agT-61-eID" secondAttribute="leadingMargin" constant="-16" id="f0m-F9-DuA"/>
@@ -226,8 +234,6 @@
                             <constraint firstItem="Xhj-ww-Tk6" firstAttribute="top" secondItem="qxO-nf-M1b" secondAttribute="bottom" id="p4V-JQ-zct"/>
                             <constraint firstItem="I1R-0J-6Wh" firstAttribute="centerX" secondItem="X7U-2b-xTX" secondAttribute="centerX" id="ru9-iW-CLE"/>
                             <constraint firstItem="ZWd-jX-dUp" firstAttribute="leading" secondItem="agT-61-eID" secondAttribute="leadingMargin" constant="-16" id="whq-bJ-Nh7"/>
-                            <constraint firstItem="ZWd-jX-dUp" firstAttribute="centerY" secondItem="03r-80-OOR" secondAttribute="centerY" id="y1O-Lu-FPF"/>
-                            <constraint firstItem="X86-sj-cPQ" firstAttribute="top" secondItem="03r-80-OOR" secondAttribute="bottom" constant="8" id="y7c-uq-axm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nhd-bT-XHy"/>
@@ -235,6 +241,8 @@
                         <outlet property="FriendsContainerView" destination="qxO-nf-M1b" id="68s-PI-mTs"/>
                         <outlet property="YourPostsContainerView" destination="I1R-0J-6Wh" id="j11-6o-T9K"/>
                         <outlet property="segmentedControl" destination="X7U-2b-xTX" id="Au8-Cc-J6u"/>
+                        <outlet property="userImage" destination="Eca-4J-BmJ" id="zJn-gb-cxX"/>
+                        <outlet property="username" destination="MHi-pH-AvJ" id="01Z-l5-Ocw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxg-YC-U43" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -844,7 +852,6 @@
         <image name="AddFile" width="42" height="42"/>
         <image name="Heart" width="72" height="68"/>
         <image name="HeartSelected" width="72" height="68"/>
-        <image name="Mario" width="170" height="170"/>
         <image name="Profile" width="70" height="70"/>
         <image name="ProfileBackground" width="620" height="473"/>
         <image name="ThumbUp" width="128" height="128"/>

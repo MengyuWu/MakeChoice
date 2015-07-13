@@ -159,6 +159,7 @@ class ParseHelper{
         
     }
     
+   
     
     //MARK: Vote
     static func isUserVotedForPost(postId:String ,completionBlock: PFArrayResultBlock){

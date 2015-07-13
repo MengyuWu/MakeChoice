@@ -16,6 +16,11 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    @IBOutlet weak var userImage: UIImageView!
+    
+  
+    @IBOutlet weak var username: UILabel!
+    
 
     @IBAction func indexChanged(sender: AnyObject) {
         
@@ -37,8 +42,42 @@ class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+       }
+    
+    
+    override func viewWillAppear(animated: Bool) {
         // Do any additional setup after loading the view.
+        var user:PFUser?=PFUser.currentUser()
+       self.username.text=user?.username ?? ""
+        
+        // get user image
+        if let user=user {
+            var imageFile: AnyObject? = user[PF_USER_PICTURE]
+            
+            if let imageFile=imageFile as? PFFile{
+                
+                
+                imageFile.getDataInBackgroundWithBlock{
+                    (data: NSData?, error: NSError?) -> Void in
+                    
+                    if let data=data{
+                        println("get data")
+                        self.userImage.image=UIImage(data: data, scale:1)
+                        
+                    }
+                }
+            }else{
+                self.userImage.image=UIImage(named: "Profile")
+            }
+            
+        }
+        
+        
+        DesignHelper.setCircleImage(self.userImage)
+        self.userImage.backgroundColor=UIColor.whiteColor()
+        
+
     }
 
     override func didReceiveMemoryWarning() {
