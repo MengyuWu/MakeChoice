@@ -10,7 +10,39 @@ import UIKit
 
 class UserVoteDetailTableViewCell: UITableViewCell {
     
-    var vote: PFObject?
+    @IBOutlet weak var username: UILabel!
+    var vote: PFObject? {
+        didSet{
+          
+            if let vote=vote{
+                var user=vote[PF_VOTE_VOTER] as! PFUser
+                
+                self.username.text=user.username
+                
+                var imageFile:AnyObject? = user[PF_USER_PICTURE]
+                
+                if let imageFile=imageFile as? PFFile{
+                    
+                
+                imageFile.getDataInBackgroundWithBlock{
+                    (data: NSData?, error: NSError?) -> Void in
+                    
+                    if let data=data{
+                        self.userImageView.image=UIImage(data: data, scale:1)
+                        
+                    }
+                }
+                }else{
+                     self.userImageView.image=UIImage(named: "Profile")
+                }
+            }
+            
+            DesignHelper.setCircleImage(self.userImageView)
+        }
+    }
+    
+    @IBOutlet weak var userImageView: UIImageView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

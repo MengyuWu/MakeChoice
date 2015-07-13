@@ -147,8 +147,15 @@ class ParseHelper{
              }
            }
         }
-
-     
+        
+    }
+    
+    
+    static func findVotesWithPostId(postId:String ,completionBlock: PFArrayResultBlock){
+        var query=PFQuery(className: PF_VOTE_CLASS_NAME)
+        query.whereKey(PF_VOTE_POSTID, equalTo: postId)
+        query.includeKey(PF_VOTE_VOTER)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
         
     }
     

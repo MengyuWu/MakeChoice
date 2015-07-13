@@ -14,6 +14,8 @@ class UserVoteDetailViewController: UIViewController {
     
     var postId:String?=""
     
+    var votes:[PFObject] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,28 @@ class UserVoteDetailViewController: UIViewController {
       tableView.dataSource=self
         
     }
+ 
+    //TODO: need to have some better way to cache something unchanged
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        println("view will appear")
+        ParseHelper.findVotesWithPostId(self.postId ?? ""){
+            (results: [AnyObject]?, error: NSError?) -> Void in
+            if let results=results as? [PFObject]{
+                self.votes=results
+                println("results count: \(self.votes.count)")
+                
+                // reload data
+                self.tableView.reloadData()
+                
+            }
+        }
 
+        
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -47,15 +70,18 @@ class UserVoteDetailViewController: UIViewController {
 
 extension UserVoteDetailViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 5
+        println("number of rows: \(votes.count)")
+       return votes.count
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
          let cell=tableView.dequeueReusableCellWithIdentifier("userVoteCell", forIndexPath: indexPath) as! UserVoteDetailTableViewCell
+      
+        println("in cell for row at Index path")
         
-        cell.textLabel?.text=self.postId ?? ""
-        
-        return cell
+       cell.vote = self.votes[indexPath.row]
+       return cell
         
     }
 }

@@ -39,8 +39,8 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tableView.dataSource=self
-        tableView.delegate=self
+        self.tableView.dataSource=self
+        self.tableView.delegate=self
         timelineComponent = TimelineComponent(target: self)
     }
 
@@ -68,7 +68,7 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
     */
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("prepareforsegue")
+       
         if(segue.identifier=="postToDetailSegue") {
             let postDetailViewController = segue.destinationViewController as! PostDetailViewController
             postDetailViewController.post=self.selectedPost
