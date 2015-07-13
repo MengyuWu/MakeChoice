@@ -768,21 +768,49 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVs-vx-gdA">
-                                                    <rect key="frame" x="51.5" y="28.5" width="42" height="20.5"/>
+                                                    <rect key="frame" x="51" y="29" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLn-s0-sm1">
+                                                    <rect key="frame" x="237" y="8" width="44" height="44"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                    <state key="normal" image="Heart">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="HeartSelected"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kED-dz-Kqm">
+                                                    <rect key="frame" x="143" y="8" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="f5w-Q0-EiL"/>
+                                                        <constraint firstAttribute="height" constant="44" id="rY4-TJ-LtP"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                    <state key="normal" image="Heart">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="HeartSelected"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="kED-dz-Kqm" firstAttribute="centerY" secondItem="cLn-s0-sm1" secondAttribute="centerY" id="4R7-Mp-S5e"/>
                                                 <constraint firstItem="SVs-vx-gdA" firstAttribute="leading" secondItem="cFr-mm-8ww" secondAttribute="trailing" constant="4" id="GM8-fI-iph"/>
+                                                <constraint firstItem="kED-dz-Kqm" firstAttribute="width" secondItem="cLn-s0-sm1" secondAttribute="width" id="LVT-Id-ynW"/>
                                                 <constraint firstItem="cFr-mm-8ww" firstAttribute="top" secondItem="Cge-ed-s8I" secondAttribute="topMargin" constant="2" id="Lgn-G6-n46"/>
                                                 <constraint firstAttribute="centerY" secondItem="cFr-mm-8ww" secondAttribute="centerY" id="M95-aY-vFV"/>
+                                                <constraint firstItem="kED-dz-Kqm" firstAttribute="height" secondItem="cLn-s0-sm1" secondAttribute="height" id="SCA-Qr-9AW"/>
+                                                <constraint firstItem="kED-dz-Kqm" firstAttribute="centerY" secondItem="cFr-mm-8ww" secondAttribute="centerY" id="dBA-j7-yiQ"/>
+                                                <constraint firstItem="kED-dz-Kqm" firstAttribute="leading" secondItem="cFr-mm-8ww" secondAttribute="trailing" constant="95.5" id="fvb-Zk-Qny"/>
+                                                <constraint firstItem="cLn-s0-sm1" firstAttribute="leading" secondItem="kED-dz-Kqm" secondAttribute="trailing" constant="50" id="vmn-ZW-ZLT"/>
                                                 <constraint firstItem="SVs-vx-gdA" firstAttribute="bottom" secondItem="cFr-mm-8ww" secondAttribute="bottom" id="wT7-L8-h9F"/>
                                                 <constraint firstItem="cFr-mm-8ww" firstAttribute="leading" secondItem="Cge-ed-s8I" secondAttribute="leadingMargin" id="xse-61-yfQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="choice1Button" destination="kED-dz-Kqm" id="6MV-RG-0TC"/>
+                                            <outlet property="choice2Button" destination="cLn-s0-sm1" id="izC-7g-STT"/>
                                             <outlet property="userImageView" destination="cFr-mm-8ww" id="dCk-Hu-RLj"/>
                                             <outlet property="username" destination="SVs-vx-gdA" id="5Fq-Z9-Ep9"/>
                                         </connections>
@@ -809,11 +837,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TJ-Yy-nNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1856" y="2391.5"/>
+            <point key="canvasLocation" x="-1856" y="2393.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="AddFile" width="42" height="42"/>
+        <image name="Heart" width="72" height="68"/>
+        <image name="HeartSelected" width="72" height="68"/>
         <image name="Mario" width="170" height="170"/>
         <image name="Profile" width="70" height="70"/>
         <image name="ProfileBackground" width="620" height="473"/>

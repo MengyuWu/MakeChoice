@@ -10,6 +10,9 @@ import UIKit
 
 class UserVoteDetailTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var choice1Button: UIButton!
+    @IBOutlet weak var choice2Button: UIButton!
+    
     @IBOutlet weak var username: UILabel!
     var vote: PFObject? {
         didSet{
@@ -18,6 +21,17 @@ class UserVoteDetailTableViewCell: UITableViewCell {
                 var user=vote[PF_VOTE_VOTER] as! PFUser
                 
                 self.username.text=user.username
+               
+                var choice=vote[PF_VOTE_CHOICE] as! Int
+                
+                if (choice == 1){
+                    choice1Button.selected=true
+                    choice2Button.selected=false
+                }else{
+                    choice1Button.selected=false
+                    choice2Button.selected=true
+                }
+                
                 
                 var imageFile:AnyObject? = user[PF_USER_PICTURE]
                 
