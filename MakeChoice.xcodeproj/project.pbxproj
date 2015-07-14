@@ -31,6 +31,7 @@
 		F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A551B4D965F002CBAE7 /* PostViewController.swift */; };
 		F79478561B4F3DC80048765A /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79478551B4F3DC80048765A /* ParseHelper.swift */; };
 		F79478581B4F59DF0048765A /* HomePostSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79478571B4F59DF0048765A /* HomePostSectionHeaderView.swift */; };
+		F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDB11B555EC900815DDE /* CommentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		F79478551B4F3DC80048765A /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		F79478571B4F59DF0048765A /* HomePostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostSectionHeaderView.swift; sourceTree = "<group>"; };
 		F7E28DA11B4E0AF100C96837 /* MakeChoice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MakeChoice-Bridging-Header.h"; sourceTree = "<group>"; };
+		F7E4CDB11B555EC900815DDE /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				F70AECD31B5405A700497662 /* PostDetailViewController.swift */,
 				F70AECD51B5413D900497662 /* UserVoteDetailViewController.swift */,
 				F70AECDD1B54538300497662 /* FriendsListViewController.swift */,
+				F7E4CDB11B555EC900815DDE /* CommentViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */,
 				F79478581B4F59DF0048765A /* HomePostSectionHeaderView.swift in Sources */,
 				F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */,
 				F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */,

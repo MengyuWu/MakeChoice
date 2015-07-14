@@ -22,6 +22,12 @@ class HomePostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var vote2: UILabel!
     
+    @IBOutlet weak var commentButton: UIButton!
+   
+    
+    
+
+    
     var post:Post? {
         didSet {
             
@@ -50,7 +56,7 @@ class HomePostTableViewCell: UITableViewCell {
                 map(post.vote1Percentage){ "\($0)" } ->> self.vote1
                 map(post.vote2Percentage){ "\($0)" } ->> self.vote2
               
- 
+               
             }
             
         }

@@ -11,6 +11,7 @@ import ConvenienceKit
 
 class HomeViewController: UIViewController,TimelineComponentTarget {
     
+  
     @IBOutlet weak var tableView: UITableView!
     
     // implement timelineComponentTarget
@@ -54,6 +55,11 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         }
 
     }
+    
+   
+    
+  
+    
     
     /**
     This method should load the items within the specified range and call the
@@ -114,6 +120,17 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         // Pass the selected object to the new view controller.
     }
     */
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if( segue.identifier=="commentPushSegue"){
+            let commentVC = segue.destinationViewController as! CommentViewController
+            commentVC.hidesBottomBarWhenPushed = true
+            let groupId = sender as! String
+            commentVC.groupId = groupId
+
+        }
+    }
+
 
 }
 
@@ -212,6 +229,12 @@ extension HomeViewController: UITableViewDataSource {
         var img2tapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("img2Tapped:" ))
         cell.img2.addGestureRecognizer(img2tapped)
         
+        
+        // commentButton:
+        cell.commentButton.tag=indexPath.section
+        
+        cell.commentButton.addTarget(self, action: Selector("commentButtonTapped:" ), forControlEvents: UIControlEvents.TouchUpInside)
+        
         //check if this sell is voted by this user, if voted, show the results
     
         var postId=post?.objectId
@@ -237,6 +260,25 @@ extension HomeViewController: UITableViewDataSource {
         
        
         return cell
+    }
+    
+    
+    func commentButtonTapped(sender:UIButton!){
+        
+        println("button tag \(sender.tag)")
+        
+        var postId:String?
+        var tag=sender.tag
+        if(isFriends){
+        postId=friendPosts[tag].objectId
+        }else{
+        postId=timelineComponent.content[tag].objectId
+        }
+        
+        if let postId=postId{
+            self.performSegueWithIdentifier("commentPushSegue", sender: postId)
+        }
+        
     }
     
     func img1Tapped(recognizer:UITapGestureRecognizer ){

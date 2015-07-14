@@ -44,6 +44,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,67 +82,77 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C833EF05B39D5243738A239</key>
+		<key>1CD7AF0EF982F01D3369CD5B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>117479E92B1B2C5A8EC975F1</key>
+		<key>27BA8F94B1B45917D7B630F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2EDE0CFA474BDB2F17E87218</key>
+		<key>2B0081F6F811429798CC759E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>30A915628364A6B4458AF133</key>
+		<key>40C954A771C5E5893E0706BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>405C3288D813D78A43E0A8F3</key>
+		<key>4453978A8DABCEBB43472D65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E7BB87B8D01E3C7823DD35B</key>
+		<key>66C493FBC43CD99D260E2BEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65A0BADE00956DB60C6212A3</key>
+		<key>69C12FACC3701EC2642E15CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>77B6D7EDDBF0A35C0124F7CC</key>
+		<key>932A3DD512028471F9521487</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB527455570F7DB01F8DD29A</key>
+		<key>9D731B2DE5BED01124724686</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0232695ACD7FD6AEE87D241</key>
+		<key>A059C3AFF1EC83F6AFC69487</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E57F7F4D5D70169C2F8FA26B</key>
+		<key>A1395538DB5444FE1771EA4F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F08CE94F333CF213BB6978C5</key>
+		<key>C63A9096DECBAD874E70714A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F0E3C9E933CE0039EA115575</key>
+		<key>EC9FDFC976CBD317649AE6D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F21A29F81421037B190C2B02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3DC007CAA87F1BAA5AF4E36</key>
 		<dict>
 			<key>primary</key>
 			<true/>
