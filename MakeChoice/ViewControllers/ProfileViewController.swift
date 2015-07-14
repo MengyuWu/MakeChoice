@@ -99,3 +99,11 @@ class ProfileViewController: UIViewController {
     */
 
 }
+
+extension ProfileViewController: UIImagePickerControllerDelegate{
+    
+}
+
+extension ProfileViewController: UINavigationControllerDelegate {
+    
+}

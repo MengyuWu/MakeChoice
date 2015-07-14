@@ -11,6 +11,38 @@ import Foundation
 /*Size*/
 let HEADER_CELL_HEIGHT:CGFloat                  = 60.0
 
+/* Comment */
+let PF_COMMENT_CLASS_NAME				= "Comment"					//	Class name
+let PF_COMMENT_USER						= "user"					//	Pointer to User Class
+let PF_COMMENT_GROUPID					= "groupId"                 //	String
+let PF_COMMENT_TEXT						= "text"					//	String
+let PF_COMMENT_PICTURE					= "picture"                 //	File
+let PF_COMMENT_VIDEO					= "video"                   //	File
+let PF_COMMENT_CREATEDAT				= "createdAt"               //	Date
+
+/* Messages*/
+let PF_MESSAGES_CLASS_NAME				= "Messages"				//	Class name
+let PF_MESSAGES_USER					= "user"					//	Pointer to User Class
+let PF_MESSAGES_GROUPID					= "groupId"                 //	String
+let PF_MESSAGES_DESCRIPTION				= "description"             //	String
+let PF_MESSAGES_LASTUSER				= "lastUser"				//	Pointer to User Class
+let PF_MESSAGES_LASTMESSAGE				= "lastMessage"             //	String
+let PF_MESSAGES_COUNTER					= "counter"                 //	Number
+let PF_MESSAGES_UPDATEDACTION			= "updatedAction"           //	Date
+
+/* Notification */
+let NOTIFICATION_APP_STARTED			= "NCAppStarted"
+let NOTIFICATION_USER_LOGGED_IN			= "NCUserLoggedIn"
+let NOTIFICATION_USER_LOGGED_OUT		= "NCUserLoggedOut"
+
+/* Installation */
+let PF_INSTALLATION_CLASS_NAME			= "_Installation"           //	Class name
+let PF_INSTALLATION_OBJECTID			= "objectId"				//	String
+let PF_INSTALLATION_USER				= "user"					//	Pointer to User Class
+
+//---------------------------------------------------------------------------------------
+
+
 /* User */
 let PF_USER_CLASS_NAME					= "_User"                   //	Class name
 let PF_USER_OBJECTID					= "objectId"				//	String
@@ -45,3 +77,5 @@ let PF_VOTE_CHOICE                     = "choice"					 //	Number
 let PF_VOTE_VOTER                      = "voter"					//	Pointer to User Class
 let PF_VOTE_POSTID                      = "postId"					//	String
 let PF_VOTE_CREATEDAT                  = "createdAt"			       //	Date
+
+
