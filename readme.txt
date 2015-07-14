@@ -16,3 +16,6 @@ I just typed in the name of the bridging header folderName/xxxx-BridgingHeader.h
 2. In your project build settings, find Swift Compiler – Code Generation, and next to Objective-C Bridging Header add the path to your bridging header file, from the project’s root folder. So it could by MyProject/MyProject-Bridging-Header.h or simply MyProject-Bridging-Header.h if the file lives in the project root folder.
 
 new_message: resources/jsqmessagesAssets.bundle/base/.string
+
+
+project/build setting/ search riding, enter the name of the file

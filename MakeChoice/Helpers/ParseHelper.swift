@@ -71,6 +71,7 @@ class ParseHelper{
         var query=PFQuery(className: PF_FRIEND_CLASS_NAME)
         query.whereKey(PF_FRIEND_USER, equalTo: PFUser.currentUser()!)
         query.includeKey(PF_FRIEND_FRIEND)
+        query.limit=50
         query.findObjectsInBackgroundWithBlock(completionBlock)
         
     }
