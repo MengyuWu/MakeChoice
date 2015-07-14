@@ -46,6 +46,9 @@ class CommentViewController: JSQMessagesViewController{
         
         blankAvatarImage = JSQMessagesAvatarImageFactory.avatarImageWithImage(UIImage(named: "Profile"), diameter: 30)
         
+        // configure the placeholder text
+        self.inputToolbar.contentView.textView.placeHolder = "New Comment"
+        
         isLoading = false
         self.loadMessages()
         Messages.clearMessageCounter(groupId);
