@@ -20,6 +20,40 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     let defaultRange = 0...4
     let additionalRangeSize = 5
     
+    var friendPosts:[Post]=[]
+    
+    var isFriends=false
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBAction func indexChanged(sender: AnyObject) {
+        
+        switch segmentedControl.selectedSegmentIndex
+        {
+            
+        case 0:
+            NSLog("Public")
+            isFriends=false
+            timelineComponent.refresh(self)
+            
+        case 1:
+            NSLog("Friends")
+            isFriends=true
+            
+            ParseHelper.timelineRequestforCurrentUserFriends{ (results: [AnyObject]?, error: NSError?) -> Void in
+                if let results=results as? [Post]{
+                    self.friendPosts=results
+                    self.tableView.reloadData()
+                    
+                }
+            }
+
+            self.tableView.reloadData()
+            
+        default:
+            break;
+        }
+
+    }
     
     /**
     This method should load the items within the specified range and call the
@@ -33,7 +67,6 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         }
         
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +75,30 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         self.tableView.delegate=self
         self.tableView.dataSource=self
         timelineComponent = TimelineComponent(target: self)
+      
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+    
+        
+        if(isFriends){
+            ParseHelper.timelineRequestforCurrentUserFriends{ (results: [AnyObject]?, error: NSError?) -> Void in
+                if let results=results as? [Post]{
+                    self.friendPosts=results
+                  
+                    self.tableView.reloadData()
+                    
+                }
+            }
+        }else{
         timelineComponent.refresh(self)
+        }
        
     }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,7 +122,9 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         //loadmore if (indexPath.section == (currentRange.endIndex - 1) && !loadedAllContent)
        // println("willDisplayCell: \(indexPath.section) \(timelineComponent.content[indexPath.section].totalVotes)")
+        if(!isFriends){
         timelineComponent.calledCellForRowAtIndexPath(indexPath)
+        }
     }
 
 }
@@ -80,7 +132,14 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCellWithIdentifier("PostHeader") as! HomePostSectionHeaderView
-        let post=self.timelineComponent.content[section]
+        var post:Post?
+        if(isFriends){
+           //println("section:\(section), num of friend post \(self.friendPosts.count)")
+           post=self.friendPosts[section]
+        }else{
+           post=self.timelineComponent.content[section]
+        }
+        
         headerCell.post=post
         //let the header show up when updated
         return headerCell.contentView
@@ -97,7 +156,14 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return timelineComponent.content.count ?? 0
+        var num=0
+        if(isFriends){
+            num=self.friendPosts.count
+        }else{
+            num=timelineComponent.content.count ?? 0
+        }
+        
+        return num
     }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -107,15 +173,23 @@ extension HomeViewController: UITableViewDataSource {
         
         let cell=tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! HomePostTableViewCell
         
-        let post=timelineComponent.content[indexPath.section]
+        var post:Post?
+        
+        if(isFriends){
+            post=self.friendPosts[indexPath.section]
+        }else{
+            post=timelineComponent.content[indexPath.section]
+        }
+
         
        // println("cellforRowat index.section: \(indexPath.section) post.totalValue: \(post.totalVotes) ")
         
         // download, only downloaded with needed
+        if let post=post {
         post.downloadImage()
         //get post statistic
         post.getPostStatistic()
-        
+        }
         
         cell.post=post
         
@@ -140,7 +214,7 @@ extension HomeViewController: UITableViewDataSource {
         
         //check if this sell is voted by this user, if voted, show the results
     
-        var postId=post.objectId
+        var postId=post?.objectId
         
         if let postId=postId{
             ParseHelper.isUserVotedForPost(postId){ (results: [AnyObject]?, error: NSError?) -> Void in
@@ -170,8 +244,13 @@ extension HomeViewController: UITableViewDataSource {
         println("the \(recognizer.view?.tag)th  posts: img1 tapped")
         
         if let tag=recognizer.view?.tag{
-           var postId=timelineComponent.content[tag].objectId
-            
+            var postId:String?
+            if(isFriends){
+                postId=self.friendPosts[tag].objectId
+            }else{
+                postId=timelineComponent.content[tag].objectId
+            }
+ 
             if let postId=postId{
                 println("postId:\(postId)")
             
@@ -198,8 +277,15 @@ extension HomeViewController: UITableViewDataSource {
                                 ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
                                     
                                     if let results=results as? [Post]{
+                                        
+                                        if(self.isFriends){
+                                            self.friendPosts[tag]=results.first!
+                                             println("friends totalVote\(self.friendPosts[tag].totalVotes)")
+                                        }else{
+                                        
                                         self.timelineComponent.content[tag]=results.first!
                                         println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
+                                        }
                                         
                                        self.tableView.beginUpdates()
                                       self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -233,7 +319,12 @@ extension HomeViewController: UITableViewDataSource {
         println("the \(recognizer.view?.tag)th  posts: img2 tapped")
         
         if let tag=recognizer.view?.tag{
-            var postId=timelineComponent.content[tag].objectId
+            var postId:String?
+            if(isFriends){
+                postId=self.friendPosts[tag].objectId
+            }else{
+                postId=timelineComponent.content[tag].objectId
+            }
             
             if let postId=postId{
                 println("postId:\(postId)")
@@ -261,8 +352,15 @@ extension HomeViewController: UITableViewDataSource {
                                     ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
                                         
                                         if let results=results as? [Post]{
-                                            self.timelineComponent.content[tag]=results.first!
-                                            println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
+                                            if(self.isFriends){
+                                                self.friendPosts[tag]=results.first!
+                                                println("friends totalVote\(self.friendPosts[tag].totalVotes)")
+                                            }else{
+                                                
+                                                self.timelineComponent.content[tag]=results.first!
+                                                println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
+                                            }
+
                                             
                                             self.tableView.beginUpdates()
                                             self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -274,9 +372,7 @@ extension HomeViewController: UITableViewDataSource {
                                 }
                                 
                             }
-                            
-                            
-                            
+     
                         }
                     }
                     

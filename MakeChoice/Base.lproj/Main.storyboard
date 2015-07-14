@@ -267,6 +267,9 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="lQ3-nh-3jc" eventType="valueChanged" id="fBQ-aR-SjR"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="300" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="LJW-OT-TdN">
                                 <rect key="frame" x="0.0" y="92" width="600" height="459"/>
@@ -458,6 +461,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ty4-Nu-fww"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="xD6-oO-6Ii" id="6fm-Q5-bgP"/>
                         <outlet property="tableView" destination="LJW-OT-TdN" id="6Xw-ou-VO8"/>
                     </connections>
                 </viewController>
@@ -770,7 +774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6Z-zt-btk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2489" y="1594.5"/>
+            <point key="canvasLocation" x="-2494" y="1594.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="V6K-8j-tqp">

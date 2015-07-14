@@ -62,7 +62,6 @@ class FriendsListViewController: UIViewController {
 
 extension FriendsListViewController:UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        println("numofrows:\(self.friends.count)")
         return self.friends.count
     }
     
