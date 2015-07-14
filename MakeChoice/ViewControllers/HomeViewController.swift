@@ -235,6 +235,9 @@ extension HomeViewController: UITableViewDataSource {
         
         cell.commentButton.addTarget(self, action: Selector("commentButtonTapped:" ), forControlEvents: UIControlEvents.TouchUpInside)
         
+        cell.commentNum.text="" //initialize the comment number
+        
+        
         //check if this sell is voted by this user, if voted, show the results
     
         var postId=post?.objectId
@@ -255,6 +258,19 @@ extension HomeViewController: UITableViewDataSource {
                 }
                 
             }
+            
+            
+            
+            // get comment number
+            ParseHelper.getCommentNumberWithPostId(postId){ (results: [AnyObject]?, error:NSError?) -> Void in
+                if let results=results{
+                    cell.commentNum.text=(results.count == 0) ? "": String(results.count)
+                    
+                    
+                }
+                
+            }
+
 
         }
         

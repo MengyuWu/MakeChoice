@@ -24,6 +24,7 @@ class HomePostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var commentButton: UIButton!
    
+    @IBOutlet weak var commentNum: UILabel!
     
     
 

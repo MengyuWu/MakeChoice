@@ -413,8 +413,15 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95T-XA-RBw">
+                                                    <rect key="frame" x="46" y="428" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="95T-XA-RBw" firstAttribute="leading" secondItem="R5X-8P-YG6" secondAttribute="trailing" constant="8" id="1rN-Ag-IzI"/>
                                                 <constraint firstItem="qzz-9I-B8g" firstAttribute="bottom" secondItem="MxI-9Z-m4l" secondAttribute="bottom" constant="-22" id="21m-Fv-hRX"/>
                                                 <constraint firstItem="T92-Jy-dhO" firstAttribute="leading" secondItem="n3C-3N-YCu" secondAttribute="trailing" constant="8" id="2VK-xh-bhK"/>
                                                 <constraint firstItem="n3C-3N-YCu" firstAttribute="centerY" secondItem="T92-Jy-dhO" secondAttribute="centerY" constant="-0.5" id="4mK-re-EQK"/>
@@ -426,6 +433,7 @@
                                                 <constraint firstItem="qzz-9I-B8g" firstAttribute="leading" secondItem="bz0-gy-YxJ" secondAttribute="trailing" constant="8" id="VO3-Gl-eLF"/>
                                                 <constraint firstAttribute="centerY" secondItem="R5X-8P-YG6" secondAttribute="centerY" constant="-210" id="ZUw-2h-pIk"/>
                                                 <constraint firstItem="khj-jI-m1Y" firstAttribute="bottom" secondItem="2Kg-lw-ne1" secondAttribute="bottom" constant="-22.5" id="blS-q3-13O"/>
+                                                <constraint firstItem="R5X-8P-YG6" firstAttribute="centerY" secondItem="95T-XA-RBw" secondAttribute="centerY" constant="1" id="cMg-F8-pLv"/>
                                                 <constraint firstItem="T92-Jy-dhO" firstAttribute="top" secondItem="MxI-9Z-m4l" secondAttribute="bottom" constant="7.5" id="e7w-Uz-e1F"/>
                                                 <constraint firstItem="2Kg-lw-ne1" firstAttribute="height" secondItem="MxI-9Z-m4l" secondAttribute="height" id="eBX-FN-cHE"/>
                                                 <constraint firstItem="R5X-8P-YG6" firstAttribute="centerY" secondItem="T92-Jy-dhO" secondAttribute="centerY" id="fym-1t-SEd"/>
@@ -452,6 +460,7 @@
                                         <color key="tintColor" red="0.96466838659999998" green="0.9756519387" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="commentButton" destination="R5X-8P-YG6" id="ia8-3l-toi"/>
+                                            <outlet property="commentNum" destination="95T-XA-RBw" id="ejY-tc-iuS"/>
                                             <outlet property="img1" destination="2Kg-lw-ne1" id="v4y-Ni-h0b"/>
                                             <outlet property="img2" destination="MxI-9Z-m4l" id="HiF-af-cfG"/>
                                             <outlet property="totalVotes" destination="n3C-3N-YCu" id="VRv-Ym-c1k"/>
@@ -483,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtZ-NQ-b8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2026" y="-1101"/>
+            <point key="canvasLocation" x="-1874" y="-1110"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="wSR-2r-Fww">
@@ -948,21 +957,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcA-xv-rkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2598" y="-1118"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qoq-Dx-qfZ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cwq-7F-ViM" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bug-L3-Z3M">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J25-zg-Y6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1991" y="-398"/>
         </scene>
     </scenes>
     <resources>

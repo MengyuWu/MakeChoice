@@ -293,4 +293,12 @@ class ParseHelper{
     }
     
     
+    // MARK: comment 
+    static func getCommentNumberWithPostId(postId: String, completionBlock: PFArrayResultBlock){
+        var query = PFQuery(className: PF_COMMENT_CLASS_NAME)
+        query.whereKey(PF_COMMENT_GROUPID, equalTo: postId )
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+        
+    }
+    
 }
