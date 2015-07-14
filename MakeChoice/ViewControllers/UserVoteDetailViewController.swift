@@ -7,15 +7,30 @@
 //
 
 import UIKit
+import ConvenienceKit
 
-class UserVoteDetailViewController: UIViewController {
+class UserVoteDetailViewController: UIViewController,TimelineComponentTarget{
 
     @IBOutlet weak var tableView: UITableView!
     
-    var postId:String?=""
+    var postId:String=""
     
-    var votes:[PFObject] = []
+   // var votes:[PFObject] = []
     
+    var timelineComponent:TimelineComponent<PFObject, UserVoteDetailViewController>!
+    
+    let defaultRange = 0...4
+    let additionalRangeSize = 5
+    
+    func loadInRange(range: Range<Int>, completionBlock: ([PFObject]?) -> Void){
+        ParseHelper.timelineRequestfindVotesWithPostId(range, postId: self.postId){ (result: [AnyObject]?, error: NSError?) -> Void in
+            let votes = result as? [PFObject] ?? []
+            completionBlock(votes)
+        }
+        
+    }
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +39,17 @@ class UserVoteDetailViewController: UIViewController {
         
       tableView.delegate=self
       tableView.dataSource=self
+      timelineComponent = TimelineComponent(target: self)
         
     }
  
+    
+    
+    
     //TODO: need to have some better way to cache something unchanged
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        println("view will appear")
-        ParseHelper.findVotesWithPostId(self.postId ?? ""){
-            (results: [AnyObject]?, error: NSError?) -> Void in
-            if let results=results as? [PFObject]{
-                self.votes=results
-                println("results count: \(self.votes.count)")
-                
-                // reload data
-                self.tableView.reloadData()
-                
-            }
-        }
-
-        
+        timelineComponent.refresh(self)
     }
 
     
@@ -70,22 +75,32 @@ class UserVoteDetailViewController: UIViewController {
 
 extension UserVoteDetailViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        println("number of rows: \(votes.count)")
-       return votes.count
+        //println("number of rows: \(votes.count)")
+       return 1
         
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+       return timelineComponent.content.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
          let cell=tableView.dequeueReusableCellWithIdentifier("userVoteCell", forIndexPath: indexPath) as! UserVoteDetailTableViewCell
-      
-        println("in cell for row at Index path")
+     
+       cell.vote = timelineComponent.content[indexPath.section]
         
-       cell.vote = self.votes[indexPath.row]
+        var postId: AnyObject?=cell.vote![PF_VOTE_POSTID]
+        
+        println("index: \(indexPath.section)  \(postId)")
+        
        return cell
         
     }
 }
 
 extension UserVoteDetailViewController: UITableViewDelegate{
-    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        // load more cell
+        timelineComponent.calledCellForRowAtIndexPath(indexPath)
+    }
 }

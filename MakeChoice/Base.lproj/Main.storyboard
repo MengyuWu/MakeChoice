@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdW-2B-mKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1044" y="323"/>
+            <point key="canvasLocation" x="-1836" y="-325"/>
         </scene>
         <!--Post-->
         <scene sceneID="msc-HN-tOW">
@@ -152,7 +152,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S04-xe-UEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1772" y="323"/>
+            <point key="canvasLocation" x="-2532" y="-333"/>
         </scene>
         <!--Profile-->
         <scene sceneID="i0y-Hq-8aK">
@@ -247,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxg-YC-U43" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1804" y="1258"/>
+            <point key="canvasLocation" x="-2518" y="542"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="fNt-gq-1Xm">
@@ -463,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtZ-NQ-b8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-986" y="-392"/>
+            <point key="canvasLocation" x="-1874" y="-1110"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="deX-Aj-y8B">
@@ -483,7 +483,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haD-xs-O7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2723" y="-454"/>
+            <point key="canvasLocation" x="-3195" y="-350"/>
         </scene>
         <!--Your Posts View Controller-->
         <scene sceneID="lDs-rF-Mht">
@@ -605,7 +605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dc4-Et-COV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1825" y="1749.5"/>
+            <point key="canvasLocation" x="-2489" y="1181.5"/>
         </scene>
         <!--Friends List View Controller-->
         <scene sceneID="bmG-cp-Sbz">
@@ -630,26 +630,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JRu-X2-btC">
-                                                    <rect key="frame" x="8" y="8" width="60" height="60.5"/>
+                                                    <rect key="frame" x="8" y="18.5" width="39.5" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="JRu-X2-btC" secondAttribute="height" multiplier="1:1" id="HT8-1r-53L"/>
-                                                        <constraint firstAttribute="height" constant="60" id="Ifq-dt-LcD"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Ifq-dt-LcD"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htN-TT-wcN">
-                                                    <rect key="frame" x="76" y="8" width="42" height="20.5"/>
+                                                    <rect key="frame" x="55.5" y="18.5" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="post:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzQ-5A-4ow">
-                                                    <rect key="frame" x="76" y="48" width="39" height="21"/>
+                                                    <rect key="frame" x="55.5" y="38.5" width="39" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKR-rL-iio">
-                                                    <rect key="frame" x="123" y="48" width="42" height="21"/>
+                                                    <rect key="frame" x="102.5" y="38.5" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -662,7 +662,7 @@
                                                 <constraint firstItem="JRu-X2-btC" firstAttribute="leading" secondItem="9Jx-Wl-uV9" secondAttribute="leadingMargin" id="O6h-ar-Q1w"/>
                                                 <constraint firstItem="htN-TT-wcN" firstAttribute="leading" secondItem="JRu-X2-btC" secondAttribute="trailing" constant="8" id="ReY-Ks-g7B"/>
                                                 <constraint firstItem="nKR-rL-iio" firstAttribute="centerY" secondItem="kzQ-5A-4ow" secondAttribute="centerY" id="bA9-Tf-knv"/>
-                                                <constraint firstItem="JRu-X2-btC" firstAttribute="top" secondItem="htN-TT-wcN" secondAttribute="top" constant="0.5" id="lLS-v0-fJS"/>
+                                                <constraint firstItem="JRu-X2-btC" firstAttribute="top" secondItem="htN-TT-wcN" secondAttribute="top" id="lLS-v0-fJS"/>
                                                 <constraint firstItem="kzQ-5A-4ow" firstAttribute="leading" secondItem="JRu-X2-btC" secondAttribute="trailing" constant="8" id="x36-yT-YEK"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -690,7 +690,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h32-dL-q9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-994" y="1283.5"/>
+            <point key="canvasLocation" x="-1786" y="667.5"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="j3w-Hm-hdK">
@@ -770,7 +770,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6Z-zt-btk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1856" y="2098.5"/>
+            <point key="canvasLocation" x="-2489" y="1594.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="V6K-8j-tqp">
@@ -789,7 +789,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DI6-g2-RGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2616" y="1258"/>
+            <point key="canvasLocation" x="-3202" y="542"/>
         </scene>
         <!--User Vote Detail View Controller-->
         <scene sceneID="r5y-mJ-Vdz">
@@ -889,7 +889,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TJ-Yy-nNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1856" y="2393.5"/>
+            <point key="canvasLocation" x="-2489" y="1899.5"/>
         </scene>
         <!--Home-->
         <scene sceneID="VnO-p4-KZZ">
@@ -908,7 +908,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcA-xv-rkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1798" y="-392"/>
+            <point key="canvasLocation" x="-2598" y="-1118"/>
         </scene>
     </scenes>
     <resources>

@@ -175,6 +175,22 @@ class ParseHelper{
         
     }
     
+    static func timelineRequestfindVotesWithPostId(range: Range<Int>, postId:String, completionBlock: PFArrayResultBlock) {
+        
+        var query=PFQuery(className: PF_VOTE_CLASS_NAME)
+        query.whereKey(PF_VOTE_POSTID, equalTo: postId)
+        query.includeKey(PF_VOTE_VOTER)
+        query.orderByDescending(PF_VOTE_CREATEDAT)
+        //only show some range not all
+        query.skip = range.startIndex
+        query.limit = range.endIndex - range.startIndex
+
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+
+    }
+
+    
+    
     static func isUserVotedForPost(postId:String ,completionBlock: PFArrayResultBlock){
 
         var query=PFQuery(className: PF_VOTE_CLASS_NAME)

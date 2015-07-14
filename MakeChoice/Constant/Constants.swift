@@ -44,4 +44,4 @@ let PF_VOTE_CLASS_NAME			       = "Vote"                    //	Class name
 let PF_VOTE_CHOICE                     = "choice"					 //	Number
 let PF_VOTE_VOTER                      = "voter"					//	Pointer to User Class
 let PF_VOTE_POSTID                      = "postId"					//	String
-
+let PF_VOTE_CREATEDAT                  = "createdAt"			       //	Date
