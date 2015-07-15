@@ -89,6 +89,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         println("didReceiveRemoteNotification")
         PFPush.handlePush(userInfo)
+        
+    var controller=self.window!.rootViewController as! UITabBarController
+        var items=controller.tabBar.items
+        
+        if let items=items{
+           var item=items[2] as! UITabBarItem
+        
+            var num=item.badgeValue?.toInt() ?? 0
+           item.badgeValue="\(num+1)"
+          println("badgeValue: \(num+1)")
+            
+           
+        }
     }
 
 }

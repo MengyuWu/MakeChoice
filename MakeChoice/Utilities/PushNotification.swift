@@ -39,8 +39,8 @@ class PushNotication {
         query.limit = 1000
         
         var installationQuery = PFInstallation.query()
-        installationQuery?.whereKey(PF_INSTALLATION_USER, matchesKey: PF_MESSAGES_USER, inQuery: query)
-        
+      //  installationQuery?.whereKey(PF_INSTALLATION_USER, matchesKey: PF_MESSAGES_USER, inQuery: query)
+        installationQuery?.whereKey(PF_INSTALLATION_USER, equalTo:PFUser.currentUser()!)
         
         var push = PFPush()
         push.setQuery(installationQuery)
@@ -52,6 +52,10 @@ class PushNotication {
             }
         }
     }
+    
+    
+    
+    
     
     
     

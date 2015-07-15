@@ -82,7 +82,8 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         self.tableView.dataSource=self
         timelineComponent = TimelineComponent(target: self)
         
-      
+        //assign the installation[user] to be current user
+         PushNotication.parsePushUserAssign()
       
     }
 
