@@ -19,3 +19,7 @@ new_message: resources/jsqmessagesAssets.bundle/base/.string
 
 
 project/build setting/ search riding, enter the name of the file
+
+tab badgeValue
+var item = self.tabBarController?.tabBar.items?[0] as! UITabBarItem
+        item.badgeValue="2";

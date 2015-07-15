@@ -81,6 +81,8 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         self.tableView.delegate=self
         self.tableView.dataSource=self
         timelineComponent = TimelineComponent(target: self)
+        
+      
       
     }
 
