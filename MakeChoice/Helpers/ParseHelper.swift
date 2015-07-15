@@ -302,4 +302,18 @@ class ParseHelper{
         
     }
     
+    // MARK: containMethods
+    static func  parseContains( array:[PFObject], object: PFObject) -> Bool{
+        
+        for element in array {
+            if(element.objectId == object.objectId){
+                return true
+            }
+        }
+        
+        return false
+        
+    }
+
+    
 }

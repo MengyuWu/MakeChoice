@@ -12,6 +12,8 @@ class FriendSearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    var sendRequestAlertController:UIAlertController?
+    
     
     // all the users that match current search
     var users:[PFUser]?
@@ -147,7 +149,12 @@ extension FriendSearchViewController: UITableViewDataSource {
             
             // chekc if current user is already following displayed user
             
-           // cell.canFollow = !contains(friends, user)
+            //cell.canAdd = !contains(friends, user)
+            
+            cell.canAdd = !ParseHelper.parseContains(friends, object: user)
+            
+            println(" friend objectId: \(friends.first?.objectId) , user objectId: \(user.objectId) , friends contains user? \(contains(friends, user))")
+            
         }
         
         // when to set delegate?, when the cell is going to be displayed
@@ -161,10 +168,38 @@ extension FriendSearchViewController: UITableViewDataSource {
 // MARK: FriendSearchTableViewCell Delegate
 extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
     
-    //this delegate deal with object stored to server and delete from server
+    func sendRequest(alert: UIAlertAction!){
+        // store the new word
+        println("Send Request")
+       if let sendRequestAlertController=sendRequestAlertController{
+        if let requestTextFields=sendRequestAlertController.textFields as? [UITextField]{
+            var requestText=requestTextFields[0].text ?? ""
+            println("request info: \(requestText)")
+            
+        }
+        
+     }
+        
+}
+    
+    func addTextField(textField: UITextField!){
+        // add the text field and make the result global
+        textField.placeholder = "Enter something"
+       
+    }
+    
+    
     
     func cell(cell: FriendSearchTableViewCell, didSelectAddFriend user: PFUser){
        println("add friends button tapped")
+        sendRequestAlertController=UIAlertController(title: "Add Friend", message: "Enter request below", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        if let sendRequestAlertController=sendRequestAlertController{
+        sendRequestAlertController.addTextFieldWithConfigurationHandler(addTextField)
+        sendRequestAlertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        sendRequestAlertController.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.Default, handler: sendRequest))
+        self.presentViewController(sendRequestAlertController, animated: true, completion: nil)
+        }
     }
     
     

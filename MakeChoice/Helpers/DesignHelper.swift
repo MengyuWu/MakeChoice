@@ -18,7 +18,7 @@ class DesignHelper{
     }
     
     static func setImageCornerRadius(image:UIImageView){
-        image.layer.cornerRadius=8
+        //image.layer.cornerRadius=8
         image.clipsToBounds=true
     }
     
