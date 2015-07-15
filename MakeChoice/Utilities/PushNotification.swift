@@ -1,9 +1,9 @@
 //
 //  PushNotification.swift
-//  SwiftParseChat
 //
-//  Created by Jesse Hu on 2/22/15.
-//  Copyright (c) 2015 Jesse Hu. All rights reserved.
+//
+//
+//  Copyright (c) 2015 Mengyu Wu. All rights reserved.
 //
 
 import Foundation
@@ -41,6 +41,7 @@ class PushNotication {
         var installationQuery = PFInstallation.query()
         installationQuery?.whereKey(PF_INSTALLATION_USER, matchesKey: PF_MESSAGES_USER, inQuery: query)
         
+        
         var push = PFPush()
         push.setQuery(installationQuery)
         push.setMessage(text)
@@ -51,5 +52,8 @@ class PushNotication {
             }
         }
     }
+    
+    
+    
     
 }

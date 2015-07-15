@@ -41,8 +41,7 @@ class HomePostSectionHeaderView: UITableViewCell {
                             
                             let image = UIImage(data:data, scale: 1.0)!
                             self.usericon.image=image
-                            
-                            
+
                         }
 
                     }

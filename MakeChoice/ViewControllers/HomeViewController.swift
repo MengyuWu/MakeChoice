@@ -283,7 +283,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func commentButtonTapped(sender:UIButton!){
         
-        println("button tag \(sender.tag)")
+       // println("button tag \(sender.tag)")
         
         var postId:String?
         var tag=sender.tag
