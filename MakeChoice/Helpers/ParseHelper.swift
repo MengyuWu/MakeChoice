@@ -91,6 +91,21 @@ class ParseHelper{
     }
     
     
+    static func removeFriend(user:PFUser, completionBlock: PFArrayResultBlock){
+        let queryRelation1=PFQuery(className: PF_FRIEND_CLASS_NAME)
+        // delete relations
+        queryRelation1.whereKey(PF_FRIEND_FRIEND, equalTo: user)
+        
+        let queryRelation2=PFQuery(className: PF_FRIEND_CLASS_NAME)
+        queryRelation2.whereKey(PF_FRIEND_FRIEND, equalTo: PFUser.currentUser()!)
+        
+        let mainQuery=PFQuery.orQueryWithSubqueries([queryRelation1,queryRelation2])
+        mainQuery.findObjectsInBackgroundWithBlock(completionBlock)
+        
+    
+    }
+    
+    
     // MARK: Users
     
     /**
@@ -327,6 +342,23 @@ class ParseHelper{
         return false
         
     }
+    
+    static func parseGetObjectIndexFromArray( array:[PFObject], object: PFObject) -> Int{
+    
+        for (var index=0; index<array.count; index++) {
+            
+            println("\(array[index].objectId) , \(object.objectId)")
+            
+            if(array[index].objectId == object.objectId){
+                return index
+            }
+        }
+        
+        return -1
+        
+    }
+
+    
     
     // MARK: get userImage
     

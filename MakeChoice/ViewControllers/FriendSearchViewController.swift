@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ConvenienceKit
 
 class FriendSearchViewController: UIViewController {
 
@@ -154,7 +155,7 @@ extension FriendSearchViewController: UITableViewDataSource {
             
             cell.canAdd = !ParseHelper.parseContains(friends, object: user)
             
-            println(" friend objectId: \(friends.first?.objectId) , user objectId: \(user.objectId) , friends contains user? \(contains(friends, user))")
+        
             
         }
         
@@ -230,6 +231,32 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
         if var friends = friends {
           
             println("remove friends \(user.username)")
+            
+            ParseHelper.removeFriend(user){
+                (results:[AnyObject]?, error: NSError?) -> Void in
+                
+                if let results=results as? [PFObject]{
+                    
+                    for result in results{
+                        //should print error
+                        result.deleteInBackgroundWithBlock(nil)
+                    }
+                }
+                
+                    if error != nil {
+                        println("remove friend error\(error)")
+                    }
+                
+            }
+            // update local cache
+            
+           var index=ParseHelper.parseGetObjectIndexFromArray(self.friends!, object: user)
+            println("index \(index)")
+            if(index != -1){
+                self.friends?.removeAtIndex(index)
+                //self.friends=friends
+            }
+            
             
         }
         
