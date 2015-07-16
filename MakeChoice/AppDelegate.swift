@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.setApplicationId("woPlKhj8Dt6WVfev3I62IZ2ZFvlWPZUbbJg0o8rT", clientKey: "PVlVNH5HoD73mxJ97dcCQqPp7VlLNWCMLkd1DIiB")
         
-            PFUser.logInWithUsername("test", password: "test")
+            PFUser.logInWithUsername("test2", password: "test2")
         
             if let user=PFUser.currentUser(){
                 println("log in ")
@@ -62,7 +62,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+       
+        // clear up badgevalue, when app open
+        var currentInstallation=PFInstallation.currentInstallation()
+        if (currentInstallation.badge != 0) {
+            // clean it
+            currentInstallation.badge=0
+            currentInstallation.saveEventually()
+        }
+        
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {

@@ -183,6 +183,7 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
                 ParseHelper.saveAddFriendRequest(toUser, message: requestText){(success: Bool, error:NSError?) ->Void in
                     if success{
                         //send notification
+                    PushNotificationHelper.sendAddFriendRequesNotification(toUser)
                         println("save add friendRequest success!")
                     }
                     

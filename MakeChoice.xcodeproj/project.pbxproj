@@ -29,6 +29,7 @@
 		F7762A441B4D7A3D002CBAE7 /* MakeChoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A431B4D7A3D002CBAE7 /* MakeChoiceTests.swift */; };
 		F7762A4F1B4D8371002CBAE7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A4E1B4D8371002CBAE7 /* Constants.swift */; };
 		F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A551B4D965F002CBAE7 /* PostViewController.swift */; };
+		F785612D1B57F204003F4D0E /* PushNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785612C1B57F204003F4D0E /* PushNotificationHelper.swift */; };
 		F79478561B4F3DC80048765A /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79478551B4F3DC80048765A /* ParseHelper.swift */; };
 		F79478581B4F59DF0048765A /* HomePostSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79478571B4F59DF0048765A /* HomePostSectionHeaderView.swift */; };
 		F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDB11B555EC900815DDE /* CommentViewController.swift */; };
@@ -82,6 +83,7 @@
 		F7762A431B4D7A3D002CBAE7 /* MakeChoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeChoiceTests.swift; sourceTree = "<group>"; };
 		F7762A4E1B4D8371002CBAE7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F7762A551B4D965F002CBAE7 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		F785612C1B57F204003F4D0E /* PushNotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationHelper.swift; sourceTree = "<group>"; };
 		F79478551B4F3DC80048765A /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		F79478571B4F59DF0048765A /* HomePostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostSectionHeaderView.swift; sourceTree = "<group>"; };
 		F7E28DA11B4E0AF100C96837 /* MakeChoice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MakeChoice-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			children = (
 				F79478551B4F3DC80048765A /* ParseHelper.swift */,
 				F714426B1B51855500B93ED8 /* DesignHelper.swift */,
+				F785612C1B57F204003F4D0E /* PushNotificationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				F74EF7961B4EDF55003DB560 /* Post.swift in Sources */,
 				F70AECD61B5413D900497662 /* UserVoteDetailViewController.swift in Sources */,
 				F7762A4F1B4D8371002CBAE7 /* Constants.swift in Sources */,
+				F785612D1B57F204003F4D0E /* PushNotificationHelper.swift in Sources */,
 				F728A6C31B52D3CA006E4A7A /* YourPostsTableViewCell.swift in Sources */,
 				F7E4CDBC1B5576CB00815DDE /* Utilities.swift in Sources */,
 				F74EF79D1B4EE229003DB560 /* NSCacheSwift.swift in Sources */,
