@@ -85,4 +85,4 @@ let PF_FRIENDSREQUEST_CLASS_NAME	  = "FriendsRequest"    //	Class name
 let PF_FRIENDSREQUEST_FROMUSER        = "fromUser"			//	Pointer to User Class
 let PF_FRIENDSREQUEST_TOUSER          = "toUser"		    //	Pointer to User Class
 let PF_FRIENDSREQUEST_MESSAGE         = "message"            // String
-let PF_FRIENDSREQUEST_CREATEDAT        = "createdAt"			//	Date
+let PF_FRIENDSREQUEST_CREATEDAT       = "createdAt"			//	Date

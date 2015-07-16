@@ -28,6 +28,8 @@ class FriendRequestViewController: UIViewController {
                 
                 self.friendRequests=results as! [PFObject]
                 
+                
+                
                 self.tableView.reloadData()
                 
             }
@@ -62,7 +64,7 @@ class FriendRequestViewController: UIViewController {
 extension FriendRequestViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        println("num of request\(friendRequests.count)")
+       
         return friendRequests.count
        
     }
@@ -77,8 +79,9 @@ extension FriendRequestViewController: UITableViewDataSource{
        
         cell.user=user
         cell.message.text=request[PF_FRIENDSREQUEST_MESSAGE] as? String ?? ""
+        cell.time.text=request.createdAt?.shortTimeAgoSinceDate(NSDate()) ?? ""
         
-        
+
         return cell
         
     }

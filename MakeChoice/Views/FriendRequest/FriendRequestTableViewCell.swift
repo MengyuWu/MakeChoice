@@ -10,6 +10,7 @@ import UIKit
 
 class FriendRequestTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var time: UILabel!
     
     @IBOutlet weak var userImage: UIImageView!
     
@@ -32,7 +33,16 @@ class FriendRequestTableViewCell: UITableViewCell {
         
     }
     
+    @IBAction func acceptFriendButtonTapped(sender: AnyObject) {
+        println("accept")
+    }
 
+    
+    @IBAction func rejectFriendButtonTapped(sender: AnyObject) {
+        println("reject")
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

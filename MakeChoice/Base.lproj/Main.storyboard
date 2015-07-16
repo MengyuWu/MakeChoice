@@ -1059,9 +1059,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ROh-Za-T6Q" id="T2o-xu-16h">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qz7-5P-q01">
-                                                    <rect key="frame" x="-99" y="34" width="600" height="79.5"/>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="hB2-9l-iJS">
                                                     <rect key="frame" x="8" y="14" width="50" height="50"/>
                                                     <constraints>
@@ -1076,23 +1073,62 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd5-Qa-DgL">
-                                                    <rect key="frame" x="61" y="43.5" width="69.5" height="20.5"/>
+                                                    <rect key="frame" x="61" y="43" width="69.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-5w-5Qb">
+                                                    <rect key="frame" x="546" y="18" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="3pX-5w-5Qb" secondAttribute="height" multiplier="1:1" id="ONM-LI-Qqh"/>
+                                                        <constraint firstAttribute="height" constant="44" id="lg5-rl-O6m"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Reject">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="rejectFriendButtonTapped:" destination="ROh-Za-T6Q" eventType="touchUpInside" id="18K-uT-IYG"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkg-eN-MdD">
+                                                    <rect key="frame" x="108" y="14" width="33.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqg-19-GYW">
+                                                    <rect key="frame" x="494" y="18" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="qqg-19-GYW" secondAttribute="height" multiplier="1:1" id="bNf-j5-hHx"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Accept">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="acceptFriendButtonTapped:" destination="ROh-Za-T6Q" eventType="touchUpInside" id="uhy-qE-xx6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hB2-9l-iJS" firstAttribute="top" secondItem="6Li-UV-tTN" secondAttribute="top" id="32b-18-2re"/>
                                                 <constraint firstItem="6Li-UV-tTN" firstAttribute="leading" secondItem="hB2-9l-iJS" secondAttribute="trailing" constant="3" id="3n5-aa-hu6"/>
+                                                <constraint firstItem="3pX-5w-5Qb" firstAttribute="leading" secondItem="qqg-19-GYW" secondAttribute="trailing" constant="8" id="AxK-st-PKU"/>
+                                                <constraint firstAttribute="centerY" secondItem="qqg-19-GYW" secondAttribute="centerY" id="HHL-f7-lZ4"/>
                                                 <constraint firstItem="Jd5-Qa-DgL" firstAttribute="bottom" secondItem="hB2-9l-iJS" secondAttribute="bottom" id="Lor-09-UAu"/>
+                                                <constraint firstItem="Mkg-eN-MdD" firstAttribute="leading" secondItem="hB2-9l-iJS" secondAttribute="trailing" constant="50" id="Q8e-WL-Bj8"/>
                                                 <constraint firstItem="hB2-9l-iJS" firstAttribute="leading" secondItem="T2o-xu-16h" secondAttribute="leadingMargin" id="Tec-uN-0N6"/>
+                                                <constraint firstItem="qqg-19-GYW" firstAttribute="width" secondItem="3pX-5w-5Qb" secondAttribute="width" id="Uhd-aM-Xhn"/>
+                                                <constraint firstItem="Mkg-eN-MdD" firstAttribute="top" secondItem="hB2-9l-iJS" secondAttribute="top" id="VsG-uc-ret"/>
+                                                <constraint firstAttribute="centerY" secondItem="3pX-5w-5Qb" secondAttribute="centerY" id="cNc-9r-pry"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3pX-5w-5Qb" secondAttribute="trailing" constant="2" id="gjb-G2-NhD"/>
                                                 <constraint firstItem="Jd5-Qa-DgL" firstAttribute="leading" secondItem="hB2-9l-iJS" secondAttribute="trailing" constant="3" id="pXq-8V-Pbf"/>
                                                 <constraint firstAttribute="centerY" secondItem="hB2-9l-iJS" secondAttribute="centerY" id="q8R-RS-YJ3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="message" destination="Jd5-Qa-DgL" id="MT1-I0-sjt"/>
+                                            <outlet property="time" destination="Mkg-eN-MdD" id="HHp-LV-cfA"/>
                                             <outlet property="userImage" destination="hB2-9l-iJS" id="HJL-l2-2JG"/>
                                             <outlet property="username" destination="6Li-UV-tTN" id="cXN-8r-WUe"/>
                                         </connections>
@@ -1157,6 +1193,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Accept" width="170" height="170"/>
         <image name="Add" width="42" height="42"/>
         <image name="AddFile" width="42" height="42"/>
         <image name="Check" width="42" height="42"/>
@@ -1165,6 +1202,7 @@
         <image name="Heart" width="72" height="68"/>
         <image name="HeartSelected" width="72" height="68"/>
         <image name="Profile" width="70" height="70"/>
+        <image name="Reject" width="100" height="100"/>
         <image name="ThumbUp" width="128" height="128"/>
         <image name="Time" width="22" height="22"/>
         <image name="Vote" width="53" height="53"/>
