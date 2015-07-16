@@ -10,7 +10,11 @@ import UIKit
 
 class FriendRequestViewController: UIViewController {
     
-    var friendRequests:[PFObject]=[]
+    var friendRequests:[PFObject]=[]{
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -23,19 +27,12 @@ class FriendRequestViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         ParseHelper.getFriendsRequest{(results:[AnyObject]?, error: NSError?) -> Void in
-            
             if let results=results{
-                
                 self.friendRequests=results as! [PFObject]
-  
-                self.tableView.reloadData()
-                
             }
-            
             if (error != nil) {
                 println("error friend requests \(error)")
             }
- 
         }
     }
     
@@ -110,7 +107,15 @@ extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
                         }else{
                             //refresh requst list
                             println("refresh")
-                            self.tableView.reloadData()
+                            ParseHelper.getFriendsRequest{(results:[AnyObject]?, error: NSError?) -> Void in
+                                if let results=results{
+                                    self.friendRequests=results as! [PFObject]
+                                }
+                                if (error != nil) {
+                                    println("error friend requests \(error)")
+                                }
+                            }
+
                         }
                         
                     }
@@ -142,7 +147,15 @@ extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
                             //refresh requst list
                             //refresh requst list
                             println("refresh")
-                            self.tableView.reloadData()
+                            ParseHelper.getFriendsRequest{(results:[AnyObject]?, error: NSError?) -> Void in
+                                if let results=results{
+                                    self.friendRequests=results as! [PFObject]
+                                }
+                                if (error != nil) {
+                                    println("error friend requests \(error)")
+                                }
+                            }
+
                         }
                         
                     }
