@@ -878,27 +878,32 @@
                                                         <constraint firstAttribute="height" constant="50" id="zcO-0O-wlc"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6q-B1-qPD">
-                                                    <rect key="frame" x="523" y="13" width="54" height="54"/>
-                                                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
-                                                    <state key="normal" image="Add">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="selected" image="Check"/>
-                                                    <connections>
-                                                        <action selector="addFriendButtonTapped:" destination="roL-L4-krE" eventType="touchUpInside" id="ShN-iz-6JA"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9s-Up-W7y">
                                                     <rect key="frame" x="62" y="29" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6q-B1-qPD">
+                                                    <rect key="frame" x="533" y="18" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="j6q-B1-qPD" secondAttribute="height" multiplier="1:1" id="TCU-aZ-uo5"/>
+                                                        <constraint firstAttribute="height" constant="44" id="VgD-s1-Opp"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                    <state key="normal" image="Add">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="disabled" image="Pending"/>
+                                                    <state key="selected" image="Check"/>
+                                                    <connections>
+                                                        <action selector="addFriendButtonTapped:" destination="roL-L4-krE" eventType="touchUpInside" id="ShN-iz-6JA"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="8H8-G2-Bz8" secondAttribute="centerY" id="h70-OW-jiU"/>
-                                                <constraint firstAttribute="centerY" secondItem="j6q-B1-qPD" secondAttribute="centerY" constant="-0.25" id="jBP-ph-b8U"/>
+                                                <constraint firstAttribute="centerY" secondItem="j6q-B1-qPD" secondAttribute="centerY" id="jBP-ph-b8U"/>
                                                 <constraint firstItem="I9s-Up-W7y" firstAttribute="leading" secondItem="8H8-G2-Bz8" secondAttribute="trailing" constant="3" id="kLt-dz-hGs"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="j6q-B1-qPD" secondAttribute="trailing" constant="15" id="t4o-VO-6Gb"/>
                                                 <constraint firstAttribute="centerY" secondItem="I9s-Up-W7y" secondAttribute="centerY" id="ydM-tz-pEX"/>
@@ -1201,6 +1206,7 @@
         <image name="FriendsRequest" width="42" height="42"/>
         <image name="Heart" width="72" height="68"/>
         <image name="HeartSelected" width="72" height="68"/>
+        <image name="Pending" width="126" height="133"/>
         <image name="Profile" width="70" height="70"/>
         <image name="Reject" width="100" height="100"/>
         <image name="ThumbUp" width="128" height="128"/>

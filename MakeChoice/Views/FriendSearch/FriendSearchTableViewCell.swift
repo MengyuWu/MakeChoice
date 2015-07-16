@@ -29,6 +29,7 @@ class FriendSearchTableViewCell: UITableViewCell {
             if let canAdd=canAdd where canAdd == true{
                 delegate?.cell(self, didSelectAddFriend: user)
                 self.canAdd=false
+                self.addFriendButton.enabled=false
             }else{
                 delegate?.cell(self, didSelectRemoveFriend: user)
                 self.canAdd=true
