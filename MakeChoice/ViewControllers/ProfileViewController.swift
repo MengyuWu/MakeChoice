@@ -45,6 +45,14 @@ class ProfileViewController: UIViewController {
     
 
  @IBOutlet weak var requestButton: MIBadgeButton!
+ 
+    @IBAction func requestButtonTapped(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("friendRequestSegue", sender: self)
+        
+        //clean badge value
+        
+    }
     
     
     override func viewDidLoad() {
@@ -87,7 +95,7 @@ class ProfileViewController: UIViewController {
         self.userImage.backgroundColor=UIColor.whiteColor()
         
         //set add friends request badge value
-        ParseHelper.getNumberofFriendsRequest{ (results:[AnyObject]?, error:NSError?) -> Void in
+        ParseHelper.getFriendsRequest{ (results:[AnyObject]?, error:NSError?) -> Void in
             if let results=results{
                 var num=results.count
                 if (num != 0) {
@@ -107,6 +115,11 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if( segue.identifier=="friendRequestSegue"){
+            let friendRequstViewController = segue.destinationViewController as! FriendRequestViewController
+        }
+    }
 
     /*
     // MARK: - Navigation

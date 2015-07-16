@@ -40,6 +40,8 @@
 		F7E4CDBC1B5576CB00815DDE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDB71B5576CB00815DDE /* Utilities.swift */; };
 		F7E4CDBE1B5598C700815DDE /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDBD1B5598C700815DDE /* FriendSearchViewController.swift */; };
 		F7E4CDC11B55993300815DDE /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDC01B55993300815DDE /* FriendSearchTableViewCell.swift */; };
+		F7EAAB921B58180F009F838F /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAAB911B58180F009F838F /* FriendRequestTableViewCell.swift */; };
+		F7EAAB941B58182F009F838F /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAAB931B58182F009F838F /* FriendRequestViewController.swift */; };
 		F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5DAF1B5741D50014BBEA /* MIBadgeButton.swift */; };
 		F7FD5DB21B5741D50014BBEA /* MIBadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5DB01B5741D50014BBEA /* MIBadgeLabel.swift */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,8 @@
 		F7E4CDB71B5576CB00815DDE /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F7E4CDBD1B5598C700815DDE /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		F7E4CDC01B55993300815DDE /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
+		F7EAAB911B58180F009F838F /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
+		F7EAAB931B58182F009F838F /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 		F7FD5DAF1B5741D50014BBEA /* MIBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBadgeButton.swift; sourceTree = "<group>"; };
 		F7FD5DB01B5741D50014BBEA /* MIBadgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBadgeLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,6 +266,7 @@
 		F7762A511B4D8864002CBAE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F7EAAB901B5817DC009F838F /* FriendRequest */,
 				F7E4CDBF1B55991700815DDE /* FriendSearch */,
 				F728A6C11B52D3A0006E4A7A /* Profile */,
 				F74EF78F1B4EBF37003DB560 /* Home */,
@@ -281,6 +286,7 @@
 				F70AECDD1B54538300497662 /* FriendsListViewController.swift */,
 				F7E4CDB11B555EC900815DDE /* CommentViewController.swift */,
 				F7E4CDBD1B5598C700815DDE /* FriendSearchViewController.swift */,
+				F7EAAB931B58182F009F838F /* FriendRequestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +297,14 @@
 				F7E4CDC01B55993300815DDE /* FriendSearchTableViewCell.swift */,
 			);
 			path = FriendSearch;
+			sourceTree = "<group>";
+		};
+		F7EAAB901B5817DC009F838F /* FriendRequest */ = {
+			isa = PBXGroup;
+			children = (
+				F7EAAB911B58180F009F838F /* FriendRequestTableViewCell.swift */,
+			);
+			path = FriendRequest;
 			sourceTree = "<group>";
 		};
 		F7FD5DAE1B5741D50014BBEA /* MIBadgeButton */ = {
@@ -474,6 +488,8 @@
 				F728A6BE1B52C73E006E4A7A /* ProfileViewController.swift in Sources */,
 				F7762A2E1B4D7A3D002CBAE7 /* AppDelegate.swift in Sources */,
 				F7E4CDBA1B5576CB00815DDE /* Images.swift in Sources */,
+				F7EAAB941B58182F009F838F /* FriendRequestViewController.swift in Sources */,
+				F7EAAB921B58180F009F838F /* FriendRequestTableViewCell.swift in Sources */,
 				F7E4CDC11B55993300815DDE /* FriendSearchTableViewCell.swift in Sources */,
 				F70AECD41B5405A700497662 /* PostDetailViewController.swift in Sources */,
 				F79478561B4F3DC80048765A /* ParseHelper.swift in Sources */,
@@ -621,7 +637,7 @@
 				"SWIFT_INCLUDE_PATHS[arch=*]" = "";
 				"SWIFT_INSTALL_OBJC_HEADER[arch=*]" = YES;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "MakeChoice/MakeChoice-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Debug;
 		};

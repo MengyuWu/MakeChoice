@@ -315,11 +315,24 @@ class ParseHelper{
         
     }
     
+    // MARK: get userImage
     
-    //MARK: add Friends requests
-    static func getNumberofFriendsRequest(completionBlock: PFArrayResultBlock){
+    static func getUserImage(user: PFUser?, completionBlock: PFDataResultBlock){
+        if let user=user{
+        var imageFile=user[PF_USER_PICTURE] as? PFFile
+            if let imageFile=imageFile{
+                imageFile.getDataInBackgroundWithBlock(completionBlock)
+            }
+            
+        }
+    }
+    
+    
+    // MARK: add Friends requests
+    static func getFriendsRequest(completionBlock: PFArrayResultBlock){
         var query=PFQuery(className: PF_FRIENDSREQUEST_CLASS_NAME)
         query.whereKey(PF_FRIENDSREQUEST_TOUSER, equalTo: PFUser.currentUser()!)
+        query.includeKey(PF_FRIENDSREQUEST_FROMUSER)
         query.orderByDescending(PF_FRIENDSREQUEST_CREATEDAT)
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
