@@ -208,11 +208,21 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHi-pH-AvJ">
-                                <rect key="frame" x="279" y="217" width="42" height="21"/>
+                                <rect key="frame" x="279" y="217" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zy-1Y-hId" customClass="MIBadgeButton" customModule="MakeChoice" customModuleProvider="target">
+                                <rect key="frame" x="180" y="143.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gMN-52-eeQ"/>
+                                    <constraint firstAttribute="width" secondItem="2Zy-1Y-hId" secondAttribute="height" multiplier="1:1" id="gWN-Iq-Krp"/>
+                                </constraints>
+                                <state key="normal" image="FriendsRequest">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -233,13 +243,16 @@
                             <constraint firstItem="Xhj-ww-Tk6" firstAttribute="top" secondItem="I1R-0J-6Wh" secondAttribute="bottom" id="mkA-Zz-R2c"/>
                             <constraint firstItem="Xhj-ww-Tk6" firstAttribute="top" secondItem="qxO-nf-M1b" secondAttribute="bottom" id="p4V-JQ-zct"/>
                             <constraint firstItem="I1R-0J-6Wh" firstAttribute="centerX" secondItem="X7U-2b-xTX" secondAttribute="centerX" id="ru9-iW-CLE"/>
+                            <constraint firstItem="Eca-4J-BmJ" firstAttribute="leading" secondItem="2Zy-1Y-hId" secondAttribute="trailing" constant="40" id="sHN-hu-MoV"/>
                             <constraint firstItem="ZWd-jX-dUp" firstAttribute="leading" secondItem="agT-61-eID" secondAttribute="leadingMargin" constant="-16" id="whq-bJ-Nh7"/>
+                            <constraint firstItem="2Zy-1Y-hId" firstAttribute="centerY" secondItem="Eca-4J-BmJ" secondAttribute="centerY" id="xJi-m3-nN8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nhd-bT-XHy"/>
                     <connections>
                         <outlet property="FriendsContainerView" destination="qxO-nf-M1b" id="68s-PI-mTs"/>
                         <outlet property="YourPostsContainerView" destination="I1R-0J-6Wh" id="j11-6o-T9K"/>
+                        <outlet property="requestButton" destination="2Zy-1Y-hId" id="jMd-qq-SHE"/>
                         <outlet property="segmentedControl" destination="X7U-2b-xTX" id="Au8-Cc-J6u"/>
                         <outlet property="userImage" destination="Eca-4J-BmJ" id="zJn-gb-cxX"/>
                         <outlet property="username" destination="MHi-pH-AvJ" id="01Z-l5-Ocw"/>
@@ -1064,6 +1077,7 @@
         <image name="AddFile" width="42" height="42"/>
         <image name="Check" width="42" height="42"/>
         <image name="Comment" width="75" height="85"/>
+        <image name="FriendsRequest" width="42" height="42"/>
         <image name="Heart" width="72" height="68"/>
         <image name="HeartSelected" width="72" height="68"/>
         <image name="Profile" width="70" height="70"/>

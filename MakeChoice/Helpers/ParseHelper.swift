@@ -314,6 +314,26 @@ class ParseHelper{
         return false
         
     }
+    
+    
+    //MARK: add Friends requests
+    static func getNumberofFriendsRequest(completionBlock: PFArrayResultBlock){
+        var query=PFQuery(className: PF_FRIENDSREQUEST_CLASS_NAME)
+        query.whereKey(PF_FRIENDSREQUEST_TOUSER, equalTo: PFUser.currentUser()!)
+        query.orderByDescending(PF_FRIENDSREQUEST_CREATEDAT)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    static func saveAddFriendRequest(toUser:PFUser, message: String?,completionBlock: PFBooleanResultBlock){
+        
+        var request=PFObject(className: PF_FRIENDSREQUEST_CLASS_NAME)
+        request[PF_FRIENDSREQUEST_FROMUSER]=PFUser.currentUser()!
+        request[PF_FRIENDSREQUEST_TOUSER]=toUser
+        request[PF_FRIENDSREQUEST_MESSAGE]=message
+        
+        request.saveInBackgroundWithBlock(completionBlock)
+   
+    }
 
     
 }

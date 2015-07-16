@@ -39,6 +39,8 @@
 		F7E4CDBC1B5576CB00815DDE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDB71B5576CB00815DDE /* Utilities.swift */; };
 		F7E4CDBE1B5598C700815DDE /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDBD1B5598C700815DDE /* FriendSearchViewController.swift */; };
 		F7E4CDC11B55993300815DDE /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDC01B55993300815DDE /* FriendSearchTableViewCell.swift */; };
+		F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5DAF1B5741D50014BBEA /* MIBadgeButton.swift */; };
+		F7FD5DB21B5741D50014BBEA /* MIBadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5DB01B5741D50014BBEA /* MIBadgeLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		F7E4CDB71B5576CB00815DDE /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F7E4CDBD1B5598C700815DDE /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		F7E4CDC01B55993300815DDE /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
+		F7FD5DAF1B5741D50014BBEA /* MIBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBadgeButton.swift; sourceTree = "<group>"; };
+		F7FD5DB01B5741D50014BBEA /* MIBadgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBadgeLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 		F74EF79B1B4EE229003DB560 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F7FD5DAE1B5741D50014BBEA /* MIBadgeButton */,
 				F7E4CDB31B5576CB00815DDE /* PushNotification.swift */,
 				F7E4CDB41B5576CB00815DDE /* Camera.swift */,
 				F7E4CDB51B5576CB00815DDE /* Images.swift */,
@@ -283,6 +288,15 @@
 				F7E4CDC01B55993300815DDE /* FriendSearchTableViewCell.swift */,
 			);
 			path = FriendSearch;
+			sourceTree = "<group>";
+		};
+		F7FD5DAE1B5741D50014BBEA /* MIBadgeButton */ = {
+			isa = PBXGroup;
+			children = (
+				F7FD5DAF1B5741D50014BBEA /* MIBadgeButton.swift */,
+				F7FD5DB01B5741D50014BBEA /* MIBadgeLabel.swift */,
+			);
+			path = MIBadgeButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,11 +454,13 @@
 				F7E4CDB91B5576CB00815DDE /* Camera.swift in Sources */,
 				F7E4CDBB1B5576CB00815DDE /* Messages.swift in Sources */,
 				F7E4CDB81B5576CB00815DDE /* PushNotification.swift in Sources */,
+				F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */,
 				F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */,
 				F79478581B4F59DF0048765A /* HomePostSectionHeaderView.swift in Sources */,
 				F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */,
 				F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */,
 				F70AECDA1B54174F00497662 /* UserVoteDetailTableViewCell.swift in Sources */,
+				F7FD5DB21B5741D50014BBEA /* MIBadgeLabel.swift in Sources */,
 				F70AECDE1B54538300497662 /* FriendsListViewController.swift in Sources */,
 				F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */,
 				F714426C1B51855500B93ED8 /* DesignHelper.swift in Sources */,

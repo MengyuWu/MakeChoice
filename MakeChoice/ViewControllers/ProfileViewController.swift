@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var YourPostsContainerView: UIView!
@@ -42,15 +43,22 @@ class ProfileViewController: UIViewController {
     }
     
     
+
+ @IBOutlet weak var requestButton: MIBadgeButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //set badge value position, top right
+        self.requestButton.badgeEdgeInsets = UIEdgeInsetsMake(10, 0, 0, 15)
         
        }
     
     
     override func viewWillAppear(animated: Bool) {
         // Do any additional setup after loading the view.
-        var user:PFUser?=PFUser.currentUser()
+        
+       var user:PFUser?=PFUser.currentUser()
        self.username.text=user?.username ?? ""
         
         // get user image
@@ -75,9 +83,21 @@ class ProfileViewController: UIViewController {
             
         }
         
-        
         DesignHelper.setCircleImage(self.userImage)
         self.userImage.backgroundColor=UIColor.whiteColor()
+        
+        //set add friends request badge value
+        ParseHelper.getNumberofFriendsRequest{ (results:[AnyObject]?, error:NSError?) -> Void in
+            if let results=results{
+                var num=results.count
+                if (num != 0) {
+                    self.requestButton.badgeString="\(num)"
+                }else{
+                    self.requestButton.badgeString=nil
+                }
+            }
+            
+        }
         
 
     }

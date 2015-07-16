@@ -40,4 +40,5 @@ class DesignHelper{
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
     }
     
+    
 }

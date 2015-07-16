@@ -201,7 +201,7 @@ class CommentViewController: JSQMessagesViewController{
         }
         
         //TODO:modify notification
-        PushNotication.sendPushNotification(groupId, text: text)
+        //PushNotication.sendPushNotification(groupId, text: text)
 
         Messages.updateMessageCounter(groupId, lastMessage: text)
         

@@ -14,6 +14,7 @@ class FriendSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var sendRequestAlertController:UIAlertController?
     
+    var selectedUser:PFUser? //
     
     // all the users that match current search
     var users:[PFUser]?
@@ -168,6 +169,7 @@ extension FriendSearchViewController: UITableViewDataSource {
 // MARK: FriendSearchTableViewCell Delegate
 extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
     
+
     func sendRequest(alert: UIAlertAction!){
         // store the new word
         println("Send Request")
@@ -176,11 +178,26 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
             var requestText=requestTextFields[0].text ?? ""
             println("request info: \(requestText)")
             
+          // save the request to parse, and then send notification
+            if let toUser=self.selectedUser{
+                ParseHelper.saveAddFriendRequest(toUser, message: requestText){(success: Bool, error:NSError?) ->Void in
+                    if success{
+                        //send notification
+                        println("save add friendRequest success!")
+                    }
+                    
+                    if error != nil{
+                        println("save add friend Request error \(error)")
+                    }
+                    
+                }
+            }
+            
         }
         
      }
         
-}
+   }
     
     func addTextField(textField: UITextField!){
         // add the text field and make the result global
@@ -188,10 +205,11 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
        
     }
     
-    
-    
     func cell(cell: FriendSearchTableViewCell, didSelectAddFriend user: PFUser){
        println("add friends button tapped")
+        
+        self.selectedUser=user
+        
         sendRequestAlertController=UIAlertController(title: "Add Friend", message: "Enter request below", preferredStyle: UIAlertControllerStyle.Alert)
         
         if let sendRequestAlertController=sendRequestAlertController{
@@ -200,6 +218,9 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
         sendRequestAlertController.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.Default, handler: sendRequest))
         self.presentViewController(sendRequestAlertController, animated: true, completion: nil)
         }
+        
+        
+        
     }
     
     

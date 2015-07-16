@@ -79,3 +79,10 @@ let PF_VOTE_POSTID                      = "postId"					//	String
 let PF_VOTE_CREATEDAT                  = "createdAt"			       //	Date
 
 
+
+/* FriendsRequest */
+let PF_FRIENDSREQUEST_CLASS_NAME	  = "FriendsRequest"    //	Class name
+let PF_FRIENDSREQUEST_FROMUSER        = "fromUser"			//	Pointer to User Class
+let PF_FRIENDSREQUEST_TOUSER          = "toUser"		    //	Pointer to User Class
+let PF_FRIENDSREQUEST_MESSAGE         = "message"            // String
+let PF_FRIENDSREQUEST_CREATEDAT        = "createdAt"			//	Date
