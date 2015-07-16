@@ -77,6 +77,19 @@ class ParseHelper{
     }
     
     
+    static func addFriendFromUserToUser(fromUser:PFUser, toUser: PFUser){
+        
+        let friendRelation=PFObject(className: PF_FRIEND_CLASS_NAME)
+        friendRelation[PF_FRIEND_USER]=fromUser
+        friendRelation[PF_FRIEND_FRIEND]=toUser
+        friendRelation.saveInBackgroundWithBlock{(success:Bool, error:NSError?) -> Void in
+            if error != nil{
+                println("add friend error: \(error)")
+            }
+            
+        }
+    }
+    
     
     // MARK: Users
     
@@ -335,6 +348,15 @@ class ParseHelper{
         query.includeKey(PF_FRIENDSREQUEST_FROMUSER)
         query.orderByDescending(PF_FRIENDSREQUEST_CREATEDAT)
         query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    
+    static func removeFriendRequestFromUser(fromUser:PFUser, completionBlock:PFArrayResultBlock){
+        
+        var query=PFQuery(className: PF_FRIENDSREQUEST_CLASS_NAME)
+        query.whereKey(PF_FRIENDSREQUEST_FROMUSER, equalTo: fromUser)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+
     }
     
     static func saveAddFriendRequest(toUser:PFUser, message: String?,completionBlock: PFBooleanResultBlock){

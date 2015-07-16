@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol FriendRequestTableViewCellDelegate: class {
+    func cell(cell:FriendRequestTableViewCell, didSelectAcceptFriend user: PFUser)
+    func cell(cell:FriendRequestTableViewCell, didSelectRejectFriend user: PFUser)
+}
+
+
+
 class FriendRequestTableViewCell: UITableViewCell {
     
     @IBOutlet weak var time: UILabel!
@@ -32,14 +39,18 @@ class FriendRequestTableViewCell: UITableViewCell {
         }
         
     }
+    weak var delegate:FriendRequestTableViewCellDelegate?
     
     @IBAction func acceptFriendButtonTapped(sender: AnyObject) {
-        println("accept")
-    }
+         println("accept in cell")
+        self.delegate?.cell(self, didSelectAcceptFriend: self.user!)
+   }
 
     
     @IBAction func rejectFriendButtonTapped(sender: AnyObject) {
-        println("reject")
+         println("reject in cell")
+        self.delegate?.cell(self, didSelectRejectFriend: self.user!)
+        
     }
     
     

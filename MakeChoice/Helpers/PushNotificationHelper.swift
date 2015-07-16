@@ -38,5 +38,34 @@ class PushNotificationHelper{
     }
 
     
+    class func sendFriendRequesResponseNotification(toUser:PFUser, choice:Int) {
+        
+        var installationQuery = PFInstallation.query()
+        // since one user may have several devices
+        installationQuery?.whereKey(PF_INSTALLATION_USER, equalTo:toUser)
+        
+        var push = PFPush()
+        push.setQuery(installationQuery)
+        var username=PFUser.currentUser()?.username ?? ""
+        var text=""
+        if (choice==1) {
+          text="\(username) accept your friend request!"
+        }else if (choice==2) {
+          text="\(username) reject your friend request!"
+        }
+        push.setMessage(text)
+        
+        push.sendPushInBackgroundWithBlock { (success: Bool, error: NSError? ) -> Void in
+            if success {
+                println("accept friend push in background success")
+            }
+            if error != nil {
+                // println(error)
+                println("sendPushNotification error")
+            }
+        }
+    }
+
+    
     
 }

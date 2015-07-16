@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.setApplicationId("woPlKhj8Dt6WVfev3I62IZ2ZFvlWPZUbbJg0o8rT", clientKey: "PVlVNH5HoD73mxJ97dcCQqPp7VlLNWCMLkd1DIiB")
         
-            PFUser.logInWithUsername("test", password: "test")
+            PFUser.logInWithUsername("test2", password: "test2")
         
             if let user=PFUser.currentUser(){
                 println("log in ")

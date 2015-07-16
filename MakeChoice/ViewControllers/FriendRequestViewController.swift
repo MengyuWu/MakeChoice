@@ -17,7 +17,7 @@ class FriendRequestViewController: UIViewController {
         super.viewDidLoad()
      self.tableView.dataSource=self
      self.tableView.delegate=self
-        
+     
         
     }
 
@@ -27,9 +27,7 @@ class FriendRequestViewController: UIViewController {
             if let results=results{
                 
                 self.friendRequests=results as! [PFObject]
-                
-                
-                
+  
                 self.tableView.reloadData()
                 
             }
@@ -80,7 +78,7 @@ extension FriendRequestViewController: UITableViewDataSource{
         cell.user=user
         cell.message.text=request[PF_FRIENDSREQUEST_MESSAGE] as? String ?? ""
         cell.time.text=request.createdAt?.shortTimeAgoSinceDate(NSDate()) ?? ""
-        
+        cell.delegate=self
 
         return cell
         
@@ -89,5 +87,76 @@ extension FriendRequestViewController: UITableViewDataSource{
 }
 
 extension FriendRequestViewController:UITableViewDelegate{
+    
+    
+}
+
+extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
+    func cell(cell:FriendRequestTableViewCell, didSelectAcceptFriend user: PFUser){
+        
+        println("accept")
+        
+        //add friend relationship, check whether they are friend, if they are friend doesn't need to add again
+       ParseHelper.addFriendFromUserToUser(PFUser.currentUser()!, toUser:user)
+       ParseHelper.addFriendFromUserToUser(user, toUser:PFUser.currentUser()!)
+        
+        // remove all the request from selected user, from parse
+        ParseHelper.removeFriendRequestFromUser(user){ (results: [AnyObject]?, error: NSError?) -> Void in
+            if let results=results as? [PFObject]{
+                for result in results{
+                    result.deleteInBackgroundWithBlock{ (success:Bool, error: NSError?) -> Void in
+                        if error != nil{
+                            println("delete request error\(error)")
+                        }else{
+                            //refresh requst list
+                            println("refresh")
+                            self.tableView.reloadData()
+                        }
+                        
+                    }
+                }
+                
+            }
+            
+        }
+  
+        
+        //push accept notification
+    PushNotificationHelper.sendFriendRequesResponseNotification(user, choice: 1)
+      
+
+    }
+    
+    
+    func cell(cell:FriendRequestTableViewCell, didSelectRejectFriend user: PFUser){
+        println("reject")
+        
+        // remove all the request from selected user, from parse
+        ParseHelper.removeFriendRequestFromUser(user){ (results: [AnyObject]?, error: NSError?) -> Void in
+            if let results=results as? [PFObject]{
+                for result in results{
+                    result.deleteInBackgroundWithBlock{ (success:Bool, error: NSError?) -> Void in
+                        if error != nil{
+                            println("delete request error\(error)")
+                        }else{
+                            //refresh requst list
+                            //refresh requst list
+                            println("refresh")
+                            self.tableView.reloadData()
+                        }
+                        
+                    }
+                }
+                
+            }
+ 
+        }
+        
+        //push accept notification
+       
+        PushNotificationHelper.sendFriendRequesResponseNotification(user, choice: 2)
+       
+
+    }
     
 }
