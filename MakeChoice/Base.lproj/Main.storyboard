@@ -200,7 +200,7 @@
                                     <constraint firstAttribute="height" constant="200" id="yAc-AA-K15"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-4J-BmJ">
+                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-4J-BmJ">
                                 <rect key="frame" x="260" y="124" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Eca-4J-BmJ" secondAttribute="height" multiplier="1:1" id="CKj-3A-P4f"/>

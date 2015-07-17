@@ -128,6 +128,8 @@ class ProfileViewController: UIViewController {
                 self.userImage.image=UIImage(named: "Profile")
             }
             
+            DesignHelper.setImageClipsToBounds(self.userImage)
+            
         }
         
         DesignHelper.setCircleImage(self.userImage)
