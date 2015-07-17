@@ -10,6 +10,7 @@ import Foundation
 import FBSDKCoreKit
 import Parse
 import ParseUI
+import Alamofire
 
 typealias ParseLoginHelperCallback = (PFUser?, NSError?) -> Void
 
@@ -51,6 +52,49 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
           if let fbUsername = result?["name"] as? String {
             // assign Facebook name to PFUser
             user.username = fbUsername
+            
+            //TODO: assign Facebook image to it
+            
+            if let userData=result as? [String: AnyObject]{
+                let facebookUserId = userData["id"] as! String
+                var link = "http://graph.facebook.com/\(facebookUserId)/picture"
+                let url = NSURL(string: link)
+                var request = NSURLRequest(URL: url!)
+                let params = ["height": "200", "width": "200", "type": "square"]
+                
+                Alamofire.request(.GET, link, parameters: params).response() {
+                    (request, response, data, error) in
+                    
+                    if ( error != nil ) {
+                        self.callback(nil,error)
+                    }else{
+                        var image=UIImage(data:data as! NSData)
+                        if var image=image{
+                        if image.size.width>280{
+                            println("image with >280")
+                            image=Images.resizeImage(image, width: 280, height: 280)!
+                          }
+                            
+                            var filePicture = PFFile(name: "userpicture.jpg", data: UIImageJPEGRepresentation(image, 0.6))
+                            
+                            //user[PF_USER_EMAIL]=userData["email"]
+                            //var email=userData["email"]  as! String
+                            //println("\(email)")
+                            user[PF_USER_PICTURE]=filePicture
+  
+                        }
+                    }
+                    
+                    
+                    
+                }
+                
+            }
+            
+            
+            
+            
+            
             // store PFUser
             user.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
               if (success) {
