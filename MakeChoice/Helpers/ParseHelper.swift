@@ -90,6 +90,14 @@ class ParseHelper{
         }
     }
     
+    static func hasFriendRelation(user1: PFUser, user2: PFUser, completionBlock: PFArrayResultBlock){
+        
+        let query=PFQuery(className: PF_FRIEND_CLASS_NAME)
+        query.whereKey(PF_FRIEND_USER, equalTo: user1)
+        query.whereKey(PF_FRIEND_FRIEND, equalTo: user2)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+        
+    }
     
     static func removeFriend(user:PFUser, completionBlock: PFArrayResultBlock){
         let queryRelation1=PFQuery(className: PF_FRIEND_CLASS_NAME)

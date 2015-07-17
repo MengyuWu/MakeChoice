@@ -225,7 +225,7 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
         
     }
     
-    
+    // MARK: NEED TO REMOVE LATER!
     func cell(cell: FriendSearchTableViewCell, didSelectRemoveFriend user: PFUser){
         
         if var friends = friends {

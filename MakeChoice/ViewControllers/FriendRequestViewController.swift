@@ -94,8 +94,22 @@ extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
         println("accept")
         
         //add friend relationship, check whether they are friend, if they are friend doesn't need to add again
-       ParseHelper.addFriendFromUserToUser(PFUser.currentUser()!, toUser:user)
-       ParseHelper.addFriendFromUserToUser(user, toUser:PFUser.currentUser()!)
+        
+        ParseHelper.hasFriendRelation(PFUser.currentUser()!, user2: user){
+            (results:[AnyObject]?, error: NSError?) -> Void in
+            
+            if let results=results{
+                if results.count>0 {
+                    println("already added!")
+                }else{
+                    ParseHelper.addFriendFromUserToUser(PFUser.currentUser()!, toUser:user)
+                    ParseHelper.addFriendFromUserToUser(user, toUser:PFUser.currentUser()!)
+                }
+            }
+            
+        }
+        
+      
         
         // remove all the request from selected user, from parse
         ParseHelper.removeFriendRequestFromUser(user){ (results: [AnyObject]?, error: NSError?) -> Void in
