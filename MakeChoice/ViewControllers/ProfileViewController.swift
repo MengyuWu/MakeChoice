@@ -73,7 +73,9 @@ class ProfileViewController: UIViewController {
         loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
         loginViewController.delegate = parseLoginHelper
         loginViewController.signUpController?.delegate = parseLoginHelper
+        
         loginViewController.logInView?.logo?.hidden=true
+        loginViewController.signUpController?.signUpView?.logo?.hidden=true
         
         self.presentViewController(loginViewController, animated: true, completion: nil)
         

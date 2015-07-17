@@ -93,6 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             loginViewController.signUpController?.delegate = parseLoginHelper
             
             loginViewController.logInView?.logo?.hidden=true
+            loginViewController.signUpController?.signUpView?.logo?.hidden=true
+            
             startViewController = loginViewController
         }
         
