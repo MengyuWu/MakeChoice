@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import Parse
+import ParseUI
+import ParseFacebookUtilsV4
 
 class ProfileViewController: UIViewController {
     
@@ -21,6 +23,9 @@ class ProfileViewController: UIViewController {
     
   
     @IBOutlet weak var username: UILabel!
+    
+    var parseLoginHelper: ParseLoginHelper!
+    
     
 
     @IBAction func indexChanged(sender: AnyObject) {
@@ -41,9 +46,25 @@ class ProfileViewController: UIViewController {
         
         
     }
-    
-    
+ 
 
+@IBAction func logoutButtonTapped(sender: AnyObject) {
+    println("logout button ")
+    
+    PFUser.logOut()
+    self.goToLogin()
+    
+    }
+    
+    func goToLogin(){
+        let loginViewController = PFLogInViewController()
+        loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+        loginViewController.delegate = parseLoginHelper
+        loginViewController.signUpController?.delegate = parseLoginHelper
+        self.presentViewController(loginViewController, animated: true, completion: nil)
+        
+    }
+    
  @IBOutlet weak var requestButton: MIBadgeButton!
  
     @IBAction func requestButtonTapped(sender: AnyObject) {
@@ -60,8 +81,26 @@ class ProfileViewController: UIViewController {
         //set badge value position, top right
         self.requestButton.badgeEdgeInsets = UIEdgeInsetsMake(10, 0, 0, 15)
         
-       }
+        // LOGOUT
+        parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
+            // Initialize the ParseLoginHelper with a callback
+            if let error = error {
+                // 1
+                // ErrorHandling.defaultErrorHandler(error)
+                println(error)
+            } else  if let user = user {
+                // if login was successful, display the TabBarController
+                // 2
+                println("login user \(user)")
+                
+                // if login again, dismiss the login view
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        
+ }
     
+   
     
     override func viewWillAppear(animated: Bool) {
         // Do any additional setup after loading the view.

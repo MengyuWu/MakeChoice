@@ -37,7 +37,7 @@
                                 <rect key="frame" x="301" y="174" width="283" height="378"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mg6-Jp-ZE9">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mg6-Jp-ZE9">
                                 <rect key="frame" x="421" y="342" width="42" height="42"/>
                                 <state key="normal" image="AddFile">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="private:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpA-BL-ltX">
-                                <rect key="frame" x="20" y="137" width="57" height="21"/>
+                                <rect key="frame" x="20" y="137" width="57" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                                     <action selector="PostPressed:" destination="xZZ-sl-32e" eventType="touchUpInside" id="xgv-Mj-YP0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciL-jl-Zpd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciL-jl-Zpd">
                                 <rect key="frame" x="136" y="342" width="42" height="42"/>
                                 <state key="normal" image="AddFile">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -251,7 +251,13 @@
                             <constraint firstItem="2Zy-1Y-hId" firstAttribute="centerY" secondItem="Eca-4J-BmJ" secondAttribute="centerY" id="xJi-m3-nN8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Nhd-bT-XHy"/>
+                    <navigationItem key="navigationItem" id="Nhd-bT-XHy">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Fpt-2S-zs7">
+                            <connections>
+                                <action selector="logoutButtonTapped:" destination="Vit-Aw-DCu" id="wqe-vT-a2Y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="FriendsContainerView" destination="qxO-nf-M1b" id="68s-PI-mTs"/>
                         <outlet property="YourPostsContainerView" destination="I1R-0J-6Wh" id="j11-6o-T9K"/>
