@@ -29,13 +29,15 @@ class FriendsListViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        println("friends list view will appear")
         ParseHelper.allFriends{ (results:[AnyObject]?, error: NSError?) -> Void in
             if let results = results as? [PFObject]{
                 if results.count>0 {
                 self.friends=results.map{$0[PF_FRIEND_FRIEND] as! PFUser}
                 println("friends in view will apper: \(self.friends.count)")
-                self.tableView.reloadData()
+                }else{
+                    // if no friend
+                    self.friends=[]
                 }
             }
             

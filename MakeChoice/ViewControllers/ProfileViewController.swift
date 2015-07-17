@@ -40,6 +40,7 @@ class ProfileViewController: UIViewController {
             NSLog("your friends")
             YourPostsContainerView.hidden=true
             FriendsContainerView.hidden=false
+            
         default:
             break;
         }
