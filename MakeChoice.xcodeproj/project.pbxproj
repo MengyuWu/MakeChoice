@@ -17,6 +17,7 @@
 		F728A6BE1B52C73E006E4A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */; };
 		F728A6C01B52D37E006E4A7A /* YourPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */; };
 		F728A6C31B52D3CA006E4A7A /* YourPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6C21B52D3CA006E4A7A /* YourPostsTableViewCell.swift */; };
+		F72D87F81B594ED500519136 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D87F71B594ED500519136 /* ParseLoginHelper.swift */; };
 		F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */; };
 		F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */; };
 		F74EF7961B4EDF55003DB560 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7951B4EDF55003DB560 /* Post.swift */; };
@@ -69,6 +70,7 @@
 		F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsViewController.swift; sourceTree = "<group>"; };
 		F728A6C21B52D3CA006E4A7A /* YourPostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsTableViewCell.swift; sourceTree = "<group>"; };
+		F72D87F71B594ED500519136 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostTableViewCell.swift; sourceTree = "<group>"; };
 		F74EF7951B4EDF55003DB560 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		F7762A501B4D8864002CBAE7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F72D87F71B594ED500519136 /* ParseLoginHelper.swift */,
 				F79478551B4F3DC80048765A /* ParseHelper.swift */,
 				F714426B1B51855500B93ED8 /* DesignHelper.swift */,
 				F785612C1B57F204003F4D0E /* PushNotificationHelper.swift */,
@@ -478,6 +481,7 @@
 				F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */,
 				F70AECDA1B54174F00497662 /* UserVoteDetailTableViewCell.swift in Sources */,
 				F7FD5DB21B5741D50014BBEA /* MIBadgeLabel.swift in Sources */,
+				F72D87F81B594ED500519136 /* ParseLoginHelper.swift in Sources */,
 				F70AECDE1B54538300497662 /* FriendsListViewController.swift in Sources */,
 				F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */,
 				F714426C1B51855500B93ED8 /* DesignHelper.swift in Sources */,

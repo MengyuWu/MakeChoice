@@ -8,24 +8,48 @@
 
 import UIKit
 import Parse
+import ParseUI
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var parseLoginHelper: ParseLoginHelper!
+    
+    override init() {
+        super.init()
+        
+        parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
+            // Initialize the ParseLoginHelper with a callback
+            if let error = error {
+                // 1
+               // ErrorHandling.defaultErrorHandler(error)
+                println(error)
+            } else  if let user = user {
+                // if login was successful, display the TabBarController
+                // 2
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
+                // 3
+                self.window?.rootViewController!.presentViewController(tabBarController, animated:true, completion:nil)
+            }
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Parse.setApplicationId("woPlKhj8Dt6WVfev3I62IZ2ZFvlWPZUbbJg0o8rT", clientKey: "PVlVNH5HoD73mxJ97dcCQqPp7VlLNWCMLkd1DIiB")
-        
-            PFUser.logInWithUsername("test2", password: "test2")
-        
-            if let user=PFUser.currentUser(){
-                println("log in ")
-            }else {
-                println("not logged")
-            }
+ 
+        //testing logging code
+//            PFUser.logInWithUsername("test2", password: "test2")
+//        
+//            if let user=PFUser.currentUser(){
+//                println("log in ")
+//            }else {
+//                println("not logged")
+//            }
 
         
         
@@ -43,8 +67,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotificationTypes(.Alert | .Badge | .Sound)
         }
         
+        // MARK: LOGIN
         
-        return true
+        // Initialize Facebook
+        // 1
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
+        // check if we have logged in user
+        // 2
+        let user = PFUser.currentUser()
+        
+        let startViewController: UIViewController;
+        
+        if (user != nil) {
+            // 3
+            // if we have a user, set the TabBarController to be the initial View Controller
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+        } else {
+            // 4
+            // Otherwise set the LoginViewController to be the first
+            let loginViewController = PFLogInViewController()
+            loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+            loginViewController.delegate = parseLoginHelper
+            loginViewController.signUpController?.delegate = parseLoginHelper
+            
+            startViewController = loginViewController
+        }
+        
+        // 5
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = startViewController;
+        self.window?.makeKeyAndVisible()
+        
+        
+        //return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -63,6 +122,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
        
+        // facebook integartion
+        FBSDKAppEvents.activateApp()
+        
         // clear up badgevalue, when app open
         var currentInstallation=PFInstallation.currentInstallation()
         if (currentInstallation.badge != 0) {
@@ -74,6 +136,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
 
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
