@@ -22,6 +22,9 @@ class DesignHelper{
         image.clipsToBounds=true
     }
     
+    static func setImageClipsToBounds(image:UIImageView){
+        image.clipsToBounds=true
+    }
     
     static func showImageHideButton(image:UIImageView, button:UIButton){
         image.alpha=1

@@ -761,12 +761,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COL-no-Tbt">
                                 <rect key="frame" x="18" y="0.0" width="564" height="160"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-ee-1bz">
-                                        <rect key="frame" x="316" y="0.0" width="246" height="160"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-ee-1bz">
+                                        <rect key="frame" x="287" y="0.0" width="275" height="160"/>
                                         <color key="backgroundColor" red="0.78823529410000004" green="0.83137254900000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lfa-Hd-Brb">
-                                        <rect key="frame" x="60" y="0.0" width="246" height="160"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lfa-Hd-Brb">
+                                        <rect key="frame" x="2" y="0.0" width="275" height="160"/>
                                         <color key="backgroundColor" red="0.85098039219999999" green="0.8980392157" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lfa-Hd-Brb" secondAttribute="height" multiplier="3:4" id="qta-go-scU"/>
@@ -787,7 +787,7 @@
                                     <constraint firstItem="lfa-Hd-Brb" firstAttribute="top" secondItem="COL-no-Tbt" secondAttribute="top" id="Ehk-Mu-B39"/>
                                     <constraint firstAttribute="bottom" secondItem="lfa-Hd-Brb" secondAttribute="bottom" id="QYD-Cz-2iT"/>
                                     <constraint firstItem="lfa-Hd-Brb" firstAttribute="width" secondItem="ThB-ee-1bz" secondAttribute="width" id="nzb-ar-dDu"/>
-                                    <constraint firstItem="lfa-Hd-Brb" firstAttribute="leading" secondItem="COL-no-Tbt" secondAttribute="leading" constant="60" id="tGk-r7-ecA"/>
+                                    <constraint firstItem="lfa-Hd-Brb" firstAttribute="leading" secondItem="COL-no-Tbt" secondAttribute="leading" constant="2" id="tGk-r7-ecA"/>
                                     <constraint firstItem="ThB-ee-1bz" firstAttribute="leading" secondItem="lfa-Hd-Brb" secondAttribute="trailing" constant="10" id="wun-Zx-n7d"/>
                                 </constraints>
                             </view>
