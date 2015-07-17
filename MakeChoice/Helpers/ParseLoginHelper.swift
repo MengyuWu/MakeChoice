@@ -56,6 +56,7 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
             //TODO: assign Facebook image to it
             
             if let userData=result as? [String: AnyObject]{
+
                 let facebookUserId = userData["id"] as! String
                 var link = "http://graph.facebook.com/\(facebookUserId)/picture"
                 let url = NSURL(string: link)
@@ -75,37 +76,42 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
                             image=Images.resizeImage(image, width: 280, height: 280)!
                           }
                             
-                            var filePicture = PFFile(name: "userpicture.jpg", data: UIImageJPEGRepresentation(image, 0.6))
+                           
+                            var imageData=UIImageJPEGRepresentation(image, 0.8)
                             
-                            //user[PF_USER_EMAIL]=userData["email"]
-                            //var email=userData["email"]  as! String
-                            //println("\(email)")
+                            var filePicture = PFFile(data: imageData)
+                           
+                            filePicture.saveInBackgroundWithBlock{
+                                (success: Bool, error: NSError?) -> Void in
+                                if success {
+                                    println("saveImage")
+                                }
+                                if error != nil {
+                                    println("error \(error)")
+                                }
+                            }
+                            
                             user[PF_USER_PICTURE]=filePicture
+                            // store PFUser after image is saved
+                            user.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                                if (success) {
+                                    // updated username could be stored -> call success
+                                    self.callback(user, error)
+                                } else {
+                                    // updating username failed -> hand error to callback
+                                    self.callback(nil, error)
+                                }
+                            })
+
   
                         }
                     }
-                    
-                    
-                    
+   
                 }
                 
             }
             
-            
-            
-            
-            
-            // store PFUser
-            user.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-              if (success) {
-                // updated username could be stored -> call success
-                self.callback(user, error)
-              } else {
-                // updating username failed -> hand error to callback
-                self.callback(nil, error)
-              }
-            })
-          } else {
+ } else {
             // cannot retrieve username? -> create error and hand it to callback
             let userInfo = [NSLocalizedDescriptionKey : ParseLoginHelper.usernameNotFoundLocalizedDescription]
             let noUsernameError = NSError(
