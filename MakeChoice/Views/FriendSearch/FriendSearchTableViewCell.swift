@@ -30,6 +30,7 @@ class FriendSearchTableViewCell: UITableViewCell {
                 delegate?.cell(self, didSelectAddFriend: user)
                 self.canAdd=false
                 self.addFriendButton.enabled=false
+                
             }else{
                 delegate?.cell(self, didSelectRemoveFriend: user)
                 self.canAdd=true
@@ -73,7 +74,7 @@ class FriendSearchTableViewCell: UITableViewCell {
             it is possible to follow a user.
             */
             if let canAdd = canAdd {
-                addFriendButton.selected = !canAdd // canfollow means that it is not selected
+                addFriendButton.enabled = canAdd
             }
         }
         
