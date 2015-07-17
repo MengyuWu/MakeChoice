@@ -69,6 +69,7 @@ let PF_POST_TITLE                      = "title"			     //	String
 let PF_POST_IMAGE1FILE                 = "image1File"			       //	File
 let PF_POST_IMAGE2FILE                 = "image2File"			       //	File
 let PF_POST_CREATEDAT                  = "createdAt"			       //	Date
+let PF_POST_UPDATEDAT                  = "updatedAt"			       //	Date
 
 
 /* Vote */

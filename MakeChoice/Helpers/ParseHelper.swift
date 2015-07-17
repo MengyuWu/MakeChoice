@@ -56,7 +56,7 @@ class ParseHelper{
         if let query=query{
             query.whereKey(PF_POST_POSTER, equalTo: PFUser.currentUser()!)
             query.includeKey(PF_POST_POSTER)
-            query.orderByDescending(PF_POST_CREATEDAT)
+            query.orderByDescending(PF_POST_UPDATEDAT)
             
             //only show some range not all
             query.skip = range.startIndex

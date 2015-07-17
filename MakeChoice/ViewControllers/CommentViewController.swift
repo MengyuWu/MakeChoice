@@ -14,7 +14,8 @@ import JSQMessagesViewController
 class CommentViewController: JSQMessagesViewController{
     
     var groupId:String="" // groupId is eaqual to postId
-
+    var post:Post?
+    
     var timer: NSTimer = NSTimer()
     var isLoading: Bool = false
     var users = [PFUser]()
@@ -200,8 +201,10 @@ class CommentViewController: JSQMessagesViewController{
             }
         }
         
-        //TODO:modify notification
-        //PushNotication.sendPushNotification(groupId, text: text)
+        //pushNotification, if currentuser is not poster, push notification
+        if(post?.poster?.objectId != PFUser.currentUser()?.objectId){
+             PushNotificationHelper.sendCommentNotification(post?.poster)
+        }
 
         Messages.updateMessageCounter(groupId, lastMessage: text)
         
