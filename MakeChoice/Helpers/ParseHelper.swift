@@ -103,9 +103,11 @@ class ParseHelper{
         let queryRelation1=PFQuery(className: PF_FRIEND_CLASS_NAME)
         // delete relations
         queryRelation1.whereKey(PF_FRIEND_FRIEND, equalTo: user)
+        queryRelation1.whereKey(PF_FRIEND_USER, equalTo: PFUser.currentUser()!)
         
         let queryRelation2=PFQuery(className: PF_FRIEND_CLASS_NAME)
         queryRelation2.whereKey(PF_FRIEND_FRIEND, equalTo: PFUser.currentUser()!)
+        queryRelation2.whereKey(PF_FRIEND_USER, equalTo:user)
         
         let mainQuery=PFQuery.orQueryWithSubqueries([queryRelation1,queryRelation2])
         mainQuery.findObjectsInBackgroundWithBlock(completionBlock)

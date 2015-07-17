@@ -12,7 +12,11 @@ class FriendsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var friends:[PFUser]=[]
+    var friends:[PFUser]=[]{
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,5 +84,49 @@ extension FriendsListViewController:UITableViewDataSource{
 }
 
 extension FriendsListViewController:UITableViewDelegate{
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if (editingStyle == .Delete) {
+            
+            print("swipe delete")
+            
+            let friend=self.friends[indexPath.row]
+            
+            ParseHelper.removeFriend(friend){
+                (results:[AnyObject]?, error: NSError?) -> Void in
+                
+                if let results=results as? [PFObject]{
+                    
+                    for result in results{
+                        //should print error
+                        result.deleteInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
+                            if error != nil{
+                                 println("remove friend error1\(error)")
+                            }
+                        }
+                    }
+                }
+                
+                if error != nil {
+                    println("remove friend error2\(error)")
+                }
+                
+            }
+
+      var index=ParseHelper.parseGetObjectIndexFromArray(self.friends, object: friend)
+            println("index \(index)")
+            if(index != -1){
+                self.friends.removeAtIndex(index)
+                //self.friends=friends
+            }
+
+            
+        }
+        
+    }
+
 }
