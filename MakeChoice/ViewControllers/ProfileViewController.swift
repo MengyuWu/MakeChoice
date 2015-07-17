@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var YourPostsContainerView: UIView!
     
     @IBOutlet weak var FriendsContainerView: UIView!
+    var friendsVC: FriendsListViewController?
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -36,10 +37,20 @@ class ProfileViewController: UIViewController {
             NSLog("Your post")
             YourPostsContainerView.hidden=false
             FriendsContainerView.hidden=true
+            //YourPostsContainerView.setNeedsDisplay()
         case 1:
             NSLog("your friends")
             YourPostsContainerView.hidden=true
             FriendsContainerView.hidden=false
+        
+            if self.friendsVC == nil{
+                println("nil")
+            }
+            
+          //  self.friendsVC?.tableView.reloadData()
+          //  self.friendsVC?.view.setNeedsDisplay()
+            //FriendsContainerView.setNeedsDisplay()
+            
             
         default:
             break;
@@ -62,6 +73,8 @@ class ProfileViewController: UIViewController {
         loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
         loginViewController.delegate = parseLoginHelper
         loginViewController.signUpController?.delegate = parseLoginHelper
+        loginViewController.logInView?.logo?.hidden=true
+        
         self.presentViewController(loginViewController, animated: true, completion: nil)
         
     }
@@ -160,6 +173,10 @@ class ProfileViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if( segue.identifier=="friendRequestSegue"){
             let friendRequstViewController = segue.destinationViewController as! FriendRequestViewController
+        }
+        if( segue.identifier=="FriendListSegue"){
+            println("friendlistsegue")
+            self.friendsVC = segue.destinationViewController as? FriendsListViewController
         }
     }
 

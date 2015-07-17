@@ -179,13 +179,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxO-nf-M1b" userLabel="FriendsContainerView">
                                 <rect key="frame" x="0.0" y="292" width="600" height="259"/>
                                 <connections>
-                                    <segue destination="06f-z5-tCH" kind="embed" id="Hyj-N0-kZ1"/>
+                                    <segue destination="06f-z5-tCH" kind="embed" identifier="FriendListSegue" id="Hyj-N0-kZ1"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1R-0J-6Wh" userLabel="YourPostsContainerView">
                                 <rect key="frame" x="0.0" y="292" width="600" height="259"/>
                                 <connections>
-                                    <segue destination="zPx-9E-Sr3" kind="embed" id="57K-VI-g7c"/>
+                                    <segue destination="zPx-9E-Sr3" kind="embed" identifier="YourPostsSegue" id="57K-VI-g7c"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mengyu Wu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X86-sj-cPQ">
