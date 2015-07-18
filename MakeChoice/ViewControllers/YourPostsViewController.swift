@@ -73,8 +73,11 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
             let postDetailViewController = segue.destinationViewController as! PostDetailViewController
             postDetailViewController.post=self.selectedPost
  
+        }else if(segue.identifier=="addressBookSegue") {
+            let addressBookViewController = segue.destinationViewController as! AddressBookViewController
+            addressBookViewController.post=sender as? Post
+            
         }
-        
 
     }
 
@@ -109,6 +112,8 @@ extension YourPostsViewController: UITableViewDataSource{
         //setting img radious
         DesignHelper.setImageCornerRadius(cell.img1)
         DesignHelper.setImageCornerRadius(cell.img2)
+        //set segue delegate
+        cell.segueDelegate=self
         
         return cell
         
@@ -160,4 +165,12 @@ extension YourPostsViewController:UITableViewDelegate{
     }
 
 
+}
+
+// MARK:  YourPostsTableViewCellSegueDelegate
+extension YourPostsViewController:YourPostsTableViewCellSegueDelegate{
+    
+    func cell(cell: YourPostsTableViewCell, didSelectAddressBookSegue post: Post){
+        self.performSegueWithIdentifier("addressBookSegue", sender: post)
+    }
 }

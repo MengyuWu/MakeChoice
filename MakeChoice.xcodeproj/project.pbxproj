@@ -14,6 +14,7 @@
 		F70AECDE1B54538300497662 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AECDD1B54538300497662 /* FriendsListViewController.swift */; };
 		F70AECE01B5455FC00497662 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AECDF1B5455FC00497662 /* FriendsTableViewCell.swift */; };
 		F714426C1B51855500B93ED8 /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714426B1B51855500B93ED8 /* DesignHelper.swift */; };
+		F71B163E1B5AE02F00934FDE /* AddressBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */; };
 		F728A6BE1B52C73E006E4A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */; };
 		F728A6C01B52D37E006E4A7A /* YourPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */; };
 		F728A6C31B52D3CA006E4A7A /* YourPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6C21B52D3CA006E4A7A /* YourPostsTableViewCell.swift */; };
@@ -67,6 +68,7 @@
 		F70AECDD1B54538300497662 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		F70AECDF1B5455FC00497662 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		F714426B1B51855500B93ED8 /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
+		F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookViewController.swift; sourceTree = "<group>"; };
 		F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsViewController.swift; sourceTree = "<group>"; };
 		F728A6C21B52D3CA006E4A7A /* YourPostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsTableViewCell.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				F7E4CDB11B555EC900815DDE /* CommentViewController.swift */,
 				F7E4CDBD1B5598C700815DDE /* FriendSearchViewController.swift */,
 				F7EAAB931B58182F009F838F /* FriendRequestViewController.swift */,
+				F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */,
 				F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */,
 				F79478581B4F59DF0048765A /* HomePostSectionHeaderView.swift in Sources */,
+				F71B163E1B5AE02F00934FDE /* AddressBookViewController.swift in Sources */,
 				F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */,
 				F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */,
 				F70AECDA1B54174F00497662 /* UserVoteDetailTableViewCell.swift in Sources */,

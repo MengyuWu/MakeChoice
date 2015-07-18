@@ -9,6 +9,10 @@
 import UIKit
 import Bond
 
+protocol YourPostsTableViewCellSegueDelegate: class{
+    func cell(cell: YourPostsTableViewCell, didSelectAddressBookSegue post: Post)
+}
+
 
 class YourPostsTableViewCell: UITableViewCell {
     
@@ -24,6 +28,18 @@ class YourPostsTableViewCell: UITableViewCell {
     @IBOutlet weak var vote2: UILabel!
     
     @IBOutlet weak var title: UILabel!
+    
+    var segueDelegate:YourPostsTableViewCellSegueDelegate?
+    
+    @IBAction func helpButtonTapped(sender: AnyObject) {
+        
+        var actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Address Book", "Facebook")
+       // actionSheet.showFromTabBar(self.tabBarController?.tabBar)
+        var controller=self.window!.rootViewController as! UITabBarController
+        actionSheet.showFromTabBar(controller.tabBar)
+    
+    }
+    
     
     
     var post:Post? {
@@ -73,4 +89,24 @@ class YourPostsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension YourPostsTableViewCell:UIActionSheetDelegate{
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex != actionSheet.cancelButtonIndex {
+            switch buttonIndex {
+            case 1:
+            println("perform addressBookSegue")
+            segueDelegate?.cell(self, didSelectAddressBookSegue: post!)
+            case 2:
+             println("perform facebook")
+                
+            default:
+                return
+            }
+        }
+    }
+
+    
 }
