@@ -70,6 +70,35 @@ class Post: PFObject, PFSubclassing {
         
     }
     
+    func downloadImageSynchronous(){
+        // put in cache
+        image1.value = Post.image1Cache[self.image1File!.name]
+        image2.value = Post.image1Cache[self.image2File!.name]
+        if(image1.value == nil){
+           var data=image1File?.getData()
+            if let data=data{
+            let image1 = UIImage(data:data, scale: 1.0)!
+            
+            self.image1.value=image1
+            
+            Post.image1Cache[self.image1File!.name]=image1
+            }
+        }
+        
+        if(image2.value == nil){
+            var data=image2File?.getData()
+            if let data=data{
+                let image2 = UIImage(data:data, scale: 1.0)!
+                
+                self.image2.value=image2
+                
+                Post.image2Cache[self.image2File!.name]=image2
+            }
+        }
+
+        
+    }
+    
     
     func downloadImage(){
         

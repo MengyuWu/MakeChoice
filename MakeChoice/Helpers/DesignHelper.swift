@@ -43,5 +43,19 @@ class DesignHelper{
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
     }
     
-    
+    static func mergeTwoImages(image1: UIImage , image2: UIImage) -> UIImage {
+
+        var size:CGSize=CGSizeMake(image1.size.width, image1.size.height + image2.size.height);
+        UIGraphicsBeginImageContext(size);
+        // avoid degradings
+        //UIGraphicsBeginImageContextWithOptions(size, false, 0.0) // Use this call
+        
+        image1.drawInRect(CGRectMake(0,0,size.width, image1.size.height))
+        image2.drawInRect(CGRectMake(0,image1.size.height,size.width, image2.size.height))
+        
+        var finalImage=UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+   
+        return finalImage
+    }
 }

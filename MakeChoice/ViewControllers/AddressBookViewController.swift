@@ -14,10 +14,11 @@ import APAddressBook
 class AddressBookViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
-    
+ 
     var post:Post?{
         didSet{
             println(post?.objectId)
+            
         }
     }
     
@@ -87,7 +88,9 @@ extension AddressBookViewController:UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
       var cell = tableView.dequeueReusableCellWithIdentifier("addressBookCell") as! UITableViewCell
       var contact=self.contacts[indexPath.row]
-      var username="\(contact.firstName) \(contact.lastName)"
+      var firstName=contact.firstName ?? ""
+      var lastName=contact.lastName ?? ""
+      var username="\(firstName) \(lastName)"
       var email = contact.emails.first as? String
       var phone = contact.phones.first as? String
       cell.textLabel?.text=username
@@ -124,12 +127,44 @@ extension AddressBookViewController:UITableViewDelegate{
     
     func sendMSG(user: APContact){
         if MFMessageComposeViewController.canSendText() {
+            
+            
+            var questions=post?.title ?? ""
+            
+            //Add attachment as NSData,
+            post?.downloadImageSynchronous()
+          //  var img1data = UIImagePNGRepresentation(post?.image1.value)
+          //  var img2data = UIImagePNGRepresentation(post?.image2.value)
+            
+            var image1=post?.image1.value
+            var image2=post?.image2.value
+            var finalImage:UIImage?
+            var finalImageData:NSData?
+            if let image1=image1, image2=image2 {
+             println("merge images")
+             finalImage=DesignHelper.mergeTwoImages(image1, image2: image2)
+             finalImageData=UIImagePNGRepresentation(finalImage)
+//            var imageView=UIImageView(frame:CGRectMake(0, 0, finalImage!.size.width,finalImage!.size.height))
+//            imageView.image=finalImage
+//            self.view.addSubview(imageView)
+                
+            }
+
+            
             var messageCompose = MFMessageComposeViewController()
             // TODO: Use primary phone rather than all numbers
             messageCompose.recipients = user.phones as! [String]!
             // body: the msg content, image url
-            messageCompose.body = "content: help me vote!"
+            messageCompose.body = "Help me vote on : \(questions)"
+            
+            messageCompose.addAttachmentData(finalImageData, typeIdentifier: "kUTTypePNG", filename: "finalimage.png")
+          
             messageCompose.messageComposeDelegate = self
+
+            
+       
+            
+            
             self.presentViewController(messageCompose, animated: true, completion: nil)
         } else {
            // ProgressHUD.showError("SMS cannot be sent")
