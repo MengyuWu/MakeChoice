@@ -11,3 +11,4 @@
 #import <DateTools/DateTools.h>
 #import <JSQMessagesViewController/JSQMessages.h>
 #import <JSQSystemSoundPlayer/JSQSystemSoundPlayer.h>
+#import <APAddressBook/APAddressBook.h>

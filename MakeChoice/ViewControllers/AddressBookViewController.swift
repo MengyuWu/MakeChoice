@@ -7,19 +7,54 @@
 //
 
 import UIKit
+import AddressBook
+import MessageUI
+import APAddressBook
 
 class AddressBookViewController: UIViewController {
+    
+    @IBOutlet weak var tableview: UITableView!
     
     var post:Post?{
         didSet{
             println(post?.objectId)
         }
     }
-
+    
+    var contacts:[APContact]=[]
+    let addressBook = APAddressBook()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableview.delegate=self
+        tableview.dataSource=self
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // load contactinfo
+        // Load address book
+        self.addressBook.fieldsMask = APContactField.Default | APContactField.Emails
+        
+        self.addressBook.sortDescriptors = [NSSortDescriptor(key: "firstName", ascending: true), NSSortDescriptor(key: "lastName", ascending: true)]
+        self.addressBook.loadContacts{ (contacts: [AnyObject]!, error: NSError!) -> Void in
+            // TODO: Add actiivtyIndicator
+            
+            self.contacts.removeAll(keepCapacity: false)
+            if let contacts = contacts as? [APContact] {
+                self.contacts=contacts
+            } else if error != nil {
+                // TODO:
+                println(error)
+            }
+        }
+
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,4 +73,21 @@ class AddressBookViewController: UIViewController {
     }
     */
 
+}
+
+extension AddressBookViewController:UITableViewDataSource{
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+      return contacts.count
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+      var cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+      cell.textLabel?.text="mengyu"
+      return cell
+    }
+
+}
+
+extension AddressBookViewController:UITableViewDelegate{
+    
 }

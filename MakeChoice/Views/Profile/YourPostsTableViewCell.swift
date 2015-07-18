@@ -9,8 +9,9 @@
 import UIKit
 import Bond
 
-protocol YourPostsTableViewCellSegueDelegate: class{
+protocol YourPostsTableViewCellDelegate: class{
     func cell(cell: YourPostsTableViewCell, didSelectAddressBookSegue post: Post)
+    func presentViewController(alertController:UIAlertController)
 }
 
 
@@ -29,15 +30,24 @@ class YourPostsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     
-    var segueDelegate:YourPostsTableViewCellSegueDelegate?
+    var delegate:YourPostsTableViewCellDelegate?
     
     @IBAction func helpButtonTapped(sender: AnyObject) {
         
-        var actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Address Book", "Facebook")
-       // actionSheet.showFromTabBar(self.tabBarController?.tabBar)
-        var controller=self.window!.rootViewController as! UITabBarController
-        actionSheet.showFromTabBar(controller.tabBar)
-    
+        let alertController = UIAlertController(title: nil, message: "Poll", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        
+        let addressBookAction = UIAlertAction(title: "AddressBook", style: .Default){ (action) in
+            delegate?.cell(self, didSelectAddressBookSegue: post!)
+        }
+        
+        alertController.addAction(addressBookAction)
+        
+        delegate?.presentViewController(alertController)
+        
     }
     
     
@@ -91,22 +101,3 @@ class YourPostsTableViewCell: UITableViewCell {
 
 }
 
-extension YourPostsTableViewCell:UIActionSheetDelegate{
-    
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex != actionSheet.cancelButtonIndex {
-            switch buttonIndex {
-            case 1:
-            println("perform addressBookSegue")
-            segueDelegate?.cell(self, didSelectAddressBookSegue: post!)
-            case 2:
-             println("perform facebook")
-                
-            default:
-                return
-            }
-        }
-    }
-
-    
-}

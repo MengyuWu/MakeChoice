@@ -113,7 +113,7 @@ extension YourPostsViewController: UITableViewDataSource{
         DesignHelper.setImageCornerRadius(cell.img1)
         DesignHelper.setImageCornerRadius(cell.img2)
         //set segue delegate
-        cell.segueDelegate=self
+        cell.delegate=self
         
         return cell
         
@@ -168,9 +168,13 @@ extension YourPostsViewController:UITableViewDelegate{
 }
 
 // MARK:  YourPostsTableViewCellSegueDelegate
-extension YourPostsViewController:YourPostsTableViewCellSegueDelegate{
+extension YourPostsViewController:YourPostsTableViewCellDelegate{
     
     func cell(cell: YourPostsTableViewCell, didSelectAddressBookSegue post: Post){
         self.performSegueWithIdentifier("addressBookSegue", sender: post)
+    }
+    
+    func presentViewController(alertController: UIAlertController) {
+           self.presentViewController(alertController, animated: true, completion: nil)
     }
 }

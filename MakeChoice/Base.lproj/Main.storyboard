@@ -1066,7 +1066,7 @@
         <!--Address Book View Controller-->
         <scene sceneID="rb9-Je-YDZ">
             <objects>
-                <viewController id="orx-qN-1ds" customClass="AddressBookViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="orx-qN-1ds" customClass="AddressBookViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bnx-qf-hVK"/>
                         <viewControllerLayoutGuide type="bottom" id="r0X-L2-GxG"/>
@@ -1074,9 +1074,33 @@
                     <view key="view" contentMode="scaleToFill" id="0bb-tf-z2T">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="259"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FAU-9W-DMk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="259"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="YWj-uO-q34">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWj-uO-q34" id="QAk-KG-Bhd">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FAU-9W-DMk" firstAttribute="leading" secondItem="0bb-tf-z2T" secondAttribute="leadingMargin" constant="-16" id="B6a-hA-sEE"/>
+                            <constraint firstItem="FAU-9W-DMk" firstAttribute="top" secondItem="Bnx-qf-hVK" secondAttribute="bottom" id="DZp-1F-Odi"/>
+                            <constraint firstItem="r0X-L2-GxG" firstAttribute="top" secondItem="FAU-9W-DMk" secondAttribute="bottom" id="cDr-9C-eeT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FAU-9W-DMk" secondAttribute="trailing" constant="-16" id="gZL-zh-eLr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0Al-wC-ztS"/>
+                    <connections>
+                        <outlet property="tableview" destination="FAU-9W-DMk" id="CkD-mL-PXQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OoV-j8-a0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1236,24 +1260,6 @@
             </objects>
             <point key="canvasLocation" x="-3222" y="1055"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="N25-eW-b8q">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hfe-u0-Mwk" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aih-V2-nVq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="orx-qN-1ds" kind="relationship" relationship="rootViewController" id="xdn-Zr-RRK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e9O-dA-O7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1211" y="1055"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Accept" width="170" height="170"/>
@@ -1271,7 +1277,4 @@
         <image name="Time" width="22" height="22"/>
         <image name="Vote" width="53" height="53"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="koT-qq-ppO"/>
-    </inferredMetricsTieBreakers>
 </document>

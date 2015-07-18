@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (1.2.3)
+  - APAddressBook (0.0.10)
   - Bolts (1.2.0):
     - Bolts/AppLinks (= 1.2.0)
     - Bolts/Tasks (= 1.2.0)
@@ -36,6 +37,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - APAddressBook (~> 0.0.7)
   - Bond
   - ConvenienceKit
   - DateTools
@@ -49,6 +51,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
+  APAddressBook: 11582a756dc59228effdbba0faf6d4675bac6b77
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
   Bond: 994ccc56aebfe2707d7b5e76f6d665a5beefa45b
   ConvenienceKit: 083548558dedc22a586c1e1fbf3aa217728715af
