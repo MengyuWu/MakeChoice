@@ -11,6 +11,7 @@ import Bond
 
 protocol YourPostsTableViewCellDelegate: class{
     func cell(cell: YourPostsTableViewCell, didSelectAddressBookSegue post: Post)
+    func cell(cell: YourPostsTableViewCell, didSelectShareToFacebook post: Post)
     func presentViewController(alertController:UIAlertController)
 }
 
@@ -43,8 +44,13 @@ class YourPostsTableViewCell: UITableViewCell {
         let addressBookAction = UIAlertAction(title: "AddressBook", style: .Default){ (action) in
             delegate?.cell(self, didSelectAddressBookSegue: post!)
         }
-        
         alertController.addAction(addressBookAction)
+        
+        
+        let shareToFaceBookAction=UIAlertAction(title: "Facebook", style: .Default){ (action) in
+            delegate?.cell(self, didSelectShareToFacebook: post!)
+        }
+        alertController.addAction(shareToFaceBookAction)
         
         delegate?.presentViewController(alertController)
         

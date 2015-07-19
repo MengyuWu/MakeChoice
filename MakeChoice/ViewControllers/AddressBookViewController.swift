@@ -144,6 +144,7 @@ extension AddressBookViewController:UITableViewDelegate{
             if let image1=image1, image2=image2 {
              println("merge images")
              finalImage=DesignHelper.mergeTwoImages(image1, image2: image2)
+            finalImage=Images.resizeImage(finalImage!, width:90, height:60)
              finalImageData=UIImagePNGRepresentation(finalImage)
                 
             }

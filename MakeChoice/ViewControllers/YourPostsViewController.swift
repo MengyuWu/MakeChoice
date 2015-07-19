@@ -8,6 +8,7 @@
 
 import UIKit
 import ConvenienceKit
+import Social
 
 class YourPostsViewController: UIViewController,TimelineComponentTarget {
     
@@ -171,7 +172,35 @@ extension YourPostsViewController:UITableViewDelegate{
 extension YourPostsViewController:YourPostsTableViewCellDelegate{
     
     func cell(cell: YourPostsTableViewCell, didSelectAddressBookSegue post: Post){
+        println("address book")
         self.performSegueWithIdentifier("addressBookSegue", sender: post)
+    }
+    
+    func cell(cell: YourPostsTableViewCell, didSelectShareToFacebook post: Post){
+    println("share to facebook")
+        
+    var shareToFacebook=SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        
+        var questions=post.title ?? ""
+        //Add attachment as NSData,
+        post.downloadImageSynchronous()
+        var image1=post.image1.value
+        var image2=post.image2.value
+        var finalImage:UIImage?
+        var finalImageData:NSData?
+        if let image1=image1, image2=image2 {
+            println("merge images")
+            finalImage=DesignHelper.mergeTwoImages(image1, image2: image2)
+            finalImageData=UIImagePNGRepresentation(finalImage)
+            
+        }
+     shareToFacebook.addImage(finalImage)
+     shareToFacebook.setInitialText("Hey, help me vote on: \(questions), Download MakeChoice: URL")
+        
+        self.presentViewController(shareToFacebook,animated:true, completion:nil)
+    
+    
+        
     }
     
     func presentViewController(alertController: UIAlertController) {
