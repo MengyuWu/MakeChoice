@@ -44,14 +44,17 @@ class DesignHelper{
     }
     
     static func mergeTwoImages(image1: UIImage , image2: UIImage) -> UIImage {
-
-        var size:CGSize=CGSizeMake(image1.size.width, image1.size.height + image2.size.height);
+    
+       var img1=Images.resizeImage(image1, width: 150, height: 200)!
+       var img2=Images.resizeImage(image2, width: 150, height: 200)!
+        
+        var size:CGSize=CGSizeMake(img1.size.width+img2.size.width, img1.size.height);
         UIGraphicsBeginImageContext(size);
         // avoid degradings
         //UIGraphicsBeginImageContextWithOptions(size, false, 0.0) // Use this call
         
-        image1.drawInRect(CGRectMake(0,0,size.width, image1.size.height))
-        image2.drawInRect(CGRectMake(0,image1.size.height,size.width, image2.size.height))
+        img1.drawInRect(CGRectMake(0,0,size.width, img1.size.height))
+        img2.drawInRect(CGRectMake(img1.size.width,0,size.width, img2.size.height))
         
         var finalImage=UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext();

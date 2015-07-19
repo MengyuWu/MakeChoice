@@ -144,9 +144,6 @@ extension AddressBookViewController:UITableViewDelegate{
              println("merge images")
              finalImage=DesignHelper.mergeTwoImages(image1, image2: image2)
              finalImageData=UIImagePNGRepresentation(finalImage)
-//            var imageView=UIImageView(frame:CGRectMake(0, 0, finalImage!.size.width,finalImage!.size.height))
-//            imageView.image=finalImage
-//            self.view.addSubview(imageView)
                 
             }
 
