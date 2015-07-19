@@ -128,6 +128,7 @@ extension AddressBookViewController:UITableViewDelegate{
     func sendMSG(user: APContact){
         if MFMessageComposeViewController.canSendText() {
             
+            var messageCompose = MFMessageComposeViewController()
             
             var questions=post?.title ?? ""
             
@@ -146,15 +147,17 @@ extension AddressBookViewController:UITableViewDelegate{
              finalImageData=UIImagePNGRepresentation(finalImage)
                 
             }
-
-            
-            var messageCompose = MFMessageComposeViewController()
-            // TODO: Use primary phone rather than all numbers
+           
+            if MFMessageComposeViewController.canSendAttachments(){
+                println("can send attachmetns")
+                  messageCompose.addAttachmentData(finalImageData, typeIdentifier: "kUTTypePNG", filename: "finalimage.png")
+            }
+         
+            // TODO: sometimes images are missing
             messageCompose.recipients = user.phones as! [String]!
             // body: the msg content, image url
-            messageCompose.body = "Help me vote on : \(questions)"
-            
-            messageCompose.addAttachmentData(finalImageData, typeIdentifier: "kUTTypePNG", filename: "finalimage.png")
+            messageCompose.body = "Help me vote on : \(questions), download MakeChoice : url"
+          
           
             messageCompose.messageComposeDelegate = self
 
