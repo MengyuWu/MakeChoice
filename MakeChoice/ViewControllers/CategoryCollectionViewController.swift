@@ -13,6 +13,7 @@ let reuseIdentifier = "CategoryCell"
 class CategoryCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     let titles = ["Technology","Travelling","Fashion","Pet","Food","Music"]
+    let colors=[0xFFFAE6,0xFFF5CC,0xFFF0B2,0xFFEB99,0xFFE680,0xFFE066]
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
@@ -69,7 +70,9 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
         let curr = indexPath.row % 6  + 1
         let imgName = "category\(curr).png"
         cell.categoryImage.image = UIImage(named: imgName)
-        cell.backgroundColor=UIColor.whiteColor()
+        
+        
+        cell.backgroundColor=UIColor(netHex:colors[indexPath.row % 6])
         return cell
     }
 
@@ -117,4 +120,18 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
     }
     */
 
+}
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
 }
