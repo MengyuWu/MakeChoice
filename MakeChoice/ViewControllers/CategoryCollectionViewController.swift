@@ -84,14 +84,12 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        //println("item width\(screenWidth/2)")
+        
         return CGSize(width: screenWidth/2, height: screenWidth/2)
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println(segue.identifier)
-        println(sender)
         if(segue.identifier == "CategoryDetialSegue"){
             let cell = sender as! CategoryCollectionViewCell
             let indexPath = collectionView?.indexPathForCell(cell)

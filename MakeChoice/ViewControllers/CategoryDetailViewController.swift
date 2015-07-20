@@ -21,7 +21,7 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
     let additionalRangeSize = 5
     
     var categoryIndex:Int?
-    let categorys = ["Technology","Travelling","Fashion","Pet","Food","Music"]
+    
     var user:PFUser?
     
  
@@ -30,7 +30,8 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
     `completionBlock`, with the items as argument, upon completion.
     */
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void){
-        ParseHelper.timelineRequestforCurrentUserWithOptions(range,isFriendPost:false, category:0){ (result: [AnyObject]?, error: NSError?) -> Void in
+        println("index: \(categoryIndex!)")
+        ParseHelper.timelineRequestforCurrentUserWithCategory(range,categoryIndex:categoryIndex!){ (result: [AnyObject]?, error: NSError?) -> Void in
             let posts = result as? [Post] ?? []
             completionBlock(posts)
         }
@@ -141,10 +142,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
         var post:Post?
         
         post=timelineComponent.content[indexPath.section]
-        
-        // println("cellforRowat index.section: \(indexPath.section) post.totalValue: \(post.totalVotes) ")
-        
-        // download, only downloaded with needed
+              // download, only downloaded with needed
         if let post=post {
             post.downloadImage()
             //get post statistic
@@ -224,7 +222,6 @@ extension CategoryDetailViewController: UITableViewDataSource {
     
     func commentButtonTapped(sender:UIButton!){
         
-        // println("button tag \(sender.tag)")
         
         var postId:String?
         var post:Post?

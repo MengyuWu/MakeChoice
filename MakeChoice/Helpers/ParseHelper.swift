@@ -63,6 +63,26 @@ class ParseHelper{
 
     
     
+    static func timelineRequestforCurrentUserWithCategory(range: Range<Int>, categoryIndex: Int, completionBlock: PFArrayResultBlock) {
+        
+        let categorys = ["technology","travelling","fashion","pet","food","music"]
+        let query = Post.query()
+        if let query=query{
+            println("category:\(categorys[categoryIndex])")
+            query.whereKey(PF_POST_CATEGORY, equalTo: categorys[categoryIndex])
+            query.includeKey(PF_POST_POSTER)
+            query.orderByDescending(PF_POST_CREATEDAT)
+            //only show some range not all
+            query.skip = range.startIndex
+            query.limit = range.endIndex - range.startIndex
+            query.findObjectsInBackgroundWithBlock(completionBlock)
+            
+        }
+        
+        
+    }
+
+    
     
     
     static func timelineRequestforCurrentUserFriends(completionBlock: PFArrayResultBlock){
