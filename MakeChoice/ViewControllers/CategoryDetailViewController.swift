@@ -20,6 +20,9 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
     let defaultRange = 0...4
     let additionalRangeSize = 5
     
+    var categoryIndex:Int?
+    let categorys = ["Technology","Travelling","Fashion","Pet","Food","Music"]
+    var user:PFUser?
     
  
     /**
@@ -93,8 +96,7 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
 // MARK: tableview delegate and datasource
 extension CategoryDetailViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        //loadmore if (indexPath.section == (currentRange.endIndex - 1) && !loadedAllContent)
-        // println("willDisplayCell: \(indexPath.section) \(timelineComponent.content[indexPath.section].totalVotes)")
+     
         
         timelineComponent.calledCellForRowAtIndexPath(indexPath)
         

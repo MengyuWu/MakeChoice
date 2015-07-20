@@ -89,6 +89,22 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
     }
     
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println(segue.identifier)
+        println(sender)
+        if(segue.identifier == "CategoryDetialSegue"){
+            let cell = sender as! CategoryCollectionViewCell
+            let indexPath = collectionView?.indexPathForCell(cell)
+            
+            let vc = segue.destinationViewController as! CategoryDetailViewController
+            vc.categoryIndex=indexPath?.row
+            println(vc.categoryIndex)
+       
+        }
+    }
+
+    
+    
     // MARK: UICollectionViewDelegate
 
     /*

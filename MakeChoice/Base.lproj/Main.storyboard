@@ -319,7 +319,7 @@
                                 <connections>
                                     <outlet property="categoryImage" destination="nHi-7Q-k9K" id="cZI-Kx-IgN"/>
                                     <outlet property="categoryLabel" destination="hcB-nn-zrV" id="Zca-PL-x6v"/>
-                                    <segue destination="eH7-XK-H3i" kind="show" id="JFJ-6C-HcG"/>
+                                    <segue destination="eH7-XK-H3i" kind="show" identifier="CategoryDetialSegue" id="JFJ-6C-HcG"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
