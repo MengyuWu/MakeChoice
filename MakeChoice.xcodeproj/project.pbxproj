@@ -22,6 +22,9 @@
 		F71ACD341B5D5FC500B7936E /* category4.png in Resources */ = {isa = PBXBuildFile; fileRef = F71ACD2E1B5D5FC500B7936E /* category4.png */; };
 		F71ACD351B5D5FC500B7936E /* category5.png in Resources */ = {isa = PBXBuildFile; fileRef = F71ACD2F1B5D5FC500B7936E /* category5.png */; };
 		F71ACD361B5D5FC500B7936E /* category6.png in Resources */ = {isa = PBXBuildFile; fileRef = F71ACD301B5D5FC500B7936E /* category6.png */; };
+		F71ACD381B5D775E00B7936E /* CategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71ACD371B5D775E00B7936E /* CategoryDetailViewController.swift */; };
+		F71ACD3B1B5D77B300B7936E /* CategoryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71ACD3A1B5D77B300B7936E /* CategoryDetailTableViewCell.swift */; };
+		F71ACD3D1B5D77ED00B7936E /* CategoryDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71ACD3C1B5D77ED00B7936E /* CategoryDetailHeaderTableViewCell.swift */; };
 		F71B163E1B5AE02F00934FDE /* AddressBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */; };
 		F728A6BE1B52C73E006E4A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */; };
 		F728A6C01B52D37E006E4A7A /* YourPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */; };
@@ -84,6 +87,9 @@
 		F71ACD2E1B5D5FC500B7936E /* category4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category4.png; path = imgs/category/category4.png; sourceTree = SOURCE_ROOT; };
 		F71ACD2F1B5D5FC500B7936E /* category5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category5.png; path = imgs/category/category5.png; sourceTree = SOURCE_ROOT; };
 		F71ACD301B5D5FC500B7936E /* category6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category6.png; path = imgs/category/category6.png; sourceTree = SOURCE_ROOT; };
+		F71ACD371B5D775E00B7936E /* CategoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewController.swift; sourceTree = "<group>"; };
+		F71ACD3A1B5D77B300B7936E /* CategoryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetailTableViewCell.swift; sourceTree = "<group>"; };
+		F71ACD3C1B5D77ED00B7936E /* CategoryDetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookViewController.swift; sourceTree = "<group>"; };
 		F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +171,15 @@
 				F71ACD231B5D50CC00B7936E /* CategoryCollectionViewCell.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		F71ACD391B5D778700B7936E /* CategoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F71ACD3A1B5D77B300B7936E /* CategoryDetailTableViewCell.swift */,
+				F71ACD3C1B5D77ED00B7936E /* CategoryDetailHeaderTableViewCell.swift */,
+			);
+			path = CategoryDetail;
 			sourceTree = "<group>";
 		};
 		F728A6C11B52D3A0006E4A7A /* Profile */ = {
@@ -301,6 +316,7 @@
 		F7762A511B4D8864002CBAE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F71ACD391B5D778700B7936E /* CategoryDetail */,
 				F71ACD221B5D50BB00B7936E /* Category */,
 				F7EAAB901B5817DC009F838F /* FriendRequest */,
 				F7E4CDBF1B55991700815DDE /* FriendSearch */,
@@ -325,6 +341,7 @@
 				F7EAAB931B58182F009F838F /* FriendRequestViewController.swift */,
 				F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */,
 				F71ACD291B5D57D700B7936E /* CategoryCollectionViewController.swift */,
+				F71ACD371B5D775E00B7936E /* CategoryDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -514,11 +531,14 @@
 			files = (
 				F7E4CDB91B5576CB00815DDE /* Camera.swift in Sources */,
 				F7E4CDBB1B5576CB00815DDE /* Messages.swift in Sources */,
+				F71ACD381B5D775E00B7936E /* CategoryDetailViewController.swift in Sources */,
 				F7E4CDB81B5576CB00815DDE /* PushNotification.swift in Sources */,
 				F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */,
 				F71ACD241B5D50CC00B7936E /* CategoryCollectionViewCell.swift in Sources */,
 				F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */,
 				F79478581B4F59DF0048765A /* HomePostSectionHeaderView.swift in Sources */,
+				F71ACD3B1B5D77B300B7936E /* CategoryDetailTableViewCell.swift in Sources */,
+				F71ACD3D1B5D77ED00B7936E /* CategoryDetailHeaderTableViewCell.swift in Sources */,
 				F71B163E1B5AE02F00934FDE /* AddressBookViewController.swift in Sources */,
 				F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */,
 				F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */,

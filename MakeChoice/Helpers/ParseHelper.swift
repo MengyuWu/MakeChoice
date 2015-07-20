@@ -34,12 +34,12 @@ class ParseHelper{
     
     
     
-    static func timelineRequestforCurrentUserWithOptions(range: Range<Int>, options: Int, completionBlock: PFArrayResultBlock) {
+    static func timelineRequestforCurrentUserWithOptions(range: Range<Int>, isFriendPost: Bool, category: Int, completionBlock: PFArrayResultBlock) {
         let query = Post.query()
         if let query=query{
-            if(options==0){
+            if(!isFriendPost){
                 // do nothing all the results
-            }else if (options==1){
+            }else if (isFriendPost){
                 // friends
           
             let friendsQuery = PFQuery(className:PF_FRIEND_CLASS_NAME)
