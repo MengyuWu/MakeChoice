@@ -11,8 +11,8 @@ import UIKit
 let reuseIdentifier = "CategoryCell"
 
 class CategoryCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
-    let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-    let titles = ["Sand Harbor, Lake Tahoe - California","Beautiful View of Manhattan skyline.","Watcher in the Fog","Great Smoky Mountains National Park, Tennessee","Most beautiful place"]
+    let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    let titles = ["Technology","Travelling","Fashion","Pet","Food","Music"]
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
@@ -57,15 +57,19 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return 20
+        return 6
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     
         // Configure the cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CategoryCollectionViewCell
-        cell.categoryLabel.text = self.titles[indexPath.row % 5]
-        cell.backgroundColor=UIColor.redColor()
+        cell.categoryLabel.text = self.titles[indexPath.row % 6]
+        
+        let curr = indexPath.row % 6  + 1
+        let imgName = "category\(curr).png"
+        cell.categoryImage.image = UIImage(named: imgName)
+        cell.backgroundColor=UIColor.whiteColor()
         return cell
     }
 
@@ -77,7 +81,7 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        println("item width\(screenWidth/2)")
+        //println("item width\(screenWidth/2)")
         return CGSize(width: screenWidth/2, height: screenWidth/2)
     }
     

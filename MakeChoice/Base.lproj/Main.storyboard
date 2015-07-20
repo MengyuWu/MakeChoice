@@ -280,8 +280,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yf5-fN-nyL">
-                            <size key="itemSize" width="206" height="203"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Yf5-fN-nyL">
+                            <size key="itemSize" width="185" height="185"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -291,14 +291,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="206" height="203"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="185" height="185"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="nHi-7Q-k9K">
-                                            <rect key="frame" x="43" y="8" width="120" height="147"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="nHi-7Q-k9K">
+                                            <rect key="frame" x="62" y="62" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="qGF-Wm-DcH"/>
+                                                <constraint firstAttribute="width" secondItem="nHi-7Q-k9K" secondAttribute="height" multiplier="1:1" id="sTR-jl-fK6"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcB-nn-zrV">
-                                            <rect key="frame" x="82" y="162" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcB-nn-zrV">
+                                            <rect key="frame" x="71.5" y="132" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -306,6 +310,12 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="nHi-7Q-k9K" secondAttribute="centerY" id="NZN-gy-ADd"/>
+                                    <constraint firstItem="hcB-nn-zrV" firstAttribute="top" secondItem="nHi-7Q-k9K" secondAttribute="bottom" constant="9.5" id="iHR-qx-uaE"/>
+                                    <constraint firstAttribute="centerX" secondItem="nHi-7Q-k9K" secondAttribute="centerX" id="syL-V1-Yjs"/>
+                                    <constraint firstItem="nHi-7Q-k9K" firstAttribute="centerX" secondItem="hcB-nn-zrV" secondAttribute="centerX" id="zCz-FJ-hwv"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="categoryImage" destination="nHi-7Q-k9K" id="cZI-Kx-IgN"/>
                                     <outlet property="categoryLabel" destination="hcB-nn-zrV" id="Zca-PL-x6v"/>
