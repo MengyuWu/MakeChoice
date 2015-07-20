@@ -14,6 +14,8 @@
 		F70AECDE1B54538300497662 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AECDD1B54538300497662 /* FriendsListViewController.swift */; };
 		F70AECE01B5455FC00497662 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AECDF1B5455FC00497662 /* FriendsTableViewCell.swift */; };
 		F714426C1B51855500B93ED8 /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714426B1B51855500B93ED8 /* DesignHelper.swift */; };
+		F71ACD241B5D50CC00B7936E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71ACD231B5D50CC00B7936E /* CategoryCollectionViewCell.swift */; };
+		F71ACD2A1B5D57D700B7936E /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71ACD291B5D57D700B7936E /* CategoryCollectionViewController.swift */; };
 		F71B163E1B5AE02F00934FDE /* AddressBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */; };
 		F728A6BE1B52C73E006E4A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */; };
 		F728A6C01B52D37E006E4A7A /* YourPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */; };
@@ -68,6 +70,8 @@
 		F70AECDD1B54538300497662 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		F70AECDF1B5455FC00497662 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		F714426B1B51855500B93ED8 /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
+		F71ACD231B5D50CC00B7936E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		F71ACD291B5D57D700B7936E /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookViewController.swift; sourceTree = "<group>"; };
 		F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,14 @@
 				6D591DCFF4EB7E7D7E67AD3F /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F71ACD221B5D50BB00B7936E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F71ACD231B5D50CC00B7936E /* CategoryCollectionViewCell.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		F728A6C11B52D3A0006E4A7A /* Profile */ = {
@@ -271,6 +283,7 @@
 		F7762A511B4D8864002CBAE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F71ACD221B5D50BB00B7936E /* Category */,
 				F7EAAB901B5817DC009F838F /* FriendRequest */,
 				F7E4CDBF1B55991700815DDE /* FriendSearch */,
 				F728A6C11B52D3A0006E4A7A /* Profile */,
@@ -293,6 +306,7 @@
 				F7E4CDBD1B5598C700815DDE /* FriendSearchViewController.swift */,
 				F7EAAB931B58182F009F838F /* FriendRequestViewController.swift */,
 				F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */,
+				F71ACD291B5D57D700B7936E /* CategoryCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -478,6 +492,7 @@
 				F7E4CDBB1B5576CB00815DDE /* Messages.swift in Sources */,
 				F7E4CDB81B5576CB00815DDE /* PushNotification.swift in Sources */,
 				F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */,
+				F71ACD241B5D50CC00B7936E /* CategoryCollectionViewCell.swift in Sources */,
 				F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */,
 				F79478581B4F59DF0048765A /* HomePostSectionHeaderView.swift in Sources */,
 				F71B163E1B5AE02F00934FDE /* AddressBookViewController.swift in Sources */,
@@ -499,6 +514,7 @@
 				F7EAAB941B58182F009F838F /* FriendRequestViewController.swift in Sources */,
 				F7EAAB921B58180F009F838F /* FriendRequestTableViewCell.swift in Sources */,
 				F7E4CDC11B55993300815DDE /* FriendSearchTableViewCell.swift in Sources */,
+				F71ACD2A1B5D57D700B7936E /* CategoryCollectionViewController.swift in Sources */,
 				F70AECD41B5405A700497662 /* PostDetailViewController.swift in Sources */,
 				F79478561B4F3DC80048765A /* ParseHelper.swift in Sources */,
 				F74EF7961B4EDF55003DB560 /* Post.swift in Sources */,

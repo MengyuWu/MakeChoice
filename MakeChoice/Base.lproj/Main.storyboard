@@ -272,6 +272,57 @@
             </objects>
             <point key="canvasLocation" x="-2562" y="366"/>
         </scene>
+        <!--Category Collection View Controller-->
+        <scene sceneID="qcy-Aa-uCi">
+            <objects>
+                <collectionViewController id="jI8-me-jOh" customClass="CategoryCollectionViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="iwT-Eq-Mk0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yf5-fN-nyL">
+                            <size key="itemSize" width="206" height="203"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="uhs-pI-Kwq" customClass="CategoryCollectionViewCell" customModule="MakeChoice" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="206" height="203"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="nHi-7Q-k9K">
+                                            <rect key="frame" x="43" y="8" width="120" height="147"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcB-nn-zrV">
+                                            <rect key="frame" x="82" y="162" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="categoryImage" destination="nHi-7Q-k9K" id="cZI-Kx-IgN"/>
+                                    <outlet property="categoryLabel" destination="hcB-nn-zrV" id="Zca-PL-x6v"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="jI8-me-jOh" id="Jeh-Op-tGA"/>
+                            <outlet property="delegate" destination="jI8-me-jOh" id="yGO-QE-rXw"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="975-4H-Es1"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kmK-Dh-oe1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1921" y="-1733"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="fNt-gq-1Xm">
             <objects>
@@ -522,7 +573,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdJ-qp-GJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1853" y="-1024"/>
+            <point key="canvasLocation" x="-1860" y="-881"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="deX-Aj-y8B">
@@ -539,11 +590,12 @@
                         <segue destination="UAr-xg-O5r" kind="relationship" relationship="viewControllers" id="tPP-PX-Hlc"/>
                         <segue destination="Jhg-hw-bnR" kind="relationship" relationship="viewControllers" id="Hkj-uM-YLf"/>
                         <segue destination="iqy-Nq-BRy" kind="relationship" relationship="viewControllers" id="K2C-RX-xM1"/>
+                        <segue destination="1vi-8N-cGW" kind="relationship" relationship="viewControllers" id="sV0-YL-5pg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haD-xs-O7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3195" y="-350"/>
+            <point key="canvasLocation" x="-3342" y="-1711"/>
         </scene>
         <!--Your Posts View Controller-->
         <scene sceneID="lDs-rF-Mht">
@@ -1239,7 +1291,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcA-xv-rkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3180" y="-1034"/>
+            <point key="canvasLocation" x="-3356" y="-988"/>
         </scene>
         <!--Discover-->
         <scene sceneID="h1K-wg-ljm">
@@ -1259,6 +1311,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5D-oJ-eZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3222" y="1055"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="h8S-Ub-nv2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1vi-8N-cGW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="CXD-7O-MiY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vo1-F5-85J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jI8-me-jOh" kind="relationship" relationship="rootViewController" id="WY3-je-gRH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9K6-zx-7cs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2690" y="-1703"/>
         </scene>
     </scenes>
     <resources>
