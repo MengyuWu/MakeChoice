@@ -32,6 +32,39 @@ class ParseHelper{
    }
     
     
+    
+    
+    static func timelineRequestforCurrentUserWithOptions(range: Range<Int>, options: Int, completionBlock: PFArrayResultBlock) {
+        let query = Post.query()
+        if let query=query{
+            if(options==0){
+                // do nothing all the results
+            }else if (options==1){
+                // friends
+          
+            let friendsQuery = PFQuery(className:PF_FRIEND_CLASS_NAME)
+            friendsQuery.whereKey(PF_FRIEND_USER, equalTo:PFUser.currentUser()!)
+            query.whereKey(PF_POST_POSTER, matchesKey: PF_FRIEND_FRIEND, inQuery: friendsQuery)
+            
+                
+            }
+            
+            query.includeKey(PF_POST_POSTER)
+            query.orderByDescending(PF_POST_CREATEDAT)
+            //only show some range not all
+            query.skip = range.startIndex
+            query.limit = range.endIndex - range.startIndex
+            query.findObjectsInBackgroundWithBlock(completionBlock)
+        
+        }
+        
+            
+    }
+
+    
+    
+    
+    
     static func timelineRequestforCurrentUserFriends(completionBlock: PFArrayResultBlock){
         
         let friendsQuery = PFQuery(className:PF_FRIEND_CLASS_NAME)

@@ -39,16 +39,9 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         case 1:
             NSLog("Friends")
             isFriends=true
+            timelineComponent.refresh(self)
+           
             
-            ParseHelper.timelineRequestforCurrentUserFriends{ (results: [AnyObject]?, error: NSError?) -> Void in
-                if let results=results as? [Post]{
-                    self.friendPosts=results
-                    self.tableView.reloadData()
-                    
-                }
-            }
-
-            self.tableView.reloadData()
             
         default:
             break;
@@ -66,11 +59,20 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     `completionBlock`, with the items as argument, upon completion.
     */
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void){
-        ParseHelper.timelineRequestforCurrentUserPublic(range){ (result: [AnyObject]?, error: NSError?) -> Void in
-            let posts = result as? [Post] ?? []
-            completionBlock(posts)
-            
+        if(isFriends){
+            ParseHelper.timelineRequestforCurrentUserWithOptions(range,options:1){ (result: [AnyObject]?, error: NSError?) -> Void in
+                let posts = result as? [Post] ?? []
+                completionBlock(posts)
+            }
+        }else{
+            ParseHelper.timelineRequestforCurrentUserWithOptions(range,options:0){ (result: [AnyObject]?, error: NSError?) -> Void in
+                let posts = result as? [Post] ?? []
+                completionBlock(posts)
+            }
+   
         }
+        
+       
         
     }
     
@@ -89,21 +91,8 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-    
-        
-        if(isFriends){
-            ParseHelper.timelineRequestforCurrentUserFriends{ (results: [AnyObject]?, error: NSError?) -> Void in
-                if let results=results as? [Post]{
-                    self.friendPosts=results
-                  
-                    self.tableView.reloadData()
-                    
-                }
-            }
-        }else{
         timelineComponent.refresh(self)
-        }
-       
+    
     }
     
     
@@ -147,9 +136,9 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         //loadmore if (indexPath.section == (currentRange.endIndex - 1) && !loadedAllContent)
        // println("willDisplayCell: \(indexPath.section) \(timelineComponent.content[indexPath.section].totalVotes)")
-        if(!isFriends){
+     
         timelineComponent.calledCellForRowAtIndexPath(indexPath)
-        }
+        
     }
 
 }
@@ -158,12 +147,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCellWithIdentifier("PostHeader") as! HomePostSectionHeaderView
         var post:Post?
-        if(isFriends){
-           //println("section:\(section), num of friend post \(self.friendPosts.count)")
-           post=self.friendPosts[section]
-        }else{
-           post=self.timelineComponent.content[section]
-        }
+        post=self.timelineComponent.content[section]
         
         headerCell.post=post
         //let the header show up when updated
@@ -182,12 +166,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         var num=0
-        if(isFriends){
-            num=self.friendPosts.count
-        }else{
-            num=timelineComponent.content.count ?? 0
-        }
-        
+        num=timelineComponent.content.count ?? 0
         return num
     }
     
@@ -200,12 +179,7 @@ extension HomeViewController: UITableViewDataSource {
         
         var post:Post?
         
-        if(isFriends){
-            post=self.friendPosts[indexPath.section]
-        }else{
-            post=timelineComponent.content[indexPath.section]
-        }
-
+        post=timelineComponent.content[indexPath.section]
         
        // println("cellforRowat index.section: \(indexPath.section) post.totalValue: \(post.totalVotes) ")
         
@@ -294,13 +268,8 @@ extension HomeViewController: UITableViewDataSource {
         var postId:String?
         var post:Post?
         var tag=sender.tag
-        if(isFriends){
-        postId=friendPosts[tag].objectId
-        post=friendPosts[tag]
-        }else{
         postId=timelineComponent.content[tag].objectId
         post=timelineComponent.content[tag]
-        }
         
         if let postId=postId{
             self.performSegueWithIdentifier("commentPushSegue", sender: post)
@@ -316,14 +285,9 @@ extension HomeViewController: UITableViewDataSource {
             var postId:String?
             var poster:PFUser?
             
-            if(isFriends){
-                postId=self.friendPosts[tag].objectId
-                poster=self.friendPosts[tag].poster
-            }else{
-                postId=timelineComponent.content[tag].objectId
-                poster=timelineComponent.content[tag].poster
-            }
- 
+            postId=timelineComponent.content[tag].objectId
+            poster=timelineComponent.content[tag].poster
+            
             if let postId=postId{
                 println("postId:\(postId)")
             
@@ -351,15 +315,8 @@ extension HomeViewController: UITableViewDataSource {
                                     
                                     if let results=results as? [Post]{
                                         
-                                        if(self.isFriends){
-                                            self.friendPosts[tag]=results.first!
-                                             println("friends totalVote\(self.friendPosts[tag].totalVotes)")
-                                        }else{
                                         self.timelineComponent.content[tag]=results.first!
-                                        println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
-                                        }
-                                        
-                                       //send notification if the voter is not poster
+                                        println("totalVote\(self.timelineComponent.content[tag].totalVotes)")                                       //send notification if the voter is not poster
                                         if let poster=poster{
                                             if (poster.objectId != PFUser.currentUser()?.objectId){
                                                 PushNotificationHelper.sendVoteNotification(poster)
@@ -401,15 +358,8 @@ extension HomeViewController: UITableViewDataSource {
         if let tag=recognizer.view?.tag{
             var postId:String?
             var poster:PFUser?
-            
-            if(isFriends){
-                postId=self.friendPosts[tag].objectId
-                poster=self.friendPosts[tag].poster
-            }else{
-                postId=timelineComponent.content[tag].objectId
-                poster=timelineComponent.content[tag].poster
-            }
-
+            postId=timelineComponent.content[tag].objectId
+            poster=timelineComponent.content[tag].poster
             
             if let postId=postId{
                 println("postId:\(postId)")
@@ -437,15 +387,8 @@ extension HomeViewController: UITableViewDataSource {
                                     ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
                                         
                                         if let results=results as? [Post]{
-                                            if(self.isFriends){
-                                                self.friendPosts[tag]=results.first!
-                                                println("friends totalVote\(self.friendPosts[tag].totalVotes)")
-                                            }else{
-                                                
-                                                self.timelineComponent.content[tag]=results.first!
-                                                println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
-                                            }
-                                            
+                                            self.timelineComponent.content[tag]=results.first!
+                                            println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
                                             //send notification if the voter is not poster
                                     if let poster=poster{
                                         if (poster.objectId != PFUser.currentUser()?.objectId){

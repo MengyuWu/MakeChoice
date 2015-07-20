@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="private:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpA-BL-ltX">
-                                <rect key="frame" x="20" y="137" width="57" height="21"/>
+                                <rect key="frame" x="20" y="137" width="57" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -331,7 +331,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmK-Dh-oe1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1921" y="-1733"/>
+            <point key="canvasLocation" x="-3145" y="-1733"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="fNt-gq-1Xm">
@@ -597,15 +597,15 @@
                     </tabBar>
                     <connections>
                         <segue destination="6uX-3j-7QE" kind="relationship" relationship="viewControllers" id="XbC-Z3-3Nz"/>
+                        <segue destination="1vi-8N-cGW" kind="relationship" relationship="viewControllers" id="sV0-YL-5pg"/>
                         <segue destination="UAr-xg-O5r" kind="relationship" relationship="viewControllers" id="tPP-PX-Hlc"/>
                         <segue destination="Jhg-hw-bnR" kind="relationship" relationship="viewControllers" id="Hkj-uM-YLf"/>
                         <segue destination="iqy-Nq-BRy" kind="relationship" relationship="viewControllers" id="K2C-RX-xM1"/>
-                        <segue destination="1vi-8N-cGW" kind="relationship" relationship="viewControllers" id="sV0-YL-5pg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haD-xs-O7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3342" y="-1711"/>
+            <point key="canvasLocation" x="-5710" y="-1799"/>
         </scene>
         <!--Your Posts View Controller-->
         <scene sceneID="lDs-rF-Mht">
@@ -1322,11 +1322,11 @@
             </objects>
             <point key="canvasLocation" x="-3222" y="1055"/>
         </scene>
-        <!--Item-->
+        <!--Category-->
         <scene sceneID="h8S-Ub-nv2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1vi-8N-cGW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CXD-7O-MiY"/>
+                    <tabBarItem key="tabBarItem" title="Category" id="CXD-7O-MiY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vo1-F5-85J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1339,7 +1339,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9K6-zx-7cs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2690" y="-1703"/>
+            <point key="canvasLocation" x="-4286" y="-1747"/>
         </scene>
     </scenes>
     <resources>
