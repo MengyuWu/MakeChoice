@@ -112,12 +112,29 @@ extension CategoryDetailViewController: UITableViewDataSource {
         post=self.timelineComponent.content[section]
         
         headerCell.post=post
+        
+       
+        headerCell.questionLabel.lineBreakMode = .ByWordWrapping
+        headerCell.questionLabel.numberOfLines=0
+        headerCell.questionLabel.sizeToFit()
         //let the header show up when updated
         return headerCell.contentView
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return HEADER_CELL_HEIGHT
+        var post:Post?
+        post=self.timelineComponent.content[section]
+        var length:Int=0
+        if let title = post?.title{
+            
+            //TODO: fix resize the header size
+            length=count(title)
+        }
+        
+        var height=CGFloat((length/20)*10)+HEADER_CELL_HEIGHT
+        
+        return height
+
     }
     
     
