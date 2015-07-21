@@ -12,7 +12,8 @@ let reuseIdentifier = "CategoryCell"
 
 class CategoryCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    let titles = ["Technology","Travelling","Fashion","Pet","Food","Music"]
+    //let titles = ["Technology","Travelling","Fashion","Pet","Food","Others"]
+    let titles=CATEGORIES_UPPERCASE
     let colors=[0xFFFAE6,0xFFF5CC,0xFFF0B2,0xFFEB99,0xFFE680,0xFFE066]
     var screenSize: CGRect!
     var screenWidth: CGFloat!

@@ -30,7 +30,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
     
    let colors=[0xFFFAE6,0xFFF5CC,0xFFF0B2,0xFFEB99,0xFFE680,0xFFE066]
-   let categories=["Technology","Travelling","Fashion","Pet","Food","Others"]
+   let categories=CATEGORIES_UPPERCASE
     
 //    @IBOutlet weak var categoryButton: UIButton!
 //    
@@ -183,7 +183,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        println("viewwiLLaPPEAR: \(imgAddButton)")
+      //  println("viewwiLLaPPEAR: \(imgAddButton)")
         DesignHelper.setImageCornerRadius(self.img1)
         DesignHelper.setImageCornerRadius(self.img2)
         if(self.imgAddButton==0){
@@ -272,7 +272,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         println("button tag \(sender.tag)")
        
         var tag=sender.tag
-        pickerSelect.setTitle(categories[tag], forState: .Normal)
+        pickerSelect.setTitle(CATEGORIES[tag], forState: .Normal)
         closePicker()
         
     }

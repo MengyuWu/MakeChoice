@@ -65,7 +65,8 @@ class ParseHelper{
     
     static func timelineRequestforCurrentUserWithCategory(range: Range<Int>, categoryIndex: Int, completionBlock: PFArrayResultBlock) {
         
-        let categorys = ["technology","travelling","fashion","pet","food","music"]
+        let categorys = ["technology","travelling","fashion","pet","food","others"]
+        
         let query = Post.query()
         if let query=query{
             println("category:\(categorys[categoryIndex])")

@@ -8,6 +8,11 @@
 
 import Foundation
 
+
+/*Category*/
+let CATEGORIES=["technology","travelling","fashion","pet","food","others"]
+let CATEGORIES_UPPERCASE=["Technology","Travelling","Fashion","Pet","Food","Others"]
+
 /*Size*/
 let HEADER_CELL_HEIGHT:CGFloat                  = 60.0
 
