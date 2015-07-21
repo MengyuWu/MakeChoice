@@ -69,15 +69,19 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         post.isPrivate=false //add action on it
         post.title=titleTextField.text // should not let it upload if no title?
         post.category="music"
-        
-        //Can't check image is nil
-//        if (img1.image != nil && img2.image != nil ){
-//         println("upload")
-//         post.uploadPost()
-//        }
-      
+        post.isPrivate=self.isPrivate
+ 
         var img1Data=UIImageJPEGRepresentation(img1.image, 0.8)
         var img2Data=UIImageJPEGRepresentation(img2.image, 0.8)
+        
+        //check category is selected
+        if (titleTextField.text==""){
+            var alert = UIAlertController(title: "Alert", message: "Please fill in the title", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+        
         if (img1Data != nil && img2Data != nil ){
             println("upload")
             post.uploadPost()
@@ -129,6 +133,9 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set title color
+        titleTextField.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
 
         // Do any additional setup after loading the view.
         imagePickerController.delegate = self
@@ -193,7 +200,8 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             ["title" : "Fashion", "color" : "#45a85a"],
             ["title" : "Pet", "color" : "#a8a23f"],
             ["title" : "Food", "color" : "#c6802e"],
-            ["title" : "Music", "color" : "#b05050"]
+            ["title" : "Music", "color" : "#b05050"],
+            ["title" : "Others", "color" : "#b05050"]
         ]
     }
     
@@ -285,15 +293,14 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
 
     
  // MARK: private
-    var isPublic=true
+    var isPrivate=false
     
     @IBOutlet weak var isPublicButton: UIButton!
     
     @IBAction func isPublicButtonTapped(sender: AnyObject) {
-        isPublic = !isPublic
-        isPublicButton.selected = !isPublic
-        
-        
+        isPrivate = !isPrivate
+        isPublicButton.selected = isPrivate
+ 
     }
     
     

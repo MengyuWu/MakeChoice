@@ -55,7 +55,7 @@
                                     <action selector="addImg2ButtonPressed:" destination="xZZ-sl-32e" eventType="touchUpInside" id="Lcl-80-ld0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your Quesion: Which one ... ?" placeholder="Your Quesion: Which one ... ?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PH9-0D-G7t">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Quesion: Which one ... ?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PH9-0D-G7t">
                                 <rect key="frame" x="56" y="79" width="528" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zOi-zg-jWd"/>
