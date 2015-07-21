@@ -30,27 +30,27 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
     
    let colors=[0xFFFAE6,0xFFF5CC,0xFFF0B2,0xFFEB99,0xFFE680,0xFFE066]
-   let categories=["Technology","Travelling","Fashion","Pet","Food","Music"]
+   let categories=["Technology","Travelling","Fashion","Pet","Food","Others"]
     
-    @IBOutlet weak var categoryButton: UIButton!
-    
-    @IBAction func chooseCategoryTapped(sender: AnyObject) {
-        ActionSheetStringPicker.showPickerWithTitle("Categories", rows: ["Technology","Travelling","Fashion","Pet","Food","Music"], initialSelection: 1, doneBlock: {
-            picker, value, index in
-            
-//            println("value = \(value)")
-//            println("index = \(index)")
-//            println("picker = \(picker)")
-            
-            if index != nil{
-              self.categoryButton.setTitle("\(index)", forState:.Normal)
-              self.categoryButton.backgroundColor=UIColor(netHex:self.colors[value])
-            }
-            
-                return
-            }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender)
-        
-    }
+//    @IBOutlet weak var categoryButton: UIButton!
+//    
+//    @IBAction func chooseCategoryTapped(sender: AnyObject) {
+//        ActionSheetStringPicker.showPickerWithTitle("Categories", rows: ["Technology","Travelling","Fashion","Pet","Food","Music"], initialSelection: 1, doneBlock: {
+//            picker, value, index in
+//            
+////            println("value = \(value)")
+////            println("index = \(index)")
+////            println("picker = \(picker)")
+//            
+//            if index != nil{
+//              self.categoryButton.setTitle("\(index)", forState:.Normal)
+//              self.categoryButton.backgroundColor=UIColor(netHex:self.colors[value])
+//            }
+//            
+//                return
+//            }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender)
+//        
+//    }
 
     @IBAction func addImg2ButtonPressed(sender: AnyObject) {
         imgAddButton=2;
@@ -68,25 +68,54 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         post.image2.value=img2.image
         post.isPrivate=false //add action on it
         post.title=titleTextField.text // should not let it upload if no title?
-        post.category="music"
+        post.category="others"
         post.isPrivate=self.isPrivate
  
         var img1Data=UIImageJPEGRepresentation(img1.image, 0.8)
         var img2Data=UIImageJPEGRepresentation(img2.image, 0.8)
         
-        //check category is selected
+        
+       
         if (titleTextField.text==""){
             var alert = UIAlertController(title: "Alert", message: "Please fill in the title", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
-        }
-        
-        
-        if (img1Data != nil && img2Data != nil ){
-            println("upload")
+        }else if (pickerSelect.titleLabel?.text=="Select"){
+            
+            var alert = UIAlertController(title: "Alert", message: "Please choose a category", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }else if (img1Data == nil || img2Data == nil){
+            
+            var alert = UIAlertController(title: "Alert", message: "Please upload two pictures", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }else{
+            
+            post.category=pickerSelect.titleLabel?.text?.lowercaseString
+            
+            println("upload successfully")
             post.uploadPost()
+            
+            // ProcessHUD, pop up
+            var alert = UIAlertController(title: "Alert", message: "Upload successfully", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+
+       
+            //after upload
+            pickerSelect.setTitle("Select", forState: .Normal)
+            titleTextField.text=""
+            isPrivate=false
+            self.isPublicButton.selected=false
+            DesignHelper.blankImageShowButton(img1, button: addImg1Button)
+            DesignHelper.blankImageShowButton(img2, button: addImg2Button)
+            
          }
-        
+
+    
     }
     
     
@@ -200,7 +229,6 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             ["title" : "Fashion", "color" : "#45a85a"],
             ["title" : "Pet", "color" : "#a8a23f"],
             ["title" : "Food", "color" : "#c6802e"],
-            ["title" : "Music", "color" : "#b05050"],
             ["title" : "Others", "color" : "#b05050"]
         ]
     }
@@ -230,7 +258,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             button.setTitle(feeling["title"], forState: .Normal)
             button.tag = index
             button.addTarget(self, action: Selector("ButtonTapped:" ), forControlEvents: UIControlEvents.TouchUpInside)
-            
+            button.backgroundColor=UIColor(netHex: colors[index])
             picker.addSubview(button)
             
             offset += 44
@@ -241,7 +269,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     func ButtonTapped(sender:UIButton!){
         
-        //println("button tag \(sender.tag)")
+        println("button tag \(sender.tag)")
        
         var tag=sender.tag
         pickerSelect.setTitle(categories[tag], forState: .Normal)
