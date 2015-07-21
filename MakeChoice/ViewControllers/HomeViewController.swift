@@ -84,8 +84,13 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         
         //assign the installation[user] to be current user
          PushNotication.parsePushUserAssign()
+        
+        
+        
       
     }
+    
+    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -151,12 +156,14 @@ extension HomeViewController: UITableViewDataSource {
         headerCell.questionLabel.lineBreakMode = .ByWordWrapping
         headerCell.questionLabel.numberOfLines=0
         headerCell.questionLabel.sizeToFit()
-        
-        println("height 1 \(headerCell.questionLabel.frame.height)")
+    
+       // println("height 1 \(headerCell.questionLabel.frame.height)")
         //let the header show up when updated
         return headerCell.contentView
     }
     
+    
+   
     
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -168,21 +175,11 @@ extension HomeViewController: UITableViewDataSource {
             
            //TODO: fix resize the header size
            length=count(title)
-            //println("length \(length)")
-            if length>=20 && length<=40{
-              return HEADER_CELL_HEIGHT+20
-            }else if length > 40 && length <= 60{
-               return HEADER_CELL_HEIGHT+40
-            }else if length > 60 && length <= 80{
-               return HEADER_CELL_HEIGHT+60
-            }else if length > 80{
-                return HEADER_CELL_HEIGHT+80
-            }
-        }
+       }
         
+        var height=CGFloat((length/20)*10)+HEADER_CELL_HEIGHT
         
-        
-        return HEADER_CELL_HEIGHT
+        return height
     }
 
     

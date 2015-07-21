@@ -370,6 +370,6 @@ extension PostViewController:UITextFieldDelegate{
         }
         
         let newLength = count(textField.text) + count(string) - range.length
-        return newLength <= 50
+        return newLength <= 100
     }
 }

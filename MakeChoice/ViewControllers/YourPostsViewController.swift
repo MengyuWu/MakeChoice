@@ -43,11 +43,15 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
         self.tableView.dataSource=self
         self.tableView.delegate=self
         timelineComponent = TimelineComponent(target: self)
+//        
+//        tableView.estimatedRowHeight=100
+//        tableView.rowHeight=UITableViewAutomaticDimension
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         timelineComponent.refresh(self)
+        tableView.reloadData()
         
     }
 
@@ -110,6 +114,9 @@ extension YourPostsViewController: UITableViewDataSource{
         post.getPostStatistic()
         cell.post=post
         cell.title.text=post.title ?? ""
+        cell.title.sizeToFit()
+        //cell.title.lineBreakMode = .ByWordWrapping
+        
         //setting img radious
         DesignHelper.setImageCornerRadius(cell.img1)
         DesignHelper.setImageCornerRadius(cell.img2)

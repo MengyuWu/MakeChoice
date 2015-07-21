@@ -170,8 +170,8 @@ class Post: PFObject, PFSubclassing {
             var p1 = Float(self.vote1Int)/Float(self.totalVotesInt.value)*100
             var p2 = Float(self.vote2Int)/Float(self.totalVotesInt.value)*100
             
-            self.vote1Percentage.value=" \(p1) %"
-            self.vote2Percentage.value=" \(p2) %"
+            self.vote1Percentage.value=String(format: "%.2f", p1)+" %"
+            self.vote2Percentage.value=String(format: "%.2f", p2)+" %"
             
         }
         
