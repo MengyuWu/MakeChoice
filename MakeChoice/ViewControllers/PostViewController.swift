@@ -180,7 +180,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
 
     
     
-    // dropdown
+    // MARK: dropdown
     
     let picker = UIImageView(image: UIImage(named: "picker"))
     
@@ -284,9 +284,17 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
 
     
+ // MARK: private
+    var isPublic=true
     
+    @IBOutlet weak var isPublicButton: UIButton!
     
-    
+    @IBAction func isPublicButtonTapped(sender: AnyObject) {
+        isPublic = !isPublic
+        isPublicButton.selected = !isPublic
+        
+        
+    }
     
     
 }
