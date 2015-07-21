@@ -26,6 +26,11 @@ class HomePostSectionHeaderView: UITableViewCell {
                usernameLabel.text=post.poster?.username
                postTimeLabel.text=post.createdAt?.shortTimeAgoSinceDate(NSDate()) ?? ""
                questionLabel.text=post.title ?? ""
+                
+               //Change line if too long
+                questionLabel.lineBreakMode = .ByWordWrapping
+                questionLabel.numberOfLines=0
+                               
                
                 var placeHolderIcon=UIImage(named:"Profile")
                 var iconFile=post.poster?[PF_USER_PICTURE] as? PFFile

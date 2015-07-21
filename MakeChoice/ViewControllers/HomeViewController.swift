@@ -76,7 +76,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.tableView.delegate=self
         self.tableView.dataSource=self
@@ -148,11 +148,33 @@ extension HomeViewController: UITableViewDataSource {
         post=self.timelineComponent.content[section]
         
         headerCell.post=post
+        headerCell.questionLabel.lineBreakMode = .ByWordWrapping
+        headerCell.questionLabel.numberOfLines=0
+        headerCell.questionLabel.sizeToFit()
+        
+        println("height 1 \(headerCell.questionLabel.frame.height)")
         //let the header show up when updated
         return headerCell.contentView
     }
     
+    
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        var post:Post?
+        post=self.timelineComponent.content[section]
+          var length:Int=0
+        if let title=post?.title{
+            
+            
+           length=count(title)
+            if length>20{
+              //return 120
+            }
+            
+        }
+        
+        
+        
         return HEADER_CELL_HEIGHT
     }
 

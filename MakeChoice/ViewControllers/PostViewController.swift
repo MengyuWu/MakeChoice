@@ -165,7 +165,8 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         
         //set title color
         titleTextField.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
-
+        titleTextField.delegate=self
+        
         // Do any additional setup after loading the view.
         imagePickerController.delegate = self
         
@@ -359,3 +360,16 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
 }
 
 
+// MARK: textField delegate
+extension PostViewController:UITextFieldDelegate{
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if (range.length + range.location > count(textField.text) )
+        {
+            return false;
+        }
+        
+        let newLength = count(textField.text) + count(string) - range.length
+        return newLength <= 50
+    }
+}
