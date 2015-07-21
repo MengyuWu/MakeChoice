@@ -162,15 +162,22 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         var post:Post?
         post=self.timelineComponent.content[section]
+        
           var length:Int=0
-        if let title=post?.title{
+        if let title = post?.title{
             
-            
+           //TODO: fix resize the header size
            length=count(title)
-            if length>20{
-              //return 120
+            //println("length \(length)")
+            if length>=20 && length<=40{
+              return HEADER_CELL_HEIGHT+20
+            }else if length > 40 && length <= 60{
+               return HEADER_CELL_HEIGHT+40
+            }else if length > 60 && length <= 80{
+               return HEADER_CELL_HEIGHT+60
+            }else if length > 80{
+                return HEADER_CELL_HEIGHT+80
             }
-            
         }
         
         
