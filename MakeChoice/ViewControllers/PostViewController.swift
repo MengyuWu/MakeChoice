@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import ActionSheetPicker_3_0
 
-class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPopoverPresentationControllerDelegate  {
     
     var imagePickerController = UIImagePickerController()
     
@@ -27,6 +28,29 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         imgAddButton=1;
         self.showPhotoSourceSelection()
     }
+    
+   let colors=[0xFFFAE6,0xFFF5CC,0xFFF0B2,0xFFEB99,0xFFE680,0xFFE066]
+   let categories=["Technology","Travelling","Fashion","Pet","Food","Music"]
+    
+    @IBOutlet weak var categoryButton: UIButton!
+    
+    @IBAction func chooseCategoryTapped(sender: AnyObject) {
+        ActionSheetStringPicker.showPickerWithTitle("Categories", rows: ["Technology","Travelling","Fashion","Pet","Food","Music"], initialSelection: 1, doneBlock: {
+            picker, value, index in
+            
+//            println("value = \(value)")
+//            println("index = \(index)")
+//            println("picker = \(picker)")
+            
+            if index != nil{
+              self.categoryButton.setTitle("\(index)", forState:.Normal)
+              self.categoryButton.backgroundColor=UIColor(netHex:self.colors[value])
+            }
+            
+                return
+            }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender)
+        
+    }
 
     @IBAction func addImg2ButtonPressed(sender: AnyObject) {
         imgAddButton=2;
@@ -44,6 +68,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         post.image2.value=img2.image
         post.isPrivate=false //add action on it
         post.title=titleTextField.text // should not let it upload if no title?
+        post.category="music"
         
         //Can't check image is nil
 //        if (img1.image != nil && img2.image != nil ){
@@ -110,6 +135,8 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
+           //drop down
+        createPicker()
     }
     
     //Calls this function when the tap is recognized.
@@ -151,6 +178,117 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
     */
 
+    
+    
+    // dropdown
+    
+    let picker = UIImageView(image: UIImage(named: "picker"))
+    
+    struct properties {
+        
+       //["Technology","Travelling","Fashion","Pet","Food","Music"]
+        static let categories = [
+            ["title" : "Technology", "color" : "#8647b7"],
+            ["title" : "Travelling", "color": "#4870b7"],
+            ["title" : "Fashion", "color" : "#45a85a"],
+            ["title" : "Pet", "color" : "#a8a23f"],
+            ["title" : "Food", "color" : "#c6802e"],
+            ["title" : "Music", "color" : "#b05050"]
+        ]
+    }
+    
+    
+    @IBOutlet weak var pickerSelect: UIButton!
+    
+    @IBAction func pickerSelect(sender: UIButton)
+    {
+        picker.hidden ? openPicker() : closePicker()
+    }
+    
+    func createPicker()
+    {
+        picker.frame = CGRect(x: ((self.view.frame.width / 2) - 143), y: 150, width: 286, height: 291)
+        picker.alpha = 0
+        picker.hidden = true
+        picker.userInteractionEnabled = true
+        
+        var offset = 21
+        
+        for (index, feeling) in enumerate(properties.categories)
+        {
+            let button = UIButton()
+            button.frame = CGRect(x: 13, y: offset, width: 260, height: 43)
+            button.setTitleColor(UIColor(rgba: feeling["color"]!), forState: .Normal)
+            button.setTitle(feeling["title"], forState: .Normal)
+            button.tag = index
+            button.addTarget(self, action: Selector("ButtonTapped:" ), forControlEvents: UIControlEvents.TouchUpInside)
+            
+            picker.addSubview(button)
+            
+            offset += 44
+        }
+        
+        view.addSubview(picker)
+    }
+    
+    func ButtonTapped(sender:UIButton!){
+        
+        //println("button tag \(sender.tag)")
+       
+        var tag=sender.tag
+        pickerSelect.setTitle(categories[tag], forState: .Normal)
+        closePicker()
+        
+    }
+
+    
+    func openPicker()
+    {
+        self.picker.hidden = false
+        
+        UIView.animateWithDuration(0.3,
+            animations: {
+                self.picker.frame = CGRect(x: ((self.view.frame.width / 2) - 143), y: 180, width: 286, height: 291)
+                self.picker.alpha = 1
+        })
+    }
+    
+    func closePicker()
+    {
+        UIView.animateWithDuration(0.3,
+            animations: {
+                self.picker.frame = CGRect(x: ((self.view.frame.width / 2) - 143), y: 150, width: 286, height: 291)
+                self.picker.alpha = 0
+            },
+            completion: { finished in
+                self.picker.hidden = true
+            }
+        )
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let popupView = segue.destinationViewController as? UIViewController
+        {
+            if let popup = popupView.popoverPresentationController
+            {
+                popup.delegate = self
+            }
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+    {
+        return UIModalPresentationStyle.None
+    }
+
+    
+    
+    
+    
+    
+    
 }
 
 // MARK: delegate

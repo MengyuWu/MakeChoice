@@ -18,6 +18,7 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var image2File: PFFile?
     @NSManaged var poster: PFUser?
     @NSManaged var title: String?
+    @NSManaged var category: String?
     @NSManaged var isPrivate: Bool
     @NSManaged var totalVotes: Int
     @NSManaged var vote1: Int

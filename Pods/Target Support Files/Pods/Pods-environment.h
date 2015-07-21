@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_APAddressBook 0
 #define COCOAPODS_VERSION_PATCH_APAddressBook 10
 
+// ActionSheetPicker-3.0
+#define COCOAPODS_POD_AVAILABLE_ActionSheetPicker_3_0
+#define COCOAPODS_VERSION_MAJOR_ActionSheetPicker_3_0 1
+#define COCOAPODS_VERSION_MINOR_ActionSheetPicker_3_0 5
+#define COCOAPODS_VERSION_PATCH_ActionSheetPicker_3_0 1
+
 // Alamofire
 #define COCOAPODS_POD_AVAILABLE_Alamofire
 #define COCOAPODS_VERSION_MAJOR_Alamofire 1

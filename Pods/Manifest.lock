@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (1.5.1)
   - Alamofire (1.2.3)
   - APAddressBook (0.0.10)
   - Bolts (1.2.0):
@@ -36,6 +37,7 @@ PODS:
   - pop (1.0.7)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 1.5.1)
   - Alamofire
   - APAddressBook (~> 0.0.7)
   - Bond
@@ -50,6 +52,7 @@ DEPENDENCIES:
   - pop (~> 1.0)
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: de0f71e30495ed0192f7d16d0fddcab6882a0ca3
   Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
   APAddressBook: 11582a756dc59228effdbba0faf6d4675bac6b77
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
