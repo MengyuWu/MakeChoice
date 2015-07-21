@@ -84,6 +84,7 @@ class FriendSearchViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.tableView.dataSource=self
+        self.searchBar.delegate=self
     }
 
     override func didReceiveMemoryWarning() {
@@ -263,3 +264,29 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
     }
     
 }
+
+// MARK: Searchbar Delegate
+
+extension FriendSearchViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        
+        searchBar.setShowsCancelButton(true, animated: true)
+        self.state = State.SearchMode
+        
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder() //hide keyboards
+        searchBar.text=""
+        searchBar.setShowsCancelButton(false, animated: true)
+        
+        self.state = State.DefaultMode
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        ParseHelper.searchUsers(searchText, completionBlock: updateList)
+    }
+}
+

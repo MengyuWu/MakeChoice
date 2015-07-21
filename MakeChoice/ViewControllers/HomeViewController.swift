@@ -41,8 +41,6 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
             isFriendPost=true
             timelineComponent.refresh(self)
            
-            
-            
         default:
             break;
         }

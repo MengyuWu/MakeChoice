@@ -38,7 +38,8 @@ class ParseHelper{
         let query = Post.query()
         if let query=query{
             if(!isFriendPost){
-                // do nothing all the results
+                // get public posts
+                query.whereKey(PF_POST_ISPRIVATE, equalTo: false)
             }else if (isFriendPost){
                 // friends
           

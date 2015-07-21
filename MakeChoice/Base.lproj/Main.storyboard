@@ -55,7 +55,7 @@
                                     <action selector="addImg2ButtonPressed:" destination="xZZ-sl-32e" eventType="touchUpInside" id="Lcl-80-ld0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Quesion: Which one ... ?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PH9-0D-G7t">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your question: Which one ... ?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PH9-0D-G7t">
                                 <rect key="frame" x="56" y="79" width="528" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zOi-zg-jWd"/>
@@ -1691,7 +1691,7 @@
         <image name="AddFile" width="42" height="42"/>
         <image name="Check" width="42" height="42"/>
         <image name="CheckedBox" width="594" height="596"/>
-        <image name="Comment" width="75" height="85"/>
+        <image name="Comment" width="512" height="512"/>
         <image name="FriendsRequest" width="42" height="42"/>
         <image name="Heart" width="72" height="68"/>
         <image name="HeartSelected" width="72" height="68"/>
@@ -1708,6 +1708,6 @@
         <image name="key" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5qA-W6-K1R"/>
+        <segue reference="mmd-cW-fIh"/>
     </inferredMetricsTieBreakers>
 </document>
