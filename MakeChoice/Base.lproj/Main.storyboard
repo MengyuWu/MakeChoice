@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Vqx-uu-aS6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yac-zc-BVo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9R-V2-9Cw" userLabel="imageBackground">
@@ -28,7 +28,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HY8-e5-wM3">
                                 <rect key="frame" x="16" y="650" width="568" height="50"/>
-                                <color key="backgroundColor" red="0.37647058823529411" green="0.69803921568627447" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.78431372549019607" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ntd-EA-0Cq"/>
                                     <constraint firstAttribute="height" constant="50" id="RXf-tD-kCh"/>
@@ -125,6 +125,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJN-nx-8nA">
                                 <rect key="frame" x="279" y="135" width="43" height="30"/>
                                 <state key="normal" title="Select">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -166,7 +167,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.36078431372549019" green="0.5490196078431373" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KUV-kZ-axg" firstAttribute="leading" secondItem="Yj8-Bz-Adw" secondAttribute="leading" id="1qs-Do-2pJ"/>
                             <constraint firstItem="Yj8-Bz-Adw" firstAttribute="centerY" secondItem="eJN-nx-8nA" secondAttribute="centerY" id="27E-Ho-7VA"/>
@@ -245,6 +246,8 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="2Sp-ib-NG6"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="800"/>
                     <connections>
                         <outlet property="addImg1Button" destination="ciL-jl-Zpd" id="BBm-ep-817"/>
                         <outlet property="addImg2Button" destination="Mg6-Jp-ZE9" id="IYU-Yt-RwS"/>
@@ -257,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdW-2B-mKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1685" y="-333"/>
+            <point key="canvasLocation" x="-1679" y="-345"/>
         </scene>
         <!--Post-->
         <scene sceneID="msc-HN-tOW">
@@ -382,7 +385,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJP-oZ-LC6" userLabel="myfriendsView">
-                                <rect key="frame" x="300" y="267.5" width="300" height="61.5"/>
+                                <rect key="frame" x="300" y="267" width="300" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2k-8f-SUh">
                                         <rect key="frame" x="129" y="10" width="42" height="20.5"/>
@@ -397,7 +400,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.42745101451873779" green="0.60392159223556519" blue="0.89803928136825562" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.41960784313725491" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="sqd-tY-KdH" secondAttribute="centerX" id="Rg7-1z-O8p"/>
                                     <constraint firstAttribute="centerY" secondItem="T2k-8f-SUh" secondAttribute="centerY" constant="0.5" id="TeC-mh-q3K"/>

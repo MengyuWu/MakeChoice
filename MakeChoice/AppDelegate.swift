@@ -104,6 +104,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         
+        
+        // MARK: set style
+//        UINavigationBar.appearance().barTintColor = StyleConstants.defaultBlueColor
+//        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        UINavigationBar.appearance().translucent = true
+//        UINavigationBar.appearance().alpha=0.8
+//        
+//        UIToolbar.appearance().barTintColor = StyleConstants.defaultBlueColor
+//        UIToolbar.appearance().tintColor = UIColor.whiteColor()
+//        UIToolbar.appearance().translucent = true
+        
+        
+//        UITabBar.appearance().barTintColor=StyleConstants.defaultBlueColor
+//        UITabBar.appearance().tintColor = UIColor.whiteColor()
+//        UITabBar.appearance().translucent = true
+//        UITabBar.appearance().alpha=0.8
+        
         //return true
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
