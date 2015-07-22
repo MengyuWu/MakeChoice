@@ -263,7 +263,9 @@
         <scene sceneID="msc-HN-tOW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UAr-xg-O5r" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" id="mSC-rp-2d4"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="Post" id="mSC-rp-2d4">
+                        <inset key="imageInsets" minX="-2" minY="-2" maxX="-2" maxY="-2"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qXC-AO-4LA">
@@ -1400,7 +1402,9 @@
         <scene sceneID="V6K-8j-tqp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jhg-hw-bnR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="qbU-pf-Nlw"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile_home" id="qbU-pf-Nlw">
+                        <inset key="imageInsets" minX="22" minY="22" maxX="22" maxY="22"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ULs-R5-oOb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1546,7 +1550,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLn-s0-sm1">
-                                                    <rect key="frame" x="237" y="8" width="44" height="44"/>
+                                                    <rect key="frame" x="261.5" y="8" width="44" height="44"/>
                                                     <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                     <state key="normal" image="Heart">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1554,7 +1558,7 @@
                                                     <state key="selected" image="HeartSelected"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kED-dz-Kqm">
-                                                    <rect key="frame" x="143" y="8" width="44" height="44"/>
+                                                    <rect key="frame" x="167.5" y="8" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="f5w-Q0-EiL"/>
                                                         <constraint firstAttribute="height" constant="44" id="rY4-TJ-LtP"/>
@@ -1574,7 +1578,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="cFr-mm-8ww" secondAttribute="centerY" id="M95-aY-vFV"/>
                                                 <constraint firstItem="kED-dz-Kqm" firstAttribute="height" secondItem="cLn-s0-sm1" secondAttribute="height" id="SCA-Qr-9AW"/>
                                                 <constraint firstItem="kED-dz-Kqm" firstAttribute="centerY" secondItem="cFr-mm-8ww" secondAttribute="centerY" id="dBA-j7-yiQ"/>
-                                                <constraint firstItem="kED-dz-Kqm" firstAttribute="leading" secondItem="cFr-mm-8ww" secondAttribute="trailing" constant="95.5" id="fvb-Zk-Qny"/>
+                                                <constraint firstItem="kED-dz-Kqm" firstAttribute="leading" secondItem="cFr-mm-8ww" secondAttribute="trailing" constant="120" id="fvb-Zk-Qny"/>
                                                 <constraint firstItem="cLn-s0-sm1" firstAttribute="leading" secondItem="kED-dz-Kqm" secondAttribute="trailing" constant="50" id="vmn-ZW-ZLT"/>
                                                 <constraint firstItem="SVs-vx-gdA" firstAttribute="bottom" secondItem="cFr-mm-8ww" secondAttribute="bottom" id="wT7-L8-h9F"/>
                                                 <constraint firstItem="cFr-mm-8ww" firstAttribute="leading" secondItem="Cge-ed-s8I" secondAttribute="leadingMargin" id="xse-61-yfQ"/>
@@ -1794,7 +1798,9 @@
         <scene sceneID="VnO-p4-KZZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6uX-3j-7QE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="Fkb-I3-Zuq"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="Fkb-I3-Zuq">
+                        <inset key="imageInsets" minX="22" minY="22" maxX="22" maxY="22"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w15-OP-6df">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1813,7 +1819,9 @@
         <scene sceneID="h1K-wg-ljm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iqy-Nq-BRy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" id="ZaP-i8-evB"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="SearchFriend" id="ZaP-i8-evB">
+                        <inset key="imageInsets" minX="22" minY="22" maxX="22" maxY="22"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uKX-7R-Wul">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1832,7 +1840,9 @@
         <scene sceneID="h8S-Ub-nv2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1vi-8N-cGW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Category" id="CXD-7O-MiY"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="Category_home" id="CXD-7O-MiY">
+                        <inset key="imageInsets" minX="21" minY="23" maxX="21" maxY="19"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vo1-F5-85J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1852,6 +1862,7 @@
         <image name="Accept" width="170" height="170"/>
         <image name="Add" width="42" height="42"/>
         <image name="AddFile" width="42" height="42"/>
+        <image name="Category_home" width="120" height="120"/>
         <image name="Check" width="42" height="42"/>
         <image name="CheckedBox" width="594" height="596"/>
         <image name="Comment" width="512" height="512"/>
@@ -1859,9 +1870,13 @@
         <image name="Heart" width="72" height="68"/>
         <image name="HeartSelected" width="72" height="68"/>
         <image name="Help" width="52" height="52"/>
+        <image name="Home" width="128" height="128"/>
         <image name="Pencil" width="13" height="18"/>
+        <image name="Post" width="16" height="16"/>
         <image name="Profile" width="70" height="70"/>
+        <image name="Profile_home" width="128" height="128"/>
         <image name="Reject" width="100" height="100"/>
+        <image name="SearchFriend" width="128" height="128"/>
         <image name="Select" width="16" height="16"/>
         <image name="ThumbUp" width="128" height="128"/>
         <image name="Time" width="22" height="22"/>
