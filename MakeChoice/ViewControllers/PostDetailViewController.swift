@@ -12,6 +12,7 @@ class PostDetailViewController: UIViewController {
     
     var post:Post?
     
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var img1: UIImageView!
     
@@ -21,7 +22,7 @@ class PostDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        titleLabel.text=post?.title ?? ""
         img1.image=post?.image1.value
         img2.image=post?.image2.value
         
