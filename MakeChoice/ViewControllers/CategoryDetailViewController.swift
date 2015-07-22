@@ -24,18 +24,34 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
     
     var user:PFUser?
     
+    var option=1 // option 1: category, option 2: friend posts
+    
  
     /**
     This method should load the items within the specified range and call the
     `completionBlock`, with the items as argument, upon completion.
     */
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void){
-        println("index: \(categoryIndex!)")
+      
+        
+        
+        if(option==1 && categoryIndex != nil){
+          println("index: \(categoryIndex!)")
         ParseHelper.timelineRequestforCurrentUserWithCategory(range,categoryIndex:categoryIndex!){ (result: [AnyObject]?, error: NSError?) -> Void in
             let posts = result as? [Post] ?? []
             completionBlock(posts)
         }
         
+        }else if(option==2 && user != nil){
+            
+            ParseHelper.timelineRequestforCurrentUserWithFriend(range,user: self.user!){ (result: [AnyObject]?, error: NSError?) -> Void in
+               
+                let posts = result as? [Post] ?? []
+                
+                completionBlock(posts)
+            }
+
+        }
         
     }
     

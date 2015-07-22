@@ -468,10 +468,10 @@
                         <viewControllerLayoutGuide type="bottom" id="wvZ-pR-yMS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qoi-zP-sTi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="259"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="300" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="B0D-dI-0if">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="300" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="B0D-dI-0if">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -937,7 +937,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BTa-5X-W4t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1QL-ph-M2g">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="259"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1203,11 +1203,12 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="tableView" destination="kBg-AY-Ypo" id="uO7-sJ-hEG"/>
+                        <segue destination="eH7-XK-H3i" kind="show" identifier="friendPostSegue" id="8lu-0u-sp7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h32-dL-q9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1817" y="445.5"/>
+            <point key="canvasLocation" x="-1716" y="-1202.5"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="j3w-Hm-hdK">
@@ -1298,7 +1299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6Z-zt-btk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1198" y="210.5"/>
+            <point key="canvasLocation" x="-1022" y="-173.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="V6K-8j-tqp">
@@ -1767,6 +1768,7 @@
         <image name="key" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8lu-0u-sp7"/>
         <segue reference="5qA-W6-K1R"/>
     </inferredMetricsTieBreakers>
 </document>

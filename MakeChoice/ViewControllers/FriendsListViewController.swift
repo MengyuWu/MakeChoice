@@ -87,6 +87,26 @@ extension FriendsListViewController:UITableViewDataSource{
 }
 
 extension FriendsListViewController:UITableViewDelegate{
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+       var user=friends[indexPath.row]
+        self.performSegueWithIdentifier("friendPostSegue", sender: user)
+       
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier=="friendPostSegue") {
+           
+            let friendPostVC = segue.destinationViewController as! CategoryDetailViewController
+            friendPostVC.user=sender as? PFUser
+            friendPostVC.option=2
+            
+        }
+    }
+
+    
+    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
