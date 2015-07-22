@@ -34,7 +34,20 @@ class FriendsTableViewCell: UITableViewCell {
             }else{
                 self.friendImage.image=UIImage(named: "Profile")
             }
+                
+            //get num of friend post
+                self.friendPostsNum.text=""
+                ParseHelper.getNumOfPostsOfUser(friend){ (results:[AnyObject]?, error: NSError? ) in
+                
+                    if let results=results{
+                        var num=results.count
+                        self.friendPostsNum.text="\(num)"
+                        
+                    }
+                    
+              }
             
+                
           }
             
         DesignHelper.setCircleImage(self.friendImage)

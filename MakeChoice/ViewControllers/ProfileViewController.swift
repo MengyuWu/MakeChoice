@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController {
     
     var parseLoginHelper: ParseLoginHelper!
     
-    
+    var imagePickerController = UIImagePickerController()
 
     @IBAction func indexChanged(sender: AnyObject) {
         
@@ -89,6 +89,7 @@ class ProfileViewController: UIViewController {
         
         //clean badge value
         
+        
     }
     
     
@@ -113,6 +114,13 @@ class ProfileViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
+        
+        
+       // add tap gesture to upload profile image
+        imagePickerController.delegate=self
+        var profileImagetapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("showPhotoSourceSelection") )
+        userImage.addGestureRecognizer(profileImagetapped)
+        userImage.userInteractionEnabled = true
         
  }
     
@@ -191,13 +199,86 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    // MARK: image picker
+    
+    func showPhotoSourceSelection() {
+        println("picker")
+        let alertController = UIAlertController(title: nil, message: "where do you want to get your picture from?", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        if (UIImagePickerController.isCameraDeviceAvailable(.Rear)){
+            let cameraAction = UIAlertAction(title: "Photo from Camera", style: .Default){ (action) in
+                self.showImagePickerController(.Camera)
+            }
+            
+            alertController.addAction(cameraAction)
+        }
+        
+        let photoLibrayAction = UIAlertAction(title: "Photo from Libray", style: .Default){ (action) in
+            self.showImagePickerController(.PhotoLibrary)
+        }
+        
+        alertController.addAction(photoLibrayAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+
+    
+    func showImagePickerController(sourceType: UIImagePickerControllerSourceType){
+        
+        imagePickerController.sourceType=sourceType
+        imagePickerController.delegate=self
+        self.presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+
+    
 
 }
 
-extension ProfileViewController: UIImagePickerControllerDelegate{
+// MARK: delegate
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-}
-
-extension ProfileViewController: UINavigationControllerDelegate {
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        
+        // upload image to parse
+        println("finish picking image")
+        var imgData=UIImageJPEGRepresentation(image, 0.8)
+        let imageFile=PFFile(data: imgData)
+        imageFile.saveInBackgroundWithBlock{
+            (success: Bool, error: NSError? ) -> Void in
+            
+            if let error = error {
+                // ErrorHandling.defaultErrorHandler(error)
+                println("error")
+            }else{
+                println("profile image save successfully")
+                
+                var user:PFUser?=PFUser.currentUser()
+                if let user=user{
+                user[PF_USER_PICTURE]=imageFile
+                    user.saveInBackgroundWithBlock{
+                         (success: Bool, error: NSError? ) -> Void in
+                        if (success){
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                        }
+                        
+                    }
+              
+                }
+                
+            }
+        }
+        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

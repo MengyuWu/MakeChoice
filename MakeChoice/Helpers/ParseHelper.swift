@@ -290,7 +290,17 @@ class ParseHelper{
     }
     
   
-    
+    static func getNumOfPostsOfUser(user:PFUser ,completionBlock: PFArrayResultBlock){
+        let query = Post.query()
+        if let query=query{
+            query.whereKey(PF_POST_POSTER, equalTo: user)
+            query.includeKey(PF_POST_POSTER)
+            query.orderByDescending(PF_POST_CREATEDAT)
+            //only show some range not all
+            query.findObjectsInBackgroundWithBlock(completionBlock)
+        }
+
+    }
     
    
     

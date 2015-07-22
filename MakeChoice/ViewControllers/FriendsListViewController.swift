@@ -12,6 +12,7 @@ class FriendsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var postNum: UILabel!
     var friends:[PFUser]=[]{
         didSet{
             self.tableView.reloadData()
@@ -43,7 +44,7 @@ class FriendsListViewController: UIViewController {
             
         }
         
-        
+  
     }
     
 
