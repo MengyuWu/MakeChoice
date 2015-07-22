@@ -151,6 +151,11 @@ class ParseHelper{
         
     }
     
+    static func getFriendsNum(completionBlock: PFArrayResultBlock){
+        var query=PFQuery(className: PF_FRIEND_CLASS_NAME)
+        query.whereKey(PF_FRIEND_USER, equalTo: PFUser.currentUser()!)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
     
     static func addFriendFromUserToUser(fromUser:PFUser, toUser: PFUser){
         
@@ -296,7 +301,7 @@ class ParseHelper{
             query.whereKey(PF_POST_POSTER, equalTo: user)
             query.includeKey(PF_POST_POSTER)
             query.orderByDescending(PF_POST_CREATEDAT)
-            //only show some range not all
+            
             query.findObjectsInBackgroundWithBlock(completionBlock)
         }
 

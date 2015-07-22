@@ -28,6 +28,13 @@ class ProfileViewController: UIViewController {
     var parseLoginHelper: ParseLoginHelper!
     
     var imagePickerController = UIImagePickerController()
+    
+    @IBOutlet weak var myPostsNum: UILabel!
+    @IBOutlet weak var myFriendsNum: UILabel!
+    
+    @IBOutlet weak var myPostsView: UIView!
+    
+    @IBOutlet weak var myFriendsView: UIView!
 
     @IBAction func indexChanged(sender: AnyObject) {
         
@@ -122,7 +129,39 @@ class ProfileViewController: UIViewController {
         userImage.addGestureRecognizer(profileImagetapped)
         userImage.userInteractionEnabled = true
         
- }
+      // Method2: segment choose
+        myPostsView.userInteractionEnabled=true
+        var  myPostsViewTapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("myPostsViewTapped:" ))
+        
+        myPostsView.addGestureRecognizer(myPostsViewTapped)
+        
+        
+        
+        
+        myFriendsView.userInteractionEnabled=true
+        var  myFriendsViewTapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("myFriendsViewTapped:" ))
+
+        myFriendsView.addGestureRecognizer(myFriendsViewTapped)
+        
+    
+    }
+    
+    
+    
+    
+    
+    func myPostsViewTapped(recognizer:UITapGestureRecognizer ){
+        NSLog("Your post")
+        YourPostsContainerView.hidden=false
+        FriendsContainerView.hidden=true
+    }
+    
+    func myFriendsViewTapped(recognizer:UITapGestureRecognizer ){
+        NSLog("your friends")
+        YourPostsContainerView.hidden=true
+        FriendsContainerView.hidden=false
+    }
+
     
    
     
@@ -154,6 +193,25 @@ class ProfileViewController: UIViewController {
             
             DesignHelper.setImageClipsToBounds(self.userImage)
             
+            self.myPostsNum.text=""
+            self.myFriendsNum.text=""
+            // get myPostsNum and myFriendNum
+            ParseHelper.getNumOfPostsOfUser(user){ (results:[AnyObject]?, error:NSError?) in
+                
+                if let results=results{
+                    self.myPostsNum.text="\(results.count)"
+                }
+                         
+            }
+            
+            ParseHelper.getFriendsNum{ (results:[AnyObject]?, error:NSError?) in
+                
+                if let results=results{
+                    self.myFriendsNum.text="\(results.count)"
+                }
+
+            }
+            
         }
         
         DesignHelper.setCircleImage(self.userImage)
@@ -171,6 +229,8 @@ class ProfileViewController: UIViewController {
             }
             
         }
+        
+        
         
 
     }
