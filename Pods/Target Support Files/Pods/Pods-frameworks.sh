@@ -51,6 +51,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'APAddressBook.framework'
   install_framework 'ActionSheetPicker_3_0.framework'
   install_framework 'Alamofire.framework'
+  install_framework 'BSImagePicker.framework'
   install_framework 'Bolts.framework'
   install_framework 'Bond.framework'
   install_framework 'ConvenienceKit.framework'
@@ -62,12 +63,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Parse.framework'
   install_framework 'ParseFacebookUtilsV4.framework'
   install_framework 'ParseUI.framework'
+  install_framework 'UIImageViewModeScaleAspect.framework'
   install_framework 'pop.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'APAddressBook.framework'
   install_framework 'ActionSheetPicker_3_0.framework'
   install_framework 'Alamofire.framework'
+  install_framework 'BSImagePicker.framework'
   install_framework 'Bolts.framework'
   install_framework 'Bond.framework'
   install_framework 'ConvenienceKit.framework'
@@ -79,5 +82,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Parse.framework'
   install_framework 'ParseFacebookUtilsV4.framework'
   install_framework 'ParseUI.framework'
+  install_framework 'UIImageViewModeScaleAspect.framework'
   install_framework 'pop.framework'
 fi

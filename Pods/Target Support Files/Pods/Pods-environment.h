@@ -24,6 +24,12 @@
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
 #define COCOAPODS_VERSION_PATCH_Alamofire 3
 
+// BSImagePicker
+#define COCOAPODS_POD_AVAILABLE_BSImagePicker
+#define COCOAPODS_VERSION_MAJOR_BSImagePicker 1
+#define COCOAPODS_VERSION_MINOR_BSImagePicker 3
+#define COCOAPODS_VERSION_PATCH_BSImagePicker 0
+
 // Bolts
 #define COCOAPODS_POD_AVAILABLE_Bolts
 #define COCOAPODS_VERSION_MAJOR_Bolts 1
@@ -113,6 +119,12 @@
 #define COCOAPODS_VERSION_MAJOR_ParseUI 1
 #define COCOAPODS_VERSION_MINOR_ParseUI 1
 #define COCOAPODS_VERSION_PATCH_ParseUI 4
+
+// UIImageViewModeScaleAspect
+#define COCOAPODS_POD_AVAILABLE_UIImageViewModeScaleAspect
+#define COCOAPODS_VERSION_MAJOR_UIImageViewModeScaleAspect 1
+#define COCOAPODS_VERSION_MINOR_UIImageViewModeScaleAspect 3
+#define COCOAPODS_VERSION_PATCH_UIImageViewModeScaleAspect 0
 
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop
