@@ -222,15 +222,6 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                 
                 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
             }, completion: nil)
 
     }
@@ -484,5 +475,10 @@ extension PostViewController:UITextFieldDelegate{
         
         let newLength = count(textField.text) + count(string) - range.length
         return newLength <= 100
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
