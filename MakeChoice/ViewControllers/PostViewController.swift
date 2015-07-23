@@ -32,25 +32,6 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
    let colors=CATEGORYCOLORS
    let categories=CATEGORIES_UPPERCASE
     
-//    @IBOutlet weak var categoryButton: UIButton!
-//    
-//    @IBAction func chooseCategoryTapped(sender: AnyObject) {
-//        ActionSheetStringPicker.showPickerWithTitle("Categories", rows: ["Technology","Travelling","Fashion","Pet","Food","Music"], initialSelection: 1, doneBlock: {
-//            picker, value, index in
-//            
-////            println("value = \(value)")
-////            println("index = \(index)")
-////            println("picker = \(picker)")
-//            
-//            if index != nil{
-//              self.categoryButton.setTitle("\(index)", forState:.Normal)
-//              self.categoryButton.backgroundColor=UIColor(netHex:self.colors[value])
-//            }
-//            
-//                return
-//            }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender)
-//        
-//    }
 
     @IBAction func addImg2ButtonPressed(sender: AnyObject) {
         imgAddButton=2;
@@ -145,15 +126,6 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     
     func showImagePickerController(sourceType: UIImagePickerControllerSourceType){
-        
-        // display a photo taking overlay - or will show the users photo library.
-        //        case PhotoLibrary
-        //        case Camera
-        //        case SavedPhotosAlbum
-        
-        //create a controller in code
-        //imagePickerController=UIImagePickerController()
-        
         imagePickerController.sourceType=sourceType
         imagePickerController.delegate=self
         self.presentViewController(imagePickerController, animated: true, completion: nil)
@@ -172,9 +144,37 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
-           //drop down
+        //drop down
         createPicker()
+    
+        
+        //add tap image gesture
+        
+        img1.userInteractionEnabled=true
+        img2.userInteractionEnabled=true
+  
+        
+        var img1tapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("img1tapped" ))
+        img1.addGestureRecognizer(img1tapped)
+        
+        var img2tapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("img2tapped" ))
+        img2.addGestureRecognizer(img2tapped)
+        
+        
     }
+    
+    
+    func img1tapped(){
+        imgAddButton=1;
+        self.showPhotoSourceSelection()
+    }
+    
+    func img2tapped(){
+        imgAddButton=2;
+        self.showPhotoSourceSelection()
+    }
+
+    
     
     //Calls this function when the tap is recognized.
     func DismissKeyboard(){
