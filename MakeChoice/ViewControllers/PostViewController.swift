@@ -145,39 +145,83 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                 //  println("Cancel: \(assets)")
                 println("cancel selected")
             }, finish: { (assets: [PHAsset]) -> Void in
-                println("Finish: \(assets)")
+               // println("Finish: \(assets)")
                 println("finish select count: \(assets.count)")
                 
-                
-                let first = assets[0]
-                let second = assets[1]
-               
-                
-                let options = PHImageRequestOptions()
-                options.deliveryMode = .FastFormat
-                options.synchronous=true
-                
-                PHImageManager.defaultManager().requestImageForAsset(first, targetSize: self.img1.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
-                   
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.img1.image = result
-                        DesignHelper.showImageHideButton(self.img1, button: self.addImg1Button)
-                        println("resultHandler1")
-                        self.imgAddButton=3
+                if(assets.count==2){
+                    let first = assets[0]
+                    let second = assets[1]
+                    
+                    
+                    let options = PHImageRequestOptions()
+                    options.deliveryMode = .FastFormat
+                    options.synchronous=true
+                    
+                    PHImageManager.defaultManager().requestImageForAsset(first, targetSize: self.img1.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
+                        // MARK: bring the thread to the main thread
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.img1.image = result
+                            DesignHelper.showImageHideButton(self.img1, button: self.addImg1Button)
+                            
+                            self.imgAddButton=3
+                        })
                     })
-                })
-                
-                
-                PHImageManager.defaultManager().requestImageForAsset(second, targetSize: self.img2.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
-                   
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.img2.image = result
-                        DesignHelper.showImageHideButton(self.img2, button: self.addImg2Button)
-                        println("resultHandler2")
-                        self.imgAddButton=3
+                    
+                    
+                    PHImageManager.defaultManager().requestImageForAsset(second, targetSize: self.img2.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.img2.image = result
+                            DesignHelper.showImageHideButton(self.img2, button: self.addImg2Button)
+                            
+                            self.imgAddButton=3
+                        })
                     })
-                })
+                    
 
+                }else if(self.imgAddButton==1){
+                    
+                    let image=assets[0]
+                    
+                    let options = PHImageRequestOptions()
+                    options.deliveryMode = .FastFormat
+                    options.synchronous=true
+                    
+                    PHImageManager.defaultManager().requestImageForAsset(image, targetSize: self.img1.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.img1.image = result
+                            DesignHelper.showImageHideButton(self.img1, button: self.addImg1Button)
+                            
+                            self.imgAddButton=1
+                        })
+                    })
+
+                    
+                }else if(self.imgAddButton==2){
+                    
+                    let image=assets[0]
+                    
+                    let options = PHImageRequestOptions()
+                    options.deliveryMode = .FastFormat
+                    options.synchronous=true
+                    
+                    PHImageManager.defaultManager().requestImageForAsset(image, targetSize: self.img2.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.img2.image = result
+                            DesignHelper.showImageHideButton(self.img2, button: self.addImg2Button)
+                            self.imgAddButton=2
+                        })
+                    })
+
+                    
+                }
+
+                
+                
+                
+                
                 
                 
                 
@@ -252,7 +296,6 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
 
     override func viewWillAppear(animated: Bool) {
-        println("viewWillAppear imgAddButton:\(imgAddButton)")
         super.viewWillAppear(animated)
       
         DesignHelper.setImageCornerRadius(self.img1)
