@@ -29,7 +29,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         self.showPhotoSourceSelection()
     }
     
-   let colors=[0xFFFAE6,0xFFF5CC,0xFFF0B2,0xFFEB99,0xFFE680,0xFFE066]
+   let colors=CATEGORYCOLORS
    let categories=CATEGORIES_UPPERCASE
     
 //    @IBOutlet weak var categoryButton: UIButton!

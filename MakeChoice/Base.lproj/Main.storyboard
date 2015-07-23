@@ -28,7 +28,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HY8-e5-wM3">
                                 <rect key="frame" x="16" y="650" width="568" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.78431372549019607" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.86274509803921573" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ntd-EA-0Cq"/>
                                     <constraint firstAttribute="height" constant="50" id="RXf-tD-kCh"/>
@@ -161,13 +161,13 @@
                                 <state key="normal" image="CheckedBox">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" image="UncheckedBox"/>
+                                <state key="selected" image="uncheckedBox"/>
                                 <connections>
                                     <action selector="isPublicButtonTapped:" destination="xZZ-sl-32e" eventType="touchUpInside" id="OaR-e8-bWC"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.36078431372549019" green="0.5490196078431373" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.60392156862745094" green="0.70588235294117652" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KUV-kZ-axg" firstAttribute="leading" secondItem="Yj8-Bz-Adw" secondAttribute="leading" id="1qs-Do-2pJ"/>
                             <constraint firstItem="Yj8-Bz-Adw" firstAttribute="centerY" secondItem="eJN-nx-8nA" secondAttribute="centerY" id="27E-Ho-7VA"/>
@@ -1456,8 +1456,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9s-Up-W7y">
-                                                    <rect key="frame" x="62" y="29" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="65" y="30.5" width="460" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1478,9 +1478,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="j6q-B1-qPD" firstAttribute="leading" secondItem="I9s-Up-W7y" secondAttribute="trailing" constant="8" id="Aho-H5-6M5"/>
                                                 <constraint firstAttribute="centerY" secondItem="8H8-G2-Bz8" secondAttribute="centerY" id="h70-OW-jiU"/>
                                                 <constraint firstAttribute="centerY" secondItem="j6q-B1-qPD" secondAttribute="centerY" id="jBP-ph-b8U"/>
-                                                <constraint firstItem="I9s-Up-W7y" firstAttribute="leading" secondItem="8H8-G2-Bz8" secondAttribute="trailing" constant="3" id="kLt-dz-hGs"/>
+                                                <constraint firstItem="I9s-Up-W7y" firstAttribute="leading" secondItem="8H8-G2-Bz8" secondAttribute="trailing" constant="6" id="kLt-dz-hGs"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="j6q-B1-qPD" secondAttribute="trailing" constant="15" id="t4o-VO-6Gb"/>
                                                 <constraint firstAttribute="centerY" secondItem="I9s-Up-W7y" secondAttribute="centerY" id="ydM-tz-pEX"/>
                                                 <constraint firstItem="8H8-G2-Bz8" firstAttribute="leading" secondItem="OxX-qJ-SI0" secondAttribute="leadingMargin" constant="2" id="zbH-Tu-miH"/>
@@ -1883,11 +1884,11 @@
         <image name="Select" width="16" height="16"/>
         <image name="ThumbUp" width="128" height="128"/>
         <image name="Time" width="22" height="22"/>
-        <image name="UncheckedBox" width="800" height="794"/>
         <image name="Vote" width="53" height="53"/>
         <image name="camera" width="42" height="42"/>
         <image name="category1.png" width="128" height="128"/>
         <image name="key" width="32" height="32"/>
+        <image name="uncheckedBox" width="800" height="794"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mmd-cW-fIh"/>
