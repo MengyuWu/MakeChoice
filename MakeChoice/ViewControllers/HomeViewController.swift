@@ -85,7 +85,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         //assign the installation[user] to be current user
          PushNotication.parsePushUserAssign()
         
-        
+        timelineComponent.refresh(self)
         
       
     }
@@ -94,7 +94,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        timelineComponent.refresh(self)
+       // timelineComponent.refresh(self)
     
     }
     

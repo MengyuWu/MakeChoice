@@ -1066,7 +1066,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtZ-NQ-b8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2512" y="-1018"/>
+            <point key="canvasLocation" x="-2512" y="-1052"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="wSR-2r-Fww">
@@ -1085,7 +1085,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdJ-qp-GJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1716" y="-1723"/>
+            <point key="canvasLocation" x="-1830" y="-1201"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="deX-Aj-y8B">
@@ -1949,6 +1949,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8lu-0u-sp7"/>
-        <segue reference="5qA-W6-K1R"/>
+        <segue reference="mmd-cW-fIh"/>
     </inferredMetricsTieBreakers>
 </document>
