@@ -104,6 +104,18 @@ class ProfileViewController: UIViewController {
     
     @IBAction func notificationButtonTapped(sender: AnyObject) {
        println("notification button tapped")
+       // clean the badge value when tapped(notification badge, and icon badge)
+        var currentInstallation=PFInstallation.currentInstallation()
+        if (currentInstallation.badge != 0) {
+            // clean it
+            currentInstallation.badge=0
+            currentInstallation.saveEventually()
+        }
+        
+        // Also reset the item badge value, only show friends requests
+        
+        
+
        self.performSegueWithIdentifier("notificationSegue", sender: self)
     }
     
@@ -113,6 +125,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         //set badge value position, top right
         self.requestButton.badgeEdgeInsets = UIEdgeInsetsMake(10, 0, 0, 15)
+        self.notificationButton.badgeEdgeInsets=UIEdgeInsetsMake(10, 0, 0, 15)
+        
         
         // LOGOUT
         parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
@@ -239,6 +253,14 @@ class ProfileViewController: UIViewController {
             
         }
         
+        // set the notification badge value
+        var currentInstallation=PFInstallation.currentInstallation()
+        if (currentInstallation.badge != 0) {
+           self.notificationButton.badgeString="\(currentInstallation.badge)"
+        }else{
+           self.notificationButton.badgeString=nil
+        }
+
         
         
 

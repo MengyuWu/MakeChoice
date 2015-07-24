@@ -105,6 +105,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
+       
+        
+        
+        
+        
         // MARK: set style
 //        UINavigationBar.appearance().barTintColor = StyleConstants.defaultBlueColor
 //        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
@@ -145,15 +150,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         // facebook integartion
         FBSDKAppEvents.activateApp()
-        
-        // clear up badgevalue, when app open
-        var currentInstallation=PFInstallation.currentInstallation()
-        if (currentInstallation.badge != 0) {
-            // clean it
-            currentInstallation.badge=0
-            currentInstallation.saveEventually()
-        }
-        
+    
+       var controller=self.window!.rootViewController as! UITabBarController
+       ParseHelper.updateProfileTabBadgeValue(controller)
+
         
     }
 
@@ -187,21 +187,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         println("didReceiveRemoteNotification")
         PFPush.handlePush(userInfo)
-    
         
-    // MARK: Push mark
-    var controller=self.window!.rootViewController as! UITabBarController
-        var items=controller.tabBar.items
-        
-        if let items=items{
-           var item=items[3] as! UITabBarItem
-        
-            var num=item.badgeValue?.toInt() ?? 0
-           item.badgeValue="\(num+1)"
-          println("badgeValue: \(num+1)")
- 
-        }
-    }
+        var controller=self.window!.rootViewController as! UITabBarController
+        ParseHelper.updateProfileTabBadgeValue(controller)
+     }
 
 }
 

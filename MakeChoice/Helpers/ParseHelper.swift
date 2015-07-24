@@ -527,8 +527,42 @@ class ParseHelper{
         query.includeKey(PF_NOTIFICATION_FROMUSER)
         query.includeKey(PF_NOTIFICATION_POST)
         query.orderByDescending(PF_NOTIFICATION_CREATEDAT)
+        query.limit=50
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
+    
+    
+    static func updateProfileTabBadgeValue(controller:UITabBarController){
+        
+        var items=controller.tabBar.items
+        
+        if let items=items{
+            var item=items[3] as! UITabBarItem
+            
+            //friends request + vote and comment notifications
+            var num=0
+            ParseHelper.getFriendsRequest{ (results:[AnyObject]?, error:NSError?) -> Void in
+                if let results=results{
+                    num=results.count
+                    var currentInstallation=PFInstallation.currentInstallation()
+                    num=num+currentInstallation.badge
+                    println("item badgeValue:\(num)")
+                    if(num != 0){
+                        item.badgeValue="\(num)"
+                        
+                    }else{
+                        item.badgeValue=nil
+                    }
+                    
+                    
+                }
+                
+            }
+            
+            
+        }
+    }
+
     
     
 }

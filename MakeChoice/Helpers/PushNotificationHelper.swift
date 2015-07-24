@@ -23,8 +23,8 @@ class PushNotificationHelper{
         var text="\(username) send you a friend request!"
         push.setMessage(text)
         
-        var data=["title": "MAKE A CHOICE", "alert": text, "badge":"Increment"]
-        push.setData(data)
+//        var data=["title": "MAKE A CHOICE", "alert": text, "badge":"Increment"]
+//        push.setData(data)
         
         push.sendPushInBackgroundWithBlock { (success: Bool, error: NSError? ) -> Void in
             if success {
