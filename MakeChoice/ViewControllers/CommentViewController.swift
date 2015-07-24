@@ -15,6 +15,7 @@ class CommentViewController: JSQMessagesViewController{
     
     var groupId:String="" // groupId is eaqual to postId
     var post:Post?
+    var index:Int?
     
     var timer: NSTimer = NSTimer()
     var isLoading: Bool = false

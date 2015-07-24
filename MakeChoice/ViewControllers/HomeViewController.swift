@@ -25,6 +25,8 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     
     var isFriendPost=false
     
+    var selectedCommentIndex:Int?
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBAction func indexChanged(sender: AnyObject) {
         
@@ -125,9 +127,36 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
                 let groupId = post.objectId! as String ?? ""
                 commentVC.groupId = groupId
                 commentVC.post=post
+                commentVC.index=self.selectedCommentIndex
             }
             
 
+        }
+    }
+    
+    
+    // MARK:unwind segue
+    @IBAction func unwindToSegue(segue: UIStoryboardSegue){
+        if let identifier = segue.identifier {
+            
+            if (identifier=="commentUnwind") {
+                println("commentUnwind")
+                if(segue.sourceViewController .isKindOfClass(CommentViewController)){
+                    var commentVC=segue.sourceViewController as! CommentViewController
+                    var tag=commentVC.index
+                    println("index:\(index)")
+                    if let tag=tag{
+                    //update comment"
+                    self.tableView.beginUpdates()
+                    self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
+                    self.tableView.endUpdates()
+                    }
+
+                }
+                
+                
+            }
+            
         }
     }
 
@@ -294,6 +323,8 @@ extension HomeViewController: UITableViewDataSource {
         var tag=sender.tag
         postId=timelineComponent.content[tag].objectId
         post=timelineComponent.content[tag]
+        
+        self.selectedCommentIndex=tag
         
         if let postId=postId{
             self.performSegueWithIdentifier("commentPushSegue", sender: post)
