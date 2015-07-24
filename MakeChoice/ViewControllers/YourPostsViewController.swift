@@ -106,7 +106,7 @@ extension YourPostsViewController: UITableViewDataSource{
         let cell=tableView.dequeueReusableCellWithIdentifier("YourPostsCell", forIndexPath: indexPath) as! YourPostsTableViewCell
         
         let post=timelineComponent.content[indexPath.section]
-        post.downloadImage()
+        
         
         // download, only downloaded with needed
         post.downloadImage()

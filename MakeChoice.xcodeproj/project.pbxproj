@@ -35,6 +35,7 @@
 		F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */; };
 		F74EF7961B4EDF55003DB560 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7951B4EDF55003DB560 /* Post.swift */; };
 		F74EF79D1B4EE229003DB560 /* NSCacheSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF79C1B4EE229003DB560 /* NSCacheSwift.swift */; };
+		F7610FEA1B627DF5005C8C7E /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610FE91B627DF5005C8C7E /* NotificationTableViewCell.swift */; };
 		F761C67C1B612EAB004A79D7 /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = F761C6711B612EAB004A79D7 /* Apache License.txt */; };
 		F761C67D1B612EAB004A79D7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F761C6721B612EAB004A79D7 /* OpenSans-Bold.ttf */; };
 		F761C67E1B612EAB004A79D7 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F761C6731B612EAB004A79D7 /* OpenSans-BoldItalic.ttf */; };
@@ -115,6 +116,7 @@
 		F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostTableViewCell.swift; sourceTree = "<group>"; };
 		F74EF7951B4EDF55003DB560 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F74EF79C1B4EE229003DB560 /* NSCacheSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCacheSwift.swift; sourceTree = "<group>"; };
+		F7610FE91B627DF5005C8C7E /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		F761C6711B612EAB004A79D7 /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
 		F761C6721B612EAB004A79D7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		F761C6731B612EAB004A79D7 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -255,6 +257,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		F7610FE81B627DCB005C8C7E /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				F7610FE91B627DF5005C8C7E /* NotificationTableViewCell.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		F761C6701B612EAB004A79D7 /* open-sans */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +380,7 @@
 		F7762A511B4D8864002CBAE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F7610FE81B627DCB005C8C7E /* Notification */,
 				F71ACD391B5D778700B7936E /* CategoryDetail */,
 				F71ACD221B5D50BB00B7936E /* Category */,
 				F7EAAB901B5817DC009F838F /* FriendRequest */,
@@ -628,6 +639,7 @@
 				F7EAAB941B58182F009F838F /* FriendRequestViewController.swift in Sources */,
 				F7EAAB921B58180F009F838F /* FriendRequestTableViewCell.swift in Sources */,
 				F7E4CDC11B55993300815DDE /* FriendSearchTableViewCell.swift in Sources */,
+				F7610FEA1B627DF5005C8C7E /* NotificationTableViewCell.swift in Sources */,
 				F7F301C21B5DFECD00642884 /* UIColor.swift in Sources */,
 				F71ACD2A1B5D57D700B7936E /* CategoryCollectionViewController.swift in Sources */,
 				F70AECD41B5405A700497662 /* PostDetailViewController.swift in Sources */,

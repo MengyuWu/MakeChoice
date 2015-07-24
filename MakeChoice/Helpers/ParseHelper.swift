@@ -510,6 +510,7 @@ class ParseHelper{
         notification[PF_NOTIFICATION_FROMUSER]=fromUser
         notification[PF_NOTIFICATION_TOUSER]=toUser
         notification[PF_NOTIFICATION_MESSAGETYPE]=messageType
+        notification[PF_NOTIFICATION_POST]=post
         
         notification.saveInBackgroundWithBlock{(success:Bool, error: NSError?) -> Void in
             
@@ -518,6 +519,15 @@ class ParseHelper{
             }
         }
         
+    }
+    
+    static func getAllNotificationsOfCurrentUser(completionBlock:PFArrayResultBlock){
+        var query=PFQuery(className: PF_NOTIFICATION_CLASS_NAME)
+        query.whereKey(PF_NOTIFICATION_TOUSER, equalTo: PFUser.currentUser()!)
+        query.includeKey(PF_NOTIFICATION_FROMUSER)
+        query.includeKey(PF_NOTIFICATION_POST)
+        query.orderByDescending(PF_NOTIFICATION_CREATEDAT)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
     
