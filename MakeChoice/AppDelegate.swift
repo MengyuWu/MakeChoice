@@ -199,6 +199,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if var controller=self.window?.rootViewController as? UITabBarController{
             ParseHelper.updateProfileTabBadgeValue(controller)
         }
+        
+        //broadcasting
+        NSNotificationCenter.defaultCenter().postNotificationName("Received Notification", object: self)
      }
 
 }

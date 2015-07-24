@@ -189,10 +189,29 @@ class ProfileViewController: UIViewController {
     }
 
     
-   
+    func notificationReceived()
+    {
+        //updateUI
+        println("notification badge value")
+        // set the notification badge value
+        var currentInstallation=PFInstallation.currentInstallation()
+        if (currentInstallation.badge != 0) {
+            self.notificationButton.badgeString="\(currentInstallation.badge)"
+        }else{
+            self.notificationButton.badgeString=nil
+        }
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     override func viewWillAppear(animated: Bool) {
-        // Do any additional setup after loading the view.
+      
+        //listening the broadcast from push notification, must delete it before leave it
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationReceived", name: "Received Notification", object: UIApplication.sharedApplication().delegate)
         
        var user:PFUser?=PFUser.currentUser()
        self.username.text=user?.username ?? ""
@@ -264,8 +283,12 @@ class ProfileViewController: UIViewController {
            self.notificationButton.badgeString=nil
         }
 
-        
-        
+        // update badge value
+        if var tabBarController=self.navigationController?.tabBarController{
+            println("get tabBarController")
+            ParseHelper.updateProfileTabBadgeValue(tabBarController)
+        }
+
 
     }
 
