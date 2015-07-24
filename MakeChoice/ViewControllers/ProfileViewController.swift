@@ -114,7 +114,10 @@ class ProfileViewController: UIViewController {
         
         // Also reset the item badge value, only show friends requests
         
-        
+        if var tabBarController=self.navigationController?.tabBarController{
+            println("get tabBarController")
+            ParseHelper.updateProfileTabBadgeValue(tabBarController)
+        }
 
        self.performSegueWithIdentifier("notificationSegue", sender: self)
     }

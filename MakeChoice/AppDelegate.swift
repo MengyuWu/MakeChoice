@@ -151,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // facebook integartion
         FBSDKAppEvents.activateApp()
      
-        // TODO: Becareful, may have bugs
+        // TODO: Be careful, may have bugs
        if var controller=self.window?.rootViewController as? UITabBarController{
           if let user=PFUser.currentUser(){
             println("\(user.username) has logged in")
