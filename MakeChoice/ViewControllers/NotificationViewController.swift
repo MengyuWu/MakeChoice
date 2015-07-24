@@ -81,6 +81,7 @@ extension NotificationViewController:UITableViewDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if( segue.identifier=="notificationTodetailSegue" ){
+            println("go to postDetailViewController")
             let postDetailViewController = segue.destinationViewController as! PostDetailViewController
             var post=sender as! Post
             postDetailViewController.post=post
@@ -89,7 +90,8 @@ extension NotificationViewController:UITableViewDelegate{
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    
+      
+        println("did select \(indexPath.row)")
         var notification=notifications[indexPath.row]
         var post=notification[PF_NOTIFICATION_POST] as? Post
         
@@ -97,6 +99,23 @@ extension NotificationViewController:UITableViewDelegate{
           //only download the image if needed
           post.downloadImageSynchronous()
           self.performSegueWithIdentifier("notificationTodetailSegue", sender: post)
+        }else{
+            
+          //TODO: POP UP indicator
+            var alert = UIAlertController(title: "Alert", message: "This poll dose not exist!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+          println("post do not exist")
+          // delete the notification if post do not exist"
+            notification.deleteInBackgroundWithBlock{ (success:Bool, error:NSError?) -> Void in
+                if(success){
+                    println("delete notification that do not exist successfully!")
+                    self.notifications.removeAtIndex(indexPath.row)
+                }
+                
+            }
+
         }
      
     }
