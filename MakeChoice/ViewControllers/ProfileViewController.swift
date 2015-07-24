@@ -100,6 +100,15 @@ class ProfileViewController: UIViewController {
     }
     
     
+    @IBOutlet weak var notificationButton: MIBadgeButton!
+    
+    @IBAction func notificationButtonTapped(sender: AnyObject) {
+       println("notification button tapped")
+       //self.performSegueWithIdentifier("notificationSegue", sender: self)
+    }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //set badge value position, top right
@@ -243,11 +252,15 @@ class ProfileViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if( segue.identifier=="friendRequestSegue"){
             let friendRequstViewController = segue.destinationViewController as! FriendRequestViewController
-        }
-        if( segue.identifier=="FriendListSegue"){
+        }else if( segue.identifier=="FriendListSegue"){
+            // remove this useless
             println("friendlistsegue")
             self.friendsVC = segue.destinationViewController as? FriendsListViewController
+        }else if( segue.identifier=="notificationSegue"){
+            let notificationViewController = segue.destinationViewController as! NotificationViewController
         }
+        
+        
     }
 
     /*

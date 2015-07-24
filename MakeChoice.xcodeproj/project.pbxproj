@@ -55,6 +55,7 @@
 		F7762A4F1B4D8371002CBAE7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A4E1B4D8371002CBAE7 /* Constants.swift */; };
 		F7762A561B4D965F002CBAE7 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A551B4D965F002CBAE7 /* PostViewController.swift */; };
 		F785612D1B57F204003F4D0E /* PushNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785612C1B57F204003F4D0E /* PushNotificationHelper.swift */; };
+		F79004BF1B61CB7700EEED03 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79004BE1B61CB7700EEED03 /* NotificationViewController.swift */; };
 		F79478561B4F3DC80048765A /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79478551B4F3DC80048765A /* ParseHelper.swift */; };
 		F79478581B4F59DF0048765A /* HomePostSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79478571B4F59DF0048765A /* HomePostSectionHeaderView.swift */; };
 		F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDB11B555EC900815DDE /* CommentViewController.swift */; };
@@ -139,6 +140,7 @@
 		F7762A4E1B4D8371002CBAE7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F7762A551B4D965F002CBAE7 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		F785612C1B57F204003F4D0E /* PushNotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationHelper.swift; sourceTree = "<group>"; };
+		F79004BE1B61CB7700EEED03 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		F79478551B4F3DC80048765A /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		F79478571B4F59DF0048765A /* HomePostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostSectionHeaderView.swift; sourceTree = "<group>"; };
 		F7E28DA11B4E0AF100C96837 /* MakeChoice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MakeChoice-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				F71B163D1B5AE02F00934FDE /* AddressBookViewController.swift */,
 				F71ACD291B5D57D700B7936E /* CategoryCollectionViewController.swift */,
 				F71ACD371B5D775E00B7936E /* CategoryDetailViewController.swift */,
+				F79004BE1B61CB7700EEED03 /* NotificationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				F7E4CDBB1B5576CB00815DDE /* Messages.swift in Sources */,
 				F71ACD381B5D775E00B7936E /* CategoryDetailViewController.swift in Sources */,
 				F7E4CDB81B5576CB00815DDE /* PushNotification.swift in Sources */,
+				F79004BF1B61CB7700EEED03 /* NotificationViewController.swift in Sources */,
 				F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */,
 				F71ACD241B5D50CC00B7936E /* CategoryCollectionViewCell.swift in Sources */,
 				F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */,
