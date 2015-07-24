@@ -1485,7 +1485,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COL-no-Tbt" userLabel="twoImagesContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COL-no-Tbt" userLabel="twoImagesContainer">
                                 <rect key="frame" x="18" y="0.0" width="564" height="250"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-ee-1bz">
@@ -1540,19 +1540,42 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlF-ZB-54v">
-                                <rect key="frame" x="0.0" y="250" width="600" height="350"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlF-ZB-54v">
+                                <rect key="frame" x="0.0" y="290" width="600" height="310"/>
                                 <connections>
                                     <segue destination="EAo-Vf-cDm" kind="embed" identifier="showUserVoteSegue" id="SBz-gK-vCY"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvo-NU-leL">
+                                <rect key="frame" x="20" y="252" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="242-8S-Fet"/>
+                                    <constraint firstAttribute="width" secondItem="qvo-NU-leL" secondAttribute="height" multiplier="1:1" id="TxL-Xh-ddy"/>
+                                </constraints>
+                                <state key="normal" image="Comment">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="commentButtonTapped:" destination="8p5-62-QL2" eventType="touchUpInside" id="IUh-cI-BvB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1G-uK-tAB">
+                                <rect key="frame" x="56" y="256" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="COL-no-Tbt" secondAttribute="trailing" constant="2" id="17X-tm-SD9"/>
                             <constraint firstItem="COL-no-Tbt" firstAttribute="top" secondItem="8ei-1Z-f7z" secondAttribute="bottom" id="C36-TK-ocE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mlF-ZB-54v" secondAttribute="trailing" constant="-16" id="HHb-NM-Irl"/>
-                            <constraint firstItem="mlF-ZB-54v" firstAttribute="top" secondItem="COL-no-Tbt" secondAttribute="bottom" id="Kiy-XA-X91"/>
+                            <constraint firstItem="mlF-ZB-54v" firstAttribute="top" secondItem="COL-no-Tbt" secondAttribute="bottom" constant="40" id="Kiy-XA-X91"/>
+                            <constraint firstItem="L1G-uK-tAB" firstAttribute="centerY" secondItem="qvo-NU-leL" secondAttribute="centerY" id="Phr-Ui-RTT"/>
+                            <constraint firstItem="qvo-NU-leL" firstAttribute="leading" secondItem="lfa-Hd-Brb" secondAttribute="leading" id="STi-3e-Xep"/>
+                            <constraint firstItem="qvo-NU-leL" firstAttribute="top" secondItem="lfa-Hd-Brb" secondAttribute="bottom" constant="4" id="U2e-R9-3VK"/>
+                            <constraint firstItem="L1G-uK-tAB" firstAttribute="leading" secondItem="qvo-NU-leL" secondAttribute="trailing" constant="6" id="atM-9k-gKM"/>
                             <constraint firstItem="nN9-aT-bJS" firstAttribute="top" secondItem="mlF-ZB-54v" secondAttribute="bottom" id="cyZ-OV-B0W"/>
                             <constraint firstItem="mlF-ZB-54v" firstAttribute="top" secondItem="8ei-1Z-f7z" secondAttribute="bottom" constant="160" id="gTF-kl-8pm"/>
                             <constraint firstItem="mlF-ZB-54v" firstAttribute="leading" secondItem="juR-Se-910" secondAttribute="leadingMargin" constant="-16" id="lTF-PT-Zy5"/>
@@ -1570,14 +1593,16 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="commentNum" destination="L1G-uK-tAB" id="Q6r-EZ-9pe"/>
                         <outlet property="img1" destination="lfa-Hd-Brb" id="5mS-im-MIU"/>
                         <outlet property="img2" destination="ThB-ee-1bz" id="Tj7-ua-SQG"/>
                         <outlet property="titleLabel" destination="Zpm-8S-Y9b" id="PVe-KY-pei"/>
+                        <segue destination="77J-uS-0Y8" kind="show" identifier="commentPushSegue" id="nsw-4h-qCf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6Z-zt-btk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-911" y="-454"/>
+            <point key="canvasLocation" x="-967" y="-1340"/>
         </scene>
         <!--Profile-->
         <scene sceneID="V6K-8j-tqp">
@@ -2070,8 +2095,8 @@
         <image name="uncheckedBox" width="800" height="794"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mmd-cW-fIh"/>
-        <segue reference="gMK-ay-DqH"/>
         <segue reference="8lu-0u-sp7"/>
+        <segue reference="Hw2-xg-niX"/>
+        <segue reference="nsw-4h-qCf"/>
     </inferredMetricsTieBreakers>
 </document>

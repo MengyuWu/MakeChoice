@@ -17,7 +17,33 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var img1: UIImageView!
     
     @IBOutlet weak var img2: UIImageView!
+    
+    @IBOutlet weak var commentNum: UILabel!
+    
+    @IBAction func commentButtonTapped(sender: AnyObject) {
+        
+      self.performSegueWithIdentifier("commentPushSegue", sender: self.post)
+    }
+    
+    @IBAction func unwindToSegue(segue: UIStoryboardSegue){
+        if let identifier = segue.identifier {
+            
+            if (identifier=="commentUnwind") {
+                println("commentUnwind")
+                if(segue.sourceViewController .isKindOfClass(CommentViewController)){
+                    var commentVC=segue.sourceViewController as! CommentViewController
+                    var tag=commentVC.index
+                    println("index:\(tag)")
+               }
+                
+                
+            }
+            
+        }
+    }
 
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,6 +79,18 @@ class PostDetailViewController: UIViewController {
             let userVoteDetailController = segue.destinationViewController as! UserVoteDetailViewController
             
             userVoteDetailController.postId=post?.objectId ?? ""
+        }else if( segue.identifier=="commentPushSegue"){
+            let commentVC = segue.destinationViewController as! CommentViewController
+            commentVC.hidesBottomBarWhenPushed = true
+            
+            if let post=sender as? Post{
+                let groupId = post.objectId! as String ?? ""
+                commentVC.groupId = groupId
+                commentVC.post=post
+                
+            }
+            
+            
         }
 
         
