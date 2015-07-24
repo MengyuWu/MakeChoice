@@ -79,7 +79,7 @@ class PushNotificationHelper{
         var push = PFPush()
         push.setQuery(installationQuery)
         var username=PFUser.currentUser()?.username ?? ""
-        var text="\(username) vote !"
+        var text="\(username) voted on your poll !"
         push.setMessage(text)
         var data=["title": "MAKE A CHOICE", "alert": text, "badge":"Increment"]
         push.setData(data)
@@ -106,7 +106,7 @@ class PushNotificationHelper{
         var push = PFPush()
         push.setQuery(installationQuery)
         var username=PFUser.currentUser()?.username ?? ""
-        var text="\(username) leave a comment!"
+        var text="\(username) commented on your poll!"
         push.setMessage(text)
         var data=["title": "MAKE A CHOICE", "alert": text, "badge":"Increment"]
         push.setData(data)

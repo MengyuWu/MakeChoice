@@ -104,7 +104,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func notificationButtonTapped(sender: AnyObject) {
        println("notification button tapped")
-       //self.performSegueWithIdentifier("notificationSegue", sender: self)
+       self.performSegueWithIdentifier("notificationSegue", sender: self)
     }
     
 

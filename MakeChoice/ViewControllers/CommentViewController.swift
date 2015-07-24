@@ -204,7 +204,14 @@ class CommentViewController: JSQMessagesViewController{
         
         //pushNotification, if currentuser is not poster, push notification
         if(post?.poster?.objectId != PFUser.currentUser()?.objectId){
-             PushNotificationHelper.sendCommentNotification(post?.poster)
+            
+            if let post=post{
+                ParseHelper.uploadNotification(PFUser.currentUser()!, toUser: post.poster!, messageType: "comment", post: post)
+                
+                PushNotificationHelper.sendCommentNotification(post.poster)
+            }
+            
+           
         }
 
         Messages.updateMessageCounter(groupId, lastMessage: text)

@@ -342,6 +342,9 @@ extension CategoryDetailViewController: UITableViewDataSource {
                                             println("totalVote\(self.timelineComponent.content[tag].totalVotes)")                                       //send notification if the voter is not poster
                                             if let poster=poster{
                                                 if (poster.objectId != PFUser.currentUser()?.objectId){
+                                                    if let post=results.first{
+                                                        ParseHelper.uploadNotification(PFUser.currentUser()!, toUser: post.poster!, messageType: "vote", post: post)
+                                                    }
                                                     PushNotificationHelper.sendVoteNotification(poster)
                                                 }
                                                 
@@ -415,6 +418,9 @@ extension CategoryDetailViewController: UITableViewDataSource {
                                             //send notification if the voter is not poster
                                             if let poster=poster{
                                                 if (poster.objectId != PFUser.currentUser()?.objectId){
+                                                    if let post=results.first{
+                                                        ParseHelper.uploadNotification(PFUser.currentUser()!, toUser: post.poster!, messageType: "vote", post: post)
+                                                    }
                                                     PushNotificationHelper.sendVoteNotification(poster)
                                                 }
                                                 

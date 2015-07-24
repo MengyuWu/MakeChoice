@@ -503,4 +503,22 @@ class ParseHelper{
     }
 
     
+    // MARK: parse vote and comment Notification
+    static func uploadNotification(fromUser:PFUser, toUser:PFUser, messageType:String, post: Post){
+        
+        var notification=PFObject(className: PF_NOTIFICATION_CLASS_NAME)
+        notification[PF_NOTIFICATION_FROMUSER]=fromUser
+        notification[PF_NOTIFICATION_TOUSER]=toUser
+        notification[PF_NOTIFICATION_MESSAGETYPE]=messageType
+        
+        notification.saveInBackgroundWithBlock{(success:Bool, error: NSError?) -> Void in
+            
+            if(success){
+                println("save notification successfully")
+            }
+        }
+        
+    }
+    
+    
 }

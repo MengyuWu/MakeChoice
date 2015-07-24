@@ -94,3 +94,11 @@ let PF_FRIENDSREQUEST_FROMUSER        = "fromUser"			//	Pointer to User Class
 let PF_FRIENDSREQUEST_TOUSER          = "toUser"		    //	Pointer to User Class
 let PF_FRIENDSREQUEST_MESSAGE         = "message"            // String
 let PF_FRIENDSREQUEST_CREATEDAT       = "createdAt"			//	Date
+
+/*Parse Notification */
+let PF_NOTIFICATION_CLASS_NAME	    = "Notifications"    //	Class name
+let PF_NOTIFICATION_FROMUSER        = "fromUser"		//	Pointer to User Class
+let PF_NOTIFICATION_TOUSER          = "toUser"		    //	Pointer to User Class
+let PF_NOTIFICATION_POST            = "post"            //  Pointer to post Class
+let PF_NOTIFICATION_MESSAGETYPE     = "messageType"     //  String
+let PF_NOTIFICATION_CREATEDAT       = "createdAt"			//	Date

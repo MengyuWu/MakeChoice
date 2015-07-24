@@ -316,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdW-2B-mKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1679" y="-345"/>
+            <point key="canvasLocation" x="-1819" y="-131"/>
         </scene>
         <!--Post-->
         <scene sceneID="msc-HN-tOW">
@@ -548,6 +548,7 @@
                         <outlet property="userImage" destination="Eca-4J-BmJ" id="zJn-gb-cxX"/>
                         <outlet property="username" destination="MHi-pH-AvJ" id="01Z-l5-Ocw"/>
                         <segue destination="3qu-eO-zJH" kind="show" identifier="friendRequestSegue" id="UE5-XO-6Hb"/>
+                        <segue destination="HGQ-NA-0r5" kind="show" identifier="notificationSegue" id="rol-uA-SII"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxg-YC-U43" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1132,10 +1133,10 @@
             </objects>
             <point key="canvasLocation" x="-5710" y="-1799"/>
         </scene>
-        <!--View Controller-->
+        <!--Notification View Controller-->
         <scene sceneID="FVb-01-7el">
             <objects>
-                <viewController id="HGQ-NA-0r5" sceneMemberID="viewController">
+                <viewController id="HGQ-NA-0r5" customClass="NotificationViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JS3-KC-0wi"/>
                         <viewControllerLayoutGuide type="bottom" id="aPf-To-WAM"/>
@@ -1148,7 +1149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVf-3m-GhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1940" y="409"/>
+            <point key="canvasLocation" x="-1829" y="406"/>
         </scene>
         <!--Your Posts View Controller-->
         <scene sceneID="lDs-rF-Mht">
@@ -1615,7 +1616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9k-Rb-N4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2568" y="1097"/>
+            <point key="canvasLocation" x="-2592" y="1189"/>
         </scene>
         <!--User Vote Detail View Controller-->
         <scene sceneID="r5y-mJ-Vdz">
