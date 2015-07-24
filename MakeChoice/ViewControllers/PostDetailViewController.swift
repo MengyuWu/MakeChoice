@@ -67,6 +67,20 @@ class PostDetailViewController: UIViewController {
         DesignHelper.setImageClipsToBounds(img1)
         DesignHelper.setImageClipsToBounds(img2)
         
+        // get comment number
+        self.commentNum.text=""
+        if let post=post{
+            ParseHelper.getCommentNumberWithPostId(post.objectId!){ (results: [AnyObject]?, error:NSError?) -> Void in
+                if let results=results{
+                    self.commentNum.text=(results.count == 0) ? "": String(results.count)
+                }
+                
+            }
+  
+        }
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
