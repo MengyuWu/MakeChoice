@@ -201,6 +201,20 @@ class ProfileViewController: UIViewController {
             self.notificationButton.badgeString=nil
         }
         
+        //update friends request badge value
+        ParseHelper.getFriendsRequest{ (results:[AnyObject]?, error:NSError?) -> Void in
+            if let results=results{
+                var num=results.count
+                if (num != 0) {
+                    self.requestButton.badgeString="\(num)"
+                }else{
+                    self.requestButton.badgeString=nil
+                }
+            }
+            
+        }
+
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
