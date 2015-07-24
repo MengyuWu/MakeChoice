@@ -21,7 +21,7 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
     let additionalRangeSize = 5
     
     var categoryIndex:Int?
-    
+    var selectedCommentIndex:Int?
     var user:PFUser?
     
     var option=1 // option 1: category, option 2: friend posts
@@ -62,15 +62,18 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
         self.tableView.delegate=self
         self.tableView.dataSource=self
         timelineComponent = TimelineComponent(target: self)
+        timelineComponent.refresh(self)
+        
         
         //assign the installation[user] to be current user
         PushNotication.parsePushUserAssign()
+        
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        timelineComponent.refresh(self)
+       // timelineComponent.refresh(self)
         
     }
     
@@ -101,11 +104,39 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
                 let groupId = post.objectId! as String ?? ""
                 commentVC.groupId = groupId
                 commentVC.post=post
+                commentVC.index=self.selectedCommentIndex
             }
             
             
         }
     }
+
+
+    // MARK:unwind segue
+    @IBAction func unwindToSegue(segue: UIStoryboardSegue){
+        if let identifier = segue.identifier {
+            
+            if (identifier=="commentUnwind") {
+                println("commentUnwind")
+                if(segue.sourceViewController .isKindOfClass(CommentViewController)){
+                    var commentVC=segue.sourceViewController as! CommentViewController
+                    var tag=commentVC.index
+                    println("index:\(tag)")
+                    if let tag=tag{
+                        //update comment"
+                        self.tableView.beginUpdates()
+                        self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
+                        self.tableView.endUpdates()
+                    }
+                    
+                }
+                
+                
+            }
+            
+        }
+    }
+
     
     
 }
@@ -262,6 +293,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
         postId=timelineComponent.content[tag].objectId
         post=timelineComponent.content[tag]
         
+        self.selectedCommentIndex=tag
         if let postId=postId{
             self.performSegueWithIdentifier("commentPushSegue", sender: post)
         }
