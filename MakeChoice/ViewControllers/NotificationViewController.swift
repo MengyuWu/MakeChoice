@@ -100,4 +100,30 @@ extension NotificationViewController:UITableViewDelegate{
         }
      
     }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if (editingStyle == .Delete) {
+            
+            print("swipe delete")
+            
+            let notification=notifications[indexPath.row]
+        
+            notification.deleteInBackgroundWithBlock{ (success:Bool, error:NSError?) -> Void in
+                if(success){
+                    println("delete notification successfully!")
+                    self.notifications.removeAtIndex(indexPath.row)
+                }
+                
+            }
+            
+        }
+        
+    }
+
+    
 }
