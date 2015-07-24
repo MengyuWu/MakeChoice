@@ -150,9 +150,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         // facebook integartion
         FBSDKAppEvents.activateApp()
-    
-       var controller=self.window!.rootViewController as! UITabBarController
-       ParseHelper.updateProfileTabBadgeValue(controller)
+     
+        // TODO: Becareful, may have bugs
+       if var controller=self.window?.rootViewController as? UITabBarController{
+          if let user=PFUser.currentUser(){
+            println("\(user.username) has logged in")
+           ParseHelper.updateProfileTabBadgeValue(controller)
+          }else{
+            println("user is not login")
+        }
+       
+       }
 
         
     }
@@ -188,8 +196,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("didReceiveRemoteNotification")
         PFPush.handlePush(userInfo)
         
-        var controller=self.window!.rootViewController as! UITabBarController
-        ParseHelper.updateProfileTabBadgeValue(controller)
+        if var controller=self.window?.rootViewController as? UITabBarController{
+            ParseHelper.updateProfileTabBadgeValue(controller)
+        }
      }
 
 }

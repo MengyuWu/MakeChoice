@@ -2,4 +2,118 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeChoice/AppDelegate.swift"
+            timestampString = "459459794.663654"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "applicationDidBecomeActive(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc MakeChoice.AppDelegate.applicationDidBecomeActive (MakeChoice.AppDelegate)(ObjectiveC.UIApplication) -&gt; ()"
+                  moduleName = "MakeChoice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wmy/Desktop/MakeChoice/MakeChoice/AppDelegate.swift"
+                  timestampString = "459459794.676414"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc MakeChoice.AppDelegate.applicationDidBecomeActive (MakeChoice.AppDelegate)(ObjectiveC.UIApplication) -&gt; ()"
+                  moduleName = "MakeChoice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wmy/Desktop/MakeChoice/MakeChoice/AppDelegate.swift"
+                  timestampString = "459459794.676634"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeChoice/AppDelegate.swift"
+            timestampString = "459459797.701359"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "applicationDidBecomeActive(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc MakeChoice.AppDelegate.applicationDidBecomeActive (MakeChoice.AppDelegate)(ObjectiveC.UIApplication) -&gt; ()"
+                  moduleName = "MakeChoice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wmy/Desktop/MakeChoice/MakeChoice/AppDelegate.swift"
+                  timestampString = "459459797.713271"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc MakeChoice.AppDelegate.applicationDidBecomeActive (MakeChoice.AppDelegate)(ObjectiveC.UIApplication) -&gt; ()"
+                  moduleName = "MakeChoice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wmy/Desktop/MakeChoice/MakeChoice/AppDelegate.swift"
+                  timestampString = "459459797.713638"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "220">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeChoice/AppDelegate.swift"
+            timestampString = "459459799.927276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "applicationDidBecomeActive(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
