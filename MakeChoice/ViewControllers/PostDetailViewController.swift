@@ -55,6 +55,8 @@ class PostDetailViewController: UIViewController {
         DesignHelper.setImageClipsToBounds(img1)
         DesignHelper.setImageClipsToBounds(img2)
         
+     
+        
     }
 
     override func viewWillAppear(animated: Bool) {

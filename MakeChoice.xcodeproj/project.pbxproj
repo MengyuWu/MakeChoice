@@ -30,6 +30,7 @@
 		F728A6BE1B52C73E006E4A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */; };
 		F728A6C01B52D37E006E4A7A /* YourPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */; };
 		F728A6C31B52D3CA006E4A7A /* YourPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6C21B52D3CA006E4A7A /* YourPostsTableViewCell.swift */; };
+		F72B80731B642BC700594BA2 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B80721B642BC700594BA2 /* ZFRippleButton.swift */; };
 		F72D87F81B594ED500519136 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D87F71B594ED500519136 /* ParseLoginHelper.swift */; };
 		F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */; };
 		F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */; };
@@ -47,6 +48,7 @@
 		F761C6841B612EAB004A79D7 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F761C6791B612EAB004A79D7 /* OpenSans-Regular.ttf */; };
 		F761C6851B612EAB004A79D7 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F761C67A1B612EAB004A79D7 /* OpenSans-Semibold.ttf */; };
 		F761C6861B612EAB004A79D7 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F761C67B1B612EAB004A79D7 /* OpenSans-SemiboldItalic.ttf */; };
+		F7626C0C1B642E7A00056860 /* UICustomSettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7626C0B1B642E7A00056860 /* UICustomSettingHelper.swift */; };
 		F7762A2E1B4D7A3D002CBAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A2D1B4D7A3D002CBAE7 /* AppDelegate.swift */; };
 		F7762A301B4D7A3D002CBAE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7762A2F1B4D7A3D002CBAE7 /* ViewController.swift */; };
 		F7762A331B4D7A3D002CBAE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7762A311B4D7A3D002CBAE7 /* Main.storyboard */; };
@@ -111,6 +113,7 @@
 		F728A6BD1B52C73E006E4A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsViewController.swift; sourceTree = "<group>"; };
 		F728A6C21B52D3CA006E4A7A /* YourPostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsTableViewCell.swift; sourceTree = "<group>"; };
+		F72B80721B642BC700594BA2 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		F72D87F71B594ED500519136 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostTableViewCell.swift; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 		F761C67A1B612EAB004A79D7 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		F761C67B1B612EAB004A79D7 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		F761C6871B613050004A79D7 /* ios7-icon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ios7-icon.ttf"; path = "font/ios7-icon.ttf"; sourceTree = SOURCE_ROOT; };
+		F7626C0B1B642E7A00056860 /* UICustomSettingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICustomSettingHelper.swift; sourceTree = "<group>"; };
 		F7762A281B4D7A3D002CBAE7 /* MakeChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7762A2C1B4D7A3D002CBAE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7762A2D1B4D7A3D002CBAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +229,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		F72B80711B642B8D00594BA2 /* ZFRippleButton */ = {
+			isa = PBXGroup;
+			children = (
+				F72B80721B642BC700594BA2 /* ZFRippleButton.swift */,
+			);
+			path = ZFRippleButton;
+			sourceTree = "<group>";
+		};
 		F74EF78F1B4EBF37003DB560 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +257,7 @@
 		F74EF79B1B4EE229003DB560 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F72B80711B642B8D00594BA2 /* ZFRippleButton */,
 				F7F301C11B5DFECD00642884 /* UIColor.swift */,
 				F7FD5DAE1B5741D50014BBEA /* MIBadgeButton */,
 				F7E4CDB31B5576CB00815DDE /* PushNotification.swift */,
@@ -373,6 +386,7 @@
 				F79478551B4F3DC80048765A /* ParseHelper.swift */,
 				F714426B1B51855500B93ED8 /* DesignHelper.swift */,
 				F785612C1B57F204003F4D0E /* PushNotificationHelper.swift */,
+				F7626C0B1B642E7A00056860 /* UICustomSettingHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -612,6 +626,7 @@
 				F7E4CDBB1B5576CB00815DDE /* Messages.swift in Sources */,
 				F71ACD381B5D775E00B7936E /* CategoryDetailViewController.swift in Sources */,
 				F7E4CDB81B5576CB00815DDE /* PushNotification.swift in Sources */,
+				F7626C0C1B642E7A00056860 /* UICustomSettingHelper.swift in Sources */,
 				F79004BF1B61CB7700EEED03 /* NotificationViewController.swift in Sources */,
 				F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */,
 				F71ACD241B5D50CC00B7936E /* CategoryCollectionViewCell.swift in Sources */,
@@ -640,6 +655,7 @@
 				F7EAAB921B58180F009F838F /* FriendRequestTableViewCell.swift in Sources */,
 				F7E4CDC11B55993300815DDE /* FriendSearchTableViewCell.swift in Sources */,
 				F7610FEA1B627DF5005C8C7E /* NotificationTableViewCell.swift in Sources */,
+				F72B80731B642BC700594BA2 /* ZFRippleButton.swift in Sources */,
 				F7F301C21B5DFECD00642884 /* UIColor.swift in Sources */,
 				F71ACD2A1B5D57D700B7936E /* CategoryCollectionViewController.swift in Sources */,
 				F70AECD41B5405A700497662 /* PostDetailViewController.swift in Sources */,

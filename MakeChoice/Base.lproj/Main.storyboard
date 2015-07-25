@@ -83,7 +83,7 @@
                                 <rect key="frame" x="301" y="242" width="283" height="377.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HY8-e5-wM3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HY8-e5-wM3" customClass="ZFRippleButton" customModule="MakeChoice" customModuleProvider="target">
                                 <rect key="frame" x="16" y="650" width="568" height="50"/>
                                 <color key="backgroundColor" red="0.99607843137254903" green="0.86274509803921573" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -314,6 +314,7 @@
                         <outlet property="img2" destination="mFu-8J-klx" id="wSm-xu-7v4"/>
                         <outlet property="isPublicButton" destination="Noe-z7-zUx" id="GWY-Dk-7gi"/>
                         <outlet property="pickerSelect" destination="eJN-nx-8nA" id="EST-4D-abo"/>
+                        <outlet property="postButton" destination="HY8-e5-wM3" id="GXR-zB-mah"/>
                         <outlet property="titleTextField" destination="PH9-0D-G7t" id="Pvr-9R-Jx3"/>
                     </connections>
                 </viewController>
@@ -2095,8 +2096,8 @@
         <image name="uncheckedBox" width="800" height="794"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="mmd-cW-fIh"/>
         <segue reference="8lu-0u-sp7"/>
         <segue reference="Hw2-xg-niX"/>
-        <segue reference="nsw-4h-qCf"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -41,6 +41,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
     
     
+    @IBOutlet weak var postButton: ZFRippleButton!
     @IBAction func PostPressed(sender: AnyObject) {
         println("post pressed")
         
@@ -263,6 +264,10 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         
         var img2tapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("img2tapped" ))
         img2.addGestureRecognizer(img2tapped)
+        
+        
+        //set ZFRipplebutton
+        UICustomSettingHelper.ZFRippleButtonDefaultSetting(self.postButton)
         
         
     }
