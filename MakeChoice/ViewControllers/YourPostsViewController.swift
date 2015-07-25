@@ -161,8 +161,10 @@ extension YourPostsViewController:UITableViewDelegate{
             ParseHelper.deletePostWithPostId(postId){ (success:Bool, error: NSError?) -> Void in
                 if success {
                     println("delete postID: \(postId)")
+                  
                     // refresh
                     self.timelineComponent.refresh(self)
+                    NSNotificationCenter.defaultCenter().postNotificationName("DeletePost", object: nil)
                 }
                 
             }

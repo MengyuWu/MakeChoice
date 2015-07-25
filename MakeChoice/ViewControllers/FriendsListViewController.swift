@@ -124,15 +124,20 @@ extension FriendsListViewController:UITableViewDelegate{
                 (results:[AnyObject]?, error: NSError?) -> Void in
                 
                 if let results=results as? [PFObject]{
+                    // update the statistic in profile view controller
+                    //broadcasting, since one friend relation has two objects
+                   // NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
                     
+                    var index=0;
                     for result in results{
                         //should print error
                         result.deleteInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
                             
-                            if (success){
+                            if (success && index==0){
+                                index++
                                 // update the statistic in profile view controller
-                                //broadcasting
-                                NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
+                                //broadcasting, could use this, if listneing object call parse.getnumof friend
+                             NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
                             }
                             
                             if error != nil{

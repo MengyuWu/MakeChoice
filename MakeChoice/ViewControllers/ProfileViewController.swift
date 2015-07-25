@@ -220,13 +220,50 @@ class ProfileViewController: UIViewController {
     func deleteFriendReceived(){
         //update the statistic friend number
         println("deleteFriend received")
-        ParseHelper.getFriendsNum{ (results:[AnyObject]?, error:NSError?) in
+        
+        if var numString=self.myFriendsNum.text{
             
-            if let results=results{
-                self.myFriendsNum.text="\(results.count)"
+            if var num=numString.toInt(){
+                if num>0{
+                  self.myFriendsNum.text="\(num-1)"
+                }
+                
             }
             
         }
+        
+        
+//        ParseHelper.getFriendsNum{ (results:[AnyObject]?, error:NSError?) in
+//            
+//            if let results=results{
+//                self.myFriendsNum.text="\(results.count)"
+//            }
+//            
+//        }
+        
+    }
+    
+    func deletePostReceived(){
+        println("deletePost received")
+        if var numString=self.myPostsNum.text{
+            
+            if var num=numString.toInt(){
+                if num>0{
+                    self.myPostsNum.text="\(num-1)"
+                }
+                
+            }
+            
+        }
+
+//        var user:PFUser?=PFUser.currentUser()
+//        ParseHelper.getNumOfPostsOfUser(user!){ (results:[AnyObject]?, error:NSError?) in
+//            
+//            if let results=results{
+//                self.myPostsNum.text="\(results.count)"
+//            }
+//            
+//        }
     }
     
     
@@ -243,7 +280,9 @@ class ProfileViewController: UIViewController {
         //listening the broadcast from delete friends, object is received object
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "deleteFriendReceived", name: "DeleteFriend", object: nil)
         
-        
+        //listening the broadcast from delete post, object is received object
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deletePostReceived", name: "DeletePost", object: nil)
+
         
        var user:PFUser?=PFUser.currentUser()
        self.username.text=user?.username ?? ""
