@@ -217,6 +217,19 @@ class ProfileViewController: UIViewController {
         
     }
     
+    func deleteFriendReceived(){
+        //update the statistic friend number
+        println("deleteFriend received")
+        ParseHelper.getFriendsNum{ (results:[AnyObject]?, error:NSError?) in
+            
+            if let results=results{
+                self.myFriendsNum.text="\(results.count)"
+            }
+            
+        }
+    }
+    
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -226,6 +239,11 @@ class ProfileViewController: UIViewController {
       
         //listening the broadcast from push notification, must delete it before leave it
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationReceived", name: "Received Notification", object: UIApplication.sharedApplication().delegate)
+        
+        //listening the broadcast from delete friends, object is received object
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deleteFriendReceived", name: "DeleteFriend", object: nil)
+        
+        
         
        var user:PFUser?=PFUser.currentUser()
        self.username.text=user?.username ?? ""

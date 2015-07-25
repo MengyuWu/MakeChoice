@@ -30,12 +30,12 @@ class FriendsListViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        println("friends list view will appear")
+        //println("friends list view will appear")
         ParseHelper.allFriends{ (results:[AnyObject]?, error: NSError?) -> Void in
             if let results = results as? [PFObject]{
                 if results.count>0 {
                 self.friends=results.map{$0[PF_FRIEND_FRIEND] as! PFUser}
-                println("friends in view will apper: \(self.friends.count)")
+                //println("friends in view will apper: \(self.friends.count)")
                 }else{
                     // if no friend
                     self.friends=[]
@@ -76,7 +76,7 @@ extension FriendsListViewController:UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        println("friends: \(self.friends.count)")
+      //  println("friends: \(self.friends.count)")
         
         let cell=tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath) as! FriendsTableViewCell
         
@@ -128,6 +128,13 @@ extension FriendsListViewController:UITableViewDelegate{
                     for result in results{
                         //should print error
                         result.deleteInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
+                            
+                            if (success){
+                                // update the statistic in profile view controller
+                                //broadcasting
+                                NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
+                            }
+                            
                             if error != nil{
                                  println("remove friend error1\(error)")
                             }
@@ -142,7 +149,7 @@ extension FriendsListViewController:UITableViewDelegate{
             }
 
       var index=ParseHelper.parseGetObjectIndexFromArray(self.friends, object: friend)
-            println("index \(index)")
+           // println("index \(index)")
             if(index != -1){
                 self.friends.removeAtIndex(index)
                 //self.friends=friends
