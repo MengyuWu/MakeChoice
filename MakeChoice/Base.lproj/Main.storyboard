@@ -326,8 +326,15 @@
         <scene sceneID="msc-HN-tOW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UAr-xg-O5r" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" image="Post" id="mSC-rp-2d4">
-                        <inset key="imageInsets" minX="-2" minY="-2" maxX="-2" maxY="-2"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="Post" id="mSC-rp-2d4" customClass="RAMAnimatedTabBarItem" customModule="MakeChoice" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="ABc-vI-z68" id="l42-hV-7UZ"/>
+                        </connections>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -341,6 +348,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S04-xe-UEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="ABc-vI-z68" customClass="RAMBounceAnimation" customModule="MakeChoice" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-2532" y="-333"/>
         </scene>
@@ -1115,10 +1123,10 @@
             </objects>
             <point key="canvasLocation" x="-1754" y="-1295"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Animated Tab Bar Controller-->
         <scene sceneID="deX-Aj-y8B">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="Hkl-Dk-1tf" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="Hkl-Dk-1tf" customClass="RAMAnimatedTabBarController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wOa-31-J0Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -1609,8 +1617,15 @@
         <scene sceneID="V6K-8j-tqp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jhg-hw-bnR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="Profile_home" id="qbU-pf-Nlw">
-                        <inset key="imageInsets" minX="22" minY="22" maxX="22" maxY="22"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile_home" id="qbU-pf-Nlw" customClass="RAMAnimatedTabBarItem" customModule="MakeChoice" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="LRz-A8-NOk" id="nu9-Bg-pXu"/>
+                        </connections>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ULs-R5-oOb">
@@ -1623,6 +1638,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DI6-g2-RGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="LRz-A8-NOk" customClass="RAMBounceAnimation" customModule="MakeChoice" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-3222" y="376"/>
         </scene>
@@ -2006,8 +2022,15 @@
         <scene sceneID="VnO-p4-KZZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6uX-3j-7QE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="Fkb-I3-Zuq">
-                        <inset key="imageInsets" minX="22" minY="22" maxX="22" maxY="22"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="Fkb-I3-Zuq" customClass="RAMAnimatedTabBarItem" customModule="MakeChoice" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="VzV-Mz-cRQ" id="yvc-f2-7ZZ"/>
+                        </connections>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w15-OP-6df">
@@ -2020,6 +2043,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcA-xv-rkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="VzV-Mz-cRQ" customClass="RAMBounceAnimation" customModule="MakeChoice" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-3356" y="-988"/>
         </scene>
@@ -2027,8 +2051,16 @@
         <scene sceneID="h1K-wg-ljm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iqy-Nq-BRy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="SearchFriend" id="ZaP-i8-evB">
-                        <inset key="imageInsets" minX="22" minY="22" maxX="22" maxY="22"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="SearchFriend" id="ZaP-i8-evB" customClass="RAMAnimatedTabBarItem" customModule="MakeChoice" customModuleProvider="target">
+                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="UXL-xl-8rV" id="4UL-AW-3zQ"/>
+                        </connections>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uKX-7R-Wul">
@@ -2041,6 +2073,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5D-oJ-eZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="UXL-xl-8rV" customClass="RAMBounceAnimation" customModule="MakeChoice" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-3222" y="1055"/>
         </scene>
@@ -2048,8 +2081,15 @@
         <scene sceneID="h8S-Ub-nv2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1vi-8N-cGW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Category" image="Category_home" id="CXD-7O-MiY">
-                        <inset key="imageInsets" minX="21" minY="23" maxX="21" maxY="19"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="Category_home" id="CXD-7O-MiY" customClass="RAMAnimatedTabBarItem" customModule="MakeChoice" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="33Y-cd-0zb" id="qD2-Iq-y4L"/>
+                        </connections>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vo1-F5-85J">
@@ -2062,6 +2102,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9K6-zx-7cs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="33Y-cd-0zb" customClass="RAMBounceAnimation" customModule="MakeChoice" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-4406" y="-1723"/>
         </scene>
@@ -2070,7 +2111,7 @@
         <image name="Accept" width="170" height="170"/>
         <image name="Add" width="42" height="42"/>
         <image name="AddFile" width="42" height="42"/>
-        <image name="Category_home" width="120" height="120"/>
+        <image name="Category_home" width="25" height="25"/>
         <image name="Check" width="42" height="42"/>
         <image name="CheckedBox" width="594" height="596"/>
         <image name="Comment" width="512" height="512"/>
@@ -2078,14 +2119,14 @@
         <image name="Heart" width="72" height="68"/>
         <image name="HeartSelected" width="72" height="68"/>
         <image name="Help" width="52" height="52"/>
-        <image name="Home" width="128" height="128"/>
+        <image name="Home" width="25" height="25"/>
         <image name="Notification" width="256" height="256"/>
         <image name="Pencil" width="13" height="18"/>
-        <image name="Post" width="16" height="16"/>
+        <image name="Post" width="25" height="25"/>
         <image name="Profile" width="70" height="70"/>
-        <image name="Profile_home" width="128" height="128"/>
+        <image name="Profile_home" width="25" height="25"/>
         <image name="Reject" width="100" height="100"/>
-        <image name="SearchFriend" width="128" height="128"/>
+        <image name="SearchFriend" width="50" height="50"/>
         <image name="Select" width="16" height="16"/>
         <image name="ThumbUp" width="128" height="128"/>
         <image name="Time" width="22" height="22"/>
@@ -2096,8 +2137,8 @@
         <image name="uncheckedBox" width="800" height="794"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Hw2-xg-niX"/>
         <segue reference="mmd-cW-fIh"/>
         <segue reference="8lu-0u-sp7"/>
-        <segue reference="Hw2-xg-niX"/>
     </inferredMetricsTieBreakers>
 </document>

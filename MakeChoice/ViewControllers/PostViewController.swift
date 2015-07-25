@@ -11,6 +11,7 @@ import ActionSheetPicker_3_0
 import BSImagePicker
 import Photos
 
+
 class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPopoverPresentationControllerDelegate  {
     
     var imagePickerController = UIImagePickerController()
@@ -270,6 +271,8 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         UICustomSettingHelper.ZFRippleButtonDefaultSetting(self.postButton)
         
         
+      
+    
     }
     
     
@@ -440,6 +443,9 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         isPublicButton.selected = isPrivate
  
     }
+    
+   
+    
     
     
 }

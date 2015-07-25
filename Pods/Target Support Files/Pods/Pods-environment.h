@@ -6,6 +6,12 @@
 // project.
 
 
+// AIFlatSwitch
+#define COCOAPODS_POD_AVAILABLE_AIFlatSwitch
+#define COCOAPODS_VERSION_MAJOR_AIFlatSwitch 0
+#define COCOAPODS_VERSION_MINOR_AIFlatSwitch 0
+#define COCOAPODS_VERSION_PATCH_AIFlatSwitch 2
+
 // APAddressBook
 #define COCOAPODS_POD_AVAILABLE_APAddressBook
 #define COCOAPODS_VERSION_MAJOR_APAddressBook 0

@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "plus-25.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "plus-32.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "round_plus.png"
+      "filename" : "plus-50.png"
     }
   ],
   "info" : {

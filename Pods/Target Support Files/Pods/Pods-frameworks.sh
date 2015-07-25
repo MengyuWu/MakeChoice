@@ -48,6 +48,7 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'AIFlatSwitch.framework'
   install_framework 'APAddressBook.framework'
   install_framework 'ActionSheetPicker_3_0.framework'
   install_framework 'Alamofire.framework'
@@ -67,6 +68,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'pop.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'AIFlatSwitch.framework'
   install_framework 'APAddressBook.framework'
   install_framework 'ActionSheetPicker_3_0.framework'
   install_framework 'Alamofire.framework'
