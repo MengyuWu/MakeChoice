@@ -54,7 +54,21 @@ class CommentViewController: JSQMessagesViewController{
         isLoading = false
         self.loadMessages()
         Messages.clearMessageCounter(groupId);
+        
+                
+        
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+             
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

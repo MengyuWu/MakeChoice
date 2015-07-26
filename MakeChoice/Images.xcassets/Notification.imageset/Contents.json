@@ -2,17 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "Message-32.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "message_outline-1.png"
+      "filename" : "Message-50.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "message_outline.png"
+      "filename" : "Message-64.png"
     }
   ],
   "info" : {

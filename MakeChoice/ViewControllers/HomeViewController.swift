@@ -97,7 +97,10 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
        // timelineComponent.refresh(self)
-    
+        if var tabBarController=self.navigationController?.tabBarController as? RAMAnimatedTabBarController{
+            tabBarController.hidesBottomBarWhenPushed=false
+            println(tabBarController.iconsView.count)
+        }
     }
     
     
@@ -121,7 +124,8 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if( segue.identifier=="commentPushSegue"){
             let commentVC = segue.destinationViewController as! CommentViewController
-            commentVC.hidesBottomBarWhenPushed = true
+            
+             commentVC.hidesBottomBarWhenPushed = true
             
             if let post=sender as? Post{
                 let groupId = post.objectId! as String ?? ""
@@ -143,6 +147,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
                 println("commentUnwind")
                 if(segue.sourceViewController .isKindOfClass(CommentViewController)){
                     var commentVC=segue.sourceViewController as! CommentViewController
+                    
                     var tag=commentVC.index
                     println("index:\(tag)")
                     if let tag=tag{
