@@ -1123,10 +1123,10 @@
             </objects>
             <point key="canvasLocation" x="-1754" y="-1295"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Animated Tab Bar Controller-->
         <scene sceneID="deX-Aj-y8B">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="Hkl-Dk-1tf" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="Hkl-Dk-1tf" customClass="RAMAnimatedTabBarController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wOa-31-J0Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

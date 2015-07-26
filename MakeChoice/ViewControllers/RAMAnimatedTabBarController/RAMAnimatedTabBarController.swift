@@ -61,12 +61,7 @@ class RAMAnimatedTabBarController: UITabBarController {
 
         createCustomIcons(containers)
        
-        // try to fix hide tar bar problem
-        let conls = (self.viewControllers as? [UIViewController])?.filter({$0 is UINavigationController}) ?? []
-        for ctl in conls{
-            (ctl as! UINavigationController).delegate = self
-        }
-
+       
     }
     
     
@@ -253,38 +248,3 @@ class RAMAnimatedTabBarController: UITabBarController {
 }
 
 
-extension RAMAnimatedTabBarController:UINavigationControllerDelegate{
-    func hideTabBar(flag:Bool) {
-        let atc = self
-        let icons = atc.iconsView
-        
-        if (flag == true ) {
-            
-            for icon in icons {
-                icon.icon.hidden = true
-                icon.icon.superview?.hidden = true
-            }
-            atc.tabBar.hidden = true
-            
-        } else {
-            atc.tabBar.hidden = false
-            for icon in icons {
-                if let sup = icon.icon.superview{
-                    icon.icon.hidden = false
-                    sup.hidden = false
-                    sup.superview?.bringSubviewToFront(sup)
-                }
-            }
-        }
-    }
-    
-    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool){
-        hideTabBar(viewController.hidesBottomBarWhenPushed)
-    }
-    
-    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-         hideTabBar(viewController.hidesBottomBarWhenPushed)
-    }
-    
-
-}

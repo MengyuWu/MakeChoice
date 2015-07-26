@@ -97,7 +97,7 @@ class PostDetailViewController: UIViewController {
             userVoteDetailController.postId=post?.objectId ?? ""
         }else if( segue.identifier=="commentPushSegue"){
             let commentVC = segue.destinationViewController as! CommentViewController
-            commentVC.hidesBottomBarWhenPushed = true
+            //commentVC.hidesBottomBarWhenPushed = true
             
             if let post=sender as? Post{
                 let groupId = post.objectId! as String ?? ""

@@ -98,7 +98,8 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         super.viewWillAppear(animated)
        // timelineComponent.refresh(self)
         if var tabBarController=self.navigationController?.tabBarController as? RAMAnimatedTabBarController{
-            tabBarController.hidesBottomBarWhenPushed=false
+            //hide the TabBar in comment view controller
+           // tabBarController.hidesBottomBarWhenPushed=false
             println(tabBarController.iconsView.count)
         }
     }
@@ -125,7 +126,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         if( segue.identifier=="commentPushSegue"){
             let commentVC = segue.destinationViewController as! CommentViewController
             
-             commentVC.hidesBottomBarWhenPushed = true
+            // commentVC.hidesBottomBarWhenPushed = true
             
             if let post=sender as? Post{
                 let groupId = post.objectId! as String ?? ""

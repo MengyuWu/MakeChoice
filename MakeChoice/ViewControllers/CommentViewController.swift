@@ -59,14 +59,54 @@ class CommentViewController: JSQMessagesViewController{
         
     }
     
+    
+    func hideTabBar(flag:Bool) {
+    
+        if let atc = self.navigationController?.tabBarController as? RAMAnimatedTabBarController{
+            let icons  = atc.iconsView
+            
+            if (flag == true ) {
+                atc.tabBar.hidden = true
+                for icon in icons {
+                    icon.icon.hidden = true
+                    icon.textLabel.hidden = true
+                    icon.icon.superview?.hidden = true
+                }
+            } else {
+                atc.tabBar.hidden = false
+                for icon in icons {
+                    if let sup = icon.icon.superview{
+                        sup.hidden = false
+                        // bring the icon superview to the front 
+                        sup.superview?.bringSubviewToFront(sup)
+                    }
+                    icon.icon.hidden = false
+                    icon.textLabel.hidden = false
+                }
+            }
+ 
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-             
+        if var tabBarController=self.navigationController?.tabBarController as? RAMAnimatedTabBarController{
+           self.hideTabBar(true)
+           
+        }
+
     }
+    
+    
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        if var tabBarController=self.navigationController?.tabBarController as? RAMAnimatedTabBarController{
+            self.hideTabBar(false)
+            
+        }
         
+
     }
 
 
