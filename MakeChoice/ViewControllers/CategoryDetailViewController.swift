@@ -359,6 +359,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
                                     
                                     if(results.count != 0){
                                         println("voted!")
+                                         SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
                                         // alreday voted!
                                         // show results:
                                     }else{
@@ -454,6 +455,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
                                     
                                     if(results.count != 0){
                                         println("voted!")
+                                         SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
                                         // alreday voted!
                                         // show results:
                                     }else{

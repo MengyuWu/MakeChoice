@@ -393,6 +393,7 @@ extension HomeViewController: UITableViewDataSource {
                                     
                                     if(results.count != 0){
                                         println("voted!")
+                                         SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
                                         // alreday voted!
                                         // show results:
                                     }else{
@@ -488,6 +489,7 @@ extension HomeViewController: UITableViewDataSource {
                                     
                                     if(results.count != 0){
                                         println("voted!")
+                                         SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
                                         // alreday voted!
                                         // show results:
                                     }else{
