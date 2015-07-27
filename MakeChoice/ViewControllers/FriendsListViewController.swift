@@ -118,49 +118,60 @@ extension FriendsListViewController:UITableViewDelegate{
             
             print("swipe delete")
             
-            let friend=self.friends[indexPath.row]
-            
-            ParseHelper.removeFriend(friend){
-                (results:[AnyObject]?, error: NSError?) -> Void in
-                
-                if let results=results as? [PFObject]{
-                    // update the statistic in profile view controller
-                    //broadcasting, since one friend relation has two objects
-                   // NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
+            SweetAlert().showAlert("Are you sure?", subTitle: "You file will permanently delete!", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes, delete it!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+                if isOtherButton == true {
                     
-                    var index=0;
-                    for result in results{
-                        //should print error
-                        result.deleteInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
+                    print("Cancel Button  Pressed", appendNewline: false)
+                    tableView.editing=false;
+                }
+                else {
+                    
+                    let friend=self.friends[indexPath.row]
+                    
+                    ParseHelper.removeFriend(friend){
+                        (results:[AnyObject]?, error: NSError?) -> Void in
+                        
+                        if let results=results as? [PFObject]{
+                            // update the statistic in profile view controller
+                            //broadcasting, since one friend relation has two objects
+                            // NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
                             
-                            if (success && index==0){
-                                index++
-                                // update the statistic in profile view controller
-                                //broadcasting, could use this, if listneing object call parse.getnumof friend
-                             NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
-                            }
-                            
-                            if error != nil{
-                                 println("remove friend error1\(error)")
+                            var index=0;
+                            for result in results{
+                                //should print error
+                                result.deleteInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
+                                    
+                                    if (success && index==0){
+                                        index++
+                                        // update the statistic in profile view controller
+                                        //broadcasting, could use this, if listneing object call parse.getnumof friend
+                                        NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
+                                    }
+                                    
+                                    if error != nil{
+                                        println("remove friend error1\(error)")
+                                    }
+                                }
                             }
                         }
+                        
+                        if error != nil {
+                            println("remove friend error2\(error)")
+                        }
+                        
                     }
+                    
+                    var index=ParseHelper.parseGetObjectIndexFromArray(self.friends, object: friend)
+                    // println("index \(index)")
+                    if(index != -1){
+                        self.friends.removeAtIndex(index)
+                        //self.friends=friends
+                    }
+                    
+                    SweetAlert().showAlert("Deleted!", subTitle: "Your imaginary file has been deleted!", style: AlertStyle.Success)
                 }
-                
-                if error != nil {
-                    println("remove friend error2\(error)")
-                }
-                
             }
 
-      var index=ParseHelper.parseGetObjectIndexFromArray(self.friends, object: friend)
-           // println("index \(index)")
-            if(index != -1){
-                self.friends.removeAtIndex(index)
-                //self.friends=friends
-            }
-
-            
         }
         
     }
