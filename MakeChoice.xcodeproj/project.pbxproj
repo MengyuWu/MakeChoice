@@ -68,6 +68,7 @@
 		F79004BF1B61CB7700EEED03 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79004BE1B61CB7700EEED03 /* NotificationViewController.swift */; };
 		F79478561B4F3DC80048765A /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79478551B4F3DC80048765A /* ParseHelper.swift */; };
 		F79478581B4F59DF0048765A /* HomePostSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79478571B4F59DF0048765A /* HomePostSectionHeaderView.swift */; };
+		F7CF480E1B6685C500627BBB /* DOFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CF480D1B6685C500627BBB /* DOFavoriteButton.swift */; };
 		F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDB11B555EC900815DDE /* CommentViewController.swift */; };
 		F7E4CDB81B5576CB00815DDE /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDB31B5576CB00815DDE /* PushNotification.swift */; };
 		F7E4CDB91B5576CB00815DDE /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4CDB41B5576CB00815DDE /* Camera.swift */; };
@@ -163,6 +164,7 @@
 		F79004BE1B61CB7700EEED03 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		F79478551B4F3DC80048765A /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		F79478571B4F59DF0048765A /* HomePostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostSectionHeaderView.swift; sourceTree = "<group>"; };
+		F7CF480D1B6685C500627BBB /* DOFavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFavoriteButton.swift; sourceTree = "<group>"; };
 		F7E28DA11B4E0AF100C96837 /* MakeChoice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MakeChoice-Bridging-Header.h"; sourceTree = "<group>"; };
 		F7E4CDB11B555EC900815DDE /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		F7E4CDB31B5576CB00815DDE /* PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 		F74EF79B1B4EE229003DB560 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F7CF480C1B6685C500627BBB /* DOFavoriteButton */,
 				F72B80711B642B8D00594BA2 /* ZFRippleButton */,
 				F7F301C11B5DFECD00642884 /* UIColor.swift */,
 				F7FD5DAE1B5741D50014BBEA /* MIBadgeButton */,
@@ -502,6 +505,14 @@
 				F79004BE1B61CB7700EEED03 /* NotificationViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F7CF480C1B6685C500627BBB /* DOFavoriteButton */ = {
+			isa = PBXGroup;
+			children = (
+				F7CF480D1B6685C500627BBB /* DOFavoriteButton.swift */,
+			);
+			path = DOFavoriteButton;
 			sourceTree = "<group>";
 		};
 		F7E4CDBF1B55991700815DDE /* FriendSearch */ = {
@@ -738,6 +749,7 @@
 				F72B80731B642BC700594BA2 /* ZFRippleButton.swift in Sources */,
 				F7F301C21B5DFECD00642884 /* UIColor.swift in Sources */,
 				F7626C1E1B6446D400056860 /* RAMRotationAnimation.swift in Sources */,
+				F7CF480E1B6685C500627BBB /* DOFavoriteButton.swift in Sources */,
 				F71ACD2A1B5D57D700B7936E /* CategoryCollectionViewController.swift in Sources */,
 				F7626C201B6446D400056860 /* RAMAnimatedTabBarController.swift in Sources */,
 				F70AECD41B5405A700497662 /* PostDetailViewController.swift in Sources */,

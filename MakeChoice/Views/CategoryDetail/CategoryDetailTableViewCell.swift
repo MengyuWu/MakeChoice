@@ -26,6 +26,7 @@ class CategoryDetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var commentNum: UILabel!
     
+    @IBOutlet weak var voteFavoriteButton: DOFavoriteButton!
     
     
     

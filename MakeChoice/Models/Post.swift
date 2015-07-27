@@ -37,7 +37,7 @@ class Post: PFObject, PFSubclassing {
 
     var vote1Percentage: Dynamic<String!> = Dynamic(nil)
     var vote2Percentage: Dynamic<String!> = Dynamic(nil)
-    
+    var voteUpdate=false
     
     // define static var imageCache so that imageCache can be accessed without create an instance, you can get it from Post.imageCache
     

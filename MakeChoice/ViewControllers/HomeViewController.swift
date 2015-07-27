@@ -247,9 +247,19 @@ extension HomeViewController: UITableViewDataSource {
         post.downloadImage()
         //get post statistic
         post.getPostStatistic()
+            cell.post=post
+            
+            // vote button, animation
+            
+            if(post.voteUpdate){
+                cell.voteFavoriteButton.select()
+                timelineComponent.content[indexPath.section].voteUpdate=false
+            }
+            
+
         }
         
-        cell.post=post
+ 
         
         //setting img radious
        DesignHelper.setImageCornerRadius(cell.img1)
@@ -392,6 +402,7 @@ extension HomeViewController: UITableViewDataSource {
                                         }
  
                                        self.tableView.beginUpdates()
+                                        self.timelineComponent.content[tag].voteUpdate=true
                                         self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
                                       self.tableView.endUpdates()
 
@@ -471,6 +482,7 @@ extension HomeViewController: UITableViewDataSource {
 
                                             
                                             self.tableView.beginUpdates()
+                                            self.timelineComponent.content[tag].voteUpdate=true
                                             self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
                                             self.tableView.endUpdates()
                                             
