@@ -359,70 +359,87 @@ extension HomeViewController: UITableViewDataSource {
             postId=timelineComponent.content[tag].objectId
             poster=timelineComponent.content[tag].poster
             
+            
+            
             if let postId=postId{
                 println("postId:\(postId)")
-            
-            ParseHelper.isUserVotedForPost(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
-                if let results=results as? [PFObject]{
+                
+                ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) in
                     
-                    if(results.count != 0){
-                    println("voted!")
-                    // alreday voted!
-                    // show results:
-                    }else{
-                    println("save new vote")
-                    // save the result, and show results
-                    ParseHelper.saveVote(postId, choice: 1)
-                        
-                    //update this post statistics
-                        ParseHelper.updatePostStatistic(postId, choice: 1){ (success:Bool,error:NSError?) -> Void in
+                    if let results=results{
+                        if results.count==0{
+                             SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
+                            self.timelineComponent.refresh(self)
                             
-                            if success {
-                                println("success upadatePostStatistic")
-                                //update post statistic
-                                
-                                //update the content
-                                ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
+                        }else{
+                            ParseHelper.isUserVotedForPost(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
+                                if let results=results as? [PFObject]{
                                     
-                                    if let results=results as? [Post]{
+                                    if(results.count != 0){
+                                        println("voted!")
+                                        // alreday voted!
+                                        // show results:
+                                    }else{
+                                        println("save new vote")
+                                        // save the result, and show results
+                                        ParseHelper.saveVote(postId, choice: 1)
                                         
-                                        self.timelineComponent.content[tag]=results.first!
-                                        println("totalVote\(self.timelineComponent.content[tag].totalVotes)")                                       //send notification if the voter is not poster
-                                        if let poster=poster{
-                                            if (poster.objectId != PFUser.currentUser()?.objectId){
+                                        //update this post statistics
+                                        ParseHelper.updatePostStatistic(postId, choice: 1){ (success:Bool,error:NSError?) -> Void in
+                                            
+                                            if success {
+                                                println("success upadatePostStatistic")
+                                                //update post statistic
                                                 
-                                                if let post=results.first{
-                                                    ParseHelper.uploadNotification(PFUser.currentUser()!, toUser: post.poster!, messageType: "vote", post: post)
+                                                //update the content
+                                                ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
+                                                    
+                                                    if let results=results as? [Post]{
+                                                        
+                                                        self.timelineComponent.content[tag]=results.first!
+                                                        println("totalVote\(self.timelineComponent.content[tag].totalVotes)")                                       //send notification if the voter is not poster
+                                                        if let poster=poster{
+                                                            if (poster.objectId != PFUser.currentUser()?.objectId){
+                                                                
+                                                                if let post=results.first{
+                                                                    ParseHelper.uploadNotification(PFUser.currentUser()!, toUser: post.poster!, messageType: "vote", post: post)
+                                                                }
+                                                                
+                                                                
+                                                                PushNotificationHelper.sendVoteNotification(poster)
+                                                            }
+                                                            
+                                                        }
+                                                        
+                                                        self.tableView.beginUpdates()
+                                                        self.timelineComponent.content[tag].voteUpdate=true
+                                                        self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
+                                                        self.tableView.endUpdates()
+                                                        
+                                                    }
+                                                    
                                                 }
-
-                                                
-                                                PushNotificationHelper.sendVoteNotification(poster)
                                             }
                                             
                                         }
- 
-                                       self.tableView.beginUpdates()
-                                        self.timelineComponent.content[tag].voteUpdate=true
-                                        self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
-                                      self.tableView.endUpdates()
-
+                                        
+                                        
+                                        
                                     }
-                                    
                                 }
+                                
+                                if error != nil {
+                                    println(error)
+                                }
+                                
                             }
-                            
                         }
-                        
+                    }
+                    
+                }
+    
             
-                        
-                }
-               }
-              
-                if error != nil {
-                    println(error)
-                }
-                
-            }
+
           }
         }
     
@@ -442,65 +459,80 @@ extension HomeViewController: UITableViewDataSource {
             if let postId=postId{
                 println("postId:\(postId)")
                 
-                ParseHelper.isUserVotedForPost(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
-                    if let results=results as? [PFObject]{
-                        
-                        if(results.count != 0){
-                            println("voted!")
-                            // alreday voted!
-                            // show results:
-                        }else{
-                            println("save new vote")
-                            // save the result, and show results
-                            ParseHelper.saveVote(postId, choice: 2)
+                ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
+                    
+                    if let results=results{
+                        if results.count==0{
+                            SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
+                            self.timelineComponent.refresh(self)
                             
-                            //update this post statistics
-                            ParseHelper.updatePostStatistic(postId, choice:2){ (success:Bool,error:NSError?) -> Void in
-                                
-                                if success {
-                                    println("success upadatePostStatistic")
-                                    //update post statistic
+                        }else{
+                            ParseHelper.isUserVotedForPost(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
+                                if let results=results as? [PFObject]{
                                     
-                                    //update the content
-                                    ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
+                                    if(results.count != 0){
+                                        println("voted!")
+                                        // alreday voted!
+                                        // show results:
+                                    }else{
+                                        println("save new vote")
+                                        // save the result, and show results
+                                        ParseHelper.saveVote(postId, choice: 2)
                                         
-                                        if let results=results as? [Post]{
-                                            self.timelineComponent.content[tag]=results.first!
-                                            println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
-                                            //send notification if the voter is not poster
-                                    if let poster=poster{
-                                        if (poster.objectId != PFUser.currentUser()?.objectId){
+                                        //update this post statistics
+                                        ParseHelper.updatePostStatistic(postId, choice:2){ (success:Bool,error:NSError?) -> Void in
                                             
-                                            if let post=results.first{
-                                                ParseHelper.uploadNotification(PFUser.currentUser()!, toUser: post.poster!, messageType: "vote", post: post)
-                                            }
-                                            
-                                                PushNotificationHelper.sendVoteNotification(poster)
-                                            }
+                                            if success {
+                                                println("success upadatePostStatistic")
+                                                //update post statistic
                                                 
-                                        }
-
-                                            
-                                            self.tableView.beginUpdates()
-                                            self.timelineComponent.content[tag].voteUpdate=true
-                                            self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
-                                            self.tableView.endUpdates()
+                                                //update the content
+                                                ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) -> Void in
+                                                    
+                                                    if let results=results as? [Post]{
+                                                        self.timelineComponent.content[tag]=results.first!
+                                                        println("totalVote\(self.timelineComponent.content[tag].totalVotes)")
+                                                        //send notification if the voter is not poster
+                                                        if let poster=poster{
+                                                            if (poster.objectId != PFUser.currentUser()?.objectId){
+                                                                
+                                                                if let post=results.first{
+                                                                    ParseHelper.uploadNotification(PFUser.currentUser()!, toUser: post.poster!, messageType: "vote", post: post)
+                                                                }
+                                                                
+                                                                PushNotificationHelper.sendVoteNotification(poster)
+                                                            }
+                                                            
+                                                        }
+                                                        
+                                                        
+                                                        self.tableView.beginUpdates()
+                                                        self.timelineComponent.content[tag].voteUpdate=true
+                                                        self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
+                                                        self.tableView.endUpdates()
+                                                        
+                                                    }
+                                                    
+                                                }
+                                            }
                                             
                                         }
                                         
                                     }
                                 }
                                 
+                                if error != nil {
+                                    println(error)
+                                }
+                                
                             }
-     
                         }
                     }
                     
-                    if error != nil {
-                        println(error)
-                    }
-                    
                 }
+                
+                
+
             }
         }
         
