@@ -62,20 +62,16 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         
        
         if (titleTextField.text==""){
-            var alert = UIAlertController(title: "Alert", message: "Please fill in the title", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }else if (pickerSelect.titleLabel?.text=="Select"){
             
-            var alert = UIAlertController(title: "Alert", message: "Please choose a category", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            SweetAlert().showAlert("Missing Contents?", subTitle: "Please fill in the title!", style: AlertStyle.Warning)
+            
+        }else if (pickerSelect.titleLabel?.text=="Select"){
+            SweetAlert().showAlert("Missing Contents?", subTitle: "Please choose a category!", style: AlertStyle.Warning)
             
         }else if (img1Data == nil || img2Data == nil){
             
-            var alert = UIAlertController(title: "Alert", message: "Please upload two pictures", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            
+            SweetAlert().showAlert("Missing Contents?", subTitle: "Please upload two pictures!", style: AlertStyle.Warning)
             
         }else{
             
@@ -85,9 +81,8 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             post.uploadPost()
             
             // ProcessHUD, pop up
-            var alert = UIAlertController(title: "Alert", message: "Upload successfully", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            
+            SweetAlert().showAlert("Good job!", subTitle: "Post Successfully!", style: AlertStyle.Success)
 
        
             //after upload
