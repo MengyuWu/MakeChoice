@@ -537,8 +537,8 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="UpI-3c-oUu"/>
-                                <exclude reference="x6c-5F-VlV"/>
                                 <exclude reference="5Tc-sq-d1l"/>
+                                <exclude reference="x6c-5F-VlV"/>
                                 <exclude reference="by3-r2-WPp"/>
                                 <exclude reference="ogi-uh-RQY"/>
                             </mask>

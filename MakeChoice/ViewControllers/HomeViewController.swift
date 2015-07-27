@@ -343,7 +343,23 @@ extension HomeViewController: UITableViewDataSource {
         self.selectedCommentIndex=tag
         
         if let postId=postId{
-            self.performSegueWithIdentifier("commentPushSegue", sender: post)
+            
+            //check this post is deleted or not
+            ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
+            
+                if let results=results{
+                    if results.count==0{
+                        SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
+                        self.timelineComponent.refresh(self)
+                    }else{
+                         self.performSegueWithIdentifier("commentPushSegue", sender: post)
+                    }
+                
+                }
+            }
+            
+            
+           
         }
         
     }
