@@ -154,19 +154,36 @@ extension YourPostsViewController:UITableViewDelegate{
             
             print("swipe delete")
             
-            let post=timelineComponent.content[indexPath.section]
-            let postId=post.objectId ?? ""
             
-            
-            ParseHelper.deletePostWithPostId(postId){ (success:Bool, error: NSError?) -> Void in
-                if success {
-                    println("delete postID: \(postId)")
-                  
-                    // refresh
-                    self.timelineComponent.refresh(self)
-                    NSNotificationCenter.defaultCenter().postNotificationName("DeletePost", object: nil)
+            SweetAlert().showAlert("Are you sure?", subTitle: "You post will permanently delete!", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes, delete it!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+                if isOtherButton == true {
+                    
+                    print("Cancel Button  Pressed", appendNewline: false)
+                    tableView.editing=false;
                 }
-                
+                else {
+                    let post=self.timelineComponent.content[indexPath.section]
+                    let postId=post.objectId ?? ""
+                    
+                    
+                    ParseHelper.deletePostWithPostId(postId){ (success:Bool, error: NSError?) -> Void in
+                        if success {
+                            println("delete postID: \(postId)")
+                            
+                            // refresh
+                            self.timelineComponent.refresh(self)
+                            NSNotificationCenter.defaultCenter().postNotificationName("DeletePost", object: nil)
+                            
+                            SweetAlert().showAlert("Deleted!", subTitle: "Your post has been deleted!", style: AlertStyle.Success)
+                        }
+
+                    
+                }
+            }
+
+            
+            
+            
             }
 
 
