@@ -43,6 +43,7 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
         self.tableView.dataSource=self
         self.tableView.delegate=self
         timelineComponent = TimelineComponent(target: self)
+        timelineComponent.refresh(self)
 //        
 //        tableView.estimatedRowHeight=100
 //        tableView.rowHeight=UITableViewAutomaticDimension
@@ -50,8 +51,9 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        timelineComponent.refresh(self)
-        tableView.reloadData()
+        // TODO: bug, it will crash if tapped before you resfresh
+       // timelineComponent.refresh(self)
+       // tableView.reloadData()
         
     }
 
@@ -196,6 +198,9 @@ extension YourPostsViewController:UITableViewDelegate{
 
 // MARK:  YourPostsTableViewCellSegueDelegate
 extension YourPostsViewController:YourPostsTableViewCellDelegate{
+    
+    
+    
     
     func cell(cell: YourPostsTableViewCell, didSelectAddressBookSegue post: Post){
         println("address book")
