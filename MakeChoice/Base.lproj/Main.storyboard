@@ -632,7 +632,7 @@
             </objects>
             <point key="canvasLocation" x="-3497" y="-1741"/>
         </scene>
-        <!--Category Detail View Controller-->
+        <!--Title-->
         <scene sceneID="pBp-HJ-VXF">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="eH7-XK-H3i" customClass="CategoryDetailViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
@@ -862,9 +862,11 @@
                             <constraint firstItem="B0D-dI-0if" firstAttribute="leading" secondItem="Qoi-zP-sTi" secondAttribute="leadingMargin" constant="-16" id="vRi-6r-bYD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Jod-t0-9Nt"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="navigationTitle" destination="Jod-t0-9Nt" id="mBq-iq-kb7"/>
                         <outlet property="tableView" destination="B0D-dI-0if" id="Vcw-4D-gr6"/>
                         <segue destination="77J-uS-0Y8" kind="show" identifier="commentPushSegue" id="5qA-W6-K1R"/>
                     </connections>

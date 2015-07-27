@@ -26,6 +26,7 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
     
     var option=1 // option 1: category, option 2: friend posts
     
+    @IBOutlet weak var navigationTitle: UINavigationItem!
  
     /**
     This method should load the items within the specified range and call the
@@ -74,9 +75,22 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
        // timelineComponent.refresh(self)
-        
+       
+        if(option == 1){
+            // category
+            if let index=categoryIndex{
+                self.navigationItem.title=CATEGORIES_UPPERCASE[index]
+            }
+            
+        }else if(option == 2){
+            if let user=user{
+                self.navigationItem.title=user.username
+            }
+        }
+
     }
     
+   
     
     
     override func didReceiveMemoryWarning() {
