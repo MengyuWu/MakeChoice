@@ -131,6 +131,7 @@ class ProfileViewController: UIViewController {
         self.notificationButton.badgeEdgeInsets=UIEdgeInsetsMake(10, 0, 0, 15)
         
         
+        
         // LOGOUT
         parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
             // Initialize the ParseLoginHelper with a callback
@@ -180,12 +181,15 @@ class ProfileViewController: UIViewController {
         NSLog("Your post")
         YourPostsContainerView.hidden=false
         FriendsContainerView.hidden=true
+        
+        UICustomSettingHelper.profileSegmentChanged(myPostsView, deselectedItem: myFriendsView)
     }
     
     func myFriendsViewTapped(recognizer:UITapGestureRecognizer ){
         NSLog("your friends")
         YourPostsContainerView.hidden=true
         FriendsContainerView.hidden=false
+        UICustomSettingHelper.profileSegmentChanged(myFriendsView, deselectedItem: myPostsView)
     }
 
     
