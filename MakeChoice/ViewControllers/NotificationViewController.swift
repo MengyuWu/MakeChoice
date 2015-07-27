@@ -102,9 +102,7 @@ extension NotificationViewController:UITableViewDelegate{
         }else{
             
           //TODO: POP UP indicator
-            var alert = UIAlertController(title: "Alert", message: "This poll dose not exist!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+        SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
             
           println("post do not exist")
           // delete the notification if post do not exist"
