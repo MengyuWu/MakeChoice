@@ -165,8 +165,12 @@ class ParseHelper{
         friendRelation.saveInBackgroundWithBlock{(success:Bool, error:NSError?) -> Void in
             if error != nil{
                 println("add friend error: \(error)")
+                UICustomSettingHelper.sweetAlertNetworkError()
             }
             
+            if (success) {
+               // SweetAlert().showAlert("Add friend!", subTitle: "Add a friend Successfully!", style: AlertStyle.Success)
+            }
         }
     }
     
