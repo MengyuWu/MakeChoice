@@ -71,14 +71,14 @@ class AnimationViewController: UIViewController {
         
         super.viewDidAppear(animated)
  
-        if (self.user != nil){
-            //go to tabbarcontroller
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
-            self.presentViewController(tabBarController, animated:true, completion:nil)
-            
-            
-        }
+//        if (self.user != nil){
+//            //go to tabbarcontroller
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
+//            self.presentViewController(tabBarController, animated:true, completion:nil)
+//            
+//            
+//        }
       
         
         animationImageView.animationImages=imageList
@@ -98,6 +98,10 @@ class AnimationViewController: UIViewController {
                 loginViewController.logInView?.logo?.hidden=true
                 loginViewController.signUpController?.signUpView?.logo?.hidden=true
                 self.presentViewController(loginViewController, animated: true, completion: nil)
+            }else{
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
+                self.presentViewController(tabBarController, animated:true, completion:nil)
             }
             
         }

@@ -42,15 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.setApplicationId("woPlKhj8Dt6WVfev3I62IZ2ZFvlWPZUbbJg0o8rT", clientKey: "PVlVNH5HoD73mxJ97dcCQqPp7VlLNWCMLkd1DIiB")
  
-        //testing logging code
-//            PFUser.logInWithUsername("test2", password: "test2")
-//        
-//            if let user=PFUser.currentUser(){
-//                println("log in ")
-//            }else {
-//                println("not logged")
-//            }
-
         
         
         // Register for Push Notitications, if running iOS 8
@@ -77,13 +68,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 2
         let user = PFUser.currentUser()
         
-        let startViewController: UIViewController;
+        let startViewController: AnimationViewController;
         
         if (user != nil) {
             // 3
             // if we have a user, set the TabBarController to be the initial View Controller
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            
+            // whether it logged in or not, both go to animationViewController
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as!
+            AnimationViewController
+            startViewController.user=user
+            
             
             
         } else {
@@ -93,14 +92,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // 4
             // Otherwise set the LoginViewController to be the first
-            let loginViewController = PFLogInViewController()
-            loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
-            loginViewController.delegate = parseLoginHelper
-            loginViewController.signUpController?.delegate = parseLoginHelper
-            
-            loginViewController.logInView?.logo?.hidden=true
-            loginViewController.signUpController?.signUpView?.logo?.hidden=true
-            
+//            let loginViewController = PFLogInViewController()
+//            loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+//            loginViewController.delegate = parseLoginHelper
+//            loginViewController.signUpController?.delegate = parseLoginHelper
+//            
+//            loginViewController.logInView?.logo?.hidden=true
+//            loginViewController.signUpController?.signUpView?.logo?.hidden=true
+//            
            // startViewController = loginViewController
         }
         
