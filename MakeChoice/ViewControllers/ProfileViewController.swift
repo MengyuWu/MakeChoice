@@ -71,7 +71,14 @@ class ProfileViewController: UIViewController {
     println("logout button ")
     
     PFUser.logOut()
-    self.goToLogin()
+    //self.goToLogin()
+    
+    // go to animation page
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    var animationViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as!
+    AnimationViewController
+    self.presentViewController(animationViewController, animated: true, completion: nil)
+    
     
     }
     

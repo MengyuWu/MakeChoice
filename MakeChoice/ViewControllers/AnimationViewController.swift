@@ -82,11 +82,11 @@ class AnimationViewController: UIViewController {
       
         
         animationImageView.animationImages=imageList
-        animationImageView.animationRepeatCount=5
+        animationImageView.animationRepeatCount=4
         animationImageView.animationDuration=0.5
         animationImageView.startAnimating()
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
             println("finished aniamtion")
             
             if self.user == nil{
