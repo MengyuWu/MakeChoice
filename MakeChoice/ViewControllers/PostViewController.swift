@@ -80,9 +80,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             println("upload successfully")
             post.uploadPost()
             
-            // ProcessHUD, pop up
-            
-            SweetAlert().showAlert("Good job!", subTitle: "Post Successfully!", style: AlertStyle.Success)
+           
 
        
             //after upload

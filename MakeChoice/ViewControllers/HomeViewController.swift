@@ -8,6 +8,7 @@
 
 import UIKit
 import ConvenienceKit
+import MBProgressHUD
 
 class HomeViewController: UIViewController,TimelineComponentTarget {
     
@@ -65,8 +66,12 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
                 completionBlock(posts)
             }
         }else{
+            let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.Indeterminate
+            loadingNotification.labelText = "Loading"
             ParseHelper.timelineRequestforCurrentUserWithOptions(range,isFriendPost:false, category:0){ (result: [AnyObject]?, error: NSError?) -> Void in
                 let posts = result as? [Post] ?? []
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 completionBlock(posts)
             }
    

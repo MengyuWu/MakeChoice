@@ -228,7 +228,19 @@ class Post: PFObject, PFSubclassing {
         self.vote2=0;
         
       //  saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
-        saveInBackgroundWithBlock(nil)
+        saveInBackgroundWithBlock{ (success:Bool, error:NSError?) in
+            if success {
+                // ProcessHUD, pop up
+                SweetAlert().showAlert("Good job!", subTitle: "Post Successfully!", style: AlertStyle.Success)
+            }
+            
+            if (error != nil){
+                
+                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                
+            }
+            
+        }
         
     }
     
