@@ -8,6 +8,7 @@
 
 import UIKit
 import ConvenienceKit
+import MBProgressHUD
 class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
 
     
@@ -33,23 +34,27 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
     `completionBlock`, with the items as argument, upon completion.
     */
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void){
-      
-        
-        
+        UICustomSettingHelper.MBProgressHUDLoading(self.view)
         if(option==1 && categoryIndex != nil){
           println("index: \(categoryIndex!)")
         ParseHelper.timelineRequestforCurrentUserWithCategory(range,categoryIndex:categoryIndex!){ (result: [AnyObject]?, error: NSError?) -> Void in
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             let posts = result as? [Post] ?? []
             completionBlock(posts)
+            if error != nil{
+                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+            }
         }
         
         }else if(option==2 && user != nil){
             
             ParseHelper.timelineRequestforCurrentUserWithFriend(range,user: self.user!){ (result: [AnyObject]?, error: NSError?) -> Void in
-               
+               MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 let posts = result as? [Post] ?? []
-                
                 completionBlock(posts)
+                if error != nil{
+                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                }
             }
 
         }
@@ -325,8 +330,15 @@ extension CategoryDetailViewController: UITableViewDataSource {
         if let postId=postId{
             
             //check this post is deleted or not
+            UICustomSettingHelper.MBProgressHUDSimple(self.view)
+            
             ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
                 
+               MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                if error != nil{
+                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                }
+
                 if let results=results{
                     if results.count==0{
                         SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
@@ -359,8 +371,12 @@ extension CategoryDetailViewController: UITableViewDataSource {
             
             if let postId=postId{
                 println("postId:\(postId)")
-                
+                UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) in
+                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                    if error != nil{
+                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                    }
                     
                     if let results=results{
                         if results.count==0{
@@ -455,8 +471,13 @@ extension CategoryDetailViewController: UITableViewDataSource {
             
             if let postId=postId{
                 println("postId:\(postId)")
-                
+                UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
+                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                    if error != nil{
+                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                    }
+
                     
                     if let results=results{
                         if results.count==0{
