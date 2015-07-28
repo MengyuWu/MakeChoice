@@ -358,6 +358,10 @@ class ParseHelper{
         vote.saveInBackgroundWithBlock{ (success:Bool, error:NSError?) -> Void in
             
             if(error != nil){
+                if error != nil{
+                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                }
+
                 println("error:\(error)")
             }
         }

@@ -60,19 +60,28 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     `completionBlock`, with the items as argument, upon completion.
     */
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void){
+        UICustomSettingHelper.MBProgressHUDLoading(self.view)
         if(isFriendPost){
             ParseHelper.timelineRequestforCurrentUserWithOptions(range,isFriendPost:true, category:0){ (result: [AnyObject]?, error: NSError?) -> Void in
                 let posts = result as? [Post] ?? []
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 completionBlock(posts)
+                
+                if error != nil{
+                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                }
+                
             }
         }else{
-            let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-            loadingNotification.mode = MBProgressHUDMode.Indeterminate
-            loadingNotification.labelText = "Loading"
+            
             ParseHelper.timelineRequestforCurrentUserWithOptions(range,isFriendPost:false, category:0){ (result: [AnyObject]?, error: NSError?) -> Void in
                 let posts = result as? [Post] ?? []
                 MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 completionBlock(posts)
+                
+                if error != nil{
+                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                }
             }
    
         }
@@ -101,13 +110,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-       // timelineComponent.refresh(self)
-        if var tabBarController=self.navigationController?.tabBarController as? RAMAnimatedTabBarController{
-            //hide the TabBar in comment view controller
-           // tabBarController.hidesBottomBarWhenPushed=false
-            println(tabBarController.iconsView.count)
-        }
-    }
+   }
     
     
     
@@ -117,16 +120,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if( segue.identifier=="commentPushSegue"){
             let commentVC = segue.destinationViewController as! CommentViewController
@@ -148,12 +142,10 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     // MARK:unwind segue
     @IBAction func unwindToSegue(segue: UIStoryboardSegue){
         if let identifier = segue.identifier {
-            
             if (identifier=="commentUnwind") {
                 println("commentUnwind")
                 if(segue.sourceViewController .isKindOfClass(CommentViewController)){
                     var commentVC=segue.sourceViewController as! CommentViewController
-                    
                     var tag=commentVC.index
                     println("index:\(tag)")
                     if let tag=tag{
@@ -162,25 +154,16 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
                     self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
                     self.tableView.endUpdates()
                     }
-
                 }
-                
-                
-            }
-            
-        }
-    }
-
-
-}
+             }
+          }
+      }
+   }
 
 // MARK: tableview delegate and datasource
 extension HomeViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        //loadmore if (indexPath.section == (currentRange.endIndex - 1) && !loadedAllContent)
-       // println("willDisplayCell: \(indexPath.section) \(timelineComponent.content[indexPath.section].totalVotes)")
-     
-        timelineComponent.calledCellForRowAtIndexPath(indexPath)
+          timelineComponent.calledCellForRowAtIndexPath(indexPath)
         
     }
 
@@ -196,29 +179,19 @@ extension HomeViewController: UITableViewDataSource {
         headerCell.questionLabel.lineBreakMode = .ByWordWrapping
         headerCell.questionLabel.numberOfLines=0
         headerCell.questionLabel.sizeToFit()
-    
-       // println("height 1 \(headerCell.questionLabel.frame.height)")
-        //let the header show up when updated
         return headerCell.contentView
     }
     
-    
-   
-    
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         var post:Post?
         post=self.timelineComponent.content[section]
         
           var length:Int=0
         if let title = post?.title{
-            
            //TODO: fix resize the header size
            length=count(title)
        }
-        
-        var height=CGFloat((length/20)*10)+HEADER_CELL_HEIGHT
-        
+        var height=CGFloat((length/15)*10)+HEADER_CELL_HEIGHT
         return height
     }
 
@@ -234,10 +207,7 @@ extension HomeViewController: UITableViewDataSource {
         return num
     }
     
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell=tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! HomePostTableViewCell
         
@@ -245,33 +215,23 @@ extension HomeViewController: UITableViewDataSource {
         
         post=timelineComponent.content[indexPath.section]
         
-       // println("cellforRowat index.section: \(indexPath.section) post.totalValue: \(post.totalVotes) ")
-        
         // download, only downloaded with needed
         if let post=post {
-        post.downloadImage()
-        //get post statistic
-        post.getPostStatistic()
-            cell.post=post
-            
-            // vote button, animation
-            
-            if(post.voteUpdate){
-                cell.voteFavoriteButton.select()
-                timelineComponent.content[indexPath.section].voteUpdate=false
-            }
-            
+          post.downloadImage()
+          //get post statistic
+          post.getPostStatistic()
+          cell.post=post
+          // vote button, animation
+          if(post.voteUpdate){
+            cell.voteFavoriteButton.select()
+            timelineComponent.content[indexPath.section].voteUpdate=false
+          }
+         }
 
-        }
-        
- 
-        
         //setting img radious
        DesignHelper.setImageCornerRadius(cell.img1)
        DesignHelper.setImageCornerRadius(cell.img2)
-        
-        
-        
+  
        // establish gestureRecognizer
         cell.img1.userInteractionEnabled=true
         cell.img1.tag=indexPath.section
@@ -288,22 +248,24 @@ extension HomeViewController: UITableViewDataSource {
         
         // commentButton:
         cell.commentButton.tag=indexPath.section
-        
         cell.commentButton.addTarget(self, action: Selector("commentButtonTapped:" ), forControlEvents: UIControlEvents.TouchUpInside)
-        
         cell.commentNum.text="" //initialize the comment number
         
         
         //check if this sell is voted by this user, if voted, show the results
     
         var postId=post?.objectId
-        
         if let postId=postId{
-            ParseHelper.isUserVotedForPost(postId){ (results: [AnyObject]?, error: NSError?) -> Void in
-                
+            
+          
+          ParseHelper.isUserVotedForPost(postId){ (results: [AnyObject]?, error: NSError?) -> Void in
+            
+            if error != nil{
+                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+            }
+
                 if let count=results?.count{
                     if count != 0{
-                       
                         // if is voted show the results
                         cell.vote1.alpha=1;
                         cell.vote2.alpha=1;
@@ -311,34 +273,22 @@ extension HomeViewController: UITableViewDataSource {
                         cell.vote1.alpha=0;
                         cell.vote2.alpha=0;
                     }
+                  }
                 }
-                
-            }
-            
-            
             
             // get comment number
             ParseHelper.getCommentNumberWithPostId(postId){ (results: [AnyObject]?, error:NSError?) -> Void in
                 if let results=results{
                     cell.commentNum.text=(results.count == 0) ? "": String(results.count)
-                    
-                    
                 }
-                
             }
-
-
         }
         
-       
         return cell
     }
     
     
     func commentButtonTapped(sender:UIButton!){
-        
-       // println("button tag \(sender.tag)")
-        
         var postId:String?
         var post:Post?
         var tag=sender.tag
@@ -350,8 +300,15 @@ extension HomeViewController: UITableViewDataSource {
         if let postId=postId{
             
             //check this post is deleted or not
+            UICustomSettingHelper.MBProgressHUDSimple(self.view)
             ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
-            
+                
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                if error != nil{
+                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                }
+
+                
                 if let results=results{
                     if results.count==0{
                         SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
@@ -361,13 +318,9 @@ extension HomeViewController: UITableViewDataSource {
                     }
                 
                 }
+              }
             }
-            
-            
-           
-        }
-        
-    }
+         }
     
     func img1Tapped(recognizer:UITapGestureRecognizer ){
         
@@ -379,14 +332,17 @@ extension HomeViewController: UITableViewDataSource {
             
             postId=timelineComponent.content[tag].objectId
             poster=timelineComponent.content[tag].poster
-            
-            
-            
+    
             if let postId=postId{
                 println("postId:\(postId)")
                 
+                UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) in
-                    
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                    if error != nil{
+                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                    }
+
                     if let results=results{
                         if results.count==0{
                              SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
@@ -451,7 +407,11 @@ extension HomeViewController: UITableViewDataSource {
                                 }
                                 
                                 if error != nil {
-                                    println(error)
+                                    if error != nil{
+                                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                                    }
+
+                                   // println(error)
                                 }
                                 
                             }
@@ -459,13 +419,10 @@ extension HomeViewController: UITableViewDataSource {
                     }
                     
                 }
+           }
+         }
     
-            
-
-          }
-        }
-    
-    }
+     }
     
     
     func img2Tapped(recognizer:UITapGestureRecognizer ){
@@ -481,8 +438,9 @@ extension HomeViewController: UITableViewDataSource {
             if let postId=postId{
                 println("postId:\(postId)")
                 
+                UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
-                    
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                     if let results=results{
                         if results.count==0{
                             SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
@@ -553,9 +511,6 @@ extension HomeViewController: UITableViewDataSource {
                     }
                     
                 }
-                
-                
-
             }
         }
         

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MBProgressHUD
 
 class UICustomSettingHelper {
     
@@ -26,4 +27,18 @@ class UICustomSettingHelper {
         
     }
     
+    
+    static func MBProgressHUDLoading(view:UIView){
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.labelText = "Loading"
+       // loadingNotification.color=UIColor(red: 0.23, green: 0.50, blue: 0.82, alpha: 0.80)
+    }
+    
+    static func MBProgressHUDSimple(view:UIView){
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        
+        // loadingNotification.color=UIColor(red: 0.23, green: 0.50, blue: 0.82, alpha: 0.80)
+    }
 }

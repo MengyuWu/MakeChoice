@@ -201,7 +201,7 @@ class Post: PFObject, PFSubclassing {
             
             if let error = error {
                // ErrorHandling.defaultErrorHandler(error)
-                println("error")
+                println("image1File.saveInBackgroundWithBlock error")
             }
             
             // when imageFile is saved successfully we can delete this task
@@ -213,7 +213,7 @@ class Post: PFObject, PFSubclassing {
             
             if let error = error {
                 // ErrorHandling.defaultErrorHandler(error)
-                println("error")
+                println("image2File.saveInBackgroundWithBlock error")
             }
             
             // when imageFile is saved successfully we can delete this task
