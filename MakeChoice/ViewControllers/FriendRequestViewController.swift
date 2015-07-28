@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class FriendRequestViewController: UIViewController {
     
@@ -26,12 +27,15 @@ class FriendRequestViewController: UIViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
+        UICustomSettingHelper.MBProgressHUDSimple(self.view)
         ParseHelper.getFriendsRequest{(results:[AnyObject]?, error: NSError?) -> Void in
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            if error != nil{
+                UICustomSettingHelper.sweetAlertNetworkError()
+            }
+
             if let results=results{
                 self.friendRequests=results as! [PFObject]
-            }
-            if (error != nil) {
-                println("error friend requests \(error)")
             }
         }
     }
@@ -59,7 +63,6 @@ class FriendRequestViewController: UIViewController {
 extension FriendRequestViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-       
         return friendRequests.count
        
     }
@@ -101,6 +104,7 @@ extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
             if let results=results{
                 if results.count>0 {
                     println("already added!")
+                   SweetAlert().showAlert("Added", subTitle: "Friend is already added!", style: AlertStyle.Warning)
                 }else{
                     ParseHelper.addFriendFromUserToUser(PFUser.currentUser()!, toUser:user)
                     ParseHelper.addFriendFromUserToUser(user, toUser:PFUser.currentUser()!)
@@ -121,11 +125,15 @@ extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
                         }else{
                             //refresh requst list
                             println("refresh")
+                            UICustomSettingHelper.MBProgressHUDSimple(self.view)
                             ParseHelper.getFriendsRequest{(results:[AnyObject]?, error: NSError?) -> Void in
+                                
+                                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                                 if let results=results{
                                     self.friendRequests=results as! [PFObject]
                                 }
                                 if (error != nil) {
+                                    UICustomSettingHelper.sweetAlertNetworkError()
                                     println("error friend requests \(error)")
                                 }
                             }
@@ -156,16 +164,22 @@ extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
                 for result in results{
                     result.deleteInBackgroundWithBlock{ (success:Bool, error: NSError?) -> Void in
                         if error != nil{
+                             UICustomSettingHelper.sweetAlertNetworkError()
                             println("delete request error\(error)")
                         }else{
                             //refresh requst list
                             //refresh requst list
                             println("refresh")
+                            UICustomSettingHelper.MBProgressHUDSimple(self.view)
                             ParseHelper.getFriendsRequest{(results:[AnyObject]?, error: NSError?) -> Void in
+                                
+                                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                                
                                 if let results=results{
                                     self.friendRequests=results as! [PFObject]
                                 }
                                 if (error != nil) {
+                                    UICustomSettingHelper.sweetAlertNetworkError()
                                     println("error friend requests \(error)")
                                 }
                             }
