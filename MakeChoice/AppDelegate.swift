@@ -84,7 +84,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // if we have a user, set the TabBarController to be the initial View Controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            
+            
         } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as!
+            AnimationViewController
+            
             // 4
             // Otherwise set the LoginViewController to be the first
             let loginViewController = PFLogInViewController()
@@ -95,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             loginViewController.logInView?.logo?.hidden=true
             loginViewController.signUpController?.signUpView?.logo?.hidden=true
             
-            startViewController = loginViewController
+           // startViewController = loginViewController
         }
         
         // 5

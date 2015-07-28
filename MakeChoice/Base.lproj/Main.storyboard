@@ -1186,6 +1186,48 @@
             </objects>
             <point key="canvasLocation" x="-1754" y="-1295"/>
         </scene>
+        <!--Animation View Controller-->
+        <scene sceneID="aMn-eP-3RF">
+            <objects>
+                <viewController storyboardIdentifier="AnimationViewController" id="9sS-NM-2Om" customClass="AnimationViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="769-n5-A64"/>
+                        <viewControllerLayoutGuide type="bottom" id="x3g-81-bH0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ymo-xS-HGk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="win_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="89S-E8-lPw">
+                                <rect key="frame" x="214.5" y="106.5" width="172" height="386"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="84p-TV-af1"/>
+                                    <constraint firstAttribute="height" constant="386" id="meT-7e-JIh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="89S-E8-lPw" secondAttribute="centerX" constant="-0.5" id="8qY-y9-NAB"/>
+                            <constraint firstAttribute="centerY" secondItem="89S-E8-lPw" secondAttribute="centerY" constant="0.5" id="A30-YK-YeO"/>
+                            <constraint firstItem="89S-E8-lPw" firstAttribute="top" secondItem="769-n5-A64" secondAttribute="bottom" constant="80" id="jTZ-Tx-XHu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="89S-E8-lPw" secondAttribute="trailing" constant="60" id="mdr-vM-SIl"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jTZ-Tx-XHu"/>
+                                <exclude reference="mdr-vM-SIl"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="animationImageView" destination="89S-E8-lPw" id="Yam-Xc-ott"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsH-6f-LJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5927" y="-1763"/>
+        </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="deX-Aj-y8B">
             <objects>
@@ -1206,7 +1248,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haD-xs-O7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5710" y="-1799"/>
+            <point key="canvasLocation" x="-5172" y="-1783"/>
         </scene>
         <!--Notification View Controller-->
         <scene sceneID="FVb-01-7el">
@@ -2211,6 +2253,7 @@
         <image name="category1.png" width="128" height="128"/>
         <image name="key" width="32" height="32"/>
         <image name="uncheckedBox" width="800" height="794"/>
+        <image name="win_1.png" width="86" height="193"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8lu-0u-sp7"/>
