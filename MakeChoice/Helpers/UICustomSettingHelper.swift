@@ -35,6 +35,13 @@ class UICustomSettingHelper {
        // loadingNotification.color=UIColor(red: 0.23, green: 0.50, blue: 0.82, alpha: 0.80)
     }
     
+    static func MBProgressHUDProcessingImages(view:UIView){
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.labelText = "Processing Images"
+        // loadingNotification.color=UIColor(red: 0.23, green: 0.50, blue: 0.82, alpha: 0.80)
+    }
+    
     static func MBProgressHUDSimple(view:UIView){
         let loadingNotification = MBProgressHUD.showHUDAddedTo(view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.Indeterminate

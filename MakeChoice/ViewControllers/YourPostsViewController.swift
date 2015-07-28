@@ -225,7 +225,7 @@ extension YourPostsViewController:YourPostsTableViewCellDelegate{
     
     func cell(cell: YourPostsTableViewCell, didSelectShareToFacebook post: Post){
     println("share to facebook")
-        
+    UICustomSettingHelper.MBProgressHUDProcessingImages(self.view)    
     var shareToFacebook=SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         
         var questions=post.title ?? ""
@@ -243,7 +243,8 @@ extension YourPostsViewController:YourPostsTableViewCellDelegate{
         }
      shareToFacebook.addImage(finalImage)
      shareToFacebook.setInitialText("Hey, help me vote on: \(questions), Download MakeChoice: URL")
-        
+       
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
         self.presentViewController(shareToFacebook,animated:true, completion:nil)
     
     

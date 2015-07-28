@@ -10,6 +10,7 @@ import UIKit
 import AddressBook
 import MessageUI
 import APAddressBook
+import MBProgressHUD
 
 class AddressBookViewController: UIViewController {
     
@@ -128,6 +129,8 @@ extension AddressBookViewController:UITableViewDelegate{
     func sendMSG(user: APContact){
         if MFMessageComposeViewController.canSendText() {
             
+            UICustomSettingHelper.MBProgressHUDProcessingImages(self.view)
+            
             var messageCompose = MFMessageComposeViewController()
             
             var questions=post?.title ?? ""
@@ -161,11 +164,9 @@ extension AddressBookViewController:UITableViewDelegate{
           
           
             messageCompose.messageComposeDelegate = self
+            
+             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
 
-            
-       
-            
-            
             self.presentViewController(messageCompose, animated: true, completion: nil)
         } else {
            // ProgressHUD.showError("SMS cannot be sent")
@@ -183,6 +184,7 @@ extension AddressBookViewController:MFMessageComposeViewControllerDelegate{
         if result.value == MessageComposeResultSent.value {
             //ProgressHUD.showSuccess("Invitation SMS sent successfully")
             println("Invitation SMS sent successfully")
+            SweetAlert().showAlert("Send!", subTitle: "SMS sent successfully!", style: AlertStyle.Success)
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
