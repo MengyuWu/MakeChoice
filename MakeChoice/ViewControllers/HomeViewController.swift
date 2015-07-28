@@ -303,7 +303,7 @@ extension HomeViewController: UITableViewDataSource {
             UICustomSettingHelper.MBProgressHUDSimple(self.view)
             ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
                 
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 if error != nil{
                     SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
                 }

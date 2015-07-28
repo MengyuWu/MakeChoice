@@ -179,8 +179,15 @@ extension YourPostsViewController:UITableViewDelegate{
                     let post=self.timelineComponent.content[indexPath.section]
                     let postId=post.objectId ?? ""
                     
-                    
+                   //UICustomSettingHelper.MBProgressHUDSimple(self.view)
                     ParseHelper.deletePostWithPostId(postId){ (success:Bool, error: NSError?) -> Void in
+                        
+                       // MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                        if error != nil{
+                            SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                        }
+
+                        
                         if success {
                             println("delete postID: \(postId)")
                             
@@ -190,15 +197,10 @@ extension YourPostsViewController:UITableViewDelegate{
                             
                             SweetAlert().showAlert("Deleted!", subTitle: "Your post has been deleted!", style: AlertStyle.Success)
                         }
-                        
-                        if error != nil{
-                            SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
-                        }
+                   }
                 }
-            }
 
-            
-            
+ 
             
             }
 

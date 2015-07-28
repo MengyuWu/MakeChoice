@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class FriendsListViewController: UIViewController {
     
@@ -31,7 +32,15 @@ class FriendsListViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //println("friends list view will appear")
+        UICustomSettingHelper.MBProgressHUDLoading(self.view)
+        
         ParseHelper.allFriends{ (results:[AnyObject]?, error: NSError?) -> Void in
+            
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            if error != nil{
+                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+            }
+            
             if let results = results as? [PFObject]{
                 if results.count>0 {
                 self.friends=results.map{$0[PF_FRIEND_FRIEND] as! PFUser}
@@ -128,47 +137,53 @@ extension FriendsListViewController:UITableViewDelegate{
                     
                     let friend=self.friends[indexPath.row]
                     
+                    UICustomSettingHelper.MBProgressHUDSimple(self.view)
                     ParseHelper.removeFriend(friend){
                         (results:[AnyObject]?, error: NSError?) -> Void in
-                        
+                        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                        if error != nil{
+                            SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                        }
                         if let results=results as? [PFObject]{
                             // update the statistic in profile view controller
                             //broadcasting, since one friend relation has two objects
-                            // NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
                             
                             var index=0;
                             for result in results{
                                 //should print error
                                 result.deleteInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
                                     
-                                    if (success && index==0){
-                                        index++
-                                        // update the statistic in profile view controller
-                                        //broadcasting, could use this, if listneing object call parse.getnumof friend
-                                        NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
+                                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                                    if error != nil{
+                                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
                                     }
                                     
-                                    if error != nil{
-                                        println("remove friend error1\(error)")
+                                    // a pair of friends has two friendrelation object
+                                    if (success && index==0){
+                                        index++
+                                        
+                                        var ind=ParseHelper.parseGetObjectIndexFromArray(self.friends, object: friend)
+                                        
+                                        if(ind != -1){
+                                            self.friends.removeAtIndex(index)
+                                        }
+                                        
+                                        // update the statistic in profile view controller
+                                        //broadcasting, could use this, if listneing object call parse.getnumof friend
+                                        
+                                     NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
+                                        
+                                         SweetAlert().showAlert("Deleted!", subTitle: "Friend has been deleted!", style: AlertStyle.Success)
+                                        
                                     }
                                 }
                             }
                         }
-                        
-                        if error != nil {
-                            println("remove friend error2\(error)")
-                        }
-                        
-                    }
+                     }
                     
-                    var index=ParseHelper.parseGetObjectIndexFromArray(self.friends, object: friend)
-                    // println("index \(index)")
-                    if(index != -1){
-                        self.friends.removeAtIndex(index)
-                        //self.friends=friends
-                    }
                     
-                    SweetAlert().showAlert("Deleted!", subTitle: "Friend has been deleted!", style: AlertStyle.Success)
+                    
+                   
                 }
             }
 
