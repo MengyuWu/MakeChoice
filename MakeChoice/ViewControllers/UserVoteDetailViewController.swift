@@ -8,6 +8,7 @@
 
 import UIKit
 import ConvenienceKit
+import MBProgressHUD
 
 class UserVoteDetailViewController: UIViewController,TimelineComponentTarget{
 
@@ -23,7 +24,15 @@ class UserVoteDetailViewController: UIViewController,TimelineComponentTarget{
     let additionalRangeSize = 5
     
     func loadInRange(range: Range<Int>, completionBlock: ([PFObject]?) -> Void){
+        UICustomSettingHelper.MBProgressHUDLoading(self.view)
         ParseHelper.timelineRequestfindVotesWithPostId(range, postId: self.postId){ (result: [AnyObject]?, error: NSError?) -> Void in
+            
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            if error != nil{
+                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+            }
+
+            
             let votes = result as? [PFObject] ?? []
             completionBlock(votes)
         }
