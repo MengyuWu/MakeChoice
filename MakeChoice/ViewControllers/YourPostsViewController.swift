@@ -9,6 +9,7 @@
 import UIKit
 import ConvenienceKit
 import Social
+import MBProgressHUD
 
 class YourPostsViewController: UIViewController,TimelineComponentTarget {
     
@@ -27,9 +28,20 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
     `completionBlock`, with the items as argument, upon completion.
     */
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void){
+        
+        UICustomSettingHelper.MBProgressHUDLoading(self.view)
+        
         ParseHelper.timelineRequestforCurrentUserOwn(range){ (result: [AnyObject]?, error: NSError?) -> Void in
+            
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            if error != nil{
+                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+            }
+
             let posts = result as? [Post] ?? []
             completionBlock(posts)
+            
+            
             
         }
         
@@ -178,8 +190,10 @@ extension YourPostsViewController:UITableViewDelegate{
                             
                             SweetAlert().showAlert("Deleted!", subTitle: "Your post has been deleted!", style: AlertStyle.Success)
                         }
-
-                    
+                        
+                        if error != nil{
+                            SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                        }
                 }
             }
 

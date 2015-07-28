@@ -338,7 +338,7 @@ extension HomeViewController: UITableViewDataSource {
                 
                 UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) in
-                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                     if error != nil{
                         SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
                     }
@@ -440,7 +440,12 @@ extension HomeViewController: UITableViewDataSource {
                 
                 UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
-                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                    
+                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                    if error != nil{
+                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                    }
+                
                     if let results=results{
                         if results.count==0{
                             SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)

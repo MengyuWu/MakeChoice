@@ -237,13 +237,6 @@ class ProfileViewController: UIViewController {
         }
         
         
-//        ParseHelper.getFriendsNum{ (results:[AnyObject]?, error:NSError?) in
-//            
-//            if let results=results{
-//                self.myFriendsNum.text="\(results.count)"
-//            }
-//            
-//        }
         
     }
     
@@ -260,14 +253,7 @@ class ProfileViewController: UIViewController {
             
         }
 
-//        var user:PFUser?=PFUser.currentUser()
-//        ParseHelper.getNumOfPostsOfUser(user!){ (results:[AnyObject]?, error:NSError?) in
-//            
-//            if let results=results{
-//                self.myPostsNum.text="\(results.count)"
-//            }
-//            
-//        }
+
     }
     
     
@@ -316,6 +302,8 @@ class ProfileViewController: UIViewController {
             self.myPostsNum.text=""
             self.myFriendsNum.text=""
             // get myPostsNum and myFriendNum
+            
+            
             ParseHelper.getNumOfPostsOfUser(user){ (results:[AnyObject]?, error:NSError?) in
                 
                 if let results=results{

@@ -1239,8 +1239,17 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Time" translatesAutoresizingMaskIntoConstraints="NO" id="TzK-su-G8Y">
+                                                    <rect key="frame" x="79" y="36" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="4XO-xY-WRO"/>
+                                                        <constraint firstAttribute="width" secondItem="TzK-su-G8Y" secondAttribute="height" multiplier="1:1" id="8g9-Z6-uXp"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="TzK-su-G8Y" firstAttribute="centerY" secondItem="1Ld-sQ-Ugu" secondAttribute="centerY" id="5SH-aU-scf"/>
+                                                <constraint firstItem="TzK-su-G8Y" firstAttribute="leading" secondItem="1Ld-sQ-Ugu" secondAttribute="trailing" constant="4" id="9v3-10-uKi"/>
                                                 <constraint firstItem="zsI-xY-MaR" firstAttribute="leading" secondItem="uf4-JW-XbK" secondAttribute="trailing" constant="4" id="DK2-Aw-mia"/>
                                                 <constraint firstItem="uf4-JW-XbK" firstAttribute="leading" secondItem="Id8-IP-eET" secondAttribute="trailing" constant="6" id="FS5-VY-jj7"/>
                                                 <constraint firstItem="Id8-IP-eET" firstAttribute="leading" secondItem="knm-B0-6dN" secondAttribute="leadingMargin" id="O85-jk-klD"/>
