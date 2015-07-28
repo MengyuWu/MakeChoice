@@ -8,6 +8,7 @@
 
 import UIKit
 import ConvenienceKit
+import MBProgressHUD
 
 class FriendSearchViewController: UIViewController {
 
@@ -51,9 +52,11 @@ class FriendSearchViewController: UIViewController {
             switch (state){
                 
             case .DefaultMode:
+                UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 query = ParseHelper.allUsers(updateList)
                 
             case .SearchMode:
+                UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 let searchText = searchBar?.text ?? ""
                 query=ParseHelper.searchUsers(searchText, completionBlock: updateList)
                 
@@ -69,11 +72,13 @@ class FriendSearchViewController: UIViewController {
     // MARK:update userlist, call back function, get all the search results
     
     func updateList(results: [AnyObject]?, error: NSError?){
+         MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
         self.users=results as? [PFUser] ?? []
         self.tableView.reloadData()
         
         if let error=error{
             println("error: \(error)")
+             SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
         }
     }
     
@@ -102,14 +107,12 @@ class FriendSearchViewController: UIViewController {
             
             let relations = results as? [PFObject] ?? []
             // use map to extract the user from a follow object
-            
             // objectForKey  Returns the value associated with a given key.
             self.friends = relations.map{ $0.objectForKey(PF_FRIEND_FRIEND) as! PFUser}
             
             if let error = error {
                 // Call the default error handler in case of an Error
-                //ErrorHandling.defaultErrorHandler(error)
-                println("error : \(error)")
+                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
             }
             
         }
@@ -117,16 +120,7 @@ class FriendSearchViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
 
 // MARK: TableView Data Source
@@ -136,10 +130,7 @@ extension FriendSearchViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.users?.count ?? 0
     }
-    
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-    
+ 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("friendSearchCell") as! FriendSearchTableViewCell
@@ -151,12 +142,7 @@ extension FriendSearchViewController: UITableViewDataSource {
         if let friends = friends{
             
             // chekc if current user is already following displayed user
-            
-            //cell.canAdd = !contains(friends, user)
-            
-            cell.canAdd = !ParseHelper.parseContains(friends, object: user)
-            
-        
+              cell.canAdd = !ParseHelper.parseContains(friends, object: user)
             
         }
         
@@ -182,15 +168,20 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
             
           // save the request to parse, and then send notification
             if let toUser=self.selectedUser{
+                UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 ParseHelper.saveAddFriendRequest(toUser, message: requestText){(success: Bool, error:NSError?) ->Void in
+                    
+                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                     if success{
                         //send notification
                     PushNotificationHelper.sendAddFriendRequesNotification(toUser)
                         println("save add friendRequest success!")
+                        SweetAlert().showAlert("Send!", subTitle: "Friend request sends successfully!", style: AlertStyle.Success)
                     }
                     
                     if error != nil{
                         println("save add friend Request error \(error)")
+                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
                     }
                     
                 }
@@ -226,42 +217,7 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
         
     }
     
-    // MARK: NEED TO REMOVE LATER!
-    func cell(cell: FriendSearchTableViewCell, didSelectRemoveFriend user: PFUser){
-        
-        if var friends = friends {
-          
-            println("remove friends \(user.username)")
-            
-            ParseHelper.removeFriend(user){
-                (results:[AnyObject]?, error: NSError?) -> Void in
-                
-                if let results=results as? [PFObject]{
-                    
-                    for result in results{
-                        //should print error
-                        result.deleteInBackgroundWithBlock(nil)
-                    }
-                }
-                
-                    if error != nil {
-                        println("remove friend error\(error)")
-                    }
-                
-            }
-            // update local cache
-            
-           var index=ParseHelper.parseGetObjectIndexFromArray(self.friends!, object: user)
-            println("index \(index)")
-            if(index != -1){
-                self.friends?.removeAtIndex(index)
-                //self.friends=friends
-            }
-            
-            
-        }
-        
-    }
+
     
 }
 

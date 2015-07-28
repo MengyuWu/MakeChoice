@@ -10,7 +10,7 @@ import UIKit
 
 protocol FriendSearchTableViewCellDelegate: class {
     func cell(cell: FriendSearchTableViewCell, didSelectAddFriend user: PFUser)
-    func cell(cell: FriendSearchTableViewCell, didSelectRemoveFriend user: PFUser)
+    
 }
 
 class FriendSearchTableViewCell: UITableViewCell {
@@ -31,9 +31,6 @@ class FriendSearchTableViewCell: UITableViewCell {
                 self.canAdd=false
                 self.addFriendButton.enabled=false
                 
-            }else{
-                delegate?.cell(self, didSelectRemoveFriend: user)
-                self.canAdd=true
             }
        
         }
