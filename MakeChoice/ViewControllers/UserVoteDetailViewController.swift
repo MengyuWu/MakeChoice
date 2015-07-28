@@ -29,7 +29,7 @@ class UserVoteDetailViewController: UIViewController,TimelineComponentTarget{
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             if error != nil{
-                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                UICustomSettingHelper.sweetAlertNetworkError()
             }
 
             

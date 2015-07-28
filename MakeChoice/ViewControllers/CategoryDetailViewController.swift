@@ -42,7 +42,7 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
             let posts = result as? [Post] ?? []
             completionBlock(posts)
             if error != nil{
-                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+               UICustomSettingHelper.sweetAlertNetworkError()
             }
         }
         
@@ -53,7 +53,7 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
                 let posts = result as? [Post] ?? []
                 completionBlock(posts)
                 if error != nil{
-                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                    UICustomSettingHelper.sweetAlertNetworkError()
                 }
             }
 
@@ -336,7 +336,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
                 
                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 if error != nil{
-                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                    UICustomSettingHelper.sweetAlertNetworkError()
                 }
 
                 if let results=results{
@@ -375,7 +375,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
                 ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) in
                     MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                     if error != nil{
-                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                        UICustomSettingHelper.sweetAlertNetworkError()
                     }
                     
                     if let results=results{
@@ -475,7 +475,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
                 ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
                     MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                     if error != nil{
-                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                        UICustomSettingHelper.sweetAlertNetworkError()
                     }
 
                     

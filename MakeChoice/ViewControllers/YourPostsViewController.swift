@@ -35,7 +35,7 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             if error != nil{
-                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                UICustomSettingHelper.sweetAlertNetworkError()
             }
 
             let posts = result as? [Post] ?? []
@@ -184,7 +184,7 @@ extension YourPostsViewController:UITableViewDelegate{
                         
                        // MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                         if error != nil{
-                            SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                            UICustomSettingHelper.sweetAlertNetworkError()
                         }
 
                         

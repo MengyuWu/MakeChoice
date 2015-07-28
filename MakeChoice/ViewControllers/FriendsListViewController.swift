@@ -38,7 +38,7 @@ class FriendsListViewController: UIViewController {
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             if error != nil{
-                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                UICustomSettingHelper.sweetAlertNetworkError()
             }
             
             if let results = results as? [PFObject]{
@@ -142,7 +142,7 @@ extension FriendsListViewController:UITableViewDelegate{
                         (results:[AnyObject]?, error: NSError?) -> Void in
                         MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                         if error != nil{
-                            SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                            UICustomSettingHelper.sweetAlertNetworkError()
                         }
                         if let results=results as? [PFObject]{
                             // update the statistic in profile view controller
@@ -155,7 +155,7 @@ extension FriendsListViewController:UITableViewDelegate{
                                     
                                     MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                                     if error != nil{
-                                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                                       UICustomSettingHelper.sweetAlertNetworkError()
                                     }
                                     
                                     // a pair of friends has two friendrelation object

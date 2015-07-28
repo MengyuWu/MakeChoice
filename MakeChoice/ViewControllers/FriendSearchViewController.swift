@@ -78,7 +78,7 @@ class FriendSearchViewController: UIViewController {
         
         if let error=error{
             println("error: \(error)")
-             SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+            UICustomSettingHelper.sweetAlertNetworkError()
         }
     }
     
@@ -112,7 +112,7 @@ class FriendSearchViewController: UIViewController {
             
             if let error = error {
                 // Call the default error handler in case of an Error
-                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                UICustomSettingHelper.sweetAlertNetworkError()
             }
             
         }
@@ -181,7 +181,7 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
                     
                     if error != nil{
                         println("save add friend Request error \(error)")
-                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                        UICustomSettingHelper.sweetAlertNetworkError()
                     }
                     
                 }

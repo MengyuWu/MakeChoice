@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class NotificationViewController: UIViewController {
 
@@ -28,7 +29,14 @@ class NotificationViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        UICustomSettingHelper.MBProgressHUDLoading(self.view)
         ParseHelper.getAllNotificationsOfCurrentUser{ (results:[AnyObject]?, error:NSError?) -> Void in
+            
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            if error != nil{
+               UICustomSettingHelper.sweetAlertNetworkError()
+            }
             
             if let results=results as? [PFObject]{
                 self.notifications=results

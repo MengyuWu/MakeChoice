@@ -27,6 +27,9 @@ class UICustomSettingHelper {
         
     }
     
+    static func sweetAlertNetworkError(){
+        SweetAlert().showAlert("Network Error", subTitle: "Please try later!", style: AlertStyle.Error)
+    }
     
     static func MBProgressHUDLoading(view:UIView){
         let loadingNotification = MBProgressHUD.showHUDAddedTo(view, animated: true)

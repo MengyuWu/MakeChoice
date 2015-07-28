@@ -68,7 +68,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
                 completionBlock(posts)
                 
                 if error != nil{
-                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                    UICustomSettingHelper.sweetAlertNetworkError()
                 }
                 
             }
@@ -80,7 +80,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
                 completionBlock(posts)
                 
                 if error != nil{
-                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                   UICustomSettingHelper.sweetAlertNetworkError()
                 }
             }
    
@@ -261,7 +261,7 @@ extension HomeViewController: UITableViewDataSource {
           ParseHelper.isUserVotedForPost(postId){ (results: [AnyObject]?, error: NSError?) -> Void in
             
             if error != nil{
-                SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                UICustomSettingHelper.sweetAlertNetworkError()
             }
 
                 if let count=results?.count{
@@ -305,7 +305,7 @@ extension HomeViewController: UITableViewDataSource {
                 
                 MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 if error != nil{
-                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                    UICustomSettingHelper.sweetAlertNetworkError()
                 }
 
                 
@@ -340,7 +340,7 @@ extension HomeViewController: UITableViewDataSource {
                 ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) in
                     MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                     if error != nil{
-                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                        UICustomSettingHelper.sweetAlertNetworkError()
                     }
 
                     if let results=results{
@@ -408,7 +408,7 @@ extension HomeViewController: UITableViewDataSource {
                                 
                                 if error != nil {
                                     if error != nil{
-                                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                                       UICustomSettingHelper.sweetAlertNetworkError()
                                     }
 
                                    // println(error)
@@ -443,7 +443,7 @@ extension HomeViewController: UITableViewDataSource {
                     
                     MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                     if error != nil{
-                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                       UICustomSettingHelper.sweetAlertNetworkError()
                     }
                 
                     if let results=results{
