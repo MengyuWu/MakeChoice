@@ -32,11 +32,11 @@ class NotificationTableViewCell: UITableViewCell {
                 self.time.text=timelapse
                 
                 if( messageType=="vote") {
-                    self.typeImage.image=UIImage(named: "Comment")
+                    self.typeImage.image=UIImage(named: "Vote")
                     self.message.text="voted on you poll"
                     
                 }else if (messageType=="comment"){
-                    self.typeImage.image=UIImage(named: "Vote")
+                    self.typeImage.image=UIImage(named: "Comment")
                     self.message.text="commented on you poll"
                 }
                 

@@ -51,4 +51,91 @@ class UICustomSettingHelper {
         
         // loadingNotification.color=UIColor(red: 0.23, green: 0.50, blue: 0.82, alpha: 0.80)
     }
+    
+    static func showVoteBars(cell:UITableViewCell, view:UIView){
+        
+        if let cell=cell as? HomePostTableViewCell{
+            // if is voted show the results
+            UIView.animateWithDuration(0){
+                cell.vote1BarHeightConstraint.constant=0
+                cell.vote2BarHeightConstraint.constant=0
+                view.layoutIfNeeded()
+            }
+            
+            cell.vote1Bar.alpha=1
+            cell.vote2Bar.alpha=1
+            
+            var totalHeight=cell.img1.frame.size.height-70
+            
+            var vote1Percentage=cell.post?.vote1PercentageFloat ?? 0
+            var height1:CGFloat=totalHeight*CGFloat(vote1Percentage)
+            
+            var vote2Percentage=cell.post?.vote2PercentageFloat ?? 0
+            var height2:CGFloat=totalHeight*CGFloat(vote2Percentage)
+            
+            if(cell.post!.votedJustNow){
+                UIView.animateWithDuration(2){
+                    
+                    cell.vote1BarHeightConstraint.constant=height1
+                    cell.vote2BarHeightConstraint.constant=height2
+                    cell.vote1.alpha=1;
+                    cell.vote2.alpha=1;
+                    // changes made in here will be animated
+                    view.layoutIfNeeded()
+                    cell.post!.votedJustNow=false
+                    
+                }
+            }else{
+                cell.vote1BarHeightConstraint.constant=height1
+                cell.vote2BarHeightConstraint.constant=height2
+                cell.vote1.alpha=1;
+                cell.vote2.alpha=1;
+            }
+            
+
+            
+        }else if let cell=cell as? CategoryDetailTableViewCell{
+            
+            // if is voted show the results
+            UIView.animateWithDuration(0){
+                cell.vote1BarHeightConstraint.constant=0
+                cell.vote2BarHeightConstraint.constant=0
+                view.layoutIfNeeded()
+            }
+            
+            cell.vote1Bar.alpha=1
+            cell.vote2Bar.alpha=1
+            
+            var totalHeight=cell.img1.frame.size.height-70
+            
+            var vote1Percentage=cell.post?.vote1PercentageFloat ?? 0
+            var height1:CGFloat=totalHeight*CGFloat(vote1Percentage)
+            
+            var vote2Percentage=cell.post?.vote2PercentageFloat ?? 0
+            var height2:CGFloat=totalHeight*CGFloat(vote2Percentage)
+            
+            if(cell.post!.votedJustNow){
+                UIView.animateWithDuration(2){
+                    
+                    cell.vote1BarHeightConstraint.constant=height1
+                    cell.vote2BarHeightConstraint.constant=height2
+                    cell.vote1.alpha=1;
+                    cell.vote2.alpha=1;
+                    // changes made in here will be animated
+                    view.layoutIfNeeded()
+                    cell.post!.votedJustNow=false
+                    
+                }
+            }else{
+                cell.vote1BarHeightConstraint.constant=height1
+                cell.vote2BarHeightConstraint.constant=height2
+                cell.vote1.alpha=1;
+                cell.vote2.alpha=1;
+            }
+            
+
+        }
+        
+    }
+    
 }
