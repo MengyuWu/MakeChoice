@@ -681,7 +681,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8w-oY-GGk" customClass="DOFavoriteButton" customModule="MakeChoice" customModuleProvider="target">
-                                                    <rect key="frame" x="554" y="413.5" width="40" height="40"/>
+                                                    <rect key="frame" x="554" y="413" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="U8w-oY-GGk" secondAttribute="height" multiplier="1:1" id="4QJ-Yk-fYR"/>
                                                         <constraint firstAttribute="height" constant="40" id="Psj-TL-tTn"/>
@@ -757,11 +757,27 @@
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enM-BN-0gW">
-                                                    <rect key="frame" x="46" y="419.5" width="43" height="23.5"/>
+                                                    <rect key="frame" x="46" y="420.5" width="43" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.41176470588235292" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7K-jv-p1B" userLabel="vote1Bar">
+                                                    <rect key="frame" x="23" y="344" width="5" height="0.0"/>
+                                                    <color key="backgroundColor" red="0.99607843139999996" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" id="Auy-GQ-zwY"/>
+                                                        <constraint firstAttribute="width" constant="5" id="wPo-sW-0Lz"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pq3-l9-Ncs" userLabel="vote2Bar">
+                                                    <rect key="frame" x="572" y="345" width="5" height="0.0"/>
+                                                    <color key="backgroundColor" red="0.99607843139999996" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" id="88M-Xz-qef"/>
+                                                        <constraint firstAttribute="width" constant="5" id="gcF-N4-mnq"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YZT-X0-0Zz" firstAttribute="top" secondItem="mm8-sz-VaW" secondAttribute="bottom" constant="8" id="07j-mg-mGH"/>
@@ -770,9 +786,11 @@
                                                 <constraint firstItem="nab-wZ-FAv" firstAttribute="leading" secondItem="Bos-of-vTM" secondAttribute="trailing" constant="8" id="55A-DO-Kqp"/>
                                                 <constraint firstItem="KDZ-1Q-2iT" firstAttribute="centerX" secondItem="U8w-oY-GGk" secondAttribute="centerX" id="5Pj-oL-3Fh"/>
                                                 <constraint firstItem="nab-wZ-FAv" firstAttribute="centerY" secondItem="Bos-of-vTM" secondAttribute="centerY" constant="-0.5" id="7m6-l0-llV"/>
+                                                <constraint firstItem="pq3-l9-Ncs" firstAttribute="centerX" secondItem="KDZ-1Q-2iT" secondAttribute="centerX" id="8x6-XA-8xL"/>
                                                 <constraint firstItem="mm8-sz-VaW" firstAttribute="leading" secondItem="Bos-of-vTM" secondAttribute="trailing" constant="-56" id="DRy-Vr-QKm"/>
                                                 <constraint firstItem="KDZ-1Q-2iT" firstAttribute="leading" secondItem="648-YL-MxY" secondAttribute="trailing" constant="8" id="H6k-32-xXh"/>
                                                 <constraint firstItem="enM-BN-0gW" firstAttribute="leading" secondItem="YZT-X0-0Zz" secondAttribute="trailing" constant="8" id="Ins-3u-tnx"/>
+                                                <constraint firstItem="Bos-of-vTM" firstAttribute="top" secondItem="a7K-jv-p1B" secondAttribute="bottom" id="Lsi-e7-Zgq"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="U8w-oY-GGk" secondAttribute="trailing" id="Ne9-ZU-tMY"/>
                                                 <constraint firstItem="mm8-sz-VaW" firstAttribute="top" secondItem="brq-DF-Jbf" secondAttribute="top" id="Og7-Wu-lmU"/>
                                                 <constraint firstItem="YZT-X0-0Zz" firstAttribute="centerY" secondItem="enM-BN-0gW" secondAttribute="centerY" constant="1" id="Uho-vX-UHv"/>
@@ -784,6 +802,8 @@
                                                 <constraint firstItem="mm8-sz-VaW" firstAttribute="top" secondItem="fEi-1m-x2I" secondAttribute="topMargin" constant="-8" id="izA-GD-QfV"/>
                                                 <constraint firstItem="brq-DF-Jbf" firstAttribute="leading" secondItem="mm8-sz-VaW" secondAttribute="trailing" id="k0A-Gm-Rj9"/>
                                                 <constraint firstItem="bCs-gx-lSY" firstAttribute="centerY" secondItem="U8w-oY-GGk" secondAttribute="centerY" id="kad-pS-f2v"/>
+                                                <constraint firstItem="KDZ-1Q-2iT" firstAttribute="top" secondItem="pq3-l9-Ncs" secondAttribute="bottom" id="ktd-rb-mGb"/>
+                                                <constraint firstItem="Bos-of-vTM" firstAttribute="centerX" secondItem="a7K-jv-p1B" secondAttribute="centerX" id="qUQ-5N-1NA"/>
                                                 <constraint firstItem="KDZ-1Q-2iT" firstAttribute="leading" secondItem="brq-DF-Jbf" secondAttribute="trailing" constant="-56" id="qgI-EV-taj"/>
                                                 <constraint firstItem="mm8-sz-VaW" firstAttribute="leading" secondItem="fEi-1m-x2I" secondAttribute="leadingMargin" constant="-16" id="s3F-2X-9EA"/>
                                                 <constraint firstItem="KDZ-1Q-2iT" firstAttribute="bottom" secondItem="brq-DF-Jbf" secondAttribute="bottom" constant="-22" id="y0O-a5-d3O"/>
@@ -805,7 +825,11 @@
                                             <outlet property="img2" destination="brq-DF-Jbf" id="wPP-3W-VNL"/>
                                             <outlet property="totalVotes" destination="bCs-gx-lSY" id="LjL-hb-aCs"/>
                                             <outlet property="vote1" destination="nab-wZ-FAv" id="Y5a-zN-8gR"/>
+                                            <outlet property="vote1Bar" destination="a7K-jv-p1B" id="95c-re-GRb"/>
+                                            <outlet property="vote1BarHeightConstraint" destination="Auy-GQ-zwY" id="JN4-0O-EqI"/>
                                             <outlet property="vote2" destination="648-YL-MxY" id="klY-kx-9dC"/>
+                                            <outlet property="vote2Bar" destination="pq3-l9-Ncs" id="rg8-7g-DWi"/>
+                                            <outlet property="vote2BarHeightConstraint" destination="88M-Xz-qef" id="9uk-TP-VEP"/>
                                             <outlet property="voteFavoriteButton" destination="U8w-oY-GGk" id="3x9-Hl-vvA"/>
                                         </connections>
                                     </tableViewCell>
