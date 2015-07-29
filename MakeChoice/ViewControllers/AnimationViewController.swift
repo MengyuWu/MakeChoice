@@ -19,6 +19,9 @@ class AnimationViewController: UIViewController {
     
     var user:PFUser?
     
+    var tabBarInitialViewController:UIViewController?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -44,9 +47,6 @@ class AnimationViewController: UIViewController {
                 // 2
                 self.user=user
                 println("login user go to tabbar controller\(user.username)")
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
                 
                 self.dismissViewControllerAnimated(true, completion: nil)
                 
@@ -99,9 +99,9 @@ class AnimationViewController: UIViewController {
                 loginViewController.signUpController?.signUpView?.logo?.hidden=true
                 self.presentViewController(loginViewController, animated: true, completion: nil)
             }else{
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
-                self.presentViewController(tabBarController, animated:true, completion:nil)
+                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                 self.tabBarInitialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
+                self.presentViewController(self.tabBarInitialViewController!, animated:true, completion:nil)
             }
             
         }

@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Cancel-32.png"
+      "filename" : "Cancel-64.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Cancel-50.png"
+      "filename" : "Cancel-100.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Cancel-64.png"
+      "filename" : "Cancel-512.png"
     }
   ],
   "info" : {

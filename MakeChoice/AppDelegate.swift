@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var parseLoginHelper: ParseLoginHelper!
+    var startViewController: AnimationViewController?
     
     override init() {
         super.init()
@@ -68,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 2
         let user = PFUser.currentUser()
         
-        let startViewController: AnimationViewController;
+       
         
         if (user != nil) {
             // 3
@@ -79,15 +80,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // whether it logged in or not, both go to animationViewController
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as!
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as?
             AnimationViewController
-            startViewController.user=user
+            startViewController!.user=user
             
             
             
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as!
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as?
             AnimationViewController
             
             // 4
@@ -201,9 +202,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("didReceiveRemoteNotification")
         PFPush.handlePush(userInfo)
         
-        if var controller=self.window?.rootViewController as? UITabBarController{
+//        if var controller=self.window?.rootViewController as? UITabBarController{
+//            println("update badge value")
+//            ParseHelper.updateProfileTabBadgeValue(controller)
+//        }
+        
+        if var controller=self.startViewController?.tabBarInitialViewController as? UITabBarController{
+            println("update badge value")
             ParseHelper.updateProfileTabBadgeValue(controller)
         }
+
         
         //broadcasting
         NSNotificationCenter.defaultCenter().postNotificationName("Received Notification", object: self)

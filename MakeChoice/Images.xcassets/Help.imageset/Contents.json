@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "Help-64-3.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "Help-100.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "help3.png"
+      "filename" : "Help-512.png"
     }
   ],
   "info" : {

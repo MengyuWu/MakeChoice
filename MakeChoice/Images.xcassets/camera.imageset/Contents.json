@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "Compact Camera-32.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "Compact Camera-50.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "camera.png"
+      "filename" : "Compact Camera-64.png"
     }
   ],
   "info" : {
