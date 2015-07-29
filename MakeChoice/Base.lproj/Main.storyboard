@@ -674,7 +674,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell alpha="0.5" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryDetailCell" rowHeight="460" id="w7m-6L-Hzh" customClass="CategoryDetailTableViewCell" customModule="MakeChoice" customModuleProvider="target">
+                                    <tableViewCell alpha="0.5" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CategoryDetailCell" rowHeight="460" id="w7m-6L-Hzh" customClass="CategoryDetailTableViewCell" customModule="MakeChoice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w7m-6L-Hzh" id="fEi-1m-x2I">
@@ -951,7 +951,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="459"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell alpha="0.5" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="460" id="5Nb-3M-BQr" customClass="HomePostTableViewCell" customModule="MakeChoice" customModuleProvider="target">
+                                    <tableViewCell alpha="0.5" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="460" id="5Nb-3M-BQr" customClass="HomePostTableViewCell" customModule="MakeChoice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Nb-3M-BQr" id="nTp-hb-K0W">

@@ -202,13 +202,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("didReceiveRemoteNotification")
         PFPush.handlePush(userInfo)
         
-//        if var controller=self.window?.rootViewController as? UITabBarController{
-//            println("update badge value")
-//            ParseHelper.updateProfileTabBadgeValue(controller)
-//        }
-        
-        if var controller=self.startViewController?.tabBarInitialViewController as? UITabBarController{
-            println("update badge value")
+        if var controller=self.window?.rootViewController as? UITabBarController{
+            println("update badge value 1")
+            ParseHelper.updateProfileTabBadgeValue(controller)
+        }else if var controller=self.startViewController?.tabBarInitialViewController as? UITabBarController{
+            println("update badge value 2")
             ParseHelper.updateProfileTabBadgeValue(controller)
         }
 
