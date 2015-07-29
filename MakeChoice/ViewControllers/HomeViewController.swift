@@ -269,25 +269,36 @@ extension HomeViewController: UITableViewDataSource {
                         // if is voted show the results
                         UIView.animateWithDuration(0){
                            cell.vote1BarHeightConstraint.constant=0
+                           cell.vote2BarHeightConstraint.constant=0
                             self.view.layoutIfNeeded()
                         }
                         
                         cell.vote1Bar.alpha=1
-                        var vote1Percentage=cell.post?.vote1PercentageFloat ?? 0
-                        var height1:CGFloat=CGFloat(180*vote1Percentage)
+                        cell.vote2Bar.alpha=1
                         
-                        if(cell.votedJustNow){
+                        var totalHeight=cell.img1.frame.size.height-70
+                        
+                        var vote1Percentage=cell.post?.vote1PercentageFloat ?? 0
+                        var height1:CGFloat=totalHeight*CGFloat(vote1Percentage)
+                        
+                        var vote2Percentage=cell.post?.vote2PercentageFloat ?? 0
+                        var height2:CGFloat=totalHeight*CGFloat(vote2Percentage)
+                        
+                        if(post!.votedJustNow){
                             UIView.animateWithDuration(2){
                                 
                                 cell.vote1BarHeightConstraint.constant=height1
+                                cell.vote2BarHeightConstraint.constant=height2
                                 cell.vote1.alpha=1;
                                 cell.vote2.alpha=1;
                                 // changes made in here will be animated
                                 self.view.layoutIfNeeded()
+                                post!.votedJustNow=false
                                 
                             }
                         }else{
                             cell.vote1BarHeightConstraint.constant=height1
+                            cell.vote2BarHeightConstraint.constant=height2
                             cell.vote1.alpha=1;
                             cell.vote2.alpha=1;
                         }
@@ -298,6 +309,7 @@ extension HomeViewController: UITableViewDataSource {
                         
                     }else{
                         cell.vote1Bar.alpha=0
+                        cell.vote2Bar.alpha=0
                         
                         
                         cell.vote1.alpha=0;
@@ -421,6 +433,7 @@ extension HomeViewController: UITableViewDataSource {
                                                         
                                                         self.tableView.beginUpdates()
                                                         self.timelineComponent.content[tag].voteUpdate=true
+                                                         self.timelineComponent.content[tag].votedJustNow=true
                                                         self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
                                                         self.tableView.endUpdates()
                                                         
@@ -524,6 +537,7 @@ extension HomeViewController: UITableViewDataSource {
                                                         
                                                         self.tableView.beginUpdates()
                                                         self.timelineComponent.content[tag].voteUpdate=true
+                                                        self.timelineComponent.content[tag].votedJustNow=true
                                                         self.tableView.reloadSections(NSIndexSet(index:tag),withRowAnimation: UITableViewRowAnimation.Automatic)
                                                         self.tableView.endUpdates()
                                                         

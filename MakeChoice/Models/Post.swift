@@ -41,6 +41,7 @@ class Post: PFObject, PFSubclassing {
     
     var vote1PercentageFloat: Float=0
     var vote2PercentageFloat: Float=0
+    var votedJustNow=false
     
     // define static var imageCache so that imageCache can be accessed without create an instance, you can get it from Post.imageCache
     
