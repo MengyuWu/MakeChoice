@@ -29,6 +29,12 @@ class HomePostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var voteFavoriteButton: DOFavoriteButton!
 
+    @IBOutlet weak var vote1Bar: UIView!
+    
+    @IBOutlet weak var vote1BarHeightConstraint: NSLayoutConstraint!
+    
+    var votedJustNow=false
+    
     
     var post:Post? {
         didSet {

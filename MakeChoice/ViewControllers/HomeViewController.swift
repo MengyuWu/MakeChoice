@@ -267,9 +267,39 @@ extension HomeViewController: UITableViewDataSource {
                 if let count=results?.count{
                     if count != 0{
                         // if is voted show the results
-                        cell.vote1.alpha=1;
-                        cell.vote2.alpha=1;
+                        UIView.animateWithDuration(0){
+                           cell.vote1BarHeightConstraint.constant=0
+                            self.view.layoutIfNeeded()
+                        }
+                        
+                        cell.vote1Bar.alpha=1
+                        var vote1Percentage=cell.post?.vote1PercentageFloat ?? 0
+                        var height1:CGFloat=CGFloat(180*vote1Percentage)
+                        
+                        if(cell.votedJustNow){
+                            UIView.animateWithDuration(2){
+                                
+                                cell.vote1BarHeightConstraint.constant=height1
+                                cell.vote1.alpha=1;
+                                cell.vote2.alpha=1;
+                                // changes made in here will be animated
+                                self.view.layoutIfNeeded()
+                                
+                            }
+                        }else{
+                            cell.vote1BarHeightConstraint.constant=height1
+                            cell.vote1.alpha=1;
+                            cell.vote2.alpha=1;
+                        }
+                        
+                       
+                       
+  
+                        
                     }else{
+                        cell.vote1Bar.alpha=0
+                        
+                        
                         cell.vote1.alpha=0;
                         cell.vote2.alpha=0;
                     }

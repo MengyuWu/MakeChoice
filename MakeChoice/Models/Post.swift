@@ -39,6 +39,9 @@ class Post: PFObject, PFSubclassing {
     var vote2Percentage: Dynamic<String!> = Dynamic(nil)
     var voteUpdate=false
     
+    var vote1PercentageFloat: Float=0
+    var vote2PercentageFloat: Float=0
+    
     // define static var imageCache so that imageCache can be accessed without create an instance, you can get it from Post.imageCache
     
     //. We define it as static, because the cache does not belong to a particular instance of the Post class, but is instead shared between all posts.
@@ -169,6 +172,9 @@ class Post: PFObject, PFSubclassing {
         }else{
             var p1 = Float(self.vote1Int)/Float(self.totalVotesInt.value)*100
             var p2 = Float(self.vote2Int)/Float(self.totalVotesInt.value)*100
+            
+            self.vote1PercentageFloat=p1/100.0
+            self.vote2PercentageFloat=p2/100.0
             
             self.vote1Percentage.value=String(format: "%.2f", p1)+" %"
             self.vote2Percentage.value=String(format: "%.2f", p2)+" %"
