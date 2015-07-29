@@ -190,7 +190,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Select" translatesAutoresizingMaskIntoConstraints="NO" id="fnq-xK-w0m">
-                                <rect key="frame" x="24" y="143" width="16" height="16"/>
+                                <rect key="frame" x="24" y="143.5" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="nuz-6w-8No"/>
                                     <constraint firstAttribute="height" constant="16" id="w9Y-0G-U9B"/>
@@ -228,10 +228,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="4JS-K2-lBx">
-                                <rect key="frame" x="23" y="191" width="18" height="18"/>
+                                <rect key="frame" x="24.5" y="192.5" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4JS-K2-lBx" secondAttribute="height" multiplier="1:1" id="0zx-Ni-wWn"/>
-                                    <constraint firstAttribute="width" constant="18" id="55M-xJ-uPA"/>
+                                    <constraint firstAttribute="width" constant="15" id="55M-xJ-uPA"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Noe-z7-zUx">
@@ -2293,7 +2293,7 @@
         <image name="AddFile" width="64" height="64"/>
         <image name="Category_home" width="32" height="32"/>
         <image name="Check" width="42" height="42"/>
-        <image name="CheckedBox" width="594" height="596"/>
+        <image name="CheckedBox" width="32" height="32"/>
         <image name="Comment" width="50" height="50"/>
         <image name="FriendsRequest" width="50" height="50"/>
         <image name="Heart" width="72" height="68"/>
@@ -2313,8 +2313,8 @@
         <image name="Vote" width="53" height="53"/>
         <image name="camera" width="32" height="32"/>
         <image name="category1.png" width="128" height="128"/>
-        <image name="key" width="32" height="32"/>
-        <image name="uncheckedBox" width="800" height="794"/>
+        <image name="key" width="20" height="32"/>
+        <image name="uncheckedBox" width="32" height="32"/>
         <image name="win_1.png" width="86" height="193"/>
     </resources>
     <inferredMetricsTieBreakers>
