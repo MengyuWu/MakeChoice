@@ -375,7 +375,13 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S04-xe-UEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="ABc-vI-z68" customClass="RAMBounceAnimation" customModule="MakeChoice" customModuleProvider="target"/>
+                <customObject id="ABc-vI-z68" customClass="RAMRightRotationAnimation" customModule="MakeChoice" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-2532" y="-333"/>
         </scene>
@@ -692,10 +698,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8w-oY-GGk" customClass="DOFavoriteButton" customModule="MakeChoice" customModuleProvider="target">
-                                                    <rect key="frame" x="554" y="413" width="40" height="40"/>
+                                                    <rect key="frame" x="549" y="408" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="U8w-oY-GGk" secondAttribute="height" multiplier="1:1" id="4QJ-Yk-fYR"/>
-                                                        <constraint firstAttribute="height" constant="40" id="Psj-TL-tTn"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Psj-TL-tTn"/>
                                                     </constraints>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -726,7 +732,7 @@
                                                     <rect key="frame" x="300" y="0.0" width="308" height="411"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCs-gx-lSY">
-                                                    <rect key="frame" x="509" y="422" width="43" height="23.5"/>
+                                                    <rect key="frame" x="504" y="422" width="43" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.41176470588235292" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -969,11 +975,42 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Nb-3M-BQr" id="nTp-hb-K0W">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaC-bm-rsf" customClass="DOFavoriteButton" customModule="MakeChoice" customModuleProvider="target">
+                                                    <rect key="frame" x="549" y="408" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="xaC-bm-rsf" secondAttribute="height" multiplier="1:1" id="Qfe-c3-SH2"/>
+                                                        <constraint firstAttribute="width" constant="50" id="yhC-HY-nng"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="Vote"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="imageColorOn">
+                                                            <color key="value" red="0.60392156860000001" green="0.70588235290000001" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="imageColorOff">
+                                                            <color key="value" red="0.60392156860000001" green="0.70588235290000001" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                            <color key="value" red="0.36078431370000003" green="0.54901960780000003" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                            <color key="value" red="0.28235294119999998" green="0.41960784309999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Kg-lw-ne1">
+                                                    <rect key="frame" x="-8" y="0.0" width="308" height="411"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="2Kg-lw-ne1" secondAttribute="height" multiplier="3:4" id="gjy-Ea-qSC"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-9Z-m4l">
                                                     <rect key="frame" x="300" y="0.0" width="308" height="411"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3C-3N-YCu">
-                                                    <rect key="frame" x="509" y="421" width="43" height="23.5"/>
+                                                    <rect key="frame" x="504" y="421" width="43" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -983,6 +1020,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="DaA-lE-ZzW"/>
                                                         <constraint firstAttribute="width" secondItem="qzz-9I-B8g" secondAttribute="height" multiplier="1:1" id="MhI-PF-pEt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbUp" translatesAutoresizingMaskIntoConstraints="NO" id="khj-jI-m1Y">
+                                                    <rect key="frame" x="4" y="345" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="OvE-cY-dPN"/>
+                                                        <constraint firstAttribute="width" secondItem="khj-jI-m1Y" secondAttribute="height" multiplier="1:1" id="Po3-tx-Zdv"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bz0-gy-YxJ">
@@ -1007,25 +1051,12 @@
                                                     <color key="textColor" red="0.50980392156862742" green="0.51764705882352946" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Kg-lw-ne1">
-                                                    <rect key="frame" x="-8" y="0.0" width="308" height="411"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="2Kg-lw-ne1" secondAttribute="height" multiplier="3:4" id="gjy-Ea-qSC"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEU-7M-8La">
                                                     <rect key="frame" x="56" y="354" width="47.5" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.96466838659999998" green="0.9756519387" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbUp" translatesAutoresizingMaskIntoConstraints="NO" id="khj-jI-m1Y">
-                                                    <rect key="frame" x="4" y="345" width="44" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="OvE-cY-dPN"/>
-                                                        <constraint firstAttribute="width" secondItem="khj-jI-m1Y" secondAttribute="height" multiplier="1:1" id="Po3-tx-Zdv"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aai-KO-gdY" userLabel="vote1Bar">
                                                     <rect key="frame" x="24" y="345" width="5" height="0.0"/>
                                                     <color key="backgroundColor" red="0.42352941176470588" green="0.62745098039215685" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -1042,31 +1073,6 @@
                                                         <constraint firstAttribute="width" constant="5" id="igF-NO-Yuf"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaC-bm-rsf" customClass="DOFavoriteButton" customModule="MakeChoice" customModuleProvider="target">
-                                                    <rect key="frame" x="554" y="413" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="xaC-bm-rsf" secondAttribute="height" multiplier="1:1" id="Qfe-c3-SH2"/>
-                                                        <constraint firstAttribute="width" constant="40" id="yhC-HY-nng"/>
-                                                    </constraints>
-                                                    <state key="normal">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="Vote"/>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="imageColorOn">
-                                                            <color key="value" red="0.60392156860000001" green="0.70588235290000001" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="imageColorOff">
-                                                            <color key="value" red="0.60392156860000001" green="0.70588235290000001" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                                            <color key="value" red="0.36078431370000003" green="0.54901960780000003" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                                            <color key="value" red="0.28235294119999998" green="0.41960784309999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="95T-XA-RBw" firstAttribute="leading" secondItem="R5X-8P-YG6" secondAttribute="trailing" constant="8" id="1rN-Ag-IzI"/>
@@ -2375,8 +2381,8 @@
         <image name="uncheckedBox" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mmd-cW-fIh"/>
         <segue reference="8lu-0u-sp7"/>
+        <segue reference="5qA-W6-K1R"/>
         <segue reference="Hw2-xg-niX"/>
     </inferredMetricsTieBreakers>
 </document>
