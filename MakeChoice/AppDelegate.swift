@@ -204,7 +204,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if var controller=self.window?.rootViewController as? UITabBarController{
             println("update badge value 1")
-            ParseHelper.updateProfileTabBadgeValue(controller)
+          //  ParseHelper.updateProfileTabBadgeValue(controller)
         }else if var controller=self.startViewController?.tabBarInitialViewController as? UITabBarController{
             println("update badge value 2")
             ParseHelper.updateProfileTabBadgeValue(controller)

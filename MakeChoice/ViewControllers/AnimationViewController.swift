@@ -27,12 +27,18 @@ class AnimationViewController: UIViewController {
       
         // Do any additional setup after loading the view.
         
-        for i in 1...16{
-            var imageName="win_\(i).png"
-            var image=UIImage(named:imageName)
-            if let image=image{
-            imageList.append(image)
+        for i in 1...30{
+         
+            if i != 16 {
+                var imageName="a\(i).png"
+                var image=UIImage(named:imageName)
+                if let image=image{
+                    imageList.append(image)
+                }
+ 
             }
+            
+           
         }
         
         
@@ -82,11 +88,11 @@ class AnimationViewController: UIViewController {
       
         
         animationImageView.animationImages=imageList
-        animationImageView.animationRepeatCount=4
-        animationImageView.animationDuration=0.5
+        animationImageView.animationRepeatCount=1
+        animationImageView.animationDuration=4
         animationImageView.startAnimating()
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
             println("finished aniamtion")
             
             if self.user == nil{
