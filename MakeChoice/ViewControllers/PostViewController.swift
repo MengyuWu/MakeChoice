@@ -364,7 +364,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             button.setTitle(feeling["title"], forState: .Normal)
             button.tag = index
             button.addTarget(self, action: Selector("ButtonTapped:" ), forControlEvents: UIControlEvents.TouchUpInside)
-            button.backgroundColor=UIColor(netHex: colors[index])
+           // button.backgroundColor=UIColor(netHex: colors[index])
             picker.addSubview(button)
             
             offset += 44

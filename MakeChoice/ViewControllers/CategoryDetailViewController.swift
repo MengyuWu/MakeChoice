@@ -172,6 +172,16 @@ extension CategoryDetailViewController: UITableViewDelegate {
 }
 extension CategoryDetailViewController: UITableViewDataSource {
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let imageHeight=screenWidth/2/3*4
+        let cellHeight=imageHeight+60
+        
+        return cellHeight
+        
+    }
+
+    
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCellWithIdentifier("CategoryDetailHeader") as! CategoryDetailHeaderTableViewCell
         var post:Post?

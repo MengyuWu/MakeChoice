@@ -170,6 +170,16 @@ extension HomeViewController: UITableViewDelegate {
 }
 extension HomeViewController: UITableViewDataSource {
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let imageHeight=screenWidth/2/3*4
+        let cellHeight=imageHeight+60
+        
+        return cellHeight
+        
+    }
+
+    
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCellWithIdentifier("PostHeader") as! HomePostSectionHeaderView
         var post:Post?
@@ -527,7 +537,6 @@ extension HomeViewController: UITableViewDataSource {
         
     }
     
-
     
 
 

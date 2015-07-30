@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
     
+    @IBOutlet weak var userImageBackground: UIImageView!
   
     @IBOutlet weak var username: UILabel!
     
@@ -321,6 +322,7 @@ class ProfileViewController: UIViewController {
             
             DesignHelper.setImageClipsToBounds(self.userImage)
             
+            
             self.myPostsNum.text=""
             self.myFriendsNum.text=""
             // get myPostsNum and myFriendNum
@@ -345,6 +347,7 @@ class ProfileViewController: UIViewController {
         }
         
         DesignHelper.setCircleImage(self.userImage)
+        DesignHelper.setCircleImage(self.userImageBackground)
         self.userImage.backgroundColor=UIColor.whiteColor()
         
         //set add friends request badge value
