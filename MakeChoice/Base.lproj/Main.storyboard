@@ -1260,14 +1260,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a30.png" translatesAutoresizingMaskIntoConstraints="NO" id="89S-E8-lPw">
-                                <rect key="frame" x="150.5" y="90" width="300" height="300"/>
+                                <rect key="frame" x="170.5" y="110" width="260" height="260"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="84p-TV-af1"/>
-                                    <constraint firstAttribute="height" constant="300" id="meT-7e-JIh"/>
+                                    <constraint firstAttribute="width" constant="260" id="84p-TV-af1"/>
+                                    <constraint firstAttribute="height" constant="260" id="meT-7e-JIh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a Choice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQG-O6-6ZP">
-                                <rect key="frame" x="167" y="360" width="266.5" height="38"/>
+                                <rect key="frame" x="167" y="340" width="266.5" height="38"/>
                                 <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="38"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.4823529412" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

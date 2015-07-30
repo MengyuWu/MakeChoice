@@ -17,14 +17,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a30.png" translatesAutoresizingMaskIntoConstraints="NO" id="ilL-G1-2yz">
-                    <rect key="frame" x="90" y="30" width="300" height="300"/>
+                    <rect key="frame" x="110" y="50" width="260" height="260"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="300" id="KQe-le-TWm"/>
-                        <constraint firstAttribute="width" constant="300" id="Xtr-KU-kQz"/>
+                        <constraint firstAttribute="height" constant="260" id="KQe-le-TWm"/>
+                        <constraint firstAttribute="width" constant="260" id="Xtr-KU-kQz"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a Choice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHj-Xk-YFF">
-                    <rect key="frame" x="107" y="300" width="266.5" height="38"/>
+                    <rect key="frame" x="107" y="280" width="266.5" height="38"/>
                     <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="38"/>
                     <color key="textColor" red="0.23529411764705882" green="0.4823529411764706" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
