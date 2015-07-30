@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Add User-50.png"
+      "filename" : "friendInvite.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Add User-64.png"
+      "filename" : "friendInvite@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Add User-100.png"
+      "filename" : "friendInvite@3x.png"
     }
   ],
   "info" : {
