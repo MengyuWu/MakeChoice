@@ -62,8 +62,8 @@ class UICustomSettingHelper {
                 view.layoutIfNeeded()
             }
             
-            cell.vote1Bar.alpha=1
-            cell.vote2Bar.alpha=1
+            cell.vote1Bar.alpha=0.9
+            cell.vote2Bar.alpha=0.9
             
             var totalHeight=cell.img1.frame.size.height-70
             
@@ -78,8 +78,8 @@ class UICustomSettingHelper {
                     
                     cell.vote1BarHeightConstraint.constant=height1
                     cell.vote2BarHeightConstraint.constant=height2
-                    cell.vote1.alpha=1;
-                    cell.vote2.alpha=1;
+                    cell.vote1.alpha=0.9;
+                    cell.vote2.alpha=0.9;
                     // changes made in here will be animated
                     view.layoutIfNeeded()
                     cell.post!.votedJustNow=false
@@ -88,8 +88,8 @@ class UICustomSettingHelper {
             }else{
                 cell.vote1BarHeightConstraint.constant=height1
                 cell.vote2BarHeightConstraint.constant=height2
-                cell.vote1.alpha=1;
-                cell.vote2.alpha=1;
+                cell.vote1.alpha=0.9;
+                cell.vote2.alpha=0.9;
             }
             
 
@@ -103,8 +103,8 @@ class UICustomSettingHelper {
                 view.layoutIfNeeded()
             }
             
-            cell.vote1Bar.alpha=1
-            cell.vote2Bar.alpha=1
+            cell.vote1Bar.alpha=0.9
+            cell.vote2Bar.alpha=0.9
             
             var totalHeight=cell.img1.frame.size.height-70
             
@@ -119,8 +119,8 @@ class UICustomSettingHelper {
                     
                     cell.vote1BarHeightConstraint.constant=height1
                     cell.vote2BarHeightConstraint.constant=height2
-                    cell.vote1.alpha=1;
-                    cell.vote2.alpha=1;
+                    cell.vote1.alpha=0.9;
+                    cell.vote2.alpha=0.9;
                     // changes made in here will be animated
                     view.layoutIfNeeded()
                     cell.post!.votedJustNow=false
@@ -129,8 +129,8 @@ class UICustomSettingHelper {
             }else{
                 cell.vote1BarHeightConstraint.constant=height1
                 cell.vote2BarHeightConstraint.constant=height2
-                cell.vote1.alpha=1;
-                cell.vote2.alpha=1;
+                cell.vote1.alpha=0.9;
+                cell.vote2.alpha=0.9;
             }
             
 
