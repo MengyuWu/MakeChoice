@@ -68,21 +68,32 @@ class ProfileViewController: UIViewController {
  
 
 @IBAction func logoutButtonTapped(sender: AnyObject) {
-    println("logout button ")
     
-    PFUser.logOut()
-    //self.goToLogin()
-    
-    // go to animation page
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    var animationViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as!
-    AnimationViewController
-    
-    AppDelegate.startViewController=animationViewController
-    
-    
-    self.presentViewController(animationViewController, animated: true, completion: nil)
-    
+    SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to logout?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes, logout!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+        if isOtherButton == true {
+            
+            print("Cancel Button  Pressed", appendNewline: false)
+            
+        }
+        else {
+            println("logout button ")
+            
+            PFUser.logOut()
+            //self.goToLogin()
+            
+            // go to animation page
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var animationViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as!
+            AnimationViewController
+            
+            AppDelegate.startViewController=animationViewController
+            
+            
+            self.presentViewController(animationViewController, animated: true, completion: nil)
+
+        }
+    }
+       
     
     }
     
