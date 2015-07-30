@@ -1229,7 +1229,13 @@
                             <constraint firstItem="LJW-OT-TdN" firstAttribute="leading" secondItem="CM0-0X-DHL" secondAttribute="leading" id="pGh-pp-S5k"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ty4-Nu-fww"/>
+                    <navigationItem key="navigationItem" id="Ty4-Nu-fww">
+                        <barButtonItem key="rightBarButtonItem" image="ScrollToTop" id="6PA-R6-Etl">
+                            <connections>
+                                <action selector="scrollToTopPressed:" destination="lQ3-nh-3jc" id="Qxd-uo-LRj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="segmentedControl" destination="xD6-oO-6Ii" id="6fm-Q5-bgP"/>
                         <outlet property="tableView" destination="LJW-OT-TdN" id="6Xw-ou-VO8"/>
@@ -2369,6 +2375,7 @@
         <image name="Profile" width="70" height="70"/>
         <image name="Profile_home" width="32" height="32"/>
         <image name="Reject" width="64" height="64"/>
+        <image name="ScrollToTop" width="32" height="32"/>
         <image name="SearchFriend" width="32" height="32"/>
         <image name="Select" width="16" height="16"/>
         <image name="ThumbUp" width="128" height="128"/>
@@ -2382,7 +2389,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8lu-0u-sp7"/>
-        <segue reference="5qA-W6-K1R"/>
         <segue reference="Hw2-xg-niX"/>
+        <segue reference="mmd-cW-fIh"/>
     </inferredMetricsTieBreakers>
 </document>

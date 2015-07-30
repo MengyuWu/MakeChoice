@@ -51,6 +51,11 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     }
     
    
+    @IBAction func scrollToTopPressed(sender: AnyObject) {
+        
+        //test, scroll to top
+        self.tableView.setContentOffset(CGPointZero, animated: true)
+    }
     
   
     
@@ -371,6 +376,10 @@ extension HomeViewController: UITableViewDataSource {
                                          SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
                                         // alreday voted!
                                         // show results:
+                                        
+                                      
+                                        
+                                        
                                     }else{
                                         println("save new vote")
                                         // save the result, and show results
