@@ -1843,7 +1843,7 @@
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendSearchCell" rowHeight="80" id="roL-L4-krE" customClass="FriendSearchTableViewCell" customModule="MakeChoice" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="friendSearchCell" rowHeight="80" id="roL-L4-krE" customClass="FriendSearchTableViewCell" customModule="MakeChoice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="roL-L4-krE" id="OxX-qJ-SI0">
@@ -1936,7 +1936,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userVoteCell" rowHeight="60" id="1xT-oG-jw9" customClass="UserVoteDetailTableViewCell" customModule="MakeChoice" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="userVoteCell" rowHeight="60" id="1xT-oG-jw9" customClass="UserVoteDetailTableViewCell" customModule="MakeChoice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1xT-oG-jw9" id="Cge-ed-s8I">
@@ -2081,7 +2081,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendRequestCell" rowHeight="80" id="ROh-Za-T6Q" customClass="FriendRequestTableViewCell" customModule="MakeChoice" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="friendRequestCell" rowHeight="80" id="ROh-Za-T6Q" customClass="FriendRequestTableViewCell" customModule="MakeChoice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ROh-Za-T6Q" id="T2o-xu-16h">
@@ -2197,7 +2197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RzO-di-EdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1837" y="1486"/>
+            <point key="canvasLocation" x="-1847" y="1734"/>
         </scene>
         <!--Home-->
         <scene sceneID="VnO-p4-KZZ">
