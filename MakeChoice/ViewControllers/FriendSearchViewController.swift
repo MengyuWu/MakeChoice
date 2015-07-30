@@ -9,6 +9,7 @@
 import UIKit
 import ConvenienceKit
 import MBProgressHUD
+import MaveSDK
 
 class FriendSearchViewController: UIViewController {
 
@@ -82,6 +83,27 @@ class FriendSearchViewController: UIViewController {
         }
     }
     
+    @IBAction func inviteButtonPressed(sender: AnyObject) {
+        println("invite friend button pressed")
+       
+        MaveSDKHelper.setupMaveSDK()
+        
+        var mave=MaveSDK.sharedInstance()
+        var user=PFUser.currentUser()
+        if let user=user{
+            var userData=MAVEUserData(userID: user.objectId, firstName:user.username, lastName: "")
+            mave.identifyUser(userData)
+        }
+        
+        mave.presentInvitePageModallyWithBlock({(inviteController) -> Void in
+             self.presentViewController(inviteController, animated: true, completion: nil)
+            }, dismissBlock:{(controller , numberOfInvitesSent) -> Void in
+             self.dismissViewControllerAnimated(true, completion: nil)
+            }, inviteContext: "default")
+
+   
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

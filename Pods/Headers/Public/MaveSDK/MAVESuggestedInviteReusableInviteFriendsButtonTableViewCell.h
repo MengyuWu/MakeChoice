@@ -1,0 +1,1 @@
+../../../MaveSDK/MaveSDK/SuggestedInviteReusableCell/MAVESuggestedInviteReusableInviteFriendsButtonTableViewCell.h

@@ -8,6 +8,8 @@
 
 import Foundation
 
+/*MAVE*/
+let MAVE_SDK_APPLICATION_ID="828146375653644"
 
 /*Category*/
 let CATEGORIES=["technology","travelling","fashion","pet","food","others"]

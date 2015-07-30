@@ -1,0 +1,1 @@
+../../../MaveSDK/MaveSDK/Models/MAVEContactEmail.h

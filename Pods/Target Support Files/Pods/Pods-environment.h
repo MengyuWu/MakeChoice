@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_Bond 9
 #define COCOAPODS_VERSION_PATCH_Bond 0
 
+// CCTemplate
+#define COCOAPODS_POD_AVAILABLE_CCTemplate
+#define COCOAPODS_VERSION_MAJOR_CCTemplate 0
+#define COCOAPODS_VERSION_MINOR_CCTemplate 2
+#define COCOAPODS_VERSION_PATCH_CCTemplate 0
+
 // ConvenienceKit
 #define COCOAPODS_POD_AVAILABLE_ConvenienceKit
 #define COCOAPODS_VERSION_MAJOR_ConvenienceKit 0
@@ -114,6 +120,12 @@
 #define COCOAPODS_VERSION_MINOR_MBProgressHUD 9
 #define COCOAPODS_VERSION_PATCH_MBProgressHUD 1
 
+// MaveSDK
+#define COCOAPODS_POD_AVAILABLE_MaveSDK
+#define COCOAPODS_VERSION_MAJOR_MaveSDK 0
+#define COCOAPODS_VERSION_MINOR_MaveSDK 7
+#define COCOAPODS_VERSION_PATCH_MaveSDK 7
+
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse
 #define COCOAPODS_VERSION_MAJOR_Parse 1
@@ -137,6 +149,12 @@
 #define COCOAPODS_VERSION_MAJOR_UIImageViewModeScaleAspect 1
 #define COCOAPODS_VERSION_MINOR_UIImageViewModeScaleAspect 3
 #define COCOAPODS_VERSION_PATCH_UIImageViewModeScaleAspect 0
+
+// libPhoneNumber-iOS
+#define COCOAPODS_POD_AVAILABLE_libPhoneNumber_iOS
+#define COCOAPODS_VERSION_MAJOR_libPhoneNumber_iOS 0
+#define COCOAPODS_VERSION_MINOR_libPhoneNumber_iOS 8
+#define COCOAPODS_VERSION_PATCH_libPhoneNumber_iOS 5
 
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop

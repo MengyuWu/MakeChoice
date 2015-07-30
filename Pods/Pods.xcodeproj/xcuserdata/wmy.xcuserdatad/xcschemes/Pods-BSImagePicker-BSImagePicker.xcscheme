@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13C992B8C6FC0177110F610F"
+               BlueprintIdentifier = "049B5032F154E5223CF71EBF"
                BuildableName = "BSImagePicker.bundle"
                BlueprintName = "Pods-BSImagePicker-BSImagePicker"
                ReferencedContainer = "container:Pods.xcodeproj">

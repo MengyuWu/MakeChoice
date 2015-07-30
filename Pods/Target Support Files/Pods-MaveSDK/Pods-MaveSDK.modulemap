@@ -1,0 +1,6 @@
+framework module MaveSDK {
+  umbrella header "Pods-MaveSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

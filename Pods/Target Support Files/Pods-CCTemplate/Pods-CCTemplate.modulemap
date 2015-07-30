@@ -1,0 +1,6 @@
+framework module CCTemplate {
+  umbrella header "Pods-CCTemplate-umbrella.h"
+
+  export *
+  module * { export * }
+}

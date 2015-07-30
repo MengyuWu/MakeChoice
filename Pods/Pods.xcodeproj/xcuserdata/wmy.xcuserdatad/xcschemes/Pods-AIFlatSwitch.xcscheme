@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C2A847894197578E7608D069"
+               BlueprintIdentifier = "D81FA5E78AA49BB33E215210"
                BuildableName = "AIFlatSwitch.framework"
                BlueprintName = "Pods-AIFlatSwitch"
                ReferencedContainer = "container:Pods.xcodeproj">
