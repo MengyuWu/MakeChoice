@@ -78,6 +78,7 @@ class ProfileViewController: UIViewController {
     var animationViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as!
     AnimationViewController
     
+    AppDelegate.startViewController=animationViewController
     
     
     self.presentViewController(animationViewController, animated: true, completion: nil)

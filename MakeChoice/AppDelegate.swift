@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var parseLoginHelper: ParseLoginHelper!
-    var startViewController: AnimationViewController?
+   static var startViewController: AnimationViewController?
     
     override init() {
         super.init()
@@ -80,15 +80,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // whether it logged in or not, both go to animationViewController
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as?
+            AppDelegate.startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as?
             AnimationViewController
-            startViewController!.user=user
+            AppDelegate.startViewController!.user=user
             
             
             
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as?
+            AppDelegate.startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as?
             AnimationViewController
             
             // 4
@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 5
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = startViewController;
+        self.window?.rootViewController = AppDelegate.startViewController;
         self.window?.makeKeyAndVisible()
         
         
@@ -205,7 +205,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if var controller=self.window?.rootViewController as? UITabBarController{
             println("update badge value 1")
           //  ParseHelper.updateProfileTabBadgeValue(controller)
-        }else if var controller=self.startViewController?.tabBarInitialViewController as? UITabBarController{
+        }else if var controller=AppDelegate.startViewController?.tabBarInitialViewController as? UITabBarController{
             println("update badge value 2")
             ParseHelper.updateProfileTabBadgeValue(controller)
         }
