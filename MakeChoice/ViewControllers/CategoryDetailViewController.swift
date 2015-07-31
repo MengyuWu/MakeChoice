@@ -61,6 +61,13 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
         
     }
     
+    @IBAction func scrollToTopPressed(sender: AnyObject) {
+        
+        //test, scroll to top
+        self.tableView.setContentOffset(CGPointZero, animated: true)
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
