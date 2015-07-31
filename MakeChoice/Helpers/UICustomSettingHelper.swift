@@ -65,7 +65,8 @@ class UICustomSettingHelper {
             cell.vote1Bar.alpha=0.9
             cell.vote2Bar.alpha=0.9
             
-            var totalHeight=cell.img1.frame.size.height-70
+            // var totalHeight=cell.img1.frame.size.height-70
+            var totalHeight=cell.img1.frame.size.height/2
             
             var vote1Percentage=cell.post?.vote1PercentageFloat ?? 0
             var height1:CGFloat=totalHeight*CGFloat(vote1Percentage)
@@ -106,7 +107,8 @@ class UICustomSettingHelper {
             cell.vote1Bar.alpha=0.9
             cell.vote2Bar.alpha=0.9
             
-            var totalHeight=cell.img1.frame.size.height-70
+           // var totalHeight=cell.img1.frame.size.height-70
+            var totalHeight=cell.img1.frame.size.height/2
             
             var vote1Percentage=cell.post?.vote1PercentageFloat ?? 0
             var height1:CGFloat=totalHeight*CGFloat(vote1Percentage)
