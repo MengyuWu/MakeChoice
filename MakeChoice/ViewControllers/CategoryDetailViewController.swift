@@ -207,7 +207,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
             length=count(title)
         }
         
-        var height=CGFloat((length/20)*10)+HEADER_CELL_HEIGHT
+        var height=CGFloat((length/15)*10)+HEADER_CELL_HEIGHT
         
         return height
 
