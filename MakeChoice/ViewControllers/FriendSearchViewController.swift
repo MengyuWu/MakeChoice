@@ -112,6 +112,10 @@ class FriendSearchViewController: UIViewController {
         
         self.tableView.dataSource=self
         self.searchBar.delegate=self
+        
+      
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -217,7 +221,8 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
     
     func addTextField(textField: UITextField!){
         // add the text field and make the result global
-        textField.placeholder = "Enter something"
+        textField.placeholder = "Character limits: 30"
+        textField.delegate=self
        
     }
     
@@ -226,7 +231,7 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
         
         self.selectedUser=user
         
-        sendRequestAlertController=UIAlertController(title: "Add Friend", message: "Enter request below", preferredStyle: UIAlertControllerStyle.Alert)
+        sendRequestAlertController=UIAlertController(title: "Add Friend", message: "Enter request below.", preferredStyle: UIAlertControllerStyle.Alert)
         
         if let sendRequestAlertController=sendRequestAlertController{
         sendRequestAlertController.addTextFieldWithConfigurationHandler(addTextField)
@@ -242,6 +247,27 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
 
     
 }
+
+// MARK: UITextFieldDelegate
+extension FriendSearchViewController:UITextFieldDelegate{
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if (range.length + range.location > count(textField.text) )
+        {
+            return false;
+        }
+        
+        let newLength = count(textField.text) + count(string) - range.length
+        return newLength <= 30
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+
 
 // MARK: Searchbar Delegate
 
