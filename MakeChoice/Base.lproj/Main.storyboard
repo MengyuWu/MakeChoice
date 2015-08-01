@@ -410,7 +410,7 @@
                                 <color key="backgroundColor" red="0.65098041296005249" green="0.76078438758850098" blue="0.91764712333679199" alpha="1" colorSpace="deviceRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHi-pH-AvJ">
-                                <rect key="frame" x="276" y="207" width="49" height="25"/>
+                                <rect key="frame" x="275" y="202" width="49" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46.5" id="NTl-A1-wZI"/>
                                 </constraints>
@@ -424,7 +424,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zy-1Y-hId" customClass="MIBadgeButton" customModule="MakeChoice" customModuleProvider="target">
-                                <rect key="frame" x="188" y="144" width="30" height="30"/>
+                                <rect key="frame" x="188" y="139" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gMN-52-eeQ"/>
                                     <constraint firstAttribute="width" secondItem="2Zy-1Y-hId" secondAttribute="height" multiplier="1:1" id="gWN-Iq-Krp"/>
@@ -495,7 +495,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35s-gn-oTt" customClass="MIBadgeButton" customModule="MakeChoice" customModuleProvider="target">
-                                <rect key="frame" x="382" y="144" width="38.5" height="30"/>
+                                <rect key="frame" x="382" y="139" width="38.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aNk-fj-rZi"/>
                                     <constraint firstAttribute="width" secondItem="35s-gn-oTt" secondAttribute="height" multiplier="32:25" id="ie3-l4-NZc"/>
@@ -508,7 +508,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ceS-8X-9tV" userLabel="profileBackground">
-                                <rect key="frame" x="255" y="114" width="90" height="90"/>
+                                <rect key="frame" x="255" y="109" width="90" height="90"/>
                                 <color key="backgroundColor" red="0.99215692280000001" green="0.99607849120000003" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ceS-8X-9tV" secondAttribute="height" multiplier="1:1" id="RLB-23-9OO"/>
@@ -516,14 +516,14 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-4J-BmJ">
-                                <rect key="frame" x="260" y="119" width="80" height="80"/>
+                                <rect key="frame" x="260" y="114" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Eca-4J-BmJ" secondAttribute="height" multiplier="1:1" id="CKj-3A-P4f"/>
                                     <constraint firstAttribute="height" constant="80" id="KLK-m0-8lO"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Zla-hC-HYD">
-                                <rect key="frame" x="320" y="167" width="20" height="20"/>
+                                <rect key="frame" x="320" y="162" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Zla-hC-HYD" secondAttribute="height" multiplier="1:1" id="kLl-vr-BLG"/>
                                     <constraint firstAttribute="height" constant="20" id="nJD-Mv-7bF"/>
@@ -565,7 +565,7 @@
                             <constraint firstItem="HNg-JK-2bW" firstAttribute="top" secondItem="aJP-oZ-LC6" secondAttribute="top" id="c45-f6-04u"/>
                             <constraint firstItem="MHi-pH-AvJ" firstAttribute="top" secondItem="Zla-hC-HYD" secondAttribute="bottom" constant="20" id="ejQ-zX-GaI"/>
                             <constraint firstItem="I1R-0J-6Wh" firstAttribute="leading" secondItem="agT-61-eID" secondAttribute="leadingMargin" constant="-16" id="hue-jg-ofZ"/>
-                            <constraint firstItem="aJP-oZ-LC6" firstAttribute="top" secondItem="Eca-4J-BmJ" secondAttribute="bottom" constant="45" id="jU6-G6-Dq2"/>
+                            <constraint firstItem="aJP-oZ-LC6" firstAttribute="top" secondItem="Eca-4J-BmJ" secondAttribute="bottom" constant="50" id="jU6-G6-Dq2"/>
                             <constraint firstItem="Xhj-ww-Tk6" firstAttribute="top" secondItem="qxO-nf-M1b" secondAttribute="bottom" id="kgj-56-jVV"/>
                             <constraint firstItem="Zla-hC-HYD" firstAttribute="top" secondItem="Eca-4J-BmJ" secondAttribute="bottom" constant="-21" id="ogi-uh-RQY"/>
                             <constraint firstItem="HNg-JK-2bW" firstAttribute="width" secondItem="aJP-oZ-LC6" secondAttribute="width" id="rQm-oH-WId"/>
@@ -692,7 +692,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="315" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="B0D-dI-0if">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell alpha="0.5" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CategoryDetailCell" rowHeight="460" id="w7m-6L-Hzh" customClass="CategoryDetailTableViewCell" customModule="MakeChoice" customModuleProvider="target">
@@ -782,7 +782,7 @@
                                                     </variation>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="648-YL-MxY">
-                                                    <rect key="frame" x="430.5" y="367.5" width="47.5" height="23.5"/>
+                                                    <rect key="frame" x="430" y="367" width="47.5" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.96466838659999998" green="0.9756519387" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1727,7 +1727,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E9i-OI-PvT" id="9Jx-Wl-uV9">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JRu-X2-btC">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="JRu-X2-btC">
                                                     <rect key="frame" x="8" y="18" width="39.5" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="JRu-X2-btC" secondAttribute="height" multiplier="1:1" id="HT8-1r-53L"/>
@@ -2305,7 +2305,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Time" translatesAutoresizingMaskIntoConstraints="NO" id="tCB-ll-EDC">
-                                                    <rect key="frame" x="154" y="16" width="20" height="20"/>
+                                                    <rect key="frame" x="154.5" y="16" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="tCB-ll-EDC" secondAttribute="height" multiplier="1:1" id="wlJ-Vo-1L0"/>
                                                         <constraint firstAttribute="height" constant="20" id="yqq-wh-Ae7"/>
@@ -2477,7 +2477,7 @@
         <image name="Notification" width="32" height="25"/>
         <image name="Pencil" width="13" height="18"/>
         <image name="Post" width="50" height="50"/>
-        <image name="Profile" width="70" height="70"/>
+        <image name="Profile" width="76" height="76"/>
         <image name="Profile_home" width="32" height="32"/>
         <image name="Reject" width="64" height="64"/>
         <image name="ScrollToTop" width="32" height="32"/>
@@ -2493,8 +2493,8 @@
         <image name="uncheckedBox" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hw2-xg-niX"/>
-        <segue reference="JFJ-6C-HcG"/>
+        <segue reference="8lu-0u-sp7"/>
         <segue reference="5qA-W6-K1R"/>
+        <segue reference="Hw2-xg-niX"/>
     </inferredMetricsTieBreakers>
 </document>
