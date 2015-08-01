@@ -72,7 +72,7 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
                         var image=UIImage(data:data as! NSData)
                         if var image=image{
                         if image.size.width>280{
-                            println("image with >280")
+                            
                             image=Images.resizeImage(image, width: 280, height: 280)!
                           }
                             
@@ -84,10 +84,10 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
                             filePicture.saveInBackgroundWithBlock{
                                 (success: Bool, error: NSError?) -> Void in
                                 if success {
-                                    println("saveImage")
+                                   // println("saveImage")
                                 }
                                 if error != nil {
-                                    println("error \(error)")
+                                    println(" ParseLogin filePicture error \(error)")
                                 }
                             }
                             

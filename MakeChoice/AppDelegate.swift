@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Initialize the ParseLoginHelper with a callback
             if let error = error {
                 // 1
-               // ErrorHandling.defaultErrorHandler(error)
-                println(error)
+                println("AppDelegate: \(error)")
             } else  if let user = user {
                 // if login was successful, display the TabBarController
                 // 2

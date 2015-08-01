@@ -44,8 +44,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     @IBOutlet weak var postButton: ZFRippleButton!
     @IBAction func PostPressed(sender: AnyObject) {
-        println("post pressed")
-        
+      
         // Note: before post, must check title, image1, image2 is posted
         
         var post=Post()
@@ -63,21 +62,20 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
        
         if (titleTextField.text==""){
             
-            SweetAlert().showAlert("Missing Contents?", subTitle: "Please fill in the title!", style: AlertStyle.Warning)
+            SweetAlert().showAlert("Missing Contents!", subTitle: "Please fill in the title!", style: AlertStyle.Warning)
             
         }else if (pickerSelect.titleLabel?.text=="Select"){
-            SweetAlert().showAlert("Missing Contents?", subTitle: "Please choose a category!", style: AlertStyle.Warning)
+            SweetAlert().showAlert("Missing Contents!", subTitle: "Please choose a category!", style: AlertStyle.Warning)
             
         }else if (img1Data == nil || img2Data == nil){
             
             
-            SweetAlert().showAlert("Missing Contents?", subTitle: "Please upload two pictures!", style: AlertStyle.Warning)
+            SweetAlert().showAlert("Missing Contents!", subTitle: "Please upload two pictures!", style: AlertStyle.Warning)
             
         }else{
             
             post.category=pickerSelect.titleLabel?.text?.lowercaseString
-            
-            println("upload successfully")
+       
             post.uploadPost()
             
            
@@ -98,20 +96,20 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     
     func showPhotoSourceSelection() {
-        let alertController = UIAlertController(title: nil, message: "where do you want to get your picture from?", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: nil, message: "Where do you want to get your pictures from?", preferredStyle: .ActionSheet)
     
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         if (UIImagePickerController.isCameraDeviceAvailable(.Rear)){
-            let cameraAction = UIAlertAction(title: "Photo from Camera", style: .Default){ (action) in
+            let cameraAction = UIAlertAction(title: "Photo from camera", style: .Default){ (action) in
                 self.showImagePickerController(.Camera)
             }
             
             alertController.addAction(cameraAction)
         }
         
-        let photoLibrayAction = UIAlertAction(title: "Photo from Libray", style: .Default){ (action) in
+        let photoLibrayAction = UIAlertAction(title: "Photo from libray", style: .Default){ (action) in
             self.showBSImagePicker()
         }
         
@@ -125,22 +123,22 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     // MARK: BSImagePicker
     func showBSImagePicker(){
         //using external imagePicker
-        println("BSImagePicker")
+       
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 2
         
         bs_presentImagePickerController(vc, animated: true,
             select: { [unowned self] (asset: PHAsset) -> Void in
-                // println("Selected: \(asset)")
+               
                 println(" selected")
             }, deselect: { (asset: PHAsset) -> Void in
-                // println("Deselected: \(asset)")
+              
                 println(" deselected")
             }, cancel: { (assets: [PHAsset]) -> Void in
-                //  println("Cancel: \(assets)")
+               
                 println("cancel selected")
             }, finish: { (assets: [PHAsset]) -> Void in
-               // println("Finish: \(assets)")
+              
                 println("finish select count: \(assets.count)")
                 
                 if(assets.count==2){
@@ -375,7 +373,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     func ButtonTapped(sender:UIButton!){
         
-        println("button tag \(sender.tag)")
+       // println("button tag \(sender.tag)")
        
         var tag=sender.tag
         pickerSelect.setTitle(CATEGORIES[tag], forState: .Normal)

@@ -38,8 +38,7 @@ class HomePostSectionHeaderView: UITableViewCell {
                     iconFile.getDataInBackgroundWithBlock{(data:NSData?, error: NSError?) -> Void in
                     
                         if let error = error {
-                           // ErrorHandling.defaultErrorHandler(error)
-                            println("error:\(error)")
+                            println("HomePost header error:\(error)")
                         }
                         
                         if let data = data {

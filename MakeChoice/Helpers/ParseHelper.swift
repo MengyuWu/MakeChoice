@@ -70,7 +70,7 @@ class ParseHelper{
         
         let query = Post.query()
         if let query=query{
-            println("category:\(categorys[categoryIndex])")
+            //println("category:\(categorys[categoryIndex])")
             query.whereKey(PF_POST_CATEGORY, equalTo: categorys[categoryIndex])
             query.includeKey(PF_POST_POSTER)
             query.orderByDescending(PF_POST_CREATEDAT)
@@ -164,7 +164,7 @@ class ParseHelper{
         friendRelation[PF_FRIEND_FRIEND]=toUser
         friendRelation.saveInBackgroundWithBlock{(success:Bool, error:NSError?) -> Void in
             if error != nil{
-                println("add friend error: \(error)")
+                println("Parse Helper add friend error: \(error)")
                 UICustomSettingHelper.sweetAlertNetworkError()
             }
             
@@ -289,7 +289,7 @@ class ParseHelper{
                 for result in results{
                     result.deleteInBackgroundWithBlock{ (success:Bool , error:NSError?) -> Void in
                         if error != nil {
-                            println(error)
+                            println("ParseHelper: deleteInBackgroundWithBlock \(error)")
                         }
                 }
              }
@@ -366,7 +366,7 @@ class ParseHelper{
                     UICustomSettingHelper.sweetAlertNetworkError()
                 }
 
-                println("error:\(error)")
+                println("ParseHelper, save vote error:\(error)")
             }
         }
     }
@@ -455,7 +455,7 @@ class ParseHelper{
     
         for (var index=0; index<array.count; index++) {
             
-            println("\(array[index].objectId) , \(object.objectId)")
+           // println("\(array[index].objectId) , \(object.objectId)")
             
             if(array[index].objectId == object.objectId){
                 return index
@@ -523,7 +523,7 @@ class ParseHelper{
         notification.saveInBackgroundWithBlock{(success:Bool, error: NSError?) -> Void in
             
             if(success){
-                println("save notification successfully")
+              //  println("save notification successfully")
             }
         }
         
@@ -554,7 +554,7 @@ class ParseHelper{
                     num=results.count
                     var currentInstallation=PFInstallation.currentInstallation()
                     num=num+currentInstallation.badge
-                    println("item badgeValue:\(num)")
+                    //println("item badgeValue:\(num)")
                     if(num != 0){
                         item.badgeValue="\(num)"
                         

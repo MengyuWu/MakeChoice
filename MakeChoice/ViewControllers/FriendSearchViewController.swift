@@ -78,16 +78,13 @@ class FriendSearchViewController: UIViewController {
         self.tableView.reloadData()
         
         if let error=error{
-            println("error: \(error)")
+            println("FriendSearchViewController: error: \(error)")
             UICustomSettingHelper.sweetAlertNetworkError()
         }
     }
     
     @IBAction func inviteButtonPressed(sender: AnyObject) {
-        println("invite friend button pressed")
-       
         MaveSDKHelper.setupMaveSDK()
-        
         var mave=MaveSDK.sharedInstance()
         var user=PFUser.currentUser()
         if let user=user{
@@ -186,11 +183,11 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
 
     func sendRequest(alert: UIAlertAction!){
         // store the new word
-        println("Send Request")
+    
        if let sendRequestAlertController=sendRequestAlertController{
         if let requestTextFields=sendRequestAlertController.textFields as? [UITextField]{
             var requestText=requestTextFields[0].text ?? ""
-            println("request info: \(requestText)")
+            //println("request info: \(requestText)")
             
           // save the request to parse, and then send notification
             if let toUser=self.selectedUser{
@@ -201,7 +198,7 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
                     if success{
                         //send notification
                     PushNotificationHelper.sendAddFriendRequesNotification(toUser)
-                        println("save add friendRequest success!")
+                        
                         SweetAlert().showAlert("Send!", subTitle: "Friend request sends successfully!", style: AlertStyle.Success)
                     }
                     
@@ -227,11 +224,9 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
     }
     
     func cell(cell: FriendSearchTableViewCell, didSelectAddFriend user: PFUser){
-       println("add friends button tapped")
-        
         self.selectedUser=user
         
-        sendRequestAlertController=UIAlertController(title: "Add Friend", message: "Enter request below.", preferredStyle: UIAlertControllerStyle.Alert)
+        sendRequestAlertController=UIAlertController(title: "Add Friend", message: "Enter message below.", preferredStyle: UIAlertControllerStyle.Alert)
         
         if let sendRequestAlertController=sendRequestAlertController{
         sendRequestAlertController.addTextFieldWithConfigurationHandler(addTextField)

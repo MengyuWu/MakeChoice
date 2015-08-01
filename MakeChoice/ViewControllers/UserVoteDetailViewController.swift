@@ -16,8 +16,6 @@ class UserVoteDetailViewController: UIViewController,TimelineComponentTarget{
     
     var postId:String=""
     
-   // var votes:[PFObject] = []
-    
     var timelineComponent:TimelineComponent<PFObject, UserVoteDetailViewController>!
     
     let defaultRange = 0...4
@@ -44,9 +42,7 @@ class UserVoteDetailViewController: UIViewController,TimelineComponentTarget{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
-      tableView.delegate=self
+        tableView.delegate=self
       tableView.dataSource=self
       timelineComponent = TimelineComponent(target: self)
         
@@ -84,7 +80,7 @@ class UserVoteDetailViewController: UIViewController,TimelineComponentTarget{
 
 extension UserVoteDetailViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        //println("number of rows: \(votes.count)")
+       
        return 1
         
     }
@@ -100,7 +96,7 @@ extension UserVoteDetailViewController: UITableViewDataSource{
         
         var postId: AnyObject?=cell.vote![PF_VOTE_POSTID]
         
-        println("index: \(indexPath.section)  \(postId)")
+       // println("index: \(indexPath.section)  \(postId)")
         
        return cell
         

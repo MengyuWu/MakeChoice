@@ -47,7 +47,7 @@ class AnimationViewController: UIViewController {
             if let error = error {
                 // 1
                 // ErrorHandling.defaultErrorHandler(error)
-                println(error)
+                println("AnimationViewController \(error)")
             } else  if let user = user {
                 // if login was successful, display the TabBarController
                 // 2
@@ -76,16 +76,6 @@ class AnimationViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
- 
-//        if (self.user != nil){
-//            //go to tabbarcontroller
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
-//            self.presentViewController(tabBarController, animated:true, completion:nil)
-//            
-//            
-//        }
-      
         
         animationImageView.animationImages=imageList
         animationImageView.animationRepeatCount=1
@@ -93,7 +83,7 @@ class AnimationViewController: UIViewController {
         animationImageView.startAnimating()
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(4 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
-            println("finished aniamtion")
+           
             
             if self.user == nil{
                 let loginViewController = PFLogInViewController()

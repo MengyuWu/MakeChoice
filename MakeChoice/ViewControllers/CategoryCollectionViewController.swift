@@ -100,7 +100,7 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
             let vc = segue.destinationViewController as! CategoryDetailViewController
             vc.categoryIndex=indexPath?.row
             vc.option=1
-            println(vc.categoryIndex)
+           // println(vc.categoryIndex)
        
         }
     }

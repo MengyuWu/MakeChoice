@@ -42,13 +42,13 @@ class FriendRequestTableViewCell: UITableViewCell {
     weak var delegate:FriendRequestTableViewCellDelegate?
     
     @IBAction func acceptFriendButtonTapped(sender: AnyObject) {
-         println("accept in cell")
+        // println("accept in cell")
         self.delegate?.cell(self, didSelectAcceptFriend: self.user!)
    }
 
     
     @IBAction func rejectFriendButtonTapped(sender: AnyObject) {
-         println("reject in cell")
+       //  println("reject in cell")
         self.delegate?.cell(self, didSelectRejectFriend: self.user!)
         
     }

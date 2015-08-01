@@ -42,22 +42,18 @@ class ProfileViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
-            NSLog("Your post")
+            
             YourPostsContainerView.hidden=false
             FriendsContainerView.hidden=true
             //YourPostsContainerView.setNeedsDisplay()
         case 1:
-            NSLog("your friends")
+            
             YourPostsContainerView.hidden=true
             FriendsContainerView.hidden=false
         
             if self.friendsVC == nil{
                 println("nil")
             }
-            
-          //  self.friendsVC?.tableView.reloadData()
-          //  self.friendsVC?.view.setNeedsDisplay()
-            //FriendsContainerView.setNeedsDisplay()
             
             
         default:
@@ -70,26 +66,21 @@ class ProfileViewController: UIViewController {
 
 @IBAction func logoutButtonTapped(sender: AnyObject) {
     
-    SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to logout?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes, logout!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+    SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to logout?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes,logout!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
         if isOtherButton == true {
             
             print("Cancel Button  Pressed", appendNewline: false)
             
         }
         else {
-            println("logout button ")
-            
             PFUser.logOut()
-            //self.goToLogin()
-            
             // go to animation page
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             var animationViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as!
             AnimationViewController
             
             AppDelegate.startViewController=animationViewController
-            
-            
+
             self.presentViewController(animationViewController, animated: true, completion: nil)
 
         }
@@ -126,7 +117,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var notificationButton: MIBadgeButton!
     
     @IBAction func notificationButtonTapped(sender: AnyObject) {
-       println("notification button tapped")
+       
        // clean the badge value when tapped(notification badge, and icon badge)
         var currentInstallation=PFInstallation.currentInstallation()
         if (currentInstallation.badge != 0) {
@@ -138,7 +129,7 @@ class ProfileViewController: UIViewController {
         // Also reset the item badge value, only show friends requests
         
         if var tabBarController=self.navigationController?.tabBarController{
-            println("get tabBarController")
+            
             ParseHelper.updateProfileTabBadgeValue(tabBarController)
         }
 
@@ -160,8 +151,8 @@ class ProfileViewController: UIViewController {
             // Initialize the ParseLoginHelper with a callback
             if let error = error {
                 // 1
-                // ErrorHandling.defaultErrorHandler(error)
-                println(error)
+
+                println("ProfileViewController parseLogin  \(error)")
             } else  if let user = user {
                 // if login was successful, display the TabBarController
                 // 2
@@ -219,7 +210,7 @@ class ProfileViewController: UIViewController {
     func notificationReceived()
     {
         //updateUI
-        println("notification badge value")
+       
         // set the notification badge value
         var currentInstallation=PFInstallation.currentInstallation()
         if (currentInstallation.badge != 0) {
@@ -246,9 +237,7 @@ class ProfileViewController: UIViewController {
     
     func deleteFriendReceived(){
         //update the statistic friend number
-        println("deleteFriend received")
-        
-        if var numString=self.myFriendsNum.text{
+     if var numString=self.myFriendsNum.text{
             
             if var num=numString.toInt(){
                 if num>0{
@@ -264,7 +253,7 @@ class ProfileViewController: UIViewController {
     }
     
     func deletePostReceived(){
-        println("deletePost received")
+       
         if var numString=self.myPostsNum.text{
             
             if var num=numString.toInt(){
@@ -311,7 +300,7 @@ class ProfileViewController: UIViewController {
                     (data: NSData?, error: NSError?) -> Void in
                     
                     if let data=data{
-                        println("get data")
+                       
                         self.userImage.image=UIImage(data: data, scale:1)
                         
                     }
@@ -373,7 +362,7 @@ class ProfileViewController: UIViewController {
 
         // update badge value
         if var tabBarController=self.navigationController?.tabBarController{
-            println("get tabBarController")
+           
             ParseHelper.updateProfileTabBadgeValue(tabBarController)
         }
 
@@ -390,7 +379,7 @@ class ProfileViewController: UIViewController {
             let friendRequstViewController = segue.destinationViewController as! FriendRequestViewController
         }else if( segue.identifier=="FriendListSegue"){
             // remove this useless
-            println("friendlistsegue")
+      
             self.friendsVC = segue.destinationViewController as? FriendsListViewController
         }else if( segue.identifier=="notificationSegue"){
             let notificationViewController = segue.destinationViewController as! NotificationViewController
@@ -413,8 +402,8 @@ class ProfileViewController: UIViewController {
     // MARK: image picker
     
     func showPhotoSourceSelection() {
-        println("picker")
-        let alertController = UIAlertController(title: nil, message: "where do you want to get your picture from?", preferredStyle: .ActionSheet)
+      
+        let alertController = UIAlertController(title: nil, message: "Where do you want to get your picture from?", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
@@ -427,7 +416,7 @@ class ProfileViewController: UIViewController {
             alertController.addAction(cameraAction)
         }
         
-        let photoLibrayAction = UIAlertAction(title: "Photo from Libray", style: .Default){ (action) in
+        let photoLibrayAction = UIAlertAction(title: "Photo from libray", style: .Default){ (action) in
             self.showImagePickerController(.PhotoLibrary)
         }
         
@@ -457,18 +446,15 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
         // upload image to parse
-        println("finish picking image")
+    
         var imgData=UIImageJPEGRepresentation(image, 0.8)
         let imageFile=PFFile(data: imgData)
         imageFile.saveInBackgroundWithBlock{
             (success: Bool, error: NSError? ) -> Void in
             
             if let error = error {
-                // ErrorHandling.defaultErrorHandler(error)
-                println("error")
+                println("profileViewController imagePicker\(error)")
             }else{
-                println("profile image save successfully")
-                
                 var user:PFUser?=PFUser.currentUser()
                 if let user=user{
                 user[PF_USER_PICTURE]=imageFile

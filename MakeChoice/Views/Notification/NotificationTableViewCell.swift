@@ -33,11 +33,11 @@ class NotificationTableViewCell: UITableViewCell {
                 
                 if( messageType=="vote") {
                     self.typeImage.image=UIImage(named: "Vote")
-                    self.message.text="voted on you poll"
+                    self.message.text="voted on you post"
                     
                 }else if (messageType=="comment"){
                     self.typeImage.image=UIImage(named: "Comment")
-                    self.message.text="commented on you poll"
+                    self.message.text="commented on you post"
                 }
                 
             }

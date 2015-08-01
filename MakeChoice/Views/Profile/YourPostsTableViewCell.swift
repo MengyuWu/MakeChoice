@@ -35,7 +35,7 @@ class YourPostsTableViewCell: UITableViewCell {
     
     @IBAction func helpButtonTapped(sender: AnyObject) {
         
-        let alertController = UIAlertController(title: nil, message: "Poll", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: nil, message: "Ask from", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)

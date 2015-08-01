@@ -30,8 +30,8 @@ class CategoryDetailHeaderTableViewCell: UITableViewCell {
                     iconFile.getDataInBackgroundWithBlock{(data:NSData?, error: NSError?) -> Void in
                         
                         if let error = error {
-                            // ErrorHandling.defaultErrorHandler(error)
-                            println("error:\(error)")
+                            
+                            println("category detial header table view cell error:\(error)")
                         }
                         
                         if let data = data {

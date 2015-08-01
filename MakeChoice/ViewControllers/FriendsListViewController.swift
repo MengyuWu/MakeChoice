@@ -31,7 +31,7 @@ class FriendsListViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        //println("friends list view will appear")
+   
         UICustomSettingHelper.MBProgressHUDLoading(self.view)
         
         ParseHelper.allFriends{ (results:[AnyObject]?, error: NSError?) -> Void in
@@ -44,7 +44,7 @@ class FriendsListViewController: UIViewController {
             if let results = results as? [PFObject]{
                 if results.count>0 {
                 self.friends=results.map{$0[PF_FRIEND_FRIEND] as! PFUser}
-                //println("friends in view will apper: \(self.friends.count)")
+         
                 }else{
                     // if no friend
                     self.friends=[]
@@ -84,8 +84,7 @@ extension FriendsListViewController:UITableViewDataSource{
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        
-      //  println("friends: \(self.friends.count)")
+  
         
         let cell=tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath) as! FriendsTableViewCell
         
@@ -124,10 +123,9 @@ extension FriendsListViewController:UITableViewDelegate{
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if (editingStyle == .Delete) {
+          
             
-            print("swipe delete")
-            
-            SweetAlert().showAlert("Are you sure?", subTitle: "Your friend will permanently delete!", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes, delete it!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+            SweetAlert().showAlert("Are you sure?", subTitle: "Your friend will be permanently deleted!", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes, delete it!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
                 if isOtherButton == true {
                     
                     print("Cancel Button  Pressed", appendNewline: false)

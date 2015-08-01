@@ -89,7 +89,7 @@ extension NotificationViewController:UITableViewDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if( segue.identifier=="notificationTodetailSegue" ){
-            println("go to postDetailViewController")
+           
             let postDetailViewController = segue.destinationViewController as! PostDetailViewController
             var post=sender as! Post
             postDetailViewController.post=post
@@ -99,7 +99,6 @@ extension NotificationViewController:UITableViewDelegate{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       
-        println("did select \(indexPath.row)")
         var notification=notifications[indexPath.row]
         var post=notification[PF_NOTIFICATION_POST] as? Post
         
@@ -109,14 +108,12 @@ extension NotificationViewController:UITableViewDelegate{
           self.performSegueWithIdentifier("notificationTodetailSegue", sender: post)
         }else{
             
-          //TODO: POP UP indicator
-        SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
+        SweetAlert().showAlert("Does not exist!", subTitle: "This post has been deleted!", style: AlertStyle.Warning)
             
-          println("post do not exist")
           // delete the notification if post do not exist"
             notification.deleteInBackgroundWithBlock{ (success:Bool, error:NSError?) -> Void in
                 if(success){
-                    println("delete notification that do not exist successfully!")
+                   
                     self.notifications.removeAtIndex(indexPath.row)
                 }
                 
@@ -133,14 +130,11 @@ extension NotificationViewController:UITableViewDelegate{
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if (editingStyle == .Delete) {
-            
-            print("swipe delete")
-            
+ 
             let notification=notifications[indexPath.row]
         
             notification.deleteInBackgroundWithBlock{ (success:Bool, error:NSError?) -> Void in
                 if(success){
-                    println("delete notification successfully!")
                     self.notifications.removeAtIndex(indexPath.row)
                 }
                 

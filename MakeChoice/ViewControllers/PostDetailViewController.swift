@@ -29,12 +29,11 @@ class PostDetailViewController: UIViewController {
         if let identifier = segue.identifier {
             
             if (identifier=="commentUnwind") {
-                println("commentUnwind")
+               
                 if(segue.sourceViewController .isKindOfClass(CommentViewController)){
                     var commentVC=segue.sourceViewController as! CommentViewController
                     var tag=commentVC.index
-                    println("index:\(tag)")
-               }
+                }
                 
                 
             }

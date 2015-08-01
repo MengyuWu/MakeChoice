@@ -53,8 +53,8 @@ class AddressBookViewController: UIViewController {
                 // reload the data in case that getting data later than load tableview
                 self.tableview.reloadData()
             } else if error != nil {
-                // TODO:
-                println(error)
+               
+                println("AddressBookViewController: \(error)")
             }
         }
 
@@ -145,7 +145,7 @@ extension AddressBookViewController:UITableViewDelegate{
             var finalImage:UIImage?
             var finalImageData:NSData?
             if let image1=image1, image2=image2 {
-             println("merge images")
+            // println("merge images")
              finalImage=DesignHelper.mergeTwoImages(image1, image2: image2)
             finalImage=Images.resizeImage(finalImage!, width:90, height:60)
              finalImageData=UIImagePNGRepresentation(finalImage)
@@ -153,7 +153,7 @@ extension AddressBookViewController:UITableViewDelegate{
             }
            
             if MFMessageComposeViewController.canSendAttachments(){
-                println("can send attachmetns")
+              
                   messageCompose.addAttachmentData(finalImageData, typeIdentifier: "kUTTypePNG", filename: "finalimage.png")
             }
          
@@ -182,9 +182,8 @@ extension AddressBookViewController:UITableViewDelegate{
 extension AddressBookViewController:MFMessageComposeViewControllerDelegate{
     func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult){
         if result.value == MessageComposeResultSent.value {
-            //ProgressHUD.showSuccess("Invitation SMS sent successfully")
-            println("Invitation SMS sent successfully")
-            SweetAlert().showAlert("Send!", subTitle: "SMS sent successfully!", style: AlertStyle.Success)
+            
+            SweetAlert().showAlert("Send!", subTitle: "SMS has been sent successfully!", style: AlertStyle.Success)
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }

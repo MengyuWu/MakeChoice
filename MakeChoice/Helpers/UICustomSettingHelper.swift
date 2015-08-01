@@ -73,14 +73,14 @@ class UICustomSettingHelper {
         
         if let cell=cell as? HomePostTableViewCell{
             // if is voted show the results
-//            UIView.animateWithDuration(0){
-//                cell.vote1BarHeightConstraint.constant=0
-//                cell.vote2BarHeightConstraint.constant=0
-//                view.layoutIfNeeded()
-//            }
+            UIView.animateWithDuration(0){
+                cell.vote1BarHeightConstraint.constant=0
+                cell.vote2BarHeightConstraint.constant=0
+                view.layoutIfNeeded()
+            }
             
-            cell.vote1BarHeightConstraint.constant=0
-            cell.vote2BarHeightConstraint.constant=0
+//            cell.vote1BarHeightConstraint.constant=0
+//            cell.vote2BarHeightConstraint.constant=0
             
             cell.vote1Bar.alpha=0.8
             cell.vote2Bar.alpha=0.8
@@ -119,14 +119,14 @@ class UICustomSettingHelper {
         }else if let cell=cell as? CategoryDetailTableViewCell{
             
             // if is voted show the results
-//            UIView.animateWithDuration(0){
-//                cell.vote1BarHeightConstraint.constant=0
-//                cell.vote2BarHeightConstraint.constant=0
-//                view.layoutIfNeeded()
-//            }
+            UIView.animateWithDuration(0){
+                cell.vote1BarHeightConstraint.constant=0
+                cell.vote2BarHeightConstraint.constant=0
+                view.layoutIfNeeded()
+            }
             
-            cell.vote1BarHeightConstraint.constant=0
-            cell.vote2BarHeightConstraint.constant=0
+//            cell.vote1BarHeightConstraint.constant=0
+//            cell.vote2BarHeightConstraint.constant=0
             
             cell.vote1Bar.alpha=0.8
             cell.vote2Bar.alpha=0.8

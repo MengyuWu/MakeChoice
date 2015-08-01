@@ -358,7 +358,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
 
                 if let results=results{
                     if results.count==0{
-                        SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
+                        SweetAlert().showAlert("Does not exist!", subTitle: "This post has been deleted!", style: AlertStyle.Warning)
                         self.timelineComponent.refresh(self)
                     }else{
                         self.performSegueWithIdentifier("commentPushSegue", sender: post)
@@ -375,7 +375,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
     
     func img1Tapped(recognizer:UITapGestureRecognizer ){
         
-        println("the \(recognizer.view?.tag)th  posts: img1 tapped")
+        //println("the \(recognizer.view?.tag)th  posts: img1 tapped")
         
         if let tag=recognizer.view?.tag{
             var postId:String?
@@ -387,7 +387,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
             
             
             if let postId=postId{
-                println("postId:\(postId)")
+                
                 UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 ParseHelper.findPostWithPostId(postId){ (results:[AnyObject]?, error:NSError?) in
                     MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -397,7 +397,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
                     
                     if let results=results{
                         if results.count==0{
-                            SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
+                            SweetAlert().showAlert("Does not exist!", subTitle: "This post has been deleted!", style: AlertStyle.Warning)
                             self.timelineComponent.refresh(self)
                             
                         }else{
@@ -405,12 +405,11 @@ extension CategoryDetailViewController: UITableViewDataSource {
                                 if let results=results as? [PFObject]{
                                     
                                     if(results.count != 0){
-                                        println("voted!")
+                                        
                                          SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
-                                        // alreday voted!
-                                        // show results:
+                                  
                                     }else{
-                                        println("save new vote")
+                                        
                                         // save the result, and show results
                                         ParseHelper.saveVote(postId, choice: 1)
                                         
@@ -479,7 +478,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
     
     func img2Tapped(recognizer:UITapGestureRecognizer ){
         
-        println("the \(recognizer.view?.tag)th  posts: img2 tapped")
+        //println("the \(recognizer.view?.tag)th  posts: img2 tapped")
         
         if let tag=recognizer.view?.tag{
             var postId:String?
@@ -488,7 +487,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
             poster=timelineComponent.content[tag].poster
             
             if let postId=postId{
-                println("postId:\(postId)")
+                
                 UICustomSettingHelper.MBProgressHUDSimple(self.view)
                 ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
                     MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -499,7 +498,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
                     
                     if let results=results{
                         if results.count==0{
-                            SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
+                            SweetAlert().showAlert("Does not exist!", subTitle: "This post has been deleted!", style: AlertStyle.Warning)
                             self.timelineComponent.refresh(self)
                             
                         }else{
@@ -507,12 +506,11 @@ extension CategoryDetailViewController: UITableViewDataSource {
                                 if let results=results as? [PFObject]{
                                     
                                     if(results.count != 0){
-                                        println("voted!")
+                                       
                                          SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
-                                        // alreday voted!
-                                        // show results:
+                                        
                                     }else{
-                                        println("save new vote")
+                                        
                                         // save the result, and show results
                                         ParseHelper.saveVote(postId, choice: 2)
                                         

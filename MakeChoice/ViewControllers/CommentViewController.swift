@@ -161,7 +161,7 @@ class CommentViewController: JSQMessagesViewController{
                     }
                     self.automaticallyScrollsToMostRecentMessage = true
                 } else {
-                    //ProgressHUD.showError("Network error")
+             
                     println("network error")
                 }
                 self.isLoading = false;
@@ -218,7 +218,7 @@ class CommentViewController: JSQMessagesViewController{
             
             videoFile.saveInBackgroundWithBlock({ (succeeed: Bool, error: NSError?) -> Void in
                 if error != nil {
-                    //ProgressHUD.showError("Network error")
+                   
                     println("network error")
                     
                 }
@@ -230,7 +230,7 @@ class CommentViewController: JSQMessagesViewController{
             pictureFile = PFFile(name: "picture.jpg", data: UIImageJPEGRepresentation(picture, 0.6))
             pictureFile.saveInBackgroundWithBlock({ (suceeded: Bool, error: NSError?) -> Void in
                 if error != nil {
-                    // ProgressHUD.showError("Picture save error")
+                  
                     println("picture save error")
                 }
             })
@@ -251,7 +251,7 @@ class CommentViewController: JSQMessagesViewController{
                 JSQSystemSoundPlayer.jsq_playMessageSentSound()
                 self.loadMessages()
             } else {
-                //ProgressHUD.showError("Network error")
+       
                 println("network error")
             }
         }

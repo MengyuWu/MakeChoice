@@ -95,18 +95,14 @@ extension FriendRequestViewController:UITableViewDelegate{
 
 extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
     func cell(cell:FriendRequestTableViewCell, didSelectAcceptFriend user: PFUser){
-        
-        println("accept")
-        
-        //add friend relationship, check whether they are friend, if they are friend doesn't need to add again
+       //add friend relationship, check whether they are friend, if they are friend doesn't need to add again
         
         ParseHelper.hasFriendRelation(PFUser.currentUser()!, user2: user){
             (results:[AnyObject]?, error: NSError?) -> Void in
             
             if let results=results{
                 if results.count>0 {
-                    println("already added!")
-                   SweetAlert().showAlert("Added", subTitle: "Friend is already added!", style: AlertStyle.Warning)
+                   SweetAlert().showAlert("Added", subTitle: "This friend was already added!", style: AlertStyle.Warning)
                 }else{
                     ParseHelper.addFriendFromUserToUser(PFUser.currentUser()!, toUser:user)
                     ParseHelper.addFriendFromUserToUser(user, toUser:PFUser.currentUser()!)
@@ -126,7 +122,7 @@ extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
                             println("delete request error\(error)")
                         }else{
                             //refresh requst list
-                            println("refresh")
+                          
                             UICustomSettingHelper.MBProgressHUDSimple(self.view)
                             ParseHelper.getFriendsRequest{(results:[AnyObject]?, error: NSError?) -> Void in
                                 
@@ -158,9 +154,7 @@ extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
     
     
     func cell(cell:FriendRequestTableViewCell, didSelectRejectFriend user: PFUser){
-        println("reject")
-        
-        // remove all the request from selected user, from parse
+       // remove all the request from selected user, from parse
         ParseHelper.removeFriendRequestFromUser(user){ (results: [AnyObject]?, error: NSError?) -> Void in
             if let results=results as? [PFObject]{
                 for result in results{
@@ -170,8 +164,7 @@ extension FriendRequestViewController:FriendRequestTableViewCellDelegate{
                             println("delete request error\(error)")
                         }else{
                             //refresh requst list
-                            //refresh requst list
-                            println("refresh")
+                    
                             UICustomSettingHelper.MBProgressHUDSimple(self.view)
                             ParseHelper.getFriendsRequest{(results:[AnyObject]?, error: NSError?) -> Void in
                                 

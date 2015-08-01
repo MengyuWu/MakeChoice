@@ -116,8 +116,8 @@ class Post: PFObject, PFSubclassing {
             image1File?.getDataInBackgroundWithBlock{(data: NSData?, error: NSError?) -> Void in
                 
                 if let error = error {
-                   // ErrorHandling.defaultErrorHandler(error)
-                    println("error")
+                   
+                    println("Post downloadImage1 error")
                 }
                 
                 if let data = data {
@@ -140,7 +140,7 @@ class Post: PFObject, PFSubclassing {
                 
                 if let error = error {
                     // ErrorHandling.defaultErrorHandler(error)
-                    println("error")
+                    println("Post downloadImage2 error")
                 }
                 
                 if let data = data {

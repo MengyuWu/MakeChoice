@@ -147,7 +147,7 @@ extension YourPostsViewController: UITableViewDataSource{
 extension YourPostsViewController:UITableViewDelegate{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("did selectrow")
+       
         self.selectedPost=timelineComponent.content[indexPath.section]
         self.performSegueWithIdentifier("postToDetailSegue", sender: self)     //2
         
@@ -165,11 +165,7 @@ extension YourPostsViewController:UITableViewDelegate{
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if (editingStyle == .Delete) {
-            
-            print("swipe delete")
-            
-            
-            SweetAlert().showAlert("Are you sure?", subTitle: "You post will permanently delete!", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes, delete it!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+                   SweetAlert().showAlert("Are you sure?", subTitle: "Your post will be permanently deleted!", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes, delete it!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
                 if isOtherButton == true {
                     
                     print("Cancel Button  Pressed", appendNewline: false)
@@ -189,8 +185,6 @@ extension YourPostsViewController:UITableViewDelegate{
 
                         
                         if success {
-                            println("delete postID: \(postId)")
-                            
                             // refresh
                             self.timelineComponent.refresh(self)
                             NSNotificationCenter.defaultCenter().postNotificationName("DeletePost", object: nil)
@@ -215,16 +209,11 @@ extension YourPostsViewController:UITableViewDelegate{
 // MARK:  YourPostsTableViewCellSegueDelegate
 extension YourPostsViewController:YourPostsTableViewCellDelegate{
     
-    
-    
-    
     func cell(cell: YourPostsTableViewCell, didSelectAddressBookSegue post: Post){
-        println("address book")
         self.performSegueWithIdentifier("addressBookSegue", sender: post)
     }
     
     func cell(cell: YourPostsTableViewCell, didSelectShareToFacebook post: Post){
-    println("share to facebook")
     UICustomSettingHelper.MBProgressHUDProcessingImages(self.view)    
     var shareToFacebook=SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         
@@ -236,13 +225,13 @@ extension YourPostsViewController:YourPostsTableViewCellDelegate{
         var finalImage:UIImage?
         var finalImageData:NSData?
         if let image1=image1, image2=image2 {
-            println("merge images")
+            //merge images
             finalImage=DesignHelper.mergeTwoImages(image1, image2: image2)
             finalImageData=UIImagePNGRepresentation(finalImage)
             
         }
      shareToFacebook.addImage(finalImage)
-     shareToFacebook.setInitialText("Hey, help me vote on: \(questions), Download MakeChoice: URL")
+     shareToFacebook.setInitialText("Hi,please help me vote on: \(questions), Download MakeChoice: URL")
        
         MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
         self.presentViewController(shareToFacebook,animated:true, completion:nil)

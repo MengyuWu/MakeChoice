@@ -148,11 +148,11 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     @IBAction func unwindToSegue(segue: UIStoryboardSegue){
         if let identifier = segue.identifier {
             if (identifier=="commentUnwind") {
-                println("commentUnwind")
+               
                 if(segue.sourceViewController .isKindOfClass(CommentViewController)){
                     var commentVC=segue.sourceViewController as! CommentViewController
                     var tag=commentVC.index
-                    println("index:\(tag)")
+                    //println("index:\(tag)")
                     if let tag=tag{
                     //update comment"
                     self.tableView.beginUpdates()
@@ -330,7 +330,7 @@ extension HomeViewController: UITableViewDataSource {
                 
                 if let results=results{
                     if results.count==0{
-                        SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
+                        SweetAlert().showAlert("Does not exist!", subTitle: "This post has been deleted!", style: AlertStyle.Warning)
                         self.timelineComponent.refresh(self)
                     }else{
                          self.performSegueWithIdentifier("commentPushSegue", sender: post)
@@ -364,7 +364,7 @@ extension HomeViewController: UITableViewDataSource {
 
                     if let results=results{
                         if results.count==0{
-                             SweetAlert().showAlert("Does not exist", subTitle: "This poll has been deleted!", style: AlertStyle.Warning)
+                             SweetAlert().showAlert("Does not exist!", subTitle: "This post has been deleted!", style: AlertStyle.Warning)
                             self.timelineComponent.refresh(self)
                             
                         }else{
@@ -372,16 +372,11 @@ extension HomeViewController: UITableViewDataSource {
                                 if let results=results as? [PFObject]{
                                     
                                     if(results.count != 0){
-                                        println("voted!")
+                                        
                                          SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
-                                        // alreday voted!
-                                        // show results:
-                                        
-                                      
-                                        
                                         
                                     }else{
-                                        println("save new vote")
+                                       
                                         // save the result, and show results
                                         ParseHelper.saveVote(postId, choice: 1)
                                         
@@ -435,7 +430,7 @@ extension HomeViewController: UITableViewDataSource {
                                        UICustomSettingHelper.sweetAlertNetworkError()
                                     }
 
-                                   // println(error)
+                            
                                 }
                                 
                             }
@@ -480,12 +475,11 @@ extension HomeViewController: UITableViewDataSource {
                                 if let results=results as? [PFObject]{
                                     
                                     if(results.count != 0){
-                                        println("voted!")
+                                       
                                          SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
-                                        // alreday voted!
-                                        // show results:
+                                
                                     }else{
-                                        println("save new vote")
+                                  
                                         // save the result, and show results
                                         ParseHelper.saveVote(postId, choice: 2)
                                         
