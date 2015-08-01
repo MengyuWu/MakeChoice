@@ -56,14 +56,17 @@ class UICustomSettingHelper {
         
         if let cell=cell as? HomePostTableViewCell{
             // if is voted show the results
-            UIView.animateWithDuration(0){
-                cell.vote1BarHeightConstraint.constant=0
-                cell.vote2BarHeightConstraint.constant=0
-                view.layoutIfNeeded()
-            }
+//            UIView.animateWithDuration(0){
+//                cell.vote1BarHeightConstraint.constant=0
+//                cell.vote2BarHeightConstraint.constant=0
+//                view.layoutIfNeeded()
+//            }
             
-            cell.vote1Bar.alpha=0.9
-            cell.vote2Bar.alpha=0.9
+            cell.vote1BarHeightConstraint.constant=0
+            cell.vote2BarHeightConstraint.constant=0
+            
+            cell.vote1Bar.alpha=0.8
+            cell.vote2Bar.alpha=0.8
             
             // var totalHeight=cell.img1.frame.size.height-70
             var totalHeight=cell.img1.frame.size.height/2
@@ -79,6 +82,7 @@ class UICustomSettingHelper {
                     
                     cell.vote1BarHeightConstraint.constant=height1
                     cell.vote2BarHeightConstraint.constant=height2
+                    
                     cell.vote1.alpha=0.9;
                     cell.vote2.alpha=0.9;
                     // changes made in here will be animated
@@ -98,14 +102,17 @@ class UICustomSettingHelper {
         }else if let cell=cell as? CategoryDetailTableViewCell{
             
             // if is voted show the results
-            UIView.animateWithDuration(0){
-                cell.vote1BarHeightConstraint.constant=0
-                cell.vote2BarHeightConstraint.constant=0
-                view.layoutIfNeeded()
-            }
+//            UIView.animateWithDuration(0){
+//                cell.vote1BarHeightConstraint.constant=0
+//                cell.vote2BarHeightConstraint.constant=0
+//                view.layoutIfNeeded()
+//            }
             
-            cell.vote1Bar.alpha=0.9
-            cell.vote2Bar.alpha=0.9
+            cell.vote1BarHeightConstraint.constant=0
+            cell.vote2BarHeightConstraint.constant=0
+            
+            cell.vote1Bar.alpha=0.8
+            cell.vote2Bar.alpha=0.8
             
            // var totalHeight=cell.img1.frame.size.height-70
             var totalHeight=cell.img1.frame.size.height/2
