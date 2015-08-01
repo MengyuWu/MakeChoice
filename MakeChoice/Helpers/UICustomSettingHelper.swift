@@ -28,7 +28,24 @@ class UICustomSettingHelper {
     }
     
     static func sweetAlertNetworkError(){
-        SweetAlert().showAlert("Network Error", subTitle: "Please try later!", style: AlertStyle.Error)
+        // only show one network error alert
+      
+        if ( NetworkErrorAlertLock.tryLock()){
+            
+            println("show network error alert")
+            SweetAlert().showAlert("Network Error", subTitle: "Please try later!", style: AlertStyle.Error, buttonTitle: "Ok"){ (isOtherButton) -> Void in
+                if isOtherButton == true {
+                    println("ok")
+                    NetworkErrorAlertLock.unlock()
+                }
+            }
+        }else{
+            println("try lock fails")
+        }
+        
+        
+        
+       
     }
     
     static func MBProgressHUDLoading(view:UIView){

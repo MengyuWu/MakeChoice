@@ -363,7 +363,7 @@ class ParseHelper{
             
             if(error != nil){
                 if error != nil{
-                    SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                    UICustomSettingHelper.sweetAlertNetworkError()
                 }
 
                 println("error:\(error)")

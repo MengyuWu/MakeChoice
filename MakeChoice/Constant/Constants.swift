@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*Network error flag*/
+var NetworkErrorAlertLock=NSLock()
+
+
 /*MAVE*/
 let MAVE_SDK_APPLICATION_ID="828146375653644"
 
