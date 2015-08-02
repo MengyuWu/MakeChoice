@@ -95,17 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AppDelegate.startViewController = storyboard.instantiateViewControllerWithIdentifier("AnimationViewController") as?
             AnimationViewController
             
-            // 4
-            // Otherwise set the LoginViewController to be the first
-//            let loginViewController = PFLogInViewController()
-//            loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
-//            loginViewController.delegate = parseLoginHelper
-//            loginViewController.signUpController?.delegate = parseLoginHelper
-//            
-//            loginViewController.logInView?.logo?.hidden=true
-//            loginViewController.signUpController?.signUpView?.logo?.hidden=true
-//            
-           // startViewController = loginViewController
+
         }
         
         // 5
@@ -113,29 +103,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = AppDelegate.startViewController;
         self.window?.makeKeyAndVisible()
         
-        
-        
-       
-        
-        
-        
-        
-        // MARK: set style
-//        UINavigationBar.appearance().barTintColor = StyleConstants.defaultBlueColor
-//        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-//        UINavigationBar.appearance().translucent = true
-//        UINavigationBar.appearance().alpha=0.8
-//        
-//        UIToolbar.appearance().barTintColor = StyleConstants.defaultBlueColor
-//        UIToolbar.appearance().tintColor = UIColor.whiteColor()
-//        UIToolbar.appearance().translucent = true
-        
-        
-//        UITabBar.appearance().barTintColor=StyleConstants.defaultBlueColor
-//        UITabBar.appearance().tintColor = UIColor.whiteColor()
-//        UITabBar.appearance().translucent = true
-//        UITabBar.appearance().alpha=0.8
         
         
         // MARK:MAVE INVITE FRIEND PAGE
@@ -199,7 +166,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         currentInstallation.setDeviceTokenFromData(deviceToken)
         currentInstallation.saveInBackgroundWithBlock { (succeeded, e) -> Void in
-            //code
+  
         }
     }
     

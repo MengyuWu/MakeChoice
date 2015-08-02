@@ -28,17 +28,13 @@ class AnimationViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         for i in 1...22{
-         
-            
                 var imageName="a\(i).png"
                 var image=UIImage(named:imageName)
                 if let image=image{
                     imageList.append(image)
              
- 
             }
-            
-           
+ 
         }
         
         
@@ -59,11 +55,7 @@ class AnimationViewController: UIViewController {
                 
             }
         }
-        
-        
 
-       
-        
     }
     
     
@@ -97,15 +89,11 @@ class AnimationViewController: UIViewController {
             }else{
                  let storyboard = UIStoryboard(name: "Main", bundle: nil)
                  self.tabBarInitialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
-                
-            // in constants file
+            
               AppDelegate.isLaunching=true
                 
                 self.presentViewController(self.tabBarInitialViewController!, animated:true, completion:nil)
-                
-                
-                
-
+     
             }
             
         }
