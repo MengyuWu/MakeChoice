@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 /*Network error flag*/
 var NetworkErrorAlertLock=NSLock()
 

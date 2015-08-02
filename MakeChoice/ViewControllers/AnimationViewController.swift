@@ -97,7 +97,15 @@ class AnimationViewController: UIViewController {
             }else{
                  let storyboard = UIStoryboard(name: "Main", bundle: nil)
                  self.tabBarInitialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
+                
+            // in constants file
+              AppDelegate.isLaunching=true
+                
                 self.presentViewController(self.tabBarInitialViewController!, animated:true, completion:nil)
+                
+                
+                
+
             }
             
         }

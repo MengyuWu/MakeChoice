@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var parseLoginHelper: ParseLoginHelper!
    static var startViewController: AnimationViewController?
     
+    /*Launcing tips alert*/
+    static var isLaunching=false
+    static var dontShowAgain=false
+    
     override init() {
         super.init()
         

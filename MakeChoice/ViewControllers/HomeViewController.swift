@@ -112,10 +112,35 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     }
     
     
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+       
+    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if(AppDelegate.isLaunching && !AppDelegate.dontShowAgain){
+            showTipsAlert()
+            AppDelegate.isLaunching=false
+        }
+     
    }
+    
+    func showTipsAlert(){
+        SweetAlert().showAlert("Tips", subTitle: "Tap on your choice, you will see the results after voting!", style: AlertStyle.Warning, buttonTitle:"Ok", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Don't show again!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+            if isOtherButton == true {
+                
+                print("ok Button  Pressed", appendNewline: false)
+            }
+            else {
+               AppDelegate.dontShowAgain=true
+               print("Don't show again Button  Pressed", appendNewline: false)
+            }
+        }
+
+    }
     
     
     
