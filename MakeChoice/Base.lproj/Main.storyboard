@@ -2328,6 +2328,7 @@
                                                 <constraint firstItem="Mkg-eN-MdD" firstAttribute="top" secondItem="hB2-9l-iJS" secondAttribute="top" id="VsG-uc-ret"/>
                                                 <constraint firstItem="Mkg-eN-MdD" firstAttribute="centerY" secondItem="tCB-ll-EDC" secondAttribute="centerY" id="WWq-Bp-bfI"/>
                                                 <constraint firstItem="qqg-19-GYW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tCB-ll-EDC" secondAttribute="trailing" constant="8" id="c7X-n7-Dpb"/>
+                                                <constraint firstItem="qqg-19-GYW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tCB-ll-EDC" secondAttribute="trailing" constant="2" id="cAc-dF-5es"/>
                                                 <constraint firstAttribute="centerY" secondItem="3pX-5w-5Qb" secondAttribute="centerY" id="cNc-9r-pry"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3pX-5w-5Qb" secondAttribute="trailing" id="gjb-G2-NhD"/>
                                                 <constraint firstItem="Jd5-Qa-DgL" firstAttribute="leading" secondItem="hB2-9l-iJS" secondAttribute="trailing" constant="3" id="pXq-8V-Pbf"/>
@@ -2341,6 +2342,7 @@
                                                     <exclude reference="q8R-RS-YJ3"/>
                                                     <exclude reference="Lor-09-UAu"/>
                                                     <exclude reference="Q8e-WL-Bj8"/>
+                                                    <exclude reference="0Cu-wc-bEk"/>
                                                     <exclude reference="c7X-n7-Dpb"/>
                                                 </mask>
                                             </variation>
