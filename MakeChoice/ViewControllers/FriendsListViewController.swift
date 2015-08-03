@@ -16,7 +16,7 @@ class FriendsListViewController: UIViewController {
     @IBOutlet weak var postNum: UILabel!
     var friends:[PFUser]=[]{
         didSet{
-            self.tableView.reloadData()
+       self.tableView.reloadData()
         }
     }
 
@@ -44,10 +44,11 @@ class FriendsListViewController: UIViewController {
             if let results = results as? [PFObject]{
                 if results.count>0 {
                 self.friends=results.map{$0[PF_FRIEND_FRIEND] as! PFUser}
-         
+                self.tableView.reloadData()
                 }else{
                     // if no friend
                     self.friends=[]
+                    self.tableView.reloadData()
                 }
             }
             
@@ -79,6 +80,7 @@ class FriendsListViewController: UIViewController {
 
 extension FriendsListViewController:UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        
         return self.friends.count
     }
     
@@ -146,33 +148,36 @@ extension FriendsListViewController:UITableViewDelegate{
                             // update the statistic in profile view controller
                             //broadcasting, since one friend relation has two objects
                             
-                            var index=0;
+                            var flag=0;
                             for result in results{
                                 //should print error
                                 result.deleteInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
                                     
                                     MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                                     if error != nil{
+                                        println("error: \(error)")
                                        UICustomSettingHelper.sweetAlertNetworkError()
                                     }
                                     
                                     // a pair of friends has two friendrelation object
-                                    if (success && index==0){
-                                        index++
+                                    if (success && flag==0){
+                                        flag=1
                                         
                                         var ind=ParseHelper.parseGetObjectIndexFromArray(self.friends, object: friend)
+                                       
                                         
                                         if(ind != -1){
-                                            self.friends.removeAtIndex(index)
+                                            if(ind>=0 && ind<=self.friends.count-1){
+                                                
+                                                 self.friends.removeAtIndex(ind)
+                                             NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
+                                                 SweetAlert().showAlert("Deleted!", subTitle: "Friend has been deleted!", style: AlertStyle.Success)
+                                            }
+                                           
+                                            println("friends:count \(self.friends.count)")
                                         }
                                         
-                                        // update the statistic in profile view controller
-                                        //broadcasting, could use this, if listneing object call parse.getnumof friend
-                                        
-                                     NSNotificationCenter.defaultCenter().postNotificationName("DeleteFriend", object: nil)
-                                        
-                                         SweetAlert().showAlert("Deleted!", subTitle: "Friend has been deleted!", style: AlertStyle.Success)
-                                        
+                                              
                                     }
                                 }
                             }

@@ -178,7 +178,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         println("didReceiveRemoteNotification")
         PFPush.handlePush(userInfo)
-        println("userInfo:\(userInfo)")
+        //println("userInfo:\(userInfo)")
         
         
         if var controller=self.window?.rootViewController as? UITabBarController{
