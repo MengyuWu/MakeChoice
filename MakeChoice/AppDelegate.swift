@@ -178,6 +178,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         println("didReceiveRemoteNotification")
         PFPush.handlePush(userInfo)
+        println("userInfo:\(userInfo)")
+        
         
         if var controller=self.window?.rootViewController as? UITabBarController{
             println("update badge value 1")
@@ -185,6 +187,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else if var controller=AppDelegate.startViewController?.tabBarInitialViewController as? UITabBarController{
             println("update badge value 2")
             ParseHelper.updateProfileTabBadgeValue(controller)
+            
+           
+            
+//            SweetAlert().showAlert("Notification", subTitle: "You have a new notification!", style: AlertStyle.Warning, buttonTitle:"Ok", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Show", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+//                if isOtherButton == true {
+//                    
+//                    print("ok Button  Pressed", appendNewline: false)
+//                }
+//                else {
+//                    controller.selectedIndex=3
+//  
+//                }
+//            }
+            
+           
+            
         }
 
         

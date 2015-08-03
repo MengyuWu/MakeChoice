@@ -384,7 +384,7 @@
         <!--Profile-->
         <scene sceneID="i0y-Hq-8aK">
             <objects>
-                <viewController title="Profile" automaticallyAdjustsScrollViewInsets="NO" id="Vit-Aw-DCu" customClass="ProfileViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" title="Profile" automaticallyAdjustsScrollViewInsets="NO" id="Vit-Aw-DCu" customClass="ProfileViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3rX-cY-viu"/>
                         <viewControllerLayoutGuide type="bottom" id="Xhj-ww-Tk6"/>
@@ -2487,7 +2487,7 @@
         <image name="Select" width="16" height="16"/>
         <image name="ThumbUp" width="128" height="128"/>
         <image name="Time" width="22" height="22"/>
-        <image name="Vote" width="53" height="53"/>
+        <image name="Vote" width="160" height="160"/>
         <image name="a30.png" width="1024" height="1024"/>
         <image name="camera" width="32" height="32"/>
         <image name="category1.png" width="128" height="128"/>
