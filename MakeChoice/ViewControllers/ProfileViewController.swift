@@ -185,6 +185,37 @@ class ProfileViewController: UIViewController {
         myFriendsView.addGestureRecognizer(myFriendsViewTapped)
         
     
+        var user=PFUser.currentUser()
+        if let user=user{
+            var imageFile: AnyObject? = user[PF_USER_PICTURE]
+            
+            if let imageFile=imageFile as? PFFile{
+                
+                
+                imageFile.getDataInBackgroundWithBlock{
+                    (data: NSData?, error: NSError?) -> Void in
+                    
+                    if let data=data{
+                        
+                        self.userImage.image=UIImage(data: data, scale:1)
+                        
+                    }
+                }
+            }else{
+                self.userImage.image=UIImage(named: "Profile")
+            }
+            
+            DesignHelper.setImageClipsToBounds(self.userImage)
+            
+
+        }
+        
+        DesignHelper.setCircleImage(self.userImage)
+        DesignHelper.setCircleImage(self.userImageBackground)
+        self.userImage.backgroundColor=UIColor.whiteColor()
+        
+        
+        
     }
     
     
@@ -291,27 +322,7 @@ class ProfileViewController: UIViewController {
         
         // get user image
         if let user=user {
-            var imageFile: AnyObject? = user[PF_USER_PICTURE]
-            
-            if let imageFile=imageFile as? PFFile{
-                
-                
-                imageFile.getDataInBackgroundWithBlock{
-                    (data: NSData?, error: NSError?) -> Void in
-                    
-                    if let data=data{
-                       
-                        self.userImage.image=UIImage(data: data, scale:1)
-                        
-                    }
-                }
-            }else{
-                self.userImage.image=UIImage(named: "Profile")
-            }
-            
-            DesignHelper.setImageClipsToBounds(self.userImage)
-            
-            
+   
             self.myPostsNum.text=""
             self.myFriendsNum.text=""
             // get myPostsNum and myFriendNum
@@ -335,9 +346,7 @@ class ProfileViewController: UIViewController {
             
         }
         
-        DesignHelper.setCircleImage(self.userImage)
-        DesignHelper.setCircleImage(self.userImageBackground)
-        self.userImage.backgroundColor=UIColor.whiteColor()
+       
         
         //set add friends request badge value
         ParseHelper.getFriendsRequest{ (results:[AnyObject]?, error:NSError?) -> Void in
@@ -445,6 +454,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
+        //set userimage
+        self.userImage.image=image
+        self.dismissViewControllerAnimated(true, completion: nil)
         // upload image to parse
     
         var imgData=UIImageJPEGRepresentation(image, 0.8)
@@ -461,7 +473,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                     user.saveInBackgroundWithBlock{
                          (success: Bool, error: NSError? ) -> Void in
                         if (success){
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                        
                         }
                         
                     }
