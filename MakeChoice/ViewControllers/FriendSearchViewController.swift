@@ -199,7 +199,7 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
                         //send notification
                     PushNotificationHelper.sendAddFriendRequesNotification(toUser)
                         
-                        SweetAlert().showAlert("Send!", subTitle: "Friend request sends successfully!", style: AlertStyle.Success)
+                        SweetAlert().showAlert("Sent!", subTitle: "Friend request sends successfully!", style: AlertStyle.Success)
                     }
                     
                     if error != nil{

@@ -697,7 +697,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="315" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="B0D-dI-0if">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell alpha="0.5" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CategoryDetailCell" rowHeight="460" id="w7m-6L-Hzh" customClass="CategoryDetailTableViewCell" customModule="MakeChoice" customModuleProvider="target">
@@ -2586,7 +2586,7 @@
         <image name="uncheckedBox" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8lu-0u-sp7"/>
+        <segue reference="JFJ-6C-HcG"/>
         <segue reference="5qA-W6-K1R"/>
         <segue reference="Hw2-xg-niX"/>
     </inferredMetricsTieBreakers>

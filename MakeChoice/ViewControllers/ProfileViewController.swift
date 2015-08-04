@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var myPostsNum: UILabel!
     @IBOutlet weak var myFriendsNum: UILabel!
     
+    
     @IBOutlet weak var myPostsView: UIView!
     
     @IBOutlet weak var myFriendsView: UIView!
@@ -66,7 +67,7 @@ class ProfileViewController: UIViewController {
 
 @IBAction func logoutButtonTapped(sender: AnyObject) {
     
-    SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to logout?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes,logout!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+    SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to logout?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes, logout!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
         if isOtherButton == true {
             
             print("Cancel Button  Pressed", appendNewline: false)
@@ -299,6 +300,21 @@ class ProfileViewController: UIViewController {
 
     }
     
+    func  dealWithFriendsDuplicate(){
+        if var numString=self.myFriendsNum.text{
+            
+            if var num=numString.toInt(){
+                if num>0{
+                    self.myFriendsNum.text="\(num-1)"
+                }
+                
+            }
+            
+        }
+        
+
+    }
+    
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -315,6 +331,11 @@ class ProfileViewController: UIViewController {
         
         //listening the broadcast from delete post, object is received object
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deletePostReceived", name: "DeletePost", object: nil)
+        
+        //listening the braodcast from friends duplicate
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dealWithFriendsDuplicate", name: "DealWithFriendsDuplicate", object: nil)
+        
+        
 
         
        var user:PFUser?=PFUser.currentUser()

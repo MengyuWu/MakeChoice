@@ -14,10 +14,32 @@ class FriendsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var postNum: UILabel!
+    
+   
     var friends:[PFUser]=[]{
         didSet{
        self.tableView.reloadData()
         }
+    }
+    
+    //TODO: using hashtable to check unique
+    // to avoid that friends accept each other at the same time, and server didn't not save both of them
+    func getFriendsDictionary(friends:[PFUser]) -> NSDictionary {
+        var friendsDictionary:[String:PFUser]=[:]
+        for friend in friends{
+            println("friend: \(friend.objectId), \(friend.username)")
+            if(friendsDictionary[friend.objectId!]==nil){
+                println("nil")
+                 friendsDictionary[friend.objectId!]=friend
+            }else{
+                // find duplicate, remove one pair;
+                //update friendnum 
+                NSNotificationCenter.defaultCenter().postNotificationName("DealWithFriendsDuplicate", object: friendsDictionary.count)
+            }
+           
+        }
+        
+        return  friendsDictionary
     }
 
     override func viewDidLoad() {
@@ -43,7 +65,10 @@ class FriendsListViewController: UIViewController {
             
             if let results = results as? [PFObject]{
                 if results.count>0 {
-                self.friends=results.map{$0[PF_FRIEND_FRIEND] as! PFUser}
+                    
+                var friendsArray=results.map{$0[PF_FRIEND_FRIEND] as! PFUser}
+                self.friends=self.getFriendsDictionary(friendsArray).allValues as! [PFUser]
+                    
                 self.tableView.reloadData()
                 }else{
                     // if no friend

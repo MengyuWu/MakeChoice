@@ -406,7 +406,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
                                     
                                     if(results.count != 0){
                                         
-                                         SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
+                                         SweetAlert().showAlert("You have already voted!", subTitle: "", style: AlertStyle.Warning)
                                   
                                     }else{
                                         
@@ -507,7 +507,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
                                     
                                     if(results.count != 0){
                                        
-                                         SweetAlert().showAlert("You have voted!", subTitle: "", style: AlertStyle.Warning)
+                                         SweetAlert().showAlert("You have already voted!", subTitle: "", style: AlertStyle.Warning)
                                         
                                     }else{
                                         
