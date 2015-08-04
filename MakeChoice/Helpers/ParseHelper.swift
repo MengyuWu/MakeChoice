@@ -312,10 +312,11 @@ class ParseHelper{
         // delete related votes
      
         var queryVote=PFQuery(className: PF_VOTE_CLASS_NAME)
-        queryVote.whereKey("objectId", equalTo: postId)
+        queryVote.whereKey(PF_VOTE_POSTID, equalTo: postId)
         queryVote.findObjectsInBackgroundWithBlock{(results:[AnyObject]? , error: NSError?) -> Void in
             
-            if  let results=results as? [Post]{
+            if  let results=results as? [PFObject]{
+                 println("remove vote: \(results.count)")
                 for result in results{
                     result.deleteInBackgroundWithBlock{ (success:Bool , error:NSError?) -> Void in
                         if error != nil {
@@ -325,6 +326,25 @@ class ParseHelper{
              }
            }
         }
+        
+        //delete related comments
+        var queryComment=PFQuery(className: PF_COMMENT_CLASS_NAME)
+        queryComment.whereKey(PF_COMMENT_GROUPID, equalTo: postId)
+        queryComment.findObjectsInBackgroundWithBlock{(results:[AnyObject]? , error: NSError?) -> Void in
+            
+            if  let results=results as? [PFObject]{
+                println("remove comment: \(results.count)")
+                for result in results{
+                    result.deleteInBackgroundWithBlock{ (success:Bool , error:NSError?) -> Void in
+                        if error != nil {
+                            println("ParseHelper: deleteInBackgroundWithBlock \(error)")
+                        }
+                    }
+                }
+            }
+        }
+
+        
         
     }
     
