@@ -14,6 +14,8 @@ import Photos
 
 class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPopoverPresentationControllerDelegate  {
     
+    let colors=CATEGORYCOLORS
+    let categories=CATEGORIES_UPPERCASE
     var imagePickerController = UIImagePickerController()
     
     var imgAddButton:Int=0
@@ -23,23 +25,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     @IBOutlet weak var img2: UIImageView!
     
-    @IBOutlet weak var addImg1Button: UIButton!
-    
-    @IBOutlet weak var addImg2Button: UIButton!
-    
-    @IBAction func addImg1ButtonPressed(sender: AnyObject) {
-        imgAddButton=1;
-        self.showPhotoSourceSelection()
-    }
-    
-   let colors=CATEGORYCOLORS
-   let categories=CATEGORIES_UPPERCASE
-    
-
-    @IBAction func addImg2ButtonPressed(sender: AnyObject) {
-        imgAddButton=2;
-        self.showPhotoSourceSelection()
-    }
+   
     
     
     @IBOutlet weak var postButton: ZFRippleButton!
@@ -95,6 +81,24 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
     
     
+    
+    
+    @IBOutlet weak var addImg1Button: UIButton!
+    
+    @IBOutlet weak var addImg2Button: UIButton!
+    
+    @IBAction func addImg1ButtonPressed(sender: AnyObject) {
+        imgAddButton=1;
+        self.showPhotoSourceSelection()
+    }
+    
+    
+    
+    @IBAction func addImg2ButtonPressed(sender: AnyObject) {
+        imgAddButton=2;
+        self.showPhotoSourceSelection()
+    }
+    
     func showPhotoSourceSelection() {
         let alertController = UIAlertController(title: nil, message: "Where do you want to get your pictures from?", preferredStyle: .ActionSheet)
     
@@ -123,6 +127,8 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     // MARK: BSImagePicker
     func showBSImagePicker(){
         //using external imagePicker
+        
+        var internalAddButton=self.imgAddButton
        
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 2
@@ -140,6 +146,9 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             }, finish: { (assets: [PHAsset]) -> Void in
               
                 println("finish select count: \(assets.count)")
+                println("imgAddButton \(self.imgAddButton)")
+                println("internalAddButton \(internalAddButton)")
+                
                 
                 if(assets.count==2){
                     let first = assets[0]
@@ -156,7 +165,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                             self.img1.image = result
                             DesignHelper.showImageHideButton(self.img1, button: self.addImg1Button)
                             
-                            self.imgAddButton=3
+                           // self.imgAddButton=3
                         })
                     })
                     
@@ -167,12 +176,13 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                             self.img2.image = result
                             DesignHelper.showImageHideButton(self.img2, button: self.addImg2Button)
                             
-                            self.imgAddButton=3
+                           // self.imgAddButton=3
                         })
                     })
                     
 
-                }else if(self.imgAddButton==1){
+                }else if(internalAddButton==1){
+                    // view will appear before comparing the imgAddButton
                     
                     let image=assets[0]
                     
@@ -183,15 +193,16 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                     PHImageManager.defaultManager().requestImageForAsset(image, targetSize: self.img1.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            println("change img1")
                             self.img1.image = result
                             DesignHelper.showImageHideButton(self.img1, button: self.addImg1Button)
                             
-                            self.imgAddButton=1
+                           // self.imgAddButton=1
                         })
                     })
 
                     
-                }else if(self.imgAddButton==2){
+                }else if(internalAddButton==2){
                     
                     let image=assets[0]
                     
@@ -202,18 +213,17 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                     PHImageManager.defaultManager().requestImageForAsset(image, targetSize: self.img2.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            println("change img2")
                             self.img2.image = result
                             DesignHelper.showImageHideButton(self.img2, button: self.addImg2Button)
-                            self.imgAddButton=2
+                          //  self.imgAddButton=2
                         })
                     })
 
                     
                 }
 
-                
-                
-                
+          
                 
             }, completion: nil)
 
@@ -269,11 +279,14 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     func img1tapped(){
         imgAddButton=1;
+        println("img1Tapped imgAddButton:\(imgAddButton)")
         self.showPhotoSourceSelection()
     }
     
     func img2tapped(){
-        imgAddButton=1;
+        imgAddButton=2;
+        println("img2Tapped imgAddButton:\(imgAddButton)")
+
         self.showPhotoSourceSelection()
     }
 
@@ -295,6 +308,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         DesignHelper.blankImageShowButton(img2, button: addImg2Button)
         }else{
             // some pictures is choosen
+            println("view will appear imgAddButton:\(imgAddButton)")
             self.imgAddButton=0
         }
         
@@ -308,15 +322,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
     
     
