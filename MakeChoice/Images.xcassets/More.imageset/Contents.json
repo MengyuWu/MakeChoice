@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "More-24.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Mario-Icon.png"
+      "filename" : "More-50.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "More-100.png"
     }
   ],
   "info" : {

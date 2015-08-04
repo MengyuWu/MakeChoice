@@ -31,6 +31,10 @@
 		F728A6C01B52D37E006E4A7A /* YourPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */; };
 		F728A6C31B52D3CA006E4A7A /* YourPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728A6C21B52D3CA006E4A7A /* YourPostsTableViewCell.swift */; };
 		F72B80731B642BC700594BA2 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B80721B642BC700594BA2 /* ZFRippleButton.swift */; };
+		F72CA79B1B7028B00069D094 /* CSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72CA79A1B7028B00069D094 /* CSSViewController.swift */; };
+		F72CA79F1B7029D50069D094 /* Acknowledgements.css in Resources */ = {isa = PBXBuildFile; fileRef = F72CA79C1B7029D50069D094 /* Acknowledgements.css */; };
+		F72CA7A01B7029D50069D094 /* PrivacyPolicy.css in Resources */ = {isa = PBXBuildFile; fileRef = F72CA79D1B7029D50069D094 /* PrivacyPolicy.css */; };
+		F72CA7A11B7029D50069D094 /* TermsOfService.css in Resources */ = {isa = PBXBuildFile; fileRef = F72CA79E1B7029D50069D094 /* TermsOfService.css */; };
 		F72D87F81B594ED500519136 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D87F71B594ED500519136 /* ParseLoginHelper.swift */; };
 		F72E21241B6A748200C89461 /* MaveSDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E21231B6A748200C89461 /* MaveSDKHelper.swift */; };
 		F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */; };
@@ -106,6 +110,7 @@
 		F7EAAB941B58182F009F838F /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAAB931B58182F009F838F /* FriendRequestViewController.swift */; };
 		F7F301C21B5DFECD00642884 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F301C11B5DFECD00642884 /* UIColor.swift */; };
 		F7F301C41B5DFF4C00642884 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F301C31B5DFF4C00642884 /* PopupViewController.swift */; };
+		F7F8A87E1B7015F2004686DF /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F8A87D1B7015F2004686DF /* SettingTableViewController.swift */; };
 		F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5DAF1B5741D50014BBEA /* MIBadgeButton.swift */; };
 		F7FD5DB21B5741D50014BBEA /* MIBadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5DB01B5741D50014BBEA /* MIBadgeLabel.swift */; };
 /* End PBXBuildFile section */
@@ -147,6 +152,10 @@
 		F728A6BF1B52D37E006E4A7A /* YourPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsViewController.swift; sourceTree = "<group>"; };
 		F728A6C21B52D3CA006E4A7A /* YourPostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourPostsTableViewCell.swift; sourceTree = "<group>"; };
 		F72B80721B642BC700594BA2 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
+		F72CA79A1B7028B00069D094 /* CSSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSSViewController.swift; sourceTree = "<group>"; };
+		F72CA79C1B7029D50069D094 /* Acknowledgements.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Acknowledgements.css; sourceTree = "<group>"; };
+		F72CA79D1B7029D50069D094 /* PrivacyPolicy.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = PrivacyPolicy.css; sourceTree = "<group>"; };
+		F72CA79E1B7029D50069D094 /* TermsOfService.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = TermsOfService.css; sourceTree = "<group>"; };
 		F72D87F71B594ED500519136 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		F72E21231B6A748200C89461 /* MaveSDKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaveSDKHelper.swift; sourceTree = "<group>"; };
 		F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +237,7 @@
 		F7EAAB931B58182F009F838F /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 		F7F301C11B5DFECD00642884 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F7F301C31B5DFF4C00642884 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		F7F8A87D1B7015F2004686DF /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		F7FD5DAF1B5741D50014BBEA /* MIBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBadgeButton.swift; sourceTree = "<group>"; };
 		F7FD5DB01B5741D50014BBEA /* MIBadgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBadgeLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -450,6 +460,7 @@
 		F7762A2A1B4D7A3D002CBAE7 /* MakeChoice */ = {
 			isa = PBXGroup;
 			children = (
+				F7F8A87C1B7010F1004686DF /* aboutTheApp */,
 				F74EF79B1B4EE229003DB560 /* Utilities */,
 				F74EF7921B4ED0A4003DB560 /* Models */,
 				F7762A501B4D8864002CBAE7 /* Helpers */,
@@ -578,6 +589,7 @@
 				F71ACD371B5D775E00B7936E /* CategoryDetailViewController.swift */,
 				F79004BE1B61CB7700EEED03 /* NotificationViewController.swift */,
 				F77EB5AE1B67F79300C8F0B2 /* AnimationViewController.swift */,
+				F7F8A87D1B7015F2004686DF /* SettingTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -604,6 +616,17 @@
 				F7EAAB911B58180F009F838F /* FriendRequestTableViewCell.swift */,
 			);
 			path = FriendRequest;
+			sourceTree = "<group>";
+		};
+		F7F8A87C1B7010F1004686DF /* aboutTheApp */ = {
+			isa = PBXGroup;
+			children = (
+				F72CA79C1B7029D50069D094 /* Acknowledgements.css */,
+				F72CA79D1B7029D50069D094 /* PrivacyPolicy.css */,
+				F72CA79E1B7029D50069D094 /* TermsOfService.css */,
+				F72CA79A1B7028B00069D094 /* CSSViewController.swift */,
+			);
+			path = aboutTheApp;
 			sourceTree = "<group>";
 		};
 		F7FD5DAE1B5741D50014BBEA /* MIBadgeButton */ = {
@@ -707,6 +730,7 @@
 				F761C67D1B612EAB004A79D7 /* OpenSans-Bold.ttf in Resources */,
 				F761C6801B612EAB004A79D7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				F758AE681B69BAB70092A4F9 /* a20.png in Resources */,
+				F72CA79F1B7029D50069D094 /* Acknowledgements.css in Resources */,
 				F7762A331B4D7A3D002CBAE7 /* Main.storyboard in Resources */,
 				F758AE661B69BAB70092A4F9 /* a18.png in Resources */,
 				F758AE431B69B8230092A4F9 /* a13.png in Resources */,
@@ -716,6 +740,7 @@
 				F761C6811B612EAB004A79D7 /* OpenSans-Italic.ttf in Resources */,
 				F758AE381B69B8230092A4F9 /* a2.png in Resources */,
 				F71ACD321B5D5FC500B7936E /* category2.png in Resources */,
+				F72CA7A01B7029D50069D094 /* PrivacyPolicy.css in Resources */,
 				F7762A381B4D7A3D002CBAE7 /* LaunchScreen.xib in Resources */,
 				F71ACD351B5D5FC500B7936E /* category5.png in Resources */,
 				F758AE401B69B8230092A4F9 /* a10.png in Resources */,
@@ -730,6 +755,7 @@
 				F758AE451B69B8230092A4F9 /* a15.png in Resources */,
 				F758AE3B1B69B8230092A4F9 /* a5.png in Resources */,
 				F758AE371B69B8230092A4F9 /* a1.png in Resources */,
+				F72CA7A11B7029D50069D094 /* TermsOfService.css in Resources */,
 				F71ACD361B5D5FC500B7936E /* category6.png in Resources */,
 				F761C67C1B612EAB004A79D7 /* Apache License.txt in Resources */,
 				F7762A351B4D7A3D002CBAE7 /* Images.xcassets in Resources */,
@@ -838,6 +864,7 @@
 				F728A6C01B52D37E006E4A7A /* YourPostsViewController.swift in Sources */,
 				F7F301C41B5DFF4C00642884 /* PopupViewController.swift in Sources */,
 				F7E4CDBE1B5598C700815DDE /* FriendSearchViewController.swift in Sources */,
+				F7F8A87E1B7015F2004686DF /* SettingTableViewController.swift in Sources */,
 				F728A6BE1B52C73E006E4A7A /* ProfileViewController.swift in Sources */,
 				F7762A2E1B4D7A3D002CBAE7 /* AppDelegate.swift in Sources */,
 				F7E4CDBA1B5576CB00815DDE /* Images.swift in Sources */,
@@ -855,6 +882,7 @@
 				F79478561B4F3DC80048765A /* ParseHelper.swift in Sources */,
 				F7626C211B6446D400056860 /* RAMItemAnimationProtocol.swift in Sources */,
 				F7CF48101B6691A000627BBB /* SweetAlert.swift in Sources */,
+				F72CA79B1B7028B00069D094 /* CSSViewController.swift in Sources */,
 				F7626C1F1B6446D400056860 /* RAMTransitionItemAnimation.swift in Sources */,
 				F74EF7961B4EDF55003DB560 /* Post.swift in Sources */,
 				F70AECD61B5413D900497662 /* UserVoteDetailViewController.swift in Sources */,
@@ -993,11 +1021,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MakeChoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e45a15ec-b336-4dd4-b8e8-d05419915baa";
+				PROVISIONING_PROFILE = "";
 				"SWIFT_INCLUDE_PATHS[arch=*]" = "";
 				"SWIFT_INSTALL_OBJC_HEADER[arch=*]" = YES;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "MakeChoice/MakeChoice-Bridging-Header.h";
@@ -1012,11 +1040,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = MakeChoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e45a15ec-b336-4dd4-b8e8-d05419915baa";
+				PROVISIONING_PROFILE = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "MakeChoice/MakeChoice-Bridging-Header.h";
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
