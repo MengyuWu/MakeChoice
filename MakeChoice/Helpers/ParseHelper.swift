@@ -199,6 +199,36 @@ class ParseHelper{
     
     }
     
+    static func removeFriend(fromUser:PFUser,toUser:PFUser){
+        let query=PFQuery(className: PF_FRIEND_CLASS_NAME)
+        query.whereKey(PF_FRIEND_USER, equalTo: fromUser)
+        query.whereKey(PF_FRIEND_FRIEND, equalTo: toUser)
+        query.findObjectsInBackgroundWithBlock{ (results:[AnyObject]? , error: NSError?) -> Void in
+            
+            if let results=results as? [PFObject]{
+                var num=results.count;
+                println(" friendRelation num:\(num)")
+                while(num>1){
+                    var index=num-1;
+                    if(index>=0 && index<results.count){
+                        var friendRelation=results[index]
+                        friendRelation.deleteInBackgroundWithBlock{ (success:Bool, error:NSError?) -> Void in
+                            if(error != nil){
+                                println("remove duplicate friend relation error : \(error)")
+                            }
+                            
+                        }
+                    }
+                    
+                    num--;
+                }
+                
+            }
+            
+        }
+        
+    }
+    
     
     // MARK: Users
     

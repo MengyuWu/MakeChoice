@@ -27,14 +27,23 @@ class FriendsListViewController: UIViewController {
     func getFriendsDictionary(friends:[PFUser]) -> NSDictionary {
         var friendsDictionary:[String:PFUser]=[:]
         for friend in friends{
-            println("friend: \(friend.objectId), \(friend.username)")
+           
             if(friendsDictionary[friend.objectId!]==nil){
-                println("nil")
+               
                  friendsDictionary[friend.objectId!]=friend
             }else{
                 // find duplicate, remove one pair;
                 //update friendnum 
-                NSNotificationCenter.defaultCenter().postNotificationName("DealWithFriendsDuplicate", object: friendsDictionary.count)
+                println("deal with duplicate")
+                 println("friend: \(friend.objectId), \(friend.username)")
+                NSNotificationCenter.defaultCenter().postNotificationName("DealWithFriendsDuplicate", object: self)
+                
+                if let user=PFUser.currentUser(){
+                    ParseHelper.removeFriend(user, toUser: friend)
+                    ParseHelper.removeFriend(friend, toUser: user)
+                }
+  
+               
             }
            
         }

@@ -311,7 +311,6 @@ class ProfileViewController: UIViewController {
             }
             
         }
-        
 
     }
     
@@ -334,7 +333,7 @@ class ProfileViewController: UIViewController {
         
         //listening the braodcast from friends duplicate
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "dealWithFriendsDuplicate", name: "DealWithFriendsDuplicate", object: nil)
-        
+       
         
 
         
