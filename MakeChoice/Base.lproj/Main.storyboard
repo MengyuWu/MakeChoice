@@ -523,10 +523,10 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Zla-hC-HYD">
-                                <rect key="frame" x="320" y="162" width="20" height="20"/>
+                                <rect key="frame" x="325" y="157" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Zla-hC-HYD" secondAttribute="height" multiplier="1:1" id="kLl-vr-BLG"/>
-                                    <constraint firstAttribute="height" constant="20" id="nJD-Mv-7bF"/>
+                                    <constraint firstAttribute="height" constant="25" id="nJD-Mv-7bF"/>
                                 </constraints>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1R-0J-6Wh" userLabel="YourPostsContainerView">
@@ -542,7 +542,7 @@
                             <constraint firstItem="ZWd-jX-dUp" firstAttribute="trailing" secondItem="aJP-oZ-LC6" secondAttribute="trailing" id="9UU-Lg-ypH"/>
                             <constraint firstItem="HNg-JK-2bW" firstAttribute="leading" secondItem="ZWd-jX-dUp" secondAttribute="leading" id="9uQ-cM-uU9"/>
                             <constraint firstItem="Eca-4J-BmJ" firstAttribute="centerY" secondItem="35s-gn-oTt" secondAttribute="centerY" id="B2h-fN-Ng9"/>
-                            <constraint firstItem="Zla-hC-HYD" firstAttribute="leading" secondItem="Eca-4J-BmJ" secondAttribute="trailing" constant="-20" id="D4i-9e-j60"/>
+                            <constraint firstItem="Zla-hC-HYD" firstAttribute="leading" secondItem="Eca-4J-BmJ" secondAttribute="trailing" constant="-15" id="D4i-9e-j60"/>
                             <constraint firstItem="HNg-JK-2bW" firstAttribute="height" secondItem="ZWd-jX-dUp" secondAttribute="height" multiplier="0.25" id="DGq-Jh-DC8"/>
                             <constraint firstItem="35s-gn-oTt" firstAttribute="leading" secondItem="Eca-4J-BmJ" secondAttribute="trailing" constant="42" id="EzJ-3i-4id"/>
                             <constraint firstItem="ceS-8X-9tV" firstAttribute="centerX" secondItem="Eca-4J-BmJ" secondAttribute="centerX" id="Fib-8m-nBO"/>
@@ -1003,7 +1003,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xD6-oO-6Ii">
-                                <rect key="frame" x="0.0" y="64" width="600" height="29"/>
+                                <rect key="frame" x="-2" y="64" width="604" height="29"/>
                                 <segments>
                                     <segment title="Public"/>
                                     <segment title="Friends"/>
@@ -1303,8 +1303,8 @@
                             <constraint firstItem="xD6-oO-6Ii" firstAttribute="top" secondItem="nzm-mD-euN" secondAttribute="bottom" id="0ZA-c5-FGU"/>
                             <constraint firstAttribute="trailing" secondItem="LJW-OT-TdN" secondAttribute="trailing" id="5uJ-aX-zBF"/>
                             <constraint firstItem="LJW-OT-TdN" firstAttribute="top" secondItem="xD6-oO-6Ii" secondAttribute="bottom" id="A98-JY-BW9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xD6-oO-6Ii" secondAttribute="trailing" constant="-16" id="T1s-a4-cHP"/>
-                            <constraint firstItem="xD6-oO-6Ii" firstAttribute="leading" secondItem="CM0-0X-DHL" secondAttribute="leadingMargin" constant="-16" id="YbV-Mm-qbn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xD6-oO-6Ii" secondAttribute="trailing" constant="-18" id="T1s-a4-cHP"/>
+                            <constraint firstItem="xD6-oO-6Ii" firstAttribute="leading" secondItem="CM0-0X-DHL" secondAttribute="leadingMargin" constant="-18" id="YbV-Mm-qbn"/>
                             <constraint firstAttribute="centerX" secondItem="xD6-oO-6Ii" secondAttribute="centerX" id="iIV-qE-6bR"/>
                             <constraint firstItem="P1O-FM-SBl" firstAttribute="top" secondItem="LJW-OT-TdN" secondAttribute="bottom" id="jPC-4L-ECQ"/>
                             <constraint firstItem="LJW-OT-TdN" firstAttribute="leading" secondItem="CM0-0X-DHL" secondAttribute="leading" id="pGh-pp-S5k"/>
@@ -1366,14 +1366,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a30.png" translatesAutoresizingMaskIntoConstraints="NO" id="89S-E8-lPw">
-                                <rect key="frame" x="170.5" y="110" width="260" height="260"/>
+                                <rect key="frame" x="175.5" y="115" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="84p-TV-af1"/>
-                                    <constraint firstAttribute="height" constant="260" id="meT-7e-JIh"/>
+                                    <constraint firstAttribute="width" constant="250" id="84p-TV-af1"/>
+                                    <constraint firstAttribute="height" constant="250" id="meT-7e-JIh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a Choice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQG-O6-6ZP">
-                                <rect key="frame" x="167" y="340" width="266.5" height="38"/>
+                                <rect key="frame" x="167" y="335" width="266.5" height="38"/>
                                 <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="38"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.4823529412" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2587,8 +2587,8 @@
         <image name="uncheckedBox" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="mmd-cW-fIh"/>
         <segue reference="JFJ-6C-HcG"/>
-        <segue reference="5qA-W6-K1R"/>
         <segue reference="Hw2-xg-niX"/>
     </inferredMetricsTieBreakers>
 </document>

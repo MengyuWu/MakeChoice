@@ -95,7 +95,7 @@ class UICustomSettingHelper {
             var height2:CGFloat=totalHeight*CGFloat(vote2Percentage)
             
             if(cell.post!.votedJustNow){
-                UIView.animateWithDuration(2){
+                UIView.animateWithDuration(1){
                     
                     cell.vote1BarHeightConstraint.constant=height1
                     cell.vote2BarHeightConstraint.constant=height2
@@ -141,7 +141,7 @@ class UICustomSettingHelper {
             var height2:CGFloat=totalHeight*CGFloat(vote2Percentage)
             
             if(cell.post!.votedJustNow){
-                UIView.animateWithDuration(2){
+                UIView.animateWithDuration(1){
                     
                     cell.vote1BarHeightConstraint.constant=height1
                     cell.vote2BarHeightConstraint.constant=height2
