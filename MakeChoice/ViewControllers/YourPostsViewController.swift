@@ -231,7 +231,7 @@ extension YourPostsViewController:YourPostsTableViewCellDelegate{
             
         }
      shareToFacebook.addImage(finalImage)
-     shareToFacebook.setInitialText("Hi,please help me vote on: \(questions), Download MakeChoice: URL")
+     shareToFacebook.setInitialText("Please help me vote on: \(questions) ")
        
         MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
         self.presentViewController(shareToFacebook,animated:true, completion:nil)

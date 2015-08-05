@@ -160,7 +160,7 @@ extension AddressBookViewController:UITableViewDelegate{
             // TODO: sometimes images are missing
             messageCompose.recipients = user.phones as! [String]!
             // body: the msg content, image url
-            messageCompose.body = "Help me vote on : \(questions), download MakeChoice : url"
+            messageCompose.body = "Help me vote on : \(questions)"
           
           
             messageCompose.messageComposeDelegate = self

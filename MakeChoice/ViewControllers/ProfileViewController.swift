@@ -445,7 +445,7 @@ class ProfileViewController: UIViewController {
             alertController.addAction(cameraAction)
         }
         
-        let photoLibrayAction = UIAlertAction(title: "Photo from libray", style: .Default){ (action) in
+        let photoLibrayAction = UIAlertAction(title: "Photo from library", style: .Default){ (action) in
             self.showImagePickerController(.PhotoLibrary)
         }
         

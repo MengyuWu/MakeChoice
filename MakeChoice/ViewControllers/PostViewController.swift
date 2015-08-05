@@ -113,7 +113,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             alertController.addAction(cameraAction)
         }
         
-        let photoLibrayAction = UIAlertAction(title: "Photo from libray", style: .Default){ (action) in
+        let photoLibrayAction = UIAlertAction(title: "Photo from library", style: .Default){ (action) in
             self.showBSImagePicker()
         }
         
@@ -146,8 +146,8 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             }, finish: { (assets: [PHAsset]) -> Void in
               
                 println("finish select count: \(assets.count)")
-                println("imgAddButton \(self.imgAddButton)")
-                println("internalAddButton \(internalAddButton)")
+               // println("imgAddButton \(self.imgAddButton)")
+               // println("internalAddButton \(internalAddButton)")
                 
                 
                 if(assets.count==2){
@@ -193,7 +193,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                     PHImageManager.defaultManager().requestImageForAsset(image, targetSize: self.img1.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            println("change img1")
+                           // println("change img1")
                             self.img1.image = result
                             DesignHelper.showImageHideButton(self.img1, button: self.addImg1Button)
                             
@@ -213,7 +213,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                     PHImageManager.defaultManager().requestImageForAsset(image, targetSize: self.img2.bounds.size, contentMode: PHImageContentMode.AspectFill, options: options, resultHandler: { (result, info) -> Void in
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            println("change img2")
+                           // println("change img2")
                             self.img2.image = result
                             DesignHelper.showImageHideButton(self.img2, button: self.addImg2Button)
                           //  self.imgAddButton=2
@@ -279,13 +279,13 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     func img1tapped(){
         imgAddButton=1;
-        println("img1Tapped imgAddButton:\(imgAddButton)")
+       // println("img1Tapped imgAddButton:\(imgAddButton)")
         self.showPhotoSourceSelection()
     }
     
     func img2tapped(){
         imgAddButton=2;
-        println("img2Tapped imgAddButton:\(imgAddButton)")
+      //  println("img2Tapped imgAddButton:\(imgAddButton)")
 
         self.showPhotoSourceSelection()
     }
@@ -308,7 +308,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         DesignHelper.blankImageShowButton(img2, button: addImg2Button)
         }else{
             // some pictures is choosen
-            println("view will appear imgAddButton:\(imgAddButton)")
+          //  println("view will appear imgAddButton:\(imgAddButton)")
             self.imgAddButton=0
         }
         
