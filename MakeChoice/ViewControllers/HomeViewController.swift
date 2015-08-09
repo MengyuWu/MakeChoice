@@ -28,6 +28,8 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     
     var selectedCommentIndex:Int?
     
+    var selectedReportType:String=""
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBAction func indexChanged(sender: AnyObject) {
         
@@ -169,6 +171,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
             let reportVC=segue.destinationViewController as! ReportViewController
             if let post=sender as? Post{
                 reportVC.post=post
+                reportVC.type=self.selectedReportType
             }
             
         }
@@ -368,7 +371,28 @@ extension HomeViewController: UITableViewDataSource {
                         SweetAlert().showAlert("Does not exist!", subTitle: "This post has been deleted!", style: AlertStyle.Warning)
                         self.timelineComponent.refresh(self)
                     }else{
-                        self.performSegueWithIdentifier("ReportSegue", sender: post)
+                        
+                        let alertController = UIAlertController(title: nil, message: "Report", preferredStyle: .ActionSheet)
+                        
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+                        alertController.addAction(cancelAction)
+                        
+                        
+                        let reportPostAction = UIAlertAction(title: "Report post", style: .Default){ (action) in
+                            self.selectedReportType="post"
+                            self.performSegueWithIdentifier("ReportSegue", sender: post)
+                        }
+                        alertController.addAction(reportPostAction)
+                        
+                        
+                        let reportUserAction=UIAlertAction(title: "Report user", style: .Default){ (action) in
+                            self.selectedReportType="user"
+                            self.performSegueWithIdentifier("ReportSegue", sender: post)
+                        }
+                        alertController.addAction(reportUserAction)
+                        
+                       self.presentViewController(alertController, animated: true, completion: nil)
+
                     }
                     
                 }

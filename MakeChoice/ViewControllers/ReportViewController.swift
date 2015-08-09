@@ -12,13 +12,22 @@ import MessageUI
 class ReportViewController: UIViewController {
     
     var post:Post?
+    var type:String=""
 
+    @IBOutlet weak var reportType: UILabel!
+    
     @IBOutlet weak var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         textView.delegate=self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.reportType.text="(Report \(self.type))"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +46,7 @@ class ReportViewController: UIViewController {
             
             if let post=self.post{
 
-                ReportHelper.saveReport(post, reporter: PFUser.currentUser()!, description: description){
+                ReportHelper.saveReport(post, reporter: PFUser.currentUser()!, description: description, type:type){
                     (success:Bool, error:NSError?) -> Void in
                     
                     if success {
@@ -45,28 +54,10 @@ class ReportViewController: UIViewController {
                         
                         
                         // ProcessHUD, pop up
-                       SweetAlert().showAlert("Submitted!", subTitle: "", style: AlertStyle.Success)
-                   
-                     //   self.navigationController?.popViewControllerAnimated(true)
+                     SweetAlert().showAlert("Submitted!", subTitle: "", style: AlertStyle.Success)
+
+                      self.navigationController?.popViewControllerAnimated(true)
                         
-                        
-                       
-                        // Require mail setting in the phone
-                        
-                        if MFMailComposeViewController.canSendMail(){
-                            var reporter=PFUser.currentUser()?.username ?? ""
-                            var postId=post.objectId!
-                            var poster=post[PF_POST_POSTER]?.username ?? ""
-                            
-                            var info="\(reporter) reported a spam, postId:\(postId) , poster: \(poster), description:\(description))"
-                            let mailer = MFMailComposeViewController()
-                            mailer.mailComposeDelegate=self
-                            mailer.setSubject("Report Spam")
-                            mailer.setToRecipients([ADMIN_EMAIL])
-                            mailer.setMessageBody(info, isHTML: false)
-                           self.presentViewController(mailer, animated: true, completion: nil)
-                            
-                        }
                         
                     }
                     
@@ -110,20 +101,3 @@ extension ReportViewController:UITextViewDelegate{
     }
 }
 
-extension ReportViewController:MFMailComposeViewControllerDelegate{
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-        switch result.value {
-        case MFMailComposeResultCancelled.value:
-            println("Mail cancelled")
-        case MFMailComposeResultSaved.value:
-            println("Mail saved")
-        case MFMailComposeResultSent.value:
-            println("Mail sent")
-        case MFMailComposeResultFailed.value:
-            println("Mail sent failure: \(error.localizedDescription)")
-        default:
-            break
-        }
-        controller.dismissViewControllerAnimated(true, completion: nil)
-    }
-}

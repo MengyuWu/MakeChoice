@@ -15,6 +15,7 @@ let PF_REPORT_POSTER                      = "poster"					//	Pointer to User Clas
 let PF_REPORT_POSTID                      = "postId"					//	String
 let PF_REPORT_REPORTER                    = "reporter"					//	Pointer to User Class
 let PF_REPORT_DESCRIPTION                 = "description"				//	String
+let PF_REPORT_TYPE                        = "reportType"				//	String
 let PF_REPORT_CREATEDAT                   = "createdAt"			       //	Date
 
 let ADMIN_EMAIL = "mengyuwu1990@gmail.com"

@@ -12,14 +12,14 @@ import Parse
 class ReportHelper{
 
     
-    static func saveReport(post:Post, reporter: PFUser, description:String, comletionBlock:PFBooleanResultBlock){
+    static func saveReport(post:Post, reporter: PFUser, description:String,type:String, comletionBlock:PFBooleanResultBlock){
         
         var report = PFObject(className: PF_REPORT_CLASS_NAME)
         report[PF_REPORT_POSTID]=post.objectId
         report[PF_REPORT_POSTER]=post.poster
         report[PF_REPORT_REPORTER]=reporter
         report[PF_REPORT_DESCRIPTION]=description
-
+        report[PF_REPORT_TYPE]=type
        report.saveInBackgroundWithBlock(comletionBlock)
     }
     
