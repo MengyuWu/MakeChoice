@@ -148,7 +148,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -165,7 +165,15 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
             }
             
 
+        }else if(segue.identifier=="ReportSegue"){
+            let reportVC=segue.destinationViewController as! ReportViewController
+            if let post=sender as? Post{
+                reportVC.post=post
+            }
+            
         }
+        
+        
     }
     
     
@@ -292,6 +300,10 @@ extension HomeViewController: UITableViewDataSource {
         cell.commentNum.text="" //initialize the comment number
         
         
+        //reportButton:
+        cell.reportButton.tag=indexPath.section
+        cell.reportButton.addTarget(self, action:Selector("reportButtonTapped:" ), forControlEvents: UIControlEvents.TouchUpInside)
+        
         //check if this sell is voted by this user, if voted, show the results
     
         var postId=post?.objectId
@@ -329,6 +341,40 @@ extension HomeViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    
+    func reportButtonTapped(sender:UIButton!){
+        var postId:String?
+        var post:Post?
+        var tag=sender.tag
+        postId=timelineComponent.content[tag].objectId
+        post=timelineComponent.content[tag]
+        
+        if let postId=postId{
+            
+            //check this post is deleted or not
+            UICustomSettingHelper.MBProgressHUDSimple(self.view)
+            ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
+                
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                if error != nil{
+                    UICustomSettingHelper.sweetAlertNetworkError()
+                }
+                
+                
+                if let results=results{
+                    if results.count==0{
+                        SweetAlert().showAlert("Does not exist!", subTitle: "This post has been deleted!", style: AlertStyle.Warning)
+                        self.timelineComponent.refresh(self)
+                    }else{
+                        self.performSegueWithIdentifier("ReportSegue", sender: post)
+                    }
+                    
+                }
+            }
+        }
+
     }
     
     

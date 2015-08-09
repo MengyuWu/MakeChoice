@@ -26,6 +26,7 @@ class HomePostTableViewCell: UITableViewCell {
    
     @IBOutlet weak var commentNum: UILabel!
     
+    @IBOutlet weak var reportButton: UIButton!
     
     @IBOutlet weak var voteFavoriteButton: DOFavoriteButton!
 

@@ -37,6 +37,7 @@
 		F72CA7A11B7029D50069D094 /* TermsOfService.css in Resources */ = {isa = PBXBuildFile; fileRef = F72CA79E1B7029D50069D094 /* TermsOfService.css */; };
 		F72D87F81B594ED500519136 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D87F71B594ED500519136 /* ParseLoginHelper.swift */; };
 		F72E21241B6A748200C89461 /* MaveSDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E21231B6A748200C89461 /* MaveSDKHelper.swift */; };
+		F74D9C291B77C7030014AC8E /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D9C281B77C7030014AC8E /* ReportViewController.swift */; };
 		F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */; };
 		F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */; };
 		F74EF7961B4EDF55003DB560 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7951B4EDF55003DB560 /* Post.swift */; };
@@ -158,6 +159,7 @@
 		F72CA79E1B7029D50069D094 /* TermsOfService.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = TermsOfService.css; sourceTree = "<group>"; };
 		F72D87F71B594ED500519136 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		F72E21231B6A748200C89461 /* MaveSDKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaveSDKHelper.swift; sourceTree = "<group>"; };
+		F74D9C281B77C7030014AC8E /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostTableViewCell.swift; sourceTree = "<group>"; };
 		F74EF7951B4EDF55003DB560 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 				F79004BE1B61CB7700EEED03 /* NotificationViewController.swift */,
 				F77EB5AE1B67F79300C8F0B2 /* AnimationViewController.swift */,
 				F7F8A87D1B7015F2004686DF /* SettingTableViewController.swift */,
+				F74D9C281B77C7030014AC8E /* ReportViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				F72E21241B6A748200C89461 /* MaveSDKHelper.swift in Sources */,
 				F7626C0C1B642E7A00056860 /* UICustomSettingHelper.swift in Sources */,
 				F79004BF1B61CB7700EEED03 /* NotificationViewController.swift in Sources */,
+				F74D9C291B77C7030014AC8E /* ReportViewController.swift in Sources */,
 				F7FD5DB11B5741D50014BBEA /* MIBadgeButton.swift in Sources */,
 				F71ACD241B5D50CC00B7936E /* CategoryCollectionViewCell.swift in Sources */,
 				F7E4CDB21B555EC900815DDE /* CommentViewController.swift in Sources */,
