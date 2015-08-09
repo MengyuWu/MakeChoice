@@ -17,6 +17,7 @@ let PF_REPORT_REPORTER                    = "reporter"					//	Pointer to User Cl
 let PF_REPORT_DESCRIPTION                 = "description"				//	String
 let PF_REPORT_CREATEDAT                   = "createdAt"			       //	Date
 
+let ADMIN_EMAIL = "mengyuwu1990@gmail.com"
 
 /*Network error flag*/
 var NetworkErrorAlertLock=NSLock()

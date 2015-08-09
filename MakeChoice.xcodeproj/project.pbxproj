@@ -1029,11 +1029,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mengyu Wu (4GY39QD38Z)";
 				INFOPLIST_FILE = MakeChoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "80f31012-e946-4a15-ab76-616736aae47b";
+				PROVISIONING_PROFILE = "e45a15ec-b336-4dd4-b8e8-d05419915baa";
 				"SWIFT_INCLUDE_PATHS[arch=*]" = "";
 				"SWIFT_INSTALL_OBJC_HEADER[arch=*]" = YES;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "MakeChoice/MakeChoice-Bridging-Header.h";
@@ -1048,11 +1048,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mengyu Wu (4GY39QD38Z)";
 				INFOPLIST_FILE = MakeChoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "80f31012-e946-4a15-ab76-616736aae47b";
+				PROVISIONING_PROFILE = "e45a15ec-b336-4dd4-b8e8-d05419915baa";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "MakeChoice/MakeChoice-Bridging-Header.h";
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};

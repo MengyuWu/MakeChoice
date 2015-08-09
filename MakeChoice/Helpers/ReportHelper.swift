@@ -10,6 +10,7 @@ import Foundation
 import Parse
 
 class ReportHelper{
+
     
     static func saveReport(post:Post, reporter: PFUser, description:String, comletionBlock:PFBooleanResultBlock){
         

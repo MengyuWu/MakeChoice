@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class SettingTableViewController: UITableViewController {
     
@@ -15,7 +16,7 @@ class SettingTableViewController: UITableViewController {
         static let Acknowledgements = NSIndexPath(forRow: 0, inSection: 0)
         static let TermsOfService = NSIndexPath(forRow: 1, inSection: 0)
         static let PrivacyPolicy = NSIndexPath(forRow: 2, inSection: 0)
-        
+        static let ContactUs = NSIndexPath(forRow: 3, inSection: 0)
        
     }
 
@@ -55,7 +56,24 @@ class SettingTableViewController: UITableViewController {
         }
     }
 
-    
+    func contactUs()
+    {
+        if MFMailComposeViewController.canSendMail() {
+            UICustomSettingHelper.MBProgressHUDSimple(self.view)
+            
+            let mailer = MFMailComposeViewController()
+            mailer.mailComposeDelegate = self
+            mailer.setSubject("Contact Us／Report")
+            mailer.setToRecipients([ADMIN_EMAIL])
+            mailer.setMessageBody("Enter message here...", isHTML: false)
+            self.presentViewController(mailer, animated: true) {
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            }
+        }else{
+            SweetAlert().showAlert("Could Not Send Email!", subTitle: "Your device could not send e-mail.  Please check e-mail configuration and try again!", style: AlertStyle.Warning)
+        }
+    }
+
     
 
     override func viewDidLoad() {
@@ -84,7 +102,7 @@ class SettingTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 3
+        return 4
     }
 
     /*
@@ -157,9 +175,33 @@ extension SettingTableViewController: UITableViewDelegate
             self.termsOfService()
         case IndexPaths.PrivacyPolicy:
             self.privacyPolicy()
+        case IndexPaths.ContactUs:
+            self.contactUs()
+
   
         default:
             println("do nothing")
         }
+    }
+}
+
+extension SettingTableViewController: MFMailComposeViewControllerDelegate
+{
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!)
+    {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            println("Mail cancelled")
+        case MFMailComposeResultSaved.value:
+            println("Mail saved")
+        case MFMailComposeResultSent.value:
+            println("Mail sent")
+        case MFMailComposeResultFailed.value:
+            println("Mail sent failure: \(error.localizedDescription)")
+        default:
+            break
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

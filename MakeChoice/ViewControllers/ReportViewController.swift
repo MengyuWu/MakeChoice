@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class ReportViewController: UIViewController {
     
@@ -40,9 +41,33 @@ class ReportViewController: UIViewController {
                     (success:Bool, error:NSError?) -> Void in
                     
                     if success {
+                        //TODO: send email to administrator
+                        
+                        
                         // ProcessHUD, pop up
-                        SweetAlert().showAlert("Submitted!", subTitle: "", style: AlertStyle.Success)
-                        self.navigationController?.popViewControllerAnimated(true)
+                       SweetAlert().showAlert("Submitted!", subTitle: "", style: AlertStyle.Success)
+                   
+                     //   self.navigationController?.popViewControllerAnimated(true)
+                        
+                        
+                       
+                        // Require mail setting in the phone
+                        
+                        if MFMailComposeViewController.canSendMail(){
+                            var reporter=PFUser.currentUser()?.username ?? ""
+                            var postId=post.objectId!
+                            var poster=post[PF_POST_POSTER]?.username ?? ""
+                            
+                            var info="\(reporter) reported a spam, postId:\(postId) , poster: \(poster), description:\(description))"
+                            let mailer = MFMailComposeViewController()
+                            mailer.mailComposeDelegate=self
+                            mailer.setSubject("Report Spam")
+                            mailer.setToRecipients([ADMIN_EMAIL])
+                            mailer.setMessageBody(info, isHTML: false)
+                           self.presentViewController(mailer, animated: true, completion: nil)
+                            
+                        }
+                        
                     }
                     
                     if (error != nil){
@@ -82,5 +107,23 @@ extension ReportViewController:UITextViewDelegate{
     func textViewDidEndEditing(textView: UITextView) {
        println("DidEndEditing")
         textView.resignFirstResponder()
+    }
+}
+
+extension ReportViewController:MFMailComposeViewControllerDelegate{
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            println("Mail cancelled")
+        case MFMailComposeResultSaved.value:
+            println("Mail saved")
+        case MFMailComposeResultSent.value:
+            println("Mail sent")
+        case MFMailComposeResultFailed.value:
+            println("Mail sent failure: \(error.localizedDescription)")
+        default:
+            break
+        }
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }
