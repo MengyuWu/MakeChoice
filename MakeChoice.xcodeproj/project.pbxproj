@@ -38,6 +38,7 @@
 		F72D87F81B594ED500519136 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D87F71B594ED500519136 /* ParseLoginHelper.swift */; };
 		F72E21241B6A748200C89461 /* MaveSDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E21231B6A748200C89461 /* MaveSDKHelper.swift */; };
 		F74D9C291B77C7030014AC8E /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D9C281B77C7030014AC8E /* ReportViewController.swift */; };
+		F74D9C2B1B77D6A20014AC8E /* ReportHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D9C2A1B77D6A20014AC8E /* ReportHelper.swift */; };
 		F74EF78B1B4EB40F003DB560 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */; };
 		F74EF7911B4EBF9A003DB560 /* HomePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */; };
 		F74EF7961B4EDF55003DB560 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EF7951B4EDF55003DB560 /* Post.swift */; };
@@ -160,6 +161,7 @@
 		F72D87F71B594ED500519136 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		F72E21231B6A748200C89461 /* MaveSDKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaveSDKHelper.swift; sourceTree = "<group>"; };
 		F74D9C281B77C7030014AC8E /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		F74D9C2A1B77D6A20014AC8E /* ReportHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportHelper.swift; sourceTree = "<group>"; };
 		F74EF78A1B4EB40F003DB560 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F74EF7901B4EBF9A003DB560 /* HomePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostTableViewCell.swift; sourceTree = "<group>"; };
 		F74EF7951B4EDF55003DB560 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -553,6 +555,7 @@
 				F785612C1B57F204003F4D0E /* PushNotificationHelper.swift */,
 				F7626C0B1B642E7A00056860 /* UICustomSettingHelper.swift */,
 				F72E21231B6A748200C89461 /* MaveSDKHelper.swift */,
+				F74D9C2A1B77D6A20014AC8E /* ReportHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -893,6 +896,7 @@
 				F7762A4F1B4D8371002CBAE7 /* Constants.swift in Sources */,
 				F785612D1B57F204003F4D0E /* PushNotificationHelper.swift in Sources */,
 				F728A6C31B52D3CA006E4A7A /* YourPostsTableViewCell.swift in Sources */,
+				F74D9C2B1B77D6A20014AC8E /* ReportHelper.swift in Sources */,
 				F7E4CDBC1B5576CB00815DDE /* Utilities.swift in Sources */,
 				F74EF79D1B4EE229003DB560 /* NSCacheSwift.swift in Sources */,
 			);

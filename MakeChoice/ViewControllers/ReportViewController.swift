@@ -25,6 +25,37 @@ class ReportViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func submitButtonTapped(sender: AnyObject) {
+    
+        var description=textView.text
+        
+        if(description==""){
+           SweetAlert().showAlert("Missing description!", subTitle: "Please describe the inappropriate content!", style: AlertStyle.Warning)
+
+        }else{
+            
+            if let post=self.post{
+
+                ReportHelper.saveReport(post, reporter: PFUser.currentUser()!, description: description){
+                    (success:Bool, error:NSError?) -> Void in
+                    
+                    if success {
+                        // ProcessHUD, pop up
+                        SweetAlert().showAlert("Submitted!", subTitle: "", style: AlertStyle.Success)
+                    }
+                    
+                    if (error != nil){
+                        
+                        SweetAlert().showAlert("Error!", subTitle: "Network Error", style: AlertStyle.Error)
+                        
+                    }
+                    
+                }
+            }
+ 
+        }
+        
+    }
 
     /*
     // MARK: - Navigation

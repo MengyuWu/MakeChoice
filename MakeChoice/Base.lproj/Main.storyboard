@@ -1381,6 +1381,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="PostPressed:" destination="xZZ-sl-32e" eventType="touchUpInside" id="p8d-71-pSt"/>
+                                    <action selector="submitButtonTapped:" destination="FUy-Io-qnt" eventType="touchUpInside" id="uPI-N9-zYA"/>
                                 </connections>
                             </button>
                         </subviews>
