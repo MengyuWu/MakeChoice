@@ -23,6 +23,7 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
     
     var categoryIndex:Int?
     var selectedCommentIndex:Int?
+     var selectedReportType:String=""
     var user:PFUser?
     
     var option=1 // option 1: category, option 2: friend posts
@@ -132,9 +133,16 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
                 commentVC.post=post
                 commentVC.index=self.selectedCommentIndex
             }
-            
+        }else if(segue.identifier=="CategoryReportSegue"){
+            let reportVC=segue.destinationViewController as! ReportViewController
+            if let post=sender as? Post{
+                reportVC.post=post
+                reportVC.type=self.selectedReportType
+            }
             
         }
+        
+        
     }
 
 
@@ -290,6 +298,10 @@ extension CategoryDetailViewController: UITableViewDataSource {
         cell.commentNum.text="" //initialize the comment number
         
         
+        //reportButton:
+        cell.reportButton.tag=indexPath.section
+        cell.reportButton.addTarget(self, action:Selector("reportButtonTapped:" ), forControlEvents: UIControlEvents.TouchUpInside)
+        
         //check if this sell is voted by this user, if voted, show the results
         
         var postId=post?.objectId
@@ -330,7 +342,60 @@ extension CategoryDetailViewController: UITableViewDataSource {
         return cell
     }
     
-    
+    func reportButtonTapped(sender:UIButton!){
+        var postId:String?
+        var post:Post?
+        var tag=sender.tag
+        postId=timelineComponent.content[tag].objectId
+        post=timelineComponent.content[tag]
+        
+        if let postId=postId{
+            
+            //check this post is deleted or not
+            UICustomSettingHelper.MBProgressHUDSimple(self.view)
+            ParseHelper.findPostWithPostId(postId){(results:[AnyObject]?, error:NSError?) in
+                
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                if error != nil{
+                    UICustomSettingHelper.sweetAlertNetworkError()
+                }
+                
+                
+                if let results=results{
+                    if results.count==0{
+                        SweetAlert().showAlert("Does not exist!", subTitle: "This post has been deleted!", style: AlertStyle.Warning)
+                        self.timelineComponent.refresh(self)
+                    }else{
+                        
+                        let alertController = UIAlertController(title: nil, message: "Report", preferredStyle: .ActionSheet)
+                        
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+                        alertController.addAction(cancelAction)
+                        
+                        
+                        let reportPostAction = UIAlertAction(title: "Report post", style: .Default){ (action) in
+                            self.selectedReportType="post"
+                            self.performSegueWithIdentifier("CategoryReportSegue", sender: post)
+                        }
+                        alertController.addAction(reportPostAction)
+                        
+                        
+                        let reportUserAction=UIAlertAction(title: "Report user", style: .Default){ (action) in
+                            self.selectedReportType="user"
+                            self.performSegueWithIdentifier("CategoryReportSegue", sender: post)
+                        }
+                        alertController.addAction(reportUserAction)
+                        
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                        
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+
        
     func commentButtonTapped(sender:UIButton!){
         
