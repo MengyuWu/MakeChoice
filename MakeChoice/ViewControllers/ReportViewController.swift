@@ -42,6 +42,7 @@ class ReportViewController: UIViewController {
                     if success {
                         // ProcessHUD, pop up
                         SweetAlert().showAlert("Submitted!", subTitle: "", style: AlertStyle.Success)
+                        self.navigationController?.popViewControllerAnimated(true)
                     }
                     
                     if (error != nil){
@@ -76,7 +77,7 @@ extension ReportViewController:UITextViewDelegate{
             textView.resignFirstResponder()
             return false
         }
-        return true
+        return (count(textView.text) + (count(text) - range.length) <= 400)
     }
     func textViewDidEndEditing(textView: UITextView) {
        println("DidEndEditing")

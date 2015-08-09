@@ -1357,13 +1357,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZuB-uP-8aS">
-                                <rect key="frame" x="0.0" y="104" width="600" height="240"/>
+                                <rect key="frame" x="0.0" y="104" width="600" height="210"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVv-ub-oKP" customClass="ZFRippleButton" customModule="MakeChoice" customModuleProvider="target">
-                                <rect key="frame" x="16" y="374" width="568" height="50"/>
+                                <rect key="frame" x="16" y="344" width="568" height="50"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.86274509799999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ra1-LD-HgO"/>
@@ -1387,7 +1387,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.60392156860000001" green="0.70588235290000001" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ZuB-uP-8aS" firstAttribute="height" secondItem="XAa-TS-Px7" secondAttribute="height" multiplier="0.4" id="06a-9f-DOI"/>
+                            <constraint firstItem="ZuB-uP-8aS" firstAttribute="height" secondItem="XAa-TS-Px7" secondAttribute="height" multiplier="0.35" id="06a-9f-DOI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZuB-uP-8aS" secondAttribute="trailing" constant="-16" id="1uZ-6A-XWV"/>
                             <constraint firstItem="Taa-f5-Ojd" firstAttribute="top" secondItem="7gq-UM-1Im" secondAttribute="bottom" constant="10" id="6as-sN-Kbl"/>
                             <constraint firstItem="PVv-ub-oKP" firstAttribute="leading" secondItem="XAa-TS-Px7" secondAttribute="leadingMargin" id="CKX-I2-XZc"/>
