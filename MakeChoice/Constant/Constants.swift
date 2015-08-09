@@ -8,6 +8,14 @@
 
 import Foundation
 
+/* Report spam*/
+/* Vote */
+let PF_REPORT_CLASS_NAME			      = "Report"                    //	Class name
+let PF_REPORT_POSTER                      = "poster"					//	Pointer to User Class
+let PF_REPORT_POSTID                      = "postId"					//	String
+let PF_REPORT_REPORTER                    = "reporter"					//	Pointer to User Class
+let PF_REPORT_DESCRIPTION                 = "description"				//	String
+let PF_REPORT_CREATEDAT                   = "createdAt"			       //	Date
 
 
 /*Network error flag*/

@@ -8,9 +8,8 @@
 
 import UIKit
 import ActionSheetPicker_3_0
-import BSImagePicker
 import Photos
-
+import BSImagePicker
 
 class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPopoverPresentationControllerDelegate  {
     
@@ -146,9 +145,6 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             }, finish: { (assets: [PHAsset]) -> Void in
               
                 println("finish select count: \(assets.count)")
-               // println("imgAddButton \(self.imgAddButton)")
-               // println("internalAddButton \(internalAddButton)")
-                
                 
                 if(assets.count==2){
                     let first = assets[0]
