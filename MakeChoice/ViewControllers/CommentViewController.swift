@@ -32,7 +32,7 @@ class CommentViewController: JSQMessagesViewController{
     var senderImageUrl: String!
     var batchMessages = true
     
-
+    var selectedReportType=""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +55,38 @@ class CommentViewController: JSQMessagesViewController{
         self.loadMessages()
         Messages.clearMessageCounter(groupId);
         
-                
+       
+        self.navigationItem.rightBarButtonItem=UIBarButtonItem(title: "Report", style: .Done, target: self, action: "reportPressed")
+       
         
     }
+    
+   
+    func reportPressed(){
+        println("report pressed")
+        let alertController = UIAlertController(title: nil, message: "Report", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        
+        let reportPostAction = UIAlertAction(title: "Report content", style: .Default){ (action) in
+            self.selectedReportType="content"
+            self.performSegueWithIdentifier("ReportSegue", sender: self.post)
+        }
+        alertController.addAction(reportPostAction)
+        
+        
+        let reportUserAction=UIAlertAction(title: "Report user", style: .Default){ (action) in
+            self.selectedReportType="user"
+            self.performSegueWithIdentifier("ReportSegue", sender: self.post)
+        }
+        alertController.addAction(reportUserAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+
+    }
+    
     
     
     func hideTabBar(flag:Bool) {
@@ -87,6 +116,22 @@ class CommentViewController: JSQMessagesViewController{
  
         }
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier=="ReportSegue"){
+            let reportVC=segue.destinationViewController as! ReportViewController
+            if let post=sender as? Post{
+                reportVC.post=post
+                reportVC.type=self.selectedReportType
+            }
+            
+        }
+        
+        
+    }
+
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

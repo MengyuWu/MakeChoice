@@ -396,8 +396,8 @@ extension HomeViewController: UITableViewDataSource {
                         alertController.addAction(cancelAction)
                         
                         
-                        let reportPostAction = UIAlertAction(title: "Report post", style: .Default){ (action) in
-                            self.selectedReportType="post"
+                        let reportPostAction = UIAlertAction(title: "Report content", style: .Default){ (action) in
+                            self.selectedReportType="content"
                             self.performSegueWithIdentifier("ReportSegue", sender: post)
                         }
                         alertController.addAction(reportPostAction)

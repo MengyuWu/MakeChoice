@@ -15,7 +15,7 @@ B.
 
 
 - Use moderators to flag and remove inappropriate content and offensive users
-Our administors review Posts/reports and Emails 24 hours a day, seven days a week. Posts or users that violate "Terms of Service" will be removed from MakeChoice
+Our administraors review Posts/reports and Emails 24 hours a day, seven days a week. Posts or users that violate "Terms of Service" will be removed from MakeChoice
 
 
 - Require that users agree to terms (EULA) and these terms must make it clear that there is no tolerance for objectionable content

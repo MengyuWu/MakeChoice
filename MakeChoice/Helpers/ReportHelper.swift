@@ -23,7 +23,4 @@ class ReportHelper{
        report.saveInBackgroundWithBlock(comletionBlock)
     }
     
-    
-    
-    
 }

@@ -1452,11 +1452,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="FUy-Io-qnt" kind="show" identifier="ReportSegue" id="CHa-Va-1wD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdJ-qp-GJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XrX-Gz-5bq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1754" y="-1295"/>
+            <point key="canvasLocation" x="-1869" y="-1351"/>
         </scene>
         <!--Animation View Controller-->
         <scene sceneID="aMn-eP-3RF">
@@ -2707,8 +2710,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JFJ-6C-HcG"/>
-        <segue reference="T1j-0d-tLb"/>
         <segue reference="5qA-W6-K1R"/>
+        <segue reference="CHa-Va-1wD"/>
         <segue reference="Hw2-xg-niX"/>
     </inferredMetricsTieBreakers>
 </document>

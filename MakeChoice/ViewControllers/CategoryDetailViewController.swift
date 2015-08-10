@@ -373,8 +373,8 @@ extension CategoryDetailViewController: UITableViewDataSource {
                         alertController.addAction(cancelAction)
                         
                         
-                        let reportPostAction = UIAlertAction(title: "Report post", style: .Default){ (action) in
-                            self.selectedReportType="post"
+                        let reportPostAction = UIAlertAction(title: "Report content", style: .Default){ (action) in
+                            self.selectedReportType="content"
                             self.performSegueWithIdentifier("CategoryReportSegue", sender: post)
                         }
                         alertController.addAction(reportPostAction)
