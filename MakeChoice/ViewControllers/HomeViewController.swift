@@ -110,6 +110,11 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         
         timelineComponent.refresh(self)
         
+        if(AppDelegate.AgreeTerms==false){
+          termsOfService()
+          AppDelegate.AgreeTerms=true
+        }
+        
       
     }
     
@@ -120,6 +125,19 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
        
     }
 
+    func termsOfService()
+    {
+        // SwiftSpinner.show("Loading...", animated: true)
+        let vc = AgreeCSSViewController()
+        vc.filename = "TermsOfService"
+        vc.title = "Terms of Service"
+        let navVC = UINavigationController(rootViewController: vc)
+        self.presentViewController(navVC, animated: true) {
+            //  SwiftSpinner.hide()
+        }
+    }
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

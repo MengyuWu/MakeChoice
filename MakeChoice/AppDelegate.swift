@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var isLaunching=false
     static var dontShowAgain=false
     
+    /*Terms of Service show up*/
+    static var AgreeTerms=false
+    
     override init() {
         super.init()
         
