@@ -206,7 +206,7 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
                 if(segue.sourceViewController .isKindOfClass(CommentViewController)){
                     var commentVC=segue.sourceViewController as! CommentViewController
                     var tag=commentVC.index
-                    //println("index:\(tag)")
+                  
                     if let tag=tag{
                     //update comment"
                     self.tableView.beginUpdates()

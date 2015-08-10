@@ -63,7 +63,7 @@ class CommentViewController: JSQMessagesViewController{
     
    
     func reportPressed(){
-        println("report pressed")
+     
         let alertController = UIAlertController(title: nil, message: "Report", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -366,15 +366,15 @@ class CommentViewController: JSQMessagesViewController{
     // MARK: - Responding to CollectionView tap events
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, header headerView: JSQMessagesLoadEarlierHeaderView!, didTapLoadEarlierMessagesButton sender: UIButton!) {
-        println("didTapLoadEarlierMessagesButton")
+       // println("didTapLoadEarlierMessagesButton")
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, didTapAvatarImageView avatarImageView: UIImageView!, atIndexPath indexPath: NSIndexPath!) {
-        println("didTapAvatarImageview")
+       // println("didTapAvatarImageview")
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAtIndexPath indexPath: NSIndexPath!) {
-        println("didTapMessageBubbleAtIndexPath")
+       // println("didTapMessageBubbleAtIndexPath")
         var message = self.messages[indexPath.item]
         if message.isMediaMessage {
             if let mediaItem = message.media as? JSQVideoMediaItem {
@@ -386,7 +386,7 @@ class CommentViewController: JSQMessagesViewController{
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, didTapCellAtIndexPath indexPath: NSIndexPath!, touchLocation: CGPoint) {
-        println("didTapCellAtIndexPath")
+       // println("didTapCellAtIndexPath")
     }
 
 
