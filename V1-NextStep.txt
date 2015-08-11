@@ -1,0 +1,3 @@
+NEXT STEP:
+1. refresh the table cell, after people post their pictures
+2. rewrite login page

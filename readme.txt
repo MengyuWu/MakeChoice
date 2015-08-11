@@ -23,3 +23,6 @@ project/build setting/ search riding, enter the name of the file
 tab badgeValue
 var item = self.tabBarController?.tabBar.items?[0] as! UITabBarItem
         item.badgeValue="2";
+
+
+https://itunes.apple.com/us/app/makechoice/id1025479404?ls=1&mt=8
