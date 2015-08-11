@@ -2,3 +2,5 @@ NEXT STEP:
 0. Facebook login: need to set it to be public in Facebook Developers
 1. refresh the table cell, after people post their pictures
 2. rewrite login page
+3. put the segment controller on the navigation bar
+4. camera icon
