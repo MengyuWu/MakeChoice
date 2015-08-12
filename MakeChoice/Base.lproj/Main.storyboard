@@ -2709,9 +2709,9 @@
         <image name="uncheckedBox" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JFJ-6C-HcG"/>
-        <segue reference="5qA-W6-K1R"/>
-        <segue reference="CHa-Va-1wD"/>
         <segue reference="Hw2-xg-niX"/>
+        <segue reference="mmd-cW-fIh"/>
+        <segue reference="1Ii-Sb-M9h"/>
+        <segue reference="JFJ-6C-HcG"/>
     </inferredMetricsTieBreakers>
 </document>

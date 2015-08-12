@@ -4,3 +4,5 @@ NEXT STEP:
 2. rewrite login page
 3. put the segment controller on the navigation bar
 4. camera icon
+5. blank page, when touch don’t allow.
+6.still shows again

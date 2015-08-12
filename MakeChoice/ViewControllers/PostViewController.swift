@@ -112,8 +112,19 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             alertController.addAction(cameraAction)
         }
         
+        
         let photoLibrayAction = UIAlertAction(title: "Photo from library", style: .Default){ (action) in
-            self.showBSImagePicker()
+            
+            if(PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.Authorized ){
+                
+                println("not avaiable")
+                SweetAlert().showAlert("Could not access library!", subTitle: "Please enable access in Privacy Settings and try again!", style: AlertStyle.Warning)
+            }else{
+                println(" avaiable")
+                self.showBSImagePicker()
+            }
+           
+            // self.showImagePickerController(.PhotoLibrary)
         }
         
         alertController.addAction(photoLibrayAction)
@@ -123,6 +134,8 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     }
     
     
+   
+    
     // MARK: BSImagePicker
     func showBSImagePicker(){
         //using external imagePicker
@@ -131,9 +144,11 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
        
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 2
-        
+       
+   
+    
         bs_presentImagePickerController(vc, animated: true,
-            select: { [unowned self] (asset: PHAsset) -> Void in
+            select: {  (asset: PHAsset) -> Void in
                
                 println(" selected")
             }, deselect: { (asset: PHAsset) -> Void in
@@ -221,7 +236,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
 
           
                 
-            }, completion: nil)
+            }, completion:nil)
 
     }
     
