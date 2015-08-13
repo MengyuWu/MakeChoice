@@ -10,8 +10,30 @@ import UIKit
 import ConvenienceKit
 import MBProgressHUD
 
+struct IntroConstants {
+  
+    static let HasShownTutorial = "Has Shown Tutorial"
+    static let HasShownTermofServices = "Has Shown Term of Service"
+}
+
 class HomeViewController: UIViewController,TimelineComponentTarget {
+    var hasShownTutorial: Bool {
+        get {
+            return NSUserDefaults.standardUserDefaults().boolForKey(IntroConstants.HasShownTutorial) ?? false
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setBool(newValue, forKey: IntroConstants.HasShownTutorial)
+        }
+    }
     
+    var hasShownTermofServices: Bool {
+        get {
+            return NSUserDefaults.standardUserDefaults().boolForKey(IntroConstants.HasShownTermofServices) ?? false
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setBool(newValue, forKey: IntroConstants.HasShownTermofServices)
+        }
+    }
   
     @IBOutlet weak var tableView: UITableView!
     
@@ -110,14 +132,22 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
         
         timelineComponent.refresh(self)
         
-        if(AppDelegate.AgreeTerms==false){
-          termsOfService()
-          AppDelegate.AgreeTerms=true
-        }
-        
       
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if !self.hasShownTermofServices {
+            termsOfService()
+            self.hasShownTermofServices = true
+        }else{
+            if !self.hasShownTutorial{
+             showTipsAlert()
+             
+            }
+        }
+    }
     
     
     override func viewWillDisappear(animated: Bool) {
@@ -140,22 +170,18 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if(AppDelegate.isLaunching && !AppDelegate.dontShowAgain){
-            showTipsAlert()
-            AppDelegate.isLaunching=false
-        }
-     
-   }
+
+    
+    }
     
     func showTipsAlert(){
-        SweetAlert().showAlert("Tips", subTitle: "Tap on your choice, you will see the results after voting!", style: AlertStyle.Warning, buttonTitle:"Ok", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Don't show again!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+        SweetAlert().showAlert("Tips", subTitle: "1.Tap on your choice, you will see the results after voting! \n 2.Pull to refresh!", style: AlertStyle.Warning, buttonTitle:"Ok", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Don't show again!", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
             if isOtherButton == true {
                 
                 print("ok Button  Pressed", appendNewline: false)
             }
             else {
-               AppDelegate.dontShowAgain=true
+              self.hasShownTutorial = true
                print("Don't show again Button  Pressed", appendNewline: false)
             }
         }
