@@ -82,8 +82,18 @@ class CategoryDetailViewController: UIViewController,TimelineComponentTarget {
         //assign the installation[user] to be current user
         PushNotication.parsePushUserAssign()
         
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userPostReceived", name: "UserPost", object: nil)
     }
+    
+    func userPostReceived(){
+        println("category userPostReceived")
+        timelineComponent.refresh(self)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

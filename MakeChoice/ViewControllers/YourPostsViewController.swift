@@ -88,7 +88,7 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
     }
     
     func userPostReceived(){
-        println("userPostReceived")
+        println("your posts userPostReceived")
         timelineComponent.refresh(self)
     }
 

@@ -131,10 +131,18 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
          PushNotication.parsePushUserAssign()
         
         timelineComponent.refresh(self)
-        
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userPostReceived", name: "UserPost", object: nil)
       
     }
     
+    func userPostReceived(){
+        println("home userPostReceived")
+        timelineComponent.refresh(self)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
