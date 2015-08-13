@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Up Arrow-32.png"
+      "filename" : "refresh.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Up Arrow-50.png"
+      "filename" : "refresh2.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Up Arrow-64.png"
+      "filename" : "refresh3.png"
     }
   ],
   "info" : {

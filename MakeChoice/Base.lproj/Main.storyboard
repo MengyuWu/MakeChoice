@@ -1009,7 +1009,7 @@
         <!--Home View Controller-->
         <scene sceneID="fNt-gq-1Xm">
             <objects>
-                <viewController id="lQ3-nh-3jc" customClass="HomeViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="lQ3-nh-3jc" customClass="HomeViewController" customModule="MakeChoice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nzm-mD-euN"/>
                         <viewControllerLayoutGuide type="bottom" id="P1O-FM-SBl"/>
@@ -1018,19 +1018,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xD6-oO-6Ii">
-                                <rect key="frame" x="-2" y="64" width="604" height="29"/>
-                                <segments>
-                                    <segment title="Public"/>
-                                    <segment title="Friends"/>
-                                </segments>
-                                <color key="tintColor" red="0.38039215686274508" green="0.59607843137254901" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="indexChanged:" destination="lQ3-nh-3jc" eventType="valueChanged" id="fBQ-aR-SjR"/>
-                                </connections>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="315" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="LJW-OT-TdN">
-                                <rect key="frame" x="0.0" y="92" width="600" height="459"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell alpha="0.5" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="470" id="5Nb-3M-BQr" customClass="HomePostTableViewCell" customModule="MakeChoice" customModuleProvider="target">
@@ -1325,17 +1314,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xD6-oO-6Ii" firstAttribute="top" secondItem="nzm-mD-euN" secondAttribute="bottom" id="0ZA-c5-FGU"/>
                             <constraint firstAttribute="trailing" secondItem="LJW-OT-TdN" secondAttribute="trailing" id="5uJ-aX-zBF"/>
-                            <constraint firstItem="LJW-OT-TdN" firstAttribute="top" secondItem="xD6-oO-6Ii" secondAttribute="bottom" id="A98-JY-BW9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xD6-oO-6Ii" secondAttribute="trailing" constant="-18" id="T1s-a4-cHP"/>
-                            <constraint firstItem="xD6-oO-6Ii" firstAttribute="leading" secondItem="CM0-0X-DHL" secondAttribute="leadingMargin" constant="-18" id="YbV-Mm-qbn"/>
-                            <constraint firstAttribute="centerX" secondItem="xD6-oO-6Ii" secondAttribute="centerX" id="iIV-qE-6bR"/>
                             <constraint firstItem="P1O-FM-SBl" firstAttribute="top" secondItem="LJW-OT-TdN" secondAttribute="bottom" id="jPC-4L-ECQ"/>
                             <constraint firstItem="LJW-OT-TdN" firstAttribute="leading" secondItem="CM0-0X-DHL" secondAttribute="leading" id="pGh-pp-S5k"/>
+                            <constraint firstItem="LJW-OT-TdN" firstAttribute="top" secondItem="nzm-mD-euN" secondAttribute="bottom" id="xHv-Ha-Ad4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ty4-Nu-fww">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="xD6-oO-6Ii">
+                            <rect key="frame" x="16" y="7.5" width="519" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Public"/>
+                                <segment title="Friends"/>
+                            </segments>
+                            <color key="tintColor" red="0.38039215686274508" green="0.59607843137254901" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="indexChanged:" destination="lQ3-nh-3jc" eventType="valueChanged" id="fBQ-aR-SjR"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" image="ScrollToTop" id="6PA-R6-Etl">
                             <connections>
                                 <action selector="scrollToTopPressed:" destination="lQ3-nh-3jc" id="Qxd-uo-LRj"/>

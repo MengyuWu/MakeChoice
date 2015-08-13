@@ -78,7 +78,9 @@ class HomeViewController: UIViewController,TimelineComponentTarget {
     @IBAction func scrollToTopPressed(sender: AnyObject) {
         
         //test, scroll to top
-        self.tableView.setContentOffset(CGPointZero, animated: true)
+        //self.tableView.setContentOffset(CGPointZero, animated: true)
+        //refresh
+        timelineComponent.refresh(self)
     }
     
   
