@@ -6,10 +6,13 @@
 //  Copyright (c) 2015 ___mengyu wu___. All rights reserved.
 //
 
+
 import UIKit
-import ActionSheetPicker_3_0
 import Photos
 import BSImagePicker
+import ActionSheetPicker_3_0
+
+
 
 class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPopoverPresentationControllerDelegate  {
     
@@ -63,9 +66,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
        
             post.uploadPost()
             
-           
-
-       
+                  
             //after upload
             pickerSelect.setTitle("Select", forState: .Normal)
             titleTextField.text=""
@@ -119,12 +120,28 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                 
                 println("not avaiable")
                 SweetAlert().showAlert("Could not access library!", subTitle: "Please enable access in Privacy Settings and try again!", style: AlertStyle.Warning)
+                
+                PHPhotoLibrary.requestAuthorization({ (status) -> Void in
+                    println("status \(status)")
+                    switch (status) {
+                    case PHAuthorizationStatus.Authorized:
+                      println("authorized")
+                    case PHAuthorizationStatus.Restricted:
+                      println("restricted")
+                     
+                    case PHAuthorizationStatus.Denied:
+                         println("denied")
+                        
+                    default:
+                        break
+                    }
+                })
             }else{
                 println(" avaiable")
-                self.showBSImagePicker()
+               self.showBSImagePicker()
             }
            
-            // self.showImagePickerController(.PhotoLibrary)
+           // self.showImagePickerController(.PhotoLibrary)
         }
         
         alertController.addAction(photoLibrayAction)

@@ -239,6 +239,8 @@ class Post: PFObject, PFSubclassing {
             if success {
                 // ProcessHUD, pop up
                 SweetAlert().showAlert("Good job!", subTitle: "Post Successfully!", style: AlertStyle.Success)
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("UserPost", object: nil)
             }
             
             if (error != nil){

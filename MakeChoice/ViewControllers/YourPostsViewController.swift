@@ -59,6 +59,8 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
 //        
 //        tableView.estimatedRowHeight=100
 //        tableView.rowHeight=UITableViewAutomaticDimension
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userPostReceived", name: "UserPost", object: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -67,14 +69,28 @@ class YourPostsViewController: UIViewController,TimelineComponentTarget {
        // timelineComponent.refresh(self)
        // tableView.reloadData()
         
+        //listening for the user post
+      //  NSNotificationCenter.defaultCenter().addObserver(self, selector: "userPostReceived", name: "UserPost", object: nil)
+
+    }
+    
+    deinit {
+       NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func userPostReceived(){
+        println("userPostReceived")
+        timelineComponent.refresh(self)
+    }
 
     /*
     // MARK: - Navigation
