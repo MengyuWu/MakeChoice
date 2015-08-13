@@ -1322,8 +1322,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ty4-Nu-fww">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="fakeBarButton" style="plain" id="yHW-w4-xSf"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="xD6-oO-6Ii">
-                            <rect key="frame" x="16" y="7.5" width="519" height="29"/>
+                            <rect key="frame" x="81" y="7.5" width="438" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Public"/>
@@ -2694,7 +2695,7 @@
         <image name="Profile" width="76" height="76"/>
         <image name="Profile_home" width="32" height="32"/>
         <image name="Reject" width="64" height="64"/>
-        <image name="ScrollToTop" width="32" height="32"/>
+        <image name="ScrollToTop" width="32" height="28"/>
         <image name="SearchFriend" width="32" height="32"/>
         <image name="Select" width="16" height="16"/>
         <image name="ThumbUp" width="128" height="128"/>
@@ -2703,6 +2704,7 @@
         <image name="a30.png" width="1024" height="1024"/>
         <image name="camera" width="32" height="32"/>
         <image name="category1.png" width="128" height="128"/>
+        <image name="fakeBarButton" width="34" height="33"/>
         <image name="key" width="20" height="32"/>
         <image name="uncheckedBox" width="32" height="32"/>
     </resources>
