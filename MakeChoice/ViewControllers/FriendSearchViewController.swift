@@ -111,9 +111,20 @@ class FriendSearchViewController: UIViewController {
         self.searchBar.delegate=self
         
       
+        //add the tap gesture recognizaiton
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         
         
     }
+    
+    //Calls this function when the tap is recognized.
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -200,6 +211,7 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate{
                     PushNotificationHelper.sendAddFriendRequesNotification(toUser)
                         
                         SweetAlert().showAlert("Sent!", subTitle: "Friend request sends successfully!", style: AlertStyle.Success)
+                        self.view.endEditing(true)
                     }
                     
                     if error != nil{

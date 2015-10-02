@@ -1640,7 +1640,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVf-3m-GhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1814" y="612"/>
+            <point key="canvasLocation" x="-2074" y="694"/>
         </scene>
         <!--Your Posts View Controller-->
         <scene sceneID="lDs-rF-Mht">
@@ -2709,9 +2709,9 @@
         <image name="uncheckedBox" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hw2-xg-niX"/>
-        <segue reference="mmd-cW-fIh"/>
         <segue reference="1Ii-Sb-M9h"/>
+        <segue reference="mmd-cW-fIh"/>
         <segue reference="JFJ-6C-HcG"/>
+        <segue reference="Hw2-xg-niX"/>
     </inferredMetricsTieBreakers>
 </document>
